@@ -1,0 +1,563 @@
+Visage Technologies AB Software License Agreement 
+
+______________________________________________________________________________
+
+SUMMARY
+
+This introductory section summarizes the main conditions of the License Agreement with the sole 
+purpose to enable easier reading. In case of ambiguity other sections prevail.
+
+Visage Technologies grants the Licensee the right to install this computer software on one 
+computer and use it internally. Materials produced using the software, such as images or videos, 
+may be distributed.
+If the software is specifically designed for making applications, i.e. if it is a "Deployment 
+Program", such as visage|SDK, then additional rights are granted in the Deployment Annex 
+which is part of this Agreement; specifically:
+
+*	Licensee may create software applications using the licensed software.
+* 	Licensee may distribute one such application.
+* 	A License Key File is provided for the purpose of such distribution; it specifies, among others, 
+the name of the application, the number of licensed installations of the application and 
+(optionally) the number of licensed concurrent users of the application.
+* 	The application shall register itself automatically with the Visage Technologies licensing server.
+
+Software licensed under Academic and Evaluation licenses can not be used for commercial 
+purposes.
+______________________________________________________________________________
+
+
+1. DEFINITIONS.
+
+1.1. "Licensee" means you, whether an individual or an entity, to whom Visage Technologies 
+grants the License, and who is responsible for complying with the contractual obligations of the 
+License, and ensuring that anyone permitted access to the Programs also complies with such 
+obligations.
+
+1.2. "Affiliate" means a legal entity which is controlled by, or controls, or is under common 
+control with Licensee. Control means (i) beneficial ownership of at least fifty percent (50%) of 
+the voting securities of a corporation or other business organization with voting securities, or (ii) a 
+fifty percent (50%) or greater interest in the profits and capital of a partnership or other business 
+organization without voting securities.
+
+1.3. "Documentation" means the user guides, if any, accompanying delivery of a Program, as may 
+be updated from time to time. Documentation may be delivered in printed and/or online forms, 
+and in one or more languages.
+
+1.4. "Internal Operations" means the use of a Program by employees, consultants, student interns, 
+and software administration contractors of Licensee or an Affiliate on behalf of the Licensee or 
+Affiliate.
+
+1.5. "Licensed User" means a user of the Programs, designated by the Licensee as authorized to 
+use the Programs for Licensee's Internal Operations, to the extent permitted by the License 
+Option acquired.
+
+1.6. "License Option" means the specific rights, restrictions, and obligations under which 
+Licensee may install and use a Program pursuant to this Agreement, including restrictions 
+associated with the License being a "Term License" or a "Perpetual License" as described under 
+Section 7.
+
+1.7. "Licensor" means the person who, or entity which, grants a license to Visage Technologies to 
+redistribute that person's or entity's intellectual property.
+
+1.8. "Program" means the computer software delivered and licensed hereunder, including Sample 
+Data, Documentation, enhancements and error corrections. Each product from Visage 
+Technologies is a separate Program. 
+
+1.9. "Third Party" means any person or legal entity that is not Visage Technologies, the Licensee, 
+or an Affiliate.
+
+1.10. "License Type" means the type of license granted to the Licensee, and determines specific 
+restrictions associated with each License Type. License Type can be Evaluation License, 
+Academic License or Full License. 
+
+1.11. "Produced Materials" means any materials produced by the Licensee by using the Program, 
+and as outputs of the Program. This includes, but is not limited to, images, video, 3D models, 
+audio files and animation files. Applications, as defined by the Deployment Annex, are NOT 
+Produced Materials.
+
+1.12. "Sample Data" means any files provided with the Program for the purpose of demonstrating 
+its functions and/or facilitating the process of learning to use the Program. This includes, but is 
+not limited to, files with extensions ".wra", ".wrl" ,".fba", ".wav", ".avi", ".jpg", ".fap", ".epf" 
+and ".bap". Such files are typically placed in a folder called "Samples" or "Data".
+
+1.13. "Visage Technologies" means Visage Technologies AB, Tegskiftesgatan 291, SE-58334 
+Linkoping, Sweden.
+
+
+2. ACCEPTANCE. By downloading and/or installing the Program(s) on a computer system, you 
+are consenting to be bound and are becoming a party to this License Agreement, i.e. a Licensee. 
+If Licensee does not accept the terms and conditions of this License Agreement and any 
+applicable Annex, or if Licensee terminates this License, for any reason, then Licensee shall 
+immediately remove the Programs licensed hereunder from any computer systems controlled by 
+Licensee.
+
+
+3. LICENSE GRANT. Visage Technologies hereby grants to Licensee, subject to the terms of 
+this Agreement, a nonexclusive license (the "License") to:
+
+3.1. install and use the Programs solely on one computer system controlled by Licensee solely for 
+Internal Operations;
+
+3.2. provide access to online Documentation on Licensee's intranet, provided it is not accessible 
+over the open Internet;
+
+3.3. print portions of the online Documentation for reasonable use by Licensed Users; and
+
+3.4. use the Programs as expressly set forth in the Deployment Annex.
+
+
+4. LICENSE RESTRICTIONS. The License is subject to the express restrictions set forth 
+below. Licensee shall not, and shall not permit any Third Party to:
+
+4.1. modify, or create any derivative work of, any part of the licensed Programs, except as 
+expressly permitted in the Deployment Annex;
+
+4.2. adapt, translate, copy, or convert all or any part of a Program in order to create software, a 
+principal purpose of which is to perform the same or similar functions as Programs licensed by 
+Visage Technologies or to replace any component of the Programs;
+
+4.3. rent, lease, or loan the Programs; use the Programs for supporting Third Parties' use of the 
+Programs, time share the Programs, or provide service bureau use;
+
+4.4. disassemble, decompile, reverse engineer the Programs or otherwise attempt to gain access to 
+its method of operation or source code (other than files provided for convenience in source code 
+form by Visage Technologies);
+
+4.5. sell, license, sublicense, publish, display, distribute, disseminate, assign, or otherwise transfer 
+(whether by sale, exchange, lease, gift, or otherwise) to a Third Party the Programs, any copy or 
+portion thereof, or any License or other rights thereto, in whole or in part, without Visage 
+Technologies' prior written consent, except as expressly permitted in the Deployment Annex;
+
+4.6. alter, remove, or obscure any copyright, trade secret, patent, trademark, logo, proprietary 
+and/or other legal notices on or in copies of the Programs;
+
+4.7. use Visage Technologies' name, trade names, logos, or other trademarks of Visage 
+Technologies or any of its Affiliates or Licensors in any advertising, promotional literature or any 
+other material, whether in written, electronic, or other form, distributed to any Third Party, except 
+in the form provided by Visage Technologies, and then solely for purposes of identifying Visage 
+Technologies' Programs;
+
+4.8. provide access (directly or indirectly) to the Programs via the Web or Internet Application, or 
+any file-sharing method or system without acquiring an express license from Visage Technologies 
+to do so, except as expressly permitted in the Deployment Annex;
+
+4.9. copy, make available for copy, or otherwise reproduce the Programs, in whole or in part, 
+except either (a) as may be required for their installation into computer memory for the purpose of 
+executing the Program, (b) as expressly permitted in the Deployment Annex, or (c) to make a 
+reasonable number of copies solely for back-up purposes provided that any such permitted copies 
+shall reproduce all copyright, trade secret, patent, logo, proprietary and/or other legal notices 
+contained in the original copy obtained from Visage Technologies;
+
+4.10. access or use Programs that Licensee is not currently licensed to access or to use;
+
+4.11. republish the Documentation, except as expressly permitted in Section 3;
+
+4.12. republish or otherwise transfer (whether by sale, exchange, lease, gift, or otherwise) to a 
+Third Party the Sample Data or any portion thereof.
+
+4.13. Additional to the restrictions stated above, Licensee that has been granted Academic 
+License for a Program shall not sell, license, distribute, assign or otherwise commercially transfer 
+to a Third Party any Produced Materials, nor Applications as defined in the Deployment Annex. 
+Academic Licenses are granted strictly for non-commercial usage of Programs in education and/or 
+research.
+
+4.14. Additional to the restrictions stated above, Licensee that has been granted Evaluation 
+License for a Program shall not sell, license, sublicense, publish, display, distribute, disseminate, 
+assign, or otherwise transfer (whether by sale, exchange, lease, gift, or otherwise) to a Third Party 
+any Produced Materials, nor Applications as defined in the Deployment Annex. Evaluation 
+Licenses are granted strictly for internal evaluation of Programs by the Licensee, with the sole 
+purpose of allowing the Licensee to make an informed decision about acquiring a different 
+License Type.
+
+
+5. RETENTION OF RIGHT, TITLE AND INTEREST BY VISAGE TECHNOLOGIES 
+AND ITS LICENSORS. The Programs shall at all times remain the property of Visage 
+Technologies and/or Visage Technologies' Licensors and Licensee shall have no right, title, or 
+interest therein, except as expressly set forth in this Agreement. Licensee shall take appropriate 
+action by instruction, agreement, or otherwise with any persons permitted access to the Programs, 
+so as to enable Licensee to satisfy its obligations under the terms of this Agreement.
+
+
+6. LICENSES FOR THIRD PARTY SOFTWARE. Visage Technologies has been granted 
+licenses to distribute certain Third Party software. As a condition of those licenses, Visage 
+Technologies is required to distribute the software to Licensee subject to specific terms and 
+conditions, which may be different from or additional to those contained herein for Visage 
+Technologies' Programs. Licensee understands and agrees that acceptance of this Agreement also 
+confirms Licensee's acceptance of the applicable provisions for use, including the restrictions on 
+use, of such Third Party software. 
+
+
+7. LICENSE DURATION ("TERM"). This Agreement shall continue until the earlier of (a) 
+termination by Visage Technologies or Licensee as provided below, or (b) such time as there are 
+no Programs being licensed to Licensee hereunder.
+
+7.1. For Term Licenses: Licensee understands and agrees that each Term License will expire 
+automatically immediately after the corresponding period of the term licensed, unless Licensee 
+renews its License. Licensee understands that the Programs will stop operating unless Licensee 
+renews its License. Licensee understands and agrees that, if Software Maintenance Service has 
+been contracted, the Software Maintenance Service for each Term License will terminate 
+automatically upon expiration of the License Term.
+
+7.2. For Perpetual Licenses: Licensee shall have the right to use the Programs indefinitely, subject 
+to the termination provisions in this Agreement. 
+
+
+8. TERMINATION. Visage Technologies may terminate this Agreement and all Licenses 
+granted hereunder by written notice to Licensee if Licensee breaches any material term of this 
+License, including failure to pay any License fees due, and Licensee has not cured such breach 
+within sixty (60) days of written notification. Visage Technologies may immediately terminate 
+upon notice this Agreement and all Licenses granted hereunder should Licensee breach the terms 
+and conditions of Sections 3 and/or 4. Licensee may terminate this License at any time, for any 
+reason. Licensee shall not be entitled to any refund if this License is terminated. Upon 
+termination, Licensee shall promptly return all but archival copies of the Programs in Licensee's 
+possession or control, or promptly provide written certification of their destruction.
+
+
+9. TAXES, DUTIES, CUSTOMS. Absent appropriate exemption certificates or other 
+conclusive proof of tax exempt status, Licensee shall pay all applicable sales, use, excise, value-
+added, and other taxes, duties, levies, assessments, and governmental charges payable in 
+connection with this Agreement or the Licenses granted hereunder, excluding taxes based on or 
+measured by Visage Technologies' income, for which Visage Technologies shall be solely 
+responsible.
+
+
+10. ASSIGNMENT. Licensee may not assign or otherwise transfer this Agreement and its rights 
+and obligations hereunder, in whole or in part, by operation of law or otherwise, without the 
+written consent of Visage Technologies. In the case of any permitted assignment or transfer of or 
+under this Agreement, this Agreement or the relevant provisions shall be binding upon, and inure 
+to the benefit of, the successors, executors, heirs, representatives, administrators and assigns of 
+the parties hereto. Visage Technologies may charge Licensee an administrative fee for any 
+permitted assignment.
+
+
+11. LIMITATION OF LIABILITY. The Programs should not be relied on as the sole basis to 
+solve a problem or implement a design whose incorrect solution or implementation could result in 
+injury to person or property. If a Program is employed in such a manner, it is at the Licensee's 
+own risk and Visage Technologies and its Licensors explicitly disclaim all liability for such misuse 
+to the extent allowed by law. Visage Technologies' and Visage Technologies' Licensors' liability 
+for death or personal injury resulting from negligence or for any other matter in relation to which 
+liability by law cannot be excluded or limited shall not be excluded or limited. Except as 
+aforesaid, (a) any other liability of Visage Technologies and its Licensors (whether in relation to 
+breach of contract, negligence or otherwise) shall not in total exceed the amount paid to Visage 
+Technologies under this Agreement in the twelve month period preceding the claim in question, 
+for the Program with respect to which the liability in question arises; and (b) Visage Technologies 
+and its Licensors shall have no liability for any indirect or consequential loss (whether foreseeable 
+or otherwise and including loss of profits, loss of business, loss of opportunity, and loss of use of 
+any computer hardware or software). Some countries and states do not allow the exclusion or 
+limitation of incidental or consequential damages, so the above exclusion or limitation may not 
+apply to Licensee.
+
+
+12. LIMITED WARRANTY/LIMITATION OF REMEDIES. Visage Technologies warrants 
+that Visage Technologies, on its own behalf or through its Licensors, has the right to grant the 
+License rights hereunder. Visage Technologies warrants, for a period of one (1) year from 
+delivery or for the term of the License, whichever is less, that each copy of each Program will 
+conform in all material respects to the description of such Program's operation in the 
+Documentation. In the event that a Program does not operate as warranted, Licensee's exclusive 
+remedy and Visage Technologies' sole liability under this warranty shall be the correction or 
+workaround by Visage Technologies of major defects within a reasonable time. Should such 
+correction or workaround be impractical, Visage Technologies may, at its option, terminate the 
+relevant License and refund the initial License fee paid to Visage Technologies for such Program. 
+All requests for warranty assistance should be directed to Visage Technologies AB, 
+Tegskiftesgatan 291, SE-58334 Linkoping, Sweden.
+
+
+13. DISCLAIMER OF WARRANTIES. Except for warranties expressly set forth in Section 
+12 of this Agreement (or as implied by law where the law provides that the particular terms 
+implied cannot be excluded by contract), any and all Programs, Documentation, and Software 
+Maintenance Services are delivered "as is" and Visage Technologies makes and the Licensee 
+receives no additional express or implied warranties. Visage Technologies and its Licensors 
+hereby expressly disclaim any and all other conditions, warranties, or other terms of any kind or 
+nature concerning the Programs, Documentation, and Software Maintenance Services (including, 
+without limitation, any with regard to infringement, merchantability, quality, accuracy, or fitness 
+for a particular purpose or Licensee's purpose). Visage Technologies also expressly disclaims any 
+warranties that may be implied from usage of trade, course of dealing, or course of performance. 
+Except for the express warranties stated in Section 12 of this Agreement, the Programs, 
+Documentation, and Software Maintenance Services are provided with all faults, and the entire 
+risk of satisfactory quality, performance, accuracy, and effort is with Licensee. Visage 
+Technologies does not warrant that the Programs and Documentation will operate without 
+interruption or be error free. Some states and countries do not allow limitations on how long an 
+implied warranty lasts, so the above limitation may not apply to Licensee. The warranty in Section 
+12 gives Licensee specific legal rights and Licensee may also have other rights which vary from 
+state to state and country to country. Licensee accepts responsibility for its use of the Programs 
+and the results obtained therefrom.
+
+
+14. GOVERNING LAW; JURISDICTION. This Agreement shall be interpreted, enforced and 
+construed and the rights of the parties hereunder governed in all respects by the laws of Sweden, 
+and both parties consent to the jurisdiction of the courts located in Sweden and consent to the 
+service of process, pleadings and notices in connection with any and all actions initiated in such 
+courts. The parties agree that a final judgment in any such action or proceeding shall be conclusive 
+and binding and may be enforced in any other jurisdiction. To the extent any governing law, 
+treaty, or regulation is in conflict with this Agreement, the conflicting terms of this Agreement 
+shall be superseded only to the extent necessary by such law, treaty, or regulation. If any 
+provision of this Agreement shall be otherwise unlawful, void, or otherwise unenforceable, that 
+provision shall be enforced to the maximum extent permissible. In either case, the remainder of 
+this Agreement shall not be affected. 
+
+
+15. COMPLIANCE AND AUDIT RIGHTS. Licensee agrees to notify Visage Technologies 
+promptly upon discovery of any failure to comply with one or more Licenses granted under this 
+Agreement, or any failure to comply with any other material term of this Agreement. To confirm 
+Licensee's compliance with the terms and conditions of this Agreement, Licensee agrees to allow 
+Visage Technologies to audit Licensee's use of the Programs, and to provide Visage Technologies 
+access to Licensee's facilities and computer systems, and cooperation from Licensee's employees 
+and consultants, as reasonably requested by Visage Technologies in order to perform such audit, 
+all during normal business hours, and after reasonable prior notice from Visage Technologies. The 
+audit shall be performed by an independent chartered public accountant appointed by Visage 
+Technologies, at Visage Technologies' expense, and reasonably acceptable to the Licensee and 
+shall be subject to the signing of a confidentiality agreement to protect the confidentiality of the 
+information revealed in the conduct of the audit. If an audit discloses that Licensee has failed to 
+comply with one or more Licenses, and such failure to comply could have in part or in whole been 
+avoided by Licensee having paid additional License fees to expand the scope of the License or 
+Licenses, then Licensee shall promptly pay Visage Technologies such Licensing fees (at Visage 
+Technologies' then current rates) and, if such unpaid License fees exceed 5% of the License fees 
+paid to Visage Technologies for the applicable Programs during the applicable period during 
+which such underpayment occurred, then Licensee shall, in addition to paying the unpaid License 
+fees, also reimburse Visage Technologies the full cost of such audit.
+
+
+16. ENTIRE AGREEMENT. This Agreement, and any applicable Annex thereto including any 
+documents referenced therein are incorporated herein by reference, and contain the entire 
+understanding of the parties and may not be modified or amended except by written instrument, 
+executed by authorized representatives of Visage Technologies and Licensee. In the event of any 
+conflict between this Agreement and any purchase order executed by Licensee (whether executed 
+before or after this Agreement), this Agreement shall prevail.
+
+______________________________________________________________________________ 
+
+
+Visage Technologies AB Software License Agreement - Deployment Annex
+
+This is an Annex to Visage Technologies AB Software License Agreement (the "Agreement"), 
+and the terms and conditions of this Annex are incorporated therein. Each capitalized term used 
+herein and not defined herein shall have the meaning ascribed to it in the Agreement.
+
+
+1. PURPOSE. The Visage Technologies AB Software License Agreement (the "Agreement") 
+contains restrictions prohibiting Lisensee from modifying, distributing, or providing access to the 
+Programs or any program Components, except as expressly provided in this Annex. If the 
+Programs licensed under the Agreement are Deployment Programs, then this Annex sets forth the 
+Licensee's rights with respect to creating Applications and Derivative Forms, as well as certain 
+additional obligations related thereto.
+
+Visage Technologies and its Licensors retain all right, title and interest in its Programs, Program 
+Components and Derivative forms of its Programs.
+
+
+2. NONCOMPETITION. Licensee agrees not to use the Program, Derivative Forms, or Program 
+Components to distribute its own or a Third Party's Application, a principal purpose of which, as 
+reasonably determined by Visage Technologies, is to perform the same or similar functions as 
+Programs licensed by Visage Technologies or which replaces any component of the Programs. 
+Licensee shall not otherwise use the Programs to compete with the products or businesses of 
+Visage Technologies, including by distributing Libraries, or any form of an entire Program or a 
+substantial portion of a Program.
+
+
+3. DEFINITIONS.
+
+3.1. "Application"  means a software file that Licensee has created by incorporating or linking any 
+part of of any Source Code, library file, or other Program Component provided with the Program. 
+An Application must contain original code developed by Licensee and must provide substantial 
+functionality not contained in, or provided by, the Program Components that are incorporated 
+into such Application. If a software file created by Licensee incorporates Program Components, 
+but does not meet the requirements of the previous sentence, then it is a Derivative Form (as 
+defined below). An Application may contain Linked Object Code which, if such Object Code 
+was not linked to the Application and was a standalone file, would otherwise have been deemed 
+a Derivative Form.
+
+3.2. "Application License"  means a license granted by Licensee to its end-users for the 
+installation and use of Licensee's Application.
+
+3.3. "Derivative Forms"  means a software file that Licensee has derived from one or more 
+Program Components (including without limitation by incorporating, translating or modifying, in 
+whole or in part, any Program Component), and which, if modified or copied without Visage 
+Technologies' authorization, would constitute a copyright infringement or breach of the 
+Agreement. A software file created by Licensee which qualifies as an "Application" under the 
+above definition shall not be deemed a Derivative Form.
+
+3.4. "Linked"  means an executable or loadable file created by a compiler or linker program 
+combining Object Code module files.
+
+3.5. "Object Code" means the code created by a system compiler from Source Code; also called 
+"machine-readable code". Object Code can be Linked with an appropriate linker to resolve 
+address references and may be combined with other Object Code for targeted execution on a 
+specific processor. Object Code includes "Object Code libraries" and "shared libraries" which are 
+groupings of Object Code for specific purposes.
+
+3.6. "Program Component"  means any portion of, or file provided with, a Program.
+
+3.7. "Source Code"  means human-readable program code written in a higher-level language such 
+as C, C++, JavaTM or Fortran, which must be translated or compiled into machine-readable 
+language before it can be executed by a computer. Source Code also includes header files and 
+other human-readable files necessary for a Program to be compiled in the higher-level language.
+
+3.8. "Standalone Application"  means an Application created using programming languages and 
+tools other than the Programs, which execute outside the Programs.
+
+3.9. "Deployment Program" means any Visage Technologies Program licensed with the purpose 
+of developing and deploying Applications, within the restrictions of the Agreement and as set 
+forth by this Annex. 
+
+3.10. "License Key" means a numerical code that permits the Program or Application to run on 
+one or more computer systems. 
+
+3.11. "License Key File" means a file provided by Visage Technologies to Licensee and 
+containing a License Key. 
+
+
+4. DEPLOYMENT PROGRAMS. Deployment Programs are:
+
+4.1. visage|SDKTM for Windows.
+4.2. visage|SDKTM for iOS.
+4.3. visage|SDKTM for Android.
+4.4. visage|SDKTM for Mac OS X.
+4.5. visage|SDKTM for HTML5.
+
+All other Programs are not Deployment Programs and the rights set forth in this Annex do not 
+apply to them.
+
+
+5. LICENSE KEY FILE.  Licensee shall receive a License Key File for each licensed Program. 
+Licensee understands that the License Key and the License Key File are unique to the Licensee, 
+to the Licensee's Application and to the licensed Program, and may be used to indentify the 
+Licensee to whom the License Key was issued and the Application for which it was issued.
+
+5.1. Licensee may distribute copies of the License Key File received with this Program, provided 
+that they are always distributed as part of the Application and solely for the purpose of allowing 
+end-users to run the Licensee's Application.
+
+5.2. Licensee may not modify the License Key File in any way, nor attempt to create a new 
+License Key File.
+
+
+6. APPLICATION DEPLOYMENT. Licensees of Deployment Programs may create 
+Applications using Deployment Programs. The following rights and restrictions apply:
+
+6.1. Licensee may deploy copies of a single Application created using Deployment Programs. The 
+name of the Application is determined in the License Key File.
+
+6.2. The number of  installations of the Application that may be deployed is determined in the  
+License Key File. Optionally, the number of concurrent users of the Application may also be 
+determined in the License Key File.
+
+6.3. Licensed User may include, by compilation for deployment, only those select Object Code  
+files from the licensed Programs required for the Application.
+
+6.4. In no event shall Licensee distribute any library header files nor the library (.lib) files.
+
+6.5. Licensee may use and modify the selected Source Code files included in the Deployment 
+Program solely for the creation of Licensee's own Application. Licensee may copy and distribute 
+Object Code compiled from this Source Code, but only for use with and deployment of 
+Licensee's own Application.
+
+6.6. Licensee may use, copy and distribute shared Object Code library files (regardless whether 
+Derivative Form) for deployment of Licensee's own Application, but only if a header file exists in 
+the Program for the shared library file. Licensee may not copy or distribute the header files 
+themselves.
+
+6.7. Licensee may not transfer Source Code, development rights, or development capabilities for 
+any Source Code or Object Code to any Third Party.
+
+
+7. WEB ACCESS. Programs may not be operated within a Web Application. Applications may 
+be deployed as Web Applications. In such a case all restrictions specified in this Deployment 
+Annex still apply, and specifically the restrictions in 6.1 and 6.2.
+
+7.1. Each download and use of the Application in a Web browser represents one installation. 
+
+7.2. The Web Application be deployed and served from one or more Web servers. The number of 
+servers allowed is determined in the License Key File.
+
+
+8. APPLICATION LICENSING. For any distribution of Applications containing Object Code 
+to:
+
+8.1. Licensee's internal organization: Licensee shall take appropriate action by instruction, 
+agreement, or otherwise with any recipients of the Application, so as to enable Licensee to satisfy 
+its obligations under the terms of this Annex and the Agreement.
+
+8.2 Third Parties: Licensee's Application shall be accompanied by an Application License whose 
+terms and conditions are at least as restrictive as the Agreement, unless the Application is part of 
+an embedded system that has no provision for licensing to its end users.
+
+     8.2.1. The Application License for Third Parties must explicitly exclude Visage Technologies 
+and its Licensors from any liability for damages or any obligation to provide remedial actions.
+
+     8.2.2. In no circumstances shall Licensee include a warranty for any form of a program that is 
+inconsistent with or additional to the warranty contained in this Agreement.
+
+     8.2.3. The additional translation, use and deployment rights granted in this Annex are 
+nontransferable and shall not be conveyed in Licensee's Application License.
+
+     8.2.4. Any copyright and proprietary notices for the Programs that appear in the original form 
+delivered to the Licensee shall be duplicated and included with the Licensee's own copyright 
+notices for the Application, wherever they appear.
+
+     8.2.5. Licensee may not remove any copyright, trademark, logo, proprietary rights, disclaimer 
+or warning notice included on or embedded in any part of the deployed Application.
+
+     8.2.6. Notwithstanding the termination of the Agreement, all valid Application licenses shall 
+remain and continue in full force and effect, and , if the Agreement was not terminated due to: (a) 
+Licensee's failure to pay applicable fees to Visage Technologies, (b) Licensee's violation of the 
+License restrictions, or (c) violation of Visage Technologies' proprietary rights in the Programs; 
+then Licensee may continue to use the programs to support Applications that have been placed in 
+use pursuant to an Application License prior to the effective date of termination.
+
+
+9. AUTOMATIC LICENSE REGISTRATION. visage|SDKTM includes built-in licensing 
+function that may automatically register each individual copy of the Application with the Visage 
+Technologies licensing server using the internet. The License Key File specifies when this 
+automatic license registration is performed; there are the following possibilities:
+
+9.1. "First online use": automatic license registration is performed at first use of visage|SDKTM 
+within the Application. If the computer on which Application is running can not access the 
+Visage technologies licensing server the Application will function normally and registration is 
+performed at next use.
+
+9.2. "First use": automatic license registration is performed at first use of visage|SDKTM within the 
+Application. The computer on which Application is running must be online and have network 
+access to the Visage technologies licensing server at first use.
+
+9.3. "Always if online": automatic license registration is performed at every use of visage|SDKTM 
+within the Application. If the computer on which Application is running can not access the 
+Visage technologies licensing server the Application will function normally.
+
+9.4. "Always": automatic license registration is performed at every use of visage|SDKTM within 
+the Application. The computer on which Application is running must be online and have network 
+access to the Visage technologies licensing server.
+
+
+10. DISCLAIMER OF OBLIGATIONS AND LIABILITY. 
+
+10.1. Visage Technologies shall have no support or warranty obligations, and disclaims all liability, 
+for Applications developed or distributed by Licensee.
+
+10.2. Licensee agrees that prior to using, incorporating, or distributing the Programs in any 
+Application, it will thoroughly test and validate the Application and the functionality of the 
+programs in that Application and be solely responsible for any problems or failures..
+
+10.3. Licensee will defend, indemnify, and hold harmless Visage Technologies and its Licensors, 
+officers, directors, employees, agents and resellers from and against any damages, liabilities, costs 
+and expenses (including reasonable fees of Visage Technologies' attorneys) arising out of any 
+Third Party claim or demand based on or arising from, out of or in connection with (i) the creation, 
+use, or distribution of any Applications or (ii) the use of the Programs by Licensee.
+
+
+11. GENERAL. Licensee acknowledges and agrees that a breech of the obligations set forth in 
+this Annex shall be a material breech of the Agreement.
+
+
+
+
+Visage Technologies AB
+Tegskiftesgatan 291
+SE-58334 Linkoping 
+Sweden
+
+www.visagetechnologies.com
+info@visagetechnologies.com
+
+
+
+2013-07-04

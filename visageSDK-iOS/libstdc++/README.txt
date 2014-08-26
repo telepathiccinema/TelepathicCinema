@@ -1,0 +1,3 @@
+Before making an application with Unity3D it is important to copy libraries libVisageCore.a and libVisageVision.a from folder /libstdc++ to /lib and library libOpenCV.a from /dependencies/OpenCV-iOS/libstdc++ to /dependencies/OpenCV-iOS/lib. This is necessary because Unity uses libstdc++ 
+standard library while visage|SDK and OpenCV 2.4.6 libraries typically use libc++ which is not 
+interoperable with libstdc++. This is considered a temporary fix until Unity3D team switches to libc++ standard library.
