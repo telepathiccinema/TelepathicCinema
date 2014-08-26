@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Visage Tracker Demo sample project</h1>
+<p>
+The VisageTrackerDemo sample project demonstrates real-time head / facial features tracking from camera, video file
+or image based on the <a href="html/classVisageSDK_1_1VisageTracker2.html"><em>VisageTracker2</em></a> tracker class.
+</p>
+
+<h2>Building and running the project</h2>
+
+<p>
+The VisageTrackerDemo sample projects is located in the Samples/iOS/VisageTrackerDemo sub-folder of the visage|SDK for iOS folder.
+</p>
+<p>
+Prerequisites to running the sample project are:
+<ul>
+<li>Xcode (versions 4.x, 5.x)</li>
+<li>iOS device (iPhone 4S or iPad 2 (or newer) recommended; iPhone 4 works with reduced performance)</li>
+</ul>
+</p>
+<p>
+Project is opened in Xcode by double-clicking on the VisageTrackerDemo.xcodeproj project file. To run the project an
+iOS device first must be attached to the computer. The project sample application can than be run by choosing Run option in
+Xcode.
+</p>
+
+<h2>Using the sample application</h2>
+<p>
+The sample application consists of a toolbar with five buttons labeled: Camera, Video, Image, Stop and Quit:
+<ul>
+<li>Camera button starts tracking from front camera.</li>
+<li>Video button starts tracking from the sample video file bundled with the sample application.</li>
+<li>Image button starts tracking from a single image bundled with the sample application.</li>
+<li>Stop button stops the tracker.</li>
+<li>Quit button quits the sample application.</li>
+</ul>
+The following images show how the sample application looks like when it is started and when the "Image" button is pressed:</br>
+</p>
+</br>
+<div>
+  <center><img src="images/appstart.jpg" alt="appstart" /></center></br>
+  <p>
+  <center>Figure 1.1: App started</center>
+  </p></br>
+  <center><img src="images/apptrack.jpg" alt="apptrack" /></center>
+  <p>
+  <center>Figure 1.2: App is tracking</center>
+  </p></br>
+</div>
+
+<h2>Implementation overview</h2>
+<p>
+The visage|SDK API is written in C++ and since development on iOS is done in Objective-C a special way of interfacing
+the two must be employed. In this sample project this is done through <td><a href="html/interfaceTrackerWrapper.html">TrackerWrapper</a></td> Objective-C class that exposes
+Objective-C methods for using the tracker, while the implementation of those methods is done in Objective-C++, a
+combination of Objective-C and C++.
+</p>
+<p>
+The <td><a href="html/interfaceVisageTrackerViewController.html">VisageTrackerViewController</a></td> (Objective-C class) connects with GUI (that is defined in MainWindow.xib file) and
+implements actions that calls to methods from TrackerWrapper class to start and stop the tracker and display the
+tracking results using <a href="html/interfaceCustomGLView.html">CustomGLView</a> object.
+</p>
+<p>
+The specific classes and methods that demonstrate visage|SDK are:
+<ul>
+<li><a href="html/interfaceTrackerWrapper.html">TrackerWrapper</a>: Provides and Objective-C interface to main tracker functions (start, stop, get results); displays
+tracking results.</li>
+<li><a href="html/classDemoObserver.html">DemoObserver</a>: Demonstrates how to use the VisageTrackerObserver mechanism to obtain tracking data and 
+display them in the debug console.</br>
+<li><a href="html/classDemoFrameGrabber.html">DemoFrameGrabber</a>: Demonstrates how to implement a custom source of frames to feed to tracker through the
+raw image input mechanism.</li>
+<li><a href="html/interfaceTrackerWrapper.html">TrackerWrapper::displayTrackingResults</a>: Method that is used to get and display tracking results, video frame
+and 3D face model.</li>
+</ul>
+</p>
+<p>
+Other important classes are:
+<ul>
+<li><a href="html/interfaceVisageTrackerAppDelegate.html">VisageTrackerAppDelegate</a>: Implements the app delegate.</li>
+<li><a href="html/interfaceVisageTrackerViewController.html">VisageTrackerViewController</a>: Implements default view controller and application GUI. This class calls methods that are
+implemented in TrackerWrapper class.</li>
+<li><a href="html/interfaceCustomGLView.html">CustomGLView</a></td>: Implements OpenGL ES view for results display.</li>
+</ul>
+</p>
+<p>
+More details about each class is available in documentation for specific class.</br></br>
+Users are free to modify the sample project to test the functionalities of the Visage tracker. The sample project also
+serves as a starting point when creating new projects that will use visage|SDK.
+</p>
+
+<h3>Configuration selection</h3>
+<p>
+TrackerWrapper.mm contains the code for device-specific selection of tracking configuration, ensuring optimal tracking performance on different devices by taking into account their performance, camera and screen characteristics. Please read more details about configuration selection in the section <a href="creatingxc.html#config_selection">Device-specific configuration selection</a>.
+</p>
+
+
+
+</body>
+</html>

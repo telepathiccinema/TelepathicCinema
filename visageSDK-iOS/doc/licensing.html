@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Licensing</h1>
+
+<p>By having any Visage Technologies Program, or part of it, installed or copied on your computer, you agree to the terms
+of the <a href="../license.txt"><em>Visage Technologies AB Software License Agreement</em></a>. If you do not agree with these terms,
+please entirely remove any Visage Technologies Programs from your computer.</br></br>
+This section focuses on technical issues such as obtaining and using the license key files. For detailed commercial
+conditions please <a href="http://www.visagetechnologies.com/contact/" target="New">contact Visage Technologies</a>.</p>
+
+<p>Applications developed using visage|SDK must be licensed in order to function. Licensing is based on License Key Files. A single License Key File is valid for one or more installations on one or more platforms (operating systems). The License Key File can be opened in a text editor in order to read the licensing information, but it is important not to change the file in any way as it would become invalid.</p>
+
+
+<p>Applications without a valid license key will still function, but tracking time shall be limited to one minute and appropriate
+warning messages shall be displayed.</p>
+
+<h2>Obtaining the License Key File</h2>
+
+<p>For 30-day evaluation, simply send an email request to your Visage Technologies contact person and you will receive a License Key File by email.</p>
+
+<p>If you are purchasing a license, please decide on your <b>App's Bundle Identifier</b> and send it to your Visage Technologies
+contact person together with your purchase order. In return, you will receive a License Key File by email.</p>
+
+
+
+<h2><a class="anchor" id="include_license"></a>Including the License Key File in your application</h2>
+
+<p>Add License Key File to the Resource group of your application project. In your application, you need to call the initialization
+function in order to let the Application read the License Key File. This is done as follows in your application code:
+<pre>
+	// necessary prototype declaration for licensing
+	namespace VisageSDK {
+		void initializeLicenseManager(char *licenseKeyFileName);
+	}
+	
+	//...
+	
+	//initialize licensing
+	initializeLicenseManager("name-of-the-license-file.vlc");
+
+</pre>
+
+where "name-of-the-license-file.vlc" is the name of your License Key File. The above example expects the License Key
+File to be in the root folder of application bundle.
+</p>
+
+<p>
+In the Sample projects the licensing code is already inserted, so you just need to change the license key file name when you obtain the license key file. Specifically:<br/>
+<br/>
+In the Visage Tracker Demo sample project, the licensing code is found in the <i>initTracker</i> method, in the <i>TrackerWrapper.mm</i> file.<br/>
+<br/>
+In the Visage Tracker Unity Demo sample project, the licensing code is found in the in <i>_initTracker</i> function, in the <i>VisageTrackerUnityPlugin.mm</i> file. It is necessary to rebuild the VisageTrackerUnityPlugin project when you change the license key file name.
+</p>
+
+</body>
+</html>

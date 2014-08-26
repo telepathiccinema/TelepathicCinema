@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>Creating a new Xcode project</h1>
+
+<p>To enable visage|SDK tracking functionality in new projects the additional frameworks, libraries and files need to be
+added to the Xcode project.</p>
+<p>After creating a new Xcode project the first step is to add necessary iOS frameworks:
+<ol>
+<li>From the Project navigator select the root item (project name).</li>
+<li>In the right window from the TARGETS section select your target.</li>
+<li>Select Build Phases and open Link Binary With Libraries section.</li>
+<li>Click the Add (+) button and add following frameworks and libraries:<ul>
+<li>AVFoundation.framework</li>
+<li>CoreGraphics.framework</li>
+<li>CoreMedia.framework</li>
+<li>CoreVideo.framework</li>
+<li>ImageIO.framewrok</li>
+<li>libz.dylib</li>
+</ul>
+</li>
+<li>Press Add Other... button and select visage|SDK libraries (from visageSDK-iOS/libs folder):
+<ul>
+<li>libVisageCore.a</li>
+<li>libVisageVision.a</li>
+</ul>
+</li>
+</ol>
+
+The second step is to modify project settings:
+<ol>
+<li>From the Project navigator select the root item (project name).</li>
+<li>In the right window from the TARGETS section select your target.</li>
+<li>Select Build Settings.</li>
+<li>Find the "Preprocessor Macros" setting and add the following two: <b>VISAGE_STATIC</b> and <b>IOS</b></li>
+<li>Find the "Other Warning Flags" setting and add the following: <b>-Wno-comment</b></li>
+<li>
+Find the "Header Search Paths" settings and add the following paths (the visageSDK-iOS path should be relative
+to the project path):
+<ul>
+<li>/usr/include/libxml2</li>
+<li>visageSDK-iOS/include</li>
+<li>visageSDK-iOS/include/libIOS</li>
+<li>visageSDK-iOS/dependencies/OpenCV-iOS/include</li>
+<li>visageSDK-iOS/dependencies/OpenCV-iOS/include/opencv</li>
+</ul>
+</li>
+</ol>
+
+The third step is to add visage|SDK required resources:
+<ol>
+<li>Create a new group called Resources in the Project navigator by right clicking on the project root item and
+selecting New Group from the pop-up menu.</li>
+<li>
+Add the following files from Samples/iOS/data folder by dragging and dropping them into newly created Resources
+group, a dialog window will appear. In this window, select the "Create folder references for any added
+folders":
+<ul>
+<li>Head Tracker.cfg</li>
+<li>Facial Features Tracker.cfg</li>
+<li>candide3.fdp</li>
+<li>candide3.wfm</li>
+<li>cascades folder containing the data files</li>
+<li>bdtsdata folder containing the additional data files</li>
+</ul>
+</li>
+<li>This step is optional. After requesting and receiving license key file add it to the project by dragging and dropping it into previously
+created Resources group. Also, please read the section <a href="licence.html#include_license">Including the License Key File in your application</a> in the Registration and Licensing page.</li>
+</ol>
+<br/>
+
+The fourth step is to modify precompiled header file (.pch file) and add "<b>#include &lt;cv.h&gt;</b>" before and iOS frameworks
+#import commands.<br/>
+Note: do not forget to add license initialization code before any calls to visage|SDK, for example see <a href="licence.html#visageVision-t"><em>Including the
+License Key File in your application</em></a> project and code section.
+</p>
+
+<h2 id="config_selection">Device-specific configuration selection</h2>
+<p>
+Due to differences in performance, cameras and screens between different iOS devices, it is highly recommended to use tracking configurations that are optimized for each device. This ensures optimal tracking performance on each device.<br/>
+Both sample projects in visage|SDK incorporate automatic configuration selection based on detected device. There are different ways of detecting specific device: the code for configuration selection on native applications is found in <b>TrackerWrapper.mm</b> file in the Visage Tracker sample project, while code for Unity applications is found in <b>Tracker.cs</b> in the Visage Tracker Unity sample project.<br/>
+<br/>
+<b>Example code as is present in TrackerWrapper.mm (Visage Tracker sample): </b>
+<pre>
+	//TrackerWrapper.mm, Visage Tracker sample 
+	NSString* deviceType = [UIDeviceHardware platform];
+	if ([deviceType hasPrefix:@"iPhone3"])
+		tracker = new VisageTracker2("FFT - LowPerformance.cfg");      // iPhone4
+	else if ([deviceType hasPrefix:@"iPhone4"])
+		tracker = new VisageTracker2("FFT - MidPerformance.cfg");      // iPhone4S
+	else if ([deviceType hasPrefix:@"iPhone5"])
+		tracker = new VisageTracker2("FFT - HighPerformance.cfg");     // iPhone5
+	else if ([deviceType hasPrefix:@"iPad2"])
+		tracker = new VisageTracker2("FFT - MidPerformance.cfg");      // iPad2
+	else if ([deviceType hasPrefix:@"iPad3"])
+		tracker = new VisageTracker2("FFT - HighPerformance.cfg");     // iPad3
+	else
+		tracker = new VisageTracker2("FFT - MidPerformance.cfg");
+</pre>
+<br/>
+<b>Example code as is present in Tracker.cs (Visage Tracker Unity sample): </b>
+<pre>
+	//Tracker.cs, Visage Tracker Unity sample
+	if (iPhoneSettings.generation == iPhoneGeneration.iPad2Gen) {
+		ConfigFile = "HT - MidPerformance.cfg";
+	} else if (iPhoneSettings.generation == iPhoneGeneration.iPhone4) {
+		ConfigFile = "HT - LowPerformance.cfg";
+	} else { // iPhone4S and newer)
+		ConfigFile = "HT - MidPerformance.cfg";
+	}
+</pre>
+It is highly recommended to use such code in all applications.<br/>
+<br/>
+<b>Note</b>: To make applications future-proof, a fallback default configuration that covers all other cases should always be added.<br/>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
+		CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */; };
+		CE18560019AA3BD600B552EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FF19AA3BD600B552EE /* UIKit.framework */; };
+		CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE18560419AA3BD600B552EE /* InfoPlist.strings */; };
+		CE18560819AA3BD600B552EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560719AA3BD600B552EE /* main.m */; };
+		CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560B19AA3BD600B552EE /* AppDelegate.m */; };
+		CE18560F19AA3BD600B552EE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE18560D19AA3BD600B552EE /* Main_iPhone.storyboard */; };
+		CE18561219AA3BD600B552EE /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE18561019AA3BD600B552EE /* Main_iPad.storyboard */; };
+		CE18561519AA3BD600B552EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18561419AA3BD600B552EE /* ViewController.m */; };
+		CE18561719AA3BD600B552EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE18561619AA3BD600B552EE /* Images.xcassets */; };
+		CE18561E19AA3BD600B552EE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18561D19AA3BD600B552EE /* XCTest.framework */; };
+		CE18561F19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
+		CE18562019AA3BD600B552EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FF19AA3BD600B552EE /* UIKit.framework */; };
+		CE18562819AA3BD600B552EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE18562619AA3BD600B552EE /* InfoPlist.strings */; };
+		CE18562A19AA3BD600B552EE /* Telepathic_CinemaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18562919AA3BD600B552EE /* Telepathic_CinemaTests.m */; };
+		CE18563419AA3C9400B552EE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563319AA3C9400B552EE /* AVFoundation.framework */; };
+		CE18563619AA3C9C00B552EE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563519AA3C9C00B552EE /* CoreMedia.framework */; };
+		CE18563819AA3CAA00B552EE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563719AA3CAA00B552EE /* CoreVideo.framework */; };
+		CE18563A19AA3CBD00B552EE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563919AA3CBD00B552EE /* libz.dylib */; };
+		CE18563C19AA3CCA00B552EE /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563B19AA3CCA00B552EE /* ImageIO.framework */; };
+		CE18563F19AA3CE700B552EE /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563D19AA3CE700B552EE /* libVisageCore.a */; };
+		CE18564019AA3CE700B552EE /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563E19AA3CE700B552EE /* libVisageVision.a */; };
+		CE18565019AA3E7400B552EE /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = CE18564219AA3E7400B552EE /* bdtsdata */; };
+		CE18565119AA3E7400B552EE /* candide.wfm in Resources */ = {isa = PBXBuildFile; fileRef = CE18564319AA3E7400B552EE /* candide.wfm */; };
+		CE18565219AA3E7400B552EE /* candide3-ClosedMouth.wfm in Resources */ = {isa = PBXBuildFile; fileRef = CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */; };
+		CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */ = {isa = PBXBuildFile; fileRef = CE18564519AA3E7400B552EE /* candide3-exp.wfm */; };
+		CE18565419AA3E7400B552EE /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = CE18564619AA3E7400B552EE /* candide3.fdp */; };
+		CE18565519AA3E7400B552EE /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = CE18564719AA3E7400B552EE /* candide3.wfm */; };
+		CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564819AA3E7400B552EE /* Face Detector.cfg */; };
+		CE18565719AA3E7400B552EE /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = CE18564919AA3E7400B552EE /* face.png */; };
+		CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */; };
+		CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */; };
+		CE18565A19AA3E7400B552EE /* FFT - MidPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */; };
+		CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */; };
+		CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */; };
+		CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */; };
+		CE18567019AAB26C00B552EE /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18566E19AAB26C00B552EE /* libVisageCore.a */; };
+		CE18567119AAB26C00B552EE /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18566F19AAB26C00B552EE /* libVisageVision.a */; };
+		CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567419AAB69500B552EE /* UIDeviceHardware.m */; };
+		CE18567F19AAB69500B552EE /* DemoObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567819AAB69500B552EE /* DemoObserver.mm */; };
+		CE18568019AAB69500B552EE /* TrackerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567A19AAB69500B552EE /* TrackerWrapper.mm */; };
+		CE18568119AAB69500B552EE /* CustomGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567B19AAB69500B552EE /* CustomGLView.m */; };
+		CEE4ECF219ACC6E800AAE1ED /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEE4ECF119ACC6E800AAE1ED /* sample.mov */; };
+		CEE4ECFB19AD04A500AAE1ED /* tree.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEE4ECFA19AD04A500AAE1ED /* tree.mov */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE18562119AA3BD600B552EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE1855F019AA3BD600B552EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE1855F719AA3BD600B552EE;
+			remoteInfo = "Telepathic Cinema";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE1855F819AA3BD600B552EE /* Telepathic Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telepathic Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1855FB19AA3BD600B552EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CE1855FF19AA3BD600B552EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE18560319AA3BD600B552EE /* Telepathic Cinema-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Telepathic Cinema-Info.plist"; sourceTree = "<group>"; };
+		CE18560519AA3BD600B552EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE18560719AA3BD600B552EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE18560919AA3BD600B552EE /* Telepathic Cinema-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Telepathic Cinema-Prefix.pch"; sourceTree = "<group>"; };
+		CE18560A19AA3BD600B552EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CE18560B19AA3BD600B552EE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CE18560E19AA3BD600B552EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		CE18561119AA3BD600B552EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		CE18561319AA3BD600B552EE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CE18561419AA3BD600B552EE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CE18561619AA3BD600B552EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CE18561C19AA3BD600B552EE /* Telepathic CinemaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Telepathic CinemaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE18561D19AA3BD600B552EE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CE18562519AA3BD600B552EE /* Telepathic CinemaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Telepathic CinemaTests-Info.plist"; sourceTree = "<group>"; };
+		CE18562719AA3BD600B552EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE18562919AA3BD600B552EE /* Telepathic_CinemaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Telepathic_CinemaTests.m; sourceTree = "<group>"; };
+		CE18563319AA3C9400B552EE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CE18563519AA3C9C00B552EE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CE18563719AA3CAA00B552EE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CE18563919AA3CBD00B552EE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CE18563B19AA3CCA00B552EE /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		CE18563D19AA3CE700B552EE /* libVisageCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageCore.a; path = "visageSDK-iOS/lib/libVisageCore.a"; sourceTree = "<group>"; };
+		CE18563E19AA3CE700B552EE /* libVisageVision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageVision.a; path = "visageSDK-iOS/lib/libVisageVision.a"; sourceTree = "<group>"; };
+		CE18564219AA3E7400B552EE /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = "visageSDK-iOS/data/bdtsdata"; sourceTree = "<group>"; };
+		CE18564319AA3E7400B552EE /* candide.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide.wfm; path = "visageSDK-iOS/data/candide.wfm"; sourceTree = "<group>"; };
+		CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-ClosedMouth.wfm"; path = "visageSDK-iOS/data/candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
+		CE18564519AA3E7400B552EE /* candide3-exp.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-exp.wfm"; path = "visageSDK-iOS/data/candide3-exp.wfm"; sourceTree = "<group>"; };
+		CE18564619AA3E7400B552EE /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = "visageSDK-iOS/data/candide3.fdp"; sourceTree = "<group>"; };
+		CE18564719AA3E7400B552EE /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = "visageSDK-iOS/data/candide3.wfm"; sourceTree = "<group>"; };
+		CE18564819AA3E7400B552EE /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Face Detector.cfg"; path = "visageSDK-iOS/data/Face Detector.cfg"; sourceTree = "<group>"; };
+		CE18564919AA3E7400B552EE /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = "visageSDK-iOS/data/face.png"; sourceTree = "<group>"; };
+		CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - HighPerformance.cfg"; path = "visageSDK-iOS/data/FFT - HighPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - LowPerformance.cfg"; path = "visageSDK-iOS/data/FFT - LowPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - MidPerformance.cfg"; path = "visageSDK-iOS/data/FFT - MidPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - HighPerformance.cfg"; path = "visageSDK-iOS/data/HT - HighPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - LowPerformance.cfg"; path = "visageSDK-iOS/data/HT - LowPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - MidPerformance.cfg"; path = "visageSDK-iOS/data/HT - MidPerformance.cfg"; sourceTree = "<group>"; };
+		CE18566819AAB0B300B552EE /* FBAPs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAPs.h; sourceTree = "<group>"; };
+		CE18566919AAB0B300B552EE /* FDP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDP.h; sourceTree = "<group>"; };
+		CE18566A19AAB0B300B552EE /* gluLookAt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gluLookAt.h; sourceTree = "<group>"; };
+		CE18566B19AAB0B300B552EE /* VisageTracker2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisageTracker2.h; sourceTree = "<group>"; };
+		CE18566C19AAB0B300B552EE /* visageVision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = visageVision.h; sourceTree = "<group>"; };
+		CE18566E19AAB26C00B552EE /* libVisageCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVisageCore.a; sourceTree = "<group>"; };
+		CE18566F19AAB26C00B552EE /* libVisageVision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVisageVision.a; sourceTree = "<group>"; };
+		CE18567319AAB69500B552EE /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		CE18567419AAB69500B552EE /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
+		CE18567719AAB69500B552EE /* DemoObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoObserver.h; sourceTree = "<group>"; };
+		CE18567819AAB69500B552EE /* DemoObserver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoObserver.mm; sourceTree = "<group>"; };
+		CE18567919AAB69500B552EE /* TrackerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerWrapper.h; sourceTree = "<group>"; };
+		CE18567A19AAB69500B552EE /* TrackerWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackerWrapper.mm; sourceTree = "<group>"; };
+		CE18567B19AAB69500B552EE /* CustomGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGLView.m; sourceTree = "<group>"; };
+		CE18567C19AAB69500B552EE /* CustomGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGLView.h; sourceTree = "<group>"; };
+		CEE4ECF119ACC6E800AAE1ED /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
+		CEE4ECFA19AD04A500AAE1ED /* tree.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = tree.mov; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE1855F519AA3BD600B552EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE18563F19AA3CE700B552EE /* libVisageCore.a in Frameworks */,
+				CE18564019AA3CE700B552EE /* libVisageVision.a in Frameworks */,
+				CE18567019AAB26C00B552EE /* libVisageCore.a in Frameworks */,
+				CE18563C19AA3CCA00B552EE /* ImageIO.framework in Frameworks */,
+				CE18563A19AA3CBD00B552EE /* libz.dylib in Frameworks */,
+				CE18563819AA3CAA00B552EE /* CoreVideo.framework in Frameworks */,
+				CE18563619AA3C9C00B552EE /* CoreMedia.framework in Frameworks */,
+				CE18563419AA3C9400B552EE /* AVFoundation.framework in Frameworks */,
+				CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */,
+				CE18560019AA3BD600B552EE /* UIKit.framework in Frameworks */,
+				CE18567119AAB26C00B552EE /* libVisageVision.a in Frameworks */,
+				CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE18561919AA3BD600B552EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE18561E19AA3BD600B552EE /* XCTest.framework in Frameworks */,
+				CE18562019AA3BD600B552EE /* UIKit.framework in Frameworks */,
+				CE18561F19AA3BD600B552EE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE1855EF19AA3BD600B552EE = {
+			isa = PBXGroup;
+			children = (
+				CE18567219AAB67900B552EE /* VisageClasses */,
+				CE18566D19AAB25C00B552EE /* VisageLibs */,
+				CE18566719AAB09900B552EE /* VisageHeaders */,
+				CE18564119AA3E4000B552EE /* Resources */,
+				CE18560119AA3BD600B552EE /* Telepathic Cinema */,
+				CE18562319AA3BD600B552EE /* Telepathic CinemaTests */,
+				CE1855FA19AA3BD600B552EE /* Frameworks */,
+				CE1855F919AA3BD600B552EE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE1855F919AA3BD600B552EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE1855F819AA3BD600B552EE /* Telepathic Cinema.app */,
+				CE18561C19AA3BD600B552EE /* Telepathic CinemaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE1855FA19AA3BD600B552EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE18563D19AA3CE700B552EE /* libVisageCore.a */,
+				CE18563E19AA3CE700B552EE /* libVisageVision.a */,
+				CE18563B19AA3CCA00B552EE /* ImageIO.framework */,
+				CE18563919AA3CBD00B552EE /* libz.dylib */,
+				CE18563719AA3CAA00B552EE /* CoreVideo.framework */,
+				CE18563519AA3C9C00B552EE /* CoreMedia.framework */,
+				CE18563319AA3C9400B552EE /* AVFoundation.framework */,
+				CE1855FB19AA3BD600B552EE /* Foundation.framework */,
+				CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */,
+				CE1855FF19AA3BD600B552EE /* UIKit.framework */,
+				CE18561D19AA3BD600B552EE /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE18560119AA3BD600B552EE /* Telepathic Cinema */ = {
+			isa = PBXGroup;
+			children = (
+				CE18560A19AA3BD600B552EE /* AppDelegate.h */,
+				CE18560B19AA3BD600B552EE /* AppDelegate.m */,
+				CE18560D19AA3BD600B552EE /* Main_iPhone.storyboard */,
+				CE18561019AA3BD600B552EE /* Main_iPad.storyboard */,
+				CE18561319AA3BD600B552EE /* ViewController.h */,
+				CE18561419AA3BD600B552EE /* ViewController.m */,
+				CE18561619AA3BD600B552EE /* Images.xcassets */,
+				CE18560219AA3BD600B552EE /* Supporting Files */,
+			);
+			path = "Telepathic Cinema";
+			sourceTree = "<group>";
+		};
+		CE18560219AA3BD600B552EE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE18560319AA3BD600B552EE /* Telepathic Cinema-Info.plist */,
+				CE18560419AA3BD600B552EE /* InfoPlist.strings */,
+				CE18560719AA3BD600B552EE /* main.m */,
+				CE18560919AA3BD600B552EE /* Telepathic Cinema-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE18562319AA3BD600B552EE /* Telepathic CinemaTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE18562919AA3BD600B552EE /* Telepathic_CinemaTests.m */,
+				CE18562419AA3BD600B552EE /* Supporting Files */,
+			);
+			path = "Telepathic CinemaTests";
+			sourceTree = "<group>";
+		};
+		CE18562419AA3BD600B552EE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE18562519AA3BD600B552EE /* Telepathic CinemaTests-Info.plist */,
+				CE18562619AA3BD600B552EE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE18564119AA3E4000B552EE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEE4ECF119ACC6E800AAE1ED /* sample.mov */,
+				CE18564219AA3E7400B552EE /* bdtsdata */,
+				CE18564319AA3E7400B552EE /* candide.wfm */,
+				CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */,
+				CE18564519AA3E7400B552EE /* candide3-exp.wfm */,
+				CE18564619AA3E7400B552EE /* candide3.fdp */,
+				CE18564719AA3E7400B552EE /* candide3.wfm */,
+				CE18564819AA3E7400B552EE /* Face Detector.cfg */,
+				CE18564919AA3E7400B552EE /* face.png */,
+				CEE4ECFA19AD04A500AAE1ED /* tree.mov */,
+				CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */,
+				CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */,
+				CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */,
+				CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */,
+				CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */,
+				CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CE18566719AAB09900B552EE /* VisageHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				CE18566819AAB0B300B552EE /* FBAPs.h */,
+				CE18566919AAB0B300B552EE /* FDP.h */,
+				CE18566A19AAB0B300B552EE /* gluLookAt.h */,
+				CE18566B19AAB0B300B552EE /* VisageTracker2.h */,
+				CE18566C19AAB0B300B552EE /* visageVision.h */,
+			);
+			name = VisageHeaders;
+			sourceTree = "<group>";
+		};
+		CE18566D19AAB25C00B552EE /* VisageLibs */ = {
+			isa = PBXGroup;
+			children = (
+				CE18566E19AAB26C00B552EE /* libVisageCore.a */,
+				CE18566F19AAB26C00B552EE /* libVisageVision.a */,
+			);
+			name = VisageLibs;
+			sourceTree = "<group>";
+		};
+		CE18567219AAB67900B552EE /* VisageClasses */ = {
+			isa = PBXGroup;
+			children = (
+				CE18567319AAB69500B552EE /* UIDeviceHardware.h */,
+				CE18567419AAB69500B552EE /* UIDeviceHardware.m */,
+				CE18567719AAB69500B552EE /* DemoObserver.h */,
+				CE18567819AAB69500B552EE /* DemoObserver.mm */,
+				CE18567919AAB69500B552EE /* TrackerWrapper.h */,
+				CE18567A19AAB69500B552EE /* TrackerWrapper.mm */,
+				CE18567B19AAB69500B552EE /* CustomGLView.m */,
+				CE18567C19AAB69500B552EE /* CustomGLView.h */,
+			);
+			name = VisageClasses;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE1855F719AA3BD600B552EE /* Telepathic Cinema */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE18562D19AA3BD600B552EE /* Build configuration list for PBXNativeTarget "Telepathic Cinema" */;
+			buildPhases = (
+				CE1855F419AA3BD600B552EE /* Sources */,
+				CE1855F519AA3BD600B552EE /* Frameworks */,
+				CE1855F619AA3BD600B552EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Telepathic Cinema";
+			productName = "Telepathic Cinema";
+			productReference = CE1855F819AA3BD600B552EE /* Telepathic Cinema.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE18561B19AA3BD600B552EE /* Telepathic CinemaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE18563019AA3BD600B552EE /* Build configuration list for PBXNativeTarget "Telepathic CinemaTests" */;
+			buildPhases = (
+				CE18561819AA3BD600B552EE /* Sources */,
+				CE18561919AA3BD600B552EE /* Frameworks */,
+				CE18561A19AA3BD600B552EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE18562219AA3BD600B552EE /* PBXTargetDependency */,
+			);
+			name = "Telepathic CinemaTests";
+			productName = "Telepathic CinemaTests";
+			productReference = CE18561C19AA3BD600B552EE /* Telepathic CinemaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE1855F019AA3BD600B552EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Ket.ai;
+				TargetAttributes = {
+					CE18561B19AA3BD600B552EE = {
+						TestTargetID = CE1855F719AA3BD600B552EE;
+					};
+				};
+			};
+			buildConfigurationList = CE1855F319AA3BD600B552EE /* Build configuration list for PBXProject "Telepathic Cinema" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE1855EF19AA3BD600B552EE;
+			productRefGroup = CE1855F919AA3BD600B552EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE1855F719AA3BD600B552EE /* Telepathic Cinema */,
+				CE18561B19AA3BD600B552EE /* Telepathic CinemaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE1855F619AA3BD600B552EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
+				CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */,
+				CE18561219AA3BD600B552EE /* Main_iPad.storyboard in Resources */,
+				CE18565719AA3E7400B552EE /* face.png in Resources */,
+				CE18565219AA3E7400B552EE /* candide3-ClosedMouth.wfm in Resources */,
+				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
+				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
+				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
+				CE18560F19AA3BD600B552EE /* Main_iPhone.storyboard in Resources */,
+				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
+				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
+				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,
+				CEE4ECF219ACC6E800AAE1ED /* sample.mov in Resources */,
+				CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */,
+				CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */,
+				CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */,
+				CEE4ECFB19AD04A500AAE1ED /* tree.mov in Resources */,
+				CE18565119AA3E7400B552EE /* candide.wfm in Resources */,
+				CE18565419AA3E7400B552EE /* candide3.fdp in Resources */,
+				CE18565A19AA3E7400B552EE /* FFT - MidPerformance.cfg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE18561A19AA3BD600B552EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE18562819AA3BD600B552EE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE1855F419AA3BD600B552EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE18567F19AAB69500B552EE /* DemoObserver.mm in Sources */,
+				CE18568019AAB69500B552EE /* TrackerWrapper.mm in Sources */,
+				CE18568119AAB69500B552EE /* CustomGLView.m in Sources */,
+				CE18561519AA3BD600B552EE /* ViewController.m in Sources */,
+				CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */,
+				CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */,
+				CE18560819AA3BD600B552EE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE18561819AA3BD600B552EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE18562A19AA3BD600B552EE /* Telepathic_CinemaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE18562219AA3BD600B552EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE1855F719AA3BD600B552EE /* Telepathic Cinema */;
+			targetProxy = CE18562119AA3BD600B552EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE18560419AA3BD600B552EE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE18560519AA3BD600B552EE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CE18560D19AA3BD600B552EE /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE18560E19AA3BD600B552EE /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		CE18561019AA3BD600B552EE /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE18561119AA3BD600B552EE /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		CE18562619AA3BD600B552EE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE18562719AA3BD600B552EE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE18562B19AA3BD600B552EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					IOS,
+					VISAGE_STATIC,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		CE18562C19AA3BD600B552EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					IOS,
+					VISAGE_STATIC,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+		CE18562E19AA3BD600B552EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Telepathic Cinema/Telepathic Cinema-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					IOS,
+					VISAGE_STATIC,
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+					"visageSDK-iOS/include",
+					"visageSDK-iOS/include/libIOS",
+					"visageSDK-iOS/dependencies/OpenCV-iOS/include",
+					"visageSDK-iOS/dependencies/OpenCV-iOS/include/opencv",
+				);
+				INFOPLIST_FILE = "Telepathic Cinema/Telepathic Cinema-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/visageSDK-iOS/lib",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
+				WARNING_CFLAGS = "-Wno-comment";
+				"WARNING_CFLAGS[arch=*]" = "-Wno-comment";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CE18562F19AA3BD600B552EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Telepathic Cinema/Telepathic Cinema-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					IOS,
+					VISAGE_STATIC,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+					"visageSDK-iOS/include",
+					"visageSDK-iOS/include/libIOS",
+					"visageSDK-iOS/dependencies/OpenCV-iOS/include",
+					"visageSDK-iOS/dependencies/OpenCV-iOS/include/opencv",
+				);
+				INFOPLIST_FILE = "Telepathic Cinema/Telepathic Cinema-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/visageSDK-iOS/lib",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
+				WARNING_CFLAGS = "-Wno-comment";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CE18563119AA3BD600B552EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Telepathic Cinema.app/Telepathic Cinema";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Telepathic Cinema/Telepathic Cinema-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Telepathic CinemaTests/Telepathic CinemaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CE18563219AA3BD600B552EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Telepathic Cinema.app/Telepathic Cinema";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Telepathic Cinema/Telepathic Cinema-Prefix.pch";
+				INFOPLIST_FILE = "Telepathic CinemaTests/Telepathic CinemaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE1855F319AA3BD600B552EE /* Build configuration list for PBXProject "Telepathic Cinema" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE18562B19AA3BD600B552EE /* Debug */,
+				CE18562C19AA3BD600B552EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE18562D19AA3BD600B552EE /* Build configuration list for PBXNativeTarget "Telepathic Cinema" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE18562E19AA3BD600B552EE /* Debug */,
+				CE18562F19AA3BD600B552EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE18563019AA3BD600B552EE /* Build configuration list for PBXNativeTarget "Telepathic CinemaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE18563119AA3BD600B552EE /* Debug */,
+				CE18563219AA3BD600B552EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE1855F019AA3BD600B552EE /* Project object */;
+}
