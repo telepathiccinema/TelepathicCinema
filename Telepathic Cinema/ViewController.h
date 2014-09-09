@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ViewController.h
 //  Telepathic Cinema
 //
 //  Created by ket.ai on 8/20/14.
@@ -16,6 +16,7 @@
 @class CustomGLView;
 @class TrackerWrapper;
 @class AVQueueplayer;
+@class TelepathicCinema;
 
 @interface ViewController : UIViewController
 {
@@ -42,6 +43,8 @@
 @property (strong, nonatomic) IBOutlet CustomGLView *glView;
 @property (nonatomic, retain) TrackerWrapper *tracker;
 @property (nonatomic, retain) AVQueuePlayer* mPlayer;
+@property(nonatomic, retain) TelepathicCinema* tc;
+@property(nonatomic, retain) AVPlayerLayer* movieLayer;
 
 - (IBAction)onTouch:(id)sender;
 

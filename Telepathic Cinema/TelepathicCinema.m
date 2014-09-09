@@ -1,0 +1,137 @@
+//
+//  TelepathicCinema.m
+//  Telepathic Cinema
+//
+//  Created by ket.ai on 8/26/14.
+//  Copyright (c) 2014 Telepathic Cinema. All rights reserved.
+//
+
+#import "TelepathicCinema.h"
+
+@implementation TelepathicCinema
+@synthesize overlay;
+@synthesize currentScene;
+@synthesize queuedScene;
+
+-(id)initWithView:(CustomGLView *)view
+         andScene:(NSString * )filename
+        andPlayer: (AVQueuePlayer *) avplayer
+{
+    overlay = [CALayer layer];
+    overlay.frame = view.frame;
+    overlay.opacity = .25;
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height), NO, 0.0);
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    overlay.contents = (__bridge id)(image.CGImage);
+    currentScene = [[TCScene alloc] initWithName:filename];
+    self.cursor = [[TCGaze alloc] init];
+    self.cursor.boundingBox = CGRectMake(overlay.frame.size.width/2, overlay.frame.size.height/2, 100,100);
+    self.cursor.confidence = 0;
+    self->player = avplayer;
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSURL *moviePath1 = [bundle URLForResource:@"left" withExtension:@"mov"];
+    AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
+    [self->player insertItem:video1 afterItem:nil];
+    [self->player play];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(sceneEnded:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[self->player currentItem]];
+    
+    return self;
+}
+
+
+-(void)queueScene{
+
+    TCRegion* winner;
+    for(TCRegion* r in self.currentScene.regions)
+    {
+        NSLog(@"==Queueing scene..iterating through %@", r.target);
+        if(!winner)
+        {
+            winner = r;
+        }else
+            if(r.count > winner.count)
+                winner = r;
+        NSLog(@"==iteration end winner is %@ with a score of %i ", winner.target, winner.count);
+    }
+    if(!winner)
+        return;
+    
+    queuedScene= [[TCScene alloc] initWithName: winner.target];
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSURL *moviePath1 = [bundle URLForResource:winner.target withExtension:@"mov"];
+    AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
+    [self->player insertItem:video1 afterItem:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(sceneEnded:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:video1 ];
+    
+    NSLog(@"==========queued scene %@", queuedScene.name);
+}
+
+
+
+-(void)display: (BOOL) show
+{
+    overlay.hidden = !show;
+}
+
+-(void)update: (AVQueuePlayer *) player withTracker:(TrackerWrapper *)tracker
+{
+    float currentTime = CMTimeGetSeconds([[self->player currentItem] currentTime]);
+    float duration = CMTimeGetSeconds([[self->player currentItem] duration]);
+    
+    if(duration - currentTime <= 1.0 && duration-currentTime > 0 && [[self->player items] count] <= 1)
+    {
+        [self queueScene];
+    }
+    
+    [self.cursor updateWithTracker:tracker];
+    
+    //check collisions on regions
+    for(TCRegion* r in self.currentScene.regions)
+    {
+        [r checkHitWith: self.cursor.boundingBox atTime:CMTimeGetSeconds([self->player currentTime])];
+    }
+}
+
+
+-(void)draw{
+    if(overlay.hidden)
+        return;
+    
+    UIGraphicsBeginImageContext(overlay.bounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetStrokeColorWithColor(context, [[UIColor yellowColor] CGColor]);
+    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, image.size.width, image.size.height));
+    CGContextSetLineWidth(context, 4.0f);
+    
+    TCRegion *region;
+    
+    for(region in currentScene.regions)
+    {
+        [region drawWithContext:context time: CMTimeGetSeconds([[self->player currentItem] currentTime])];
+    }
+    
+    [self.cursor drawWithContext:context];
+    
+    UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
+    overlay.contents = (__bridge id)(result.CGImage);
+    UIGraphicsEndImageContext();
+    
+}
+
+- (void)sceneEnded:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self->player currentItem]];
+    [self->player advanceToNextItem];
+    currentScene = queuedScene;
+}
+
+@end
