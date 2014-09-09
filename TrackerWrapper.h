@@ -50,6 +50,7 @@ typedef void FDP;
      * 
      */
 	bool isTracking;
+    bool show;
 	
     /**
      * Texture ID for displaying frames from the tracker.
@@ -236,4 +237,7 @@ typedef void FDP;
 //- (void)displayTrackingResults:(UILabel *)fpsLabel Status:(UILabel *)statusLabel Info:(UILabel *)infoLabel;
 - (void)displayTrackingResults;
 - (int) getTrackingStatus;
+- (float*) getGaze;
+- (void) blank;
+- (void) display: (BOOL) show;
 @end

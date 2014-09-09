@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6922385C-F995-4E8F-87BE-BD2994A6911F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Telepathic Cinema</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CC5D6F46-8BA1-49FA-8D6C-FAB1A57906D2</key>
+		<string>ssh://github.com/telepathiccinema/TelepathicCinema.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Telepathic Cinema.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CC5D6F46-8BA1-49FA-8D6C-FAB1A57906D2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/telepathiccinema/TelepathicCinema.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CC5D6F46-8BA1-49FA-8D6C-FAB1A57906D2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CC5D6F46-8BA1-49FA-8D6C-FAB1A57906D2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Telepathic Cinema</string>
+		</dict>
+	</array>
+</dict>
+</plist>

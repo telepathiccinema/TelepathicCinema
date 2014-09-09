@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CustomGLView.h"
 #import "TrackerWrapper.h"
+#import "TelepathicCinema.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,8 @@
 @synthesize tracker;
 @synthesize glView;
 @synthesize resultsDisplayTimer;
+@synthesize tc;
+@synthesize movieLayer;
 
 
 - (void)viewDidLoad
@@ -31,83 +34,41 @@
     
     resultsDisplayTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60
 														   target:self
-														 selector:@selector(showResults:)
+														 selector:@selector(update:)
 														 userInfo:nil
 														  repeats:YES];
     [self.tracker startTrackingFromCam];
     [self setupMovie];
+    tc = [[TelepathicCinema alloc] initWithView:glView andScene:@"start" andPlayer:self.mPlayer];
+    [self.view.layer addSublayer:tc.overlay];
     
 }
 
 -(void) setupMovie
 {
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSURL *moviePath1 = [bundle URLForResource:@"sample" withExtension:@"mov"];
-    NSURL *moviePath2 = [bundle URLForResource:@"tree" withExtension:@"mov"];
     
-    AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
-    AVPlayerItem *video2 = [AVPlayerItem playerItemWithURL: moviePath2];
-    
-    self.mPlayer = [AVQueuePlayer queuePlayerWithItems:[NSArray arrayWithObjects:video2, video1, nil]];
+    self.mPlayer = [AVQueuePlayer queuePlayerWithItems:[NSArray arrayWithObjects:nil]];
     
     self.mPlayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:self.mPlayer];
-    layer.frame = self.view.bounds;
     
-    [self.view.layer addSublayer: layer];
+    movieLayer = [AVPlayerLayer playerLayerWithPlayer:self.mPlayer];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(videoEnded:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.mPlayer currentItem]];
-    [self.mPlayer play];
+    movieLayer.frame = self.view.bounds;
+    
+    NSLog(@"Video deets: %f,%f of size: %f, %f", movieLayer.frame.origin.x, movieLayer.frame.origin.y, movieLayer.frame.size.width, movieLayer.frame.size.height);
+    
+    [self.view.layer addSublayer: movieLayer];
+    
 }
 
 
-- (void)videoEnded:(NSNotification *)notification
-{
-    if([[self.mPlayer items] count] <= 1)
+-(void)update:(NSTimer *)timer {
+    if(state == DEBUG)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self.mPlayer currentItem]];
-        
-        [self.mPlayer advanceToNextItem];
-        NSBundle *bundle = [NSBundle mainBundle];
-        NSURL *moviePath1 = [bundle URLForResource:@"sample" withExtension:@"mov"];
-        NSURL *moviePath2 = [bundle URLForResource:@"tree" withExtension:@"mov"];
-        
-        AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
-        AVPlayerItem *video2 = [AVPlayerItem playerItemWithURL: moviePath2];
-        if([self.mPlayer canInsertItem:video1 afterItem:nil])
-            [self.mPlayer insertItem:video1 afterItem:nil];
-        
-        if([self.mPlayer canInsertItem:video2 afterItem:nil])
-            [self.mPlayer insertItem:video2 afterItem:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(videoEnded:)
-                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-                                                   object:[self.mPlayer currentItem]];
-        [self.mPlayer play];
-        
-    }else
-    {
-        
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self.mPlayer currentItem]];
-        [self.mPlayer advanceToNextItem];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(videoEnded:)
-                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-                                                   object:[self.mPlayer currentItem]];
-        [self.mPlayer play];
-        
+        [self.tracker displayTrackingResults];
+        [self.tc draw];
     }
-}
-
--(void)showResults:(NSTimer *)timer {
-    
-    
-    [self.tracker displayTrackingResults];
-    
+    [self.tc update: self.mPlayer withTracker:self.tracker];
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,28 +77,22 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-}
-
 - (IBAction)onTouch:(id)sender {
     if(self->state == STATE_VIDEO)
     {
-        [[self.view.layer.sublayers objectAtIndex:0] removeFromSuperlayer];
-        
-        self.tracker.glView = glView;
+        [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
+        [self.tracker display:YES];
         self->state = STATE_DEBUG;
+        [self.tc display:YES];
         
     }else{
-        self.tracker.glView = nil;
+        [self.tracker blank];
+        [self.tracker display:NO];
+        [[self.view.layer.sublayers objectAtIndex:0] setOpacity:1.0];
         
-        AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:self.mPlayer];
-        layer.frame = self.view.bounds;
-        
-        [self.view.layer addSublayer: layer];
         self->state = STATE_VIDEO;
         [self.mPlayer play];
+        [self.tc display:NO];
     }
     
     

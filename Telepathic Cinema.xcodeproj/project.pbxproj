@@ -49,8 +49,12 @@
 		CE18567F19AAB69500B552EE /* DemoObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567819AAB69500B552EE /* DemoObserver.mm */; };
 		CE18568019AAB69500B552EE /* TrackerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567A19AAB69500B552EE /* TrackerWrapper.mm */; };
 		CE18568119AAB69500B552EE /* CustomGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567B19AAB69500B552EE /* CustomGLView.m */; };
-		CEE4ECF219ACC6E800AAE1ED /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEE4ECF119ACC6E800AAE1ED /* sample.mov */; };
-		CEE4ECFB19AD04A500AAE1ED /* tree.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEE4ECFA19AD04A500AAE1ED /* tree.mov */; };
+		CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9C19BB8BB70033A237 /* TCScene.m */; };
+		CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9F19BB95190033A237 /* TCRegion.m */; };
+		CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDFA219BBBDA00033A237 /* TCGaze.m */; };
+		CEB647F919BEBD2900E4BFB3 /* right.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEB647F819BEBD2900E4BFB3 /* right.mov */; };
+		CEE4ECF219ACC6E800AAE1ED /* left.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEE4ECF119ACC6E800AAE1ED /* left.mov */; };
+		CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +124,16 @@
 		CE18567A19AAB69500B552EE /* TrackerWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackerWrapper.mm; sourceTree = "<group>"; };
 		CE18567B19AAB69500B552EE /* CustomGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGLView.m; sourceTree = "<group>"; };
 		CE18567C19AAB69500B552EE /* CustomGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGLView.h; sourceTree = "<group>"; };
-		CEE4ECF119ACC6E800AAE1ED /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
-		CEE4ECFA19AD04A500AAE1ED /* tree.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = tree.mov; sourceTree = "<group>"; };
+		CE1BDF9B19BB8BB70033A237 /* TCScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCScene.h; sourceTree = "<group>"; };
+		CE1BDF9C19BB8BB70033A237 /* TCScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCScene.m; sourceTree = "<group>"; };
+		CE1BDF9E19BB95190033A237 /* TCRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCRegion.h; sourceTree = "<group>"; };
+		CE1BDF9F19BB95190033A237 /* TCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRegion.m; sourceTree = "<group>"; };
+		CE1BDFA119BBBDA00033A237 /* TCGaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGaze.h; sourceTree = "<group>"; };
+		CE1BDFA219BBBDA00033A237 /* TCGaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGaze.m; sourceTree = "<group>"; };
+		CEB647F819BEBD2900E4BFB3 /* right.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = right.mov; sourceTree = "<group>"; };
+		CEE4ECF119ACC6E800AAE1ED /* left.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = left.mov; sourceTree = "<group>"; };
+		CEFBB63D19B9F2100056FC0C /* TelepathicCinema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelepathicCinema.h; sourceTree = "<group>"; };
+		CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelepathicCinema.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +221,14 @@
 				CE18561419AA3BD600B552EE /* ViewController.m */,
 				CE18561619AA3BD600B552EE /* Images.xcassets */,
 				CE18560219AA3BD600B552EE /* Supporting Files */,
+				CEFBB63D19B9F2100056FC0C /* TelepathicCinema.h */,
+				CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */,
+				CE1BDFA119BBBDA00033A237 /* TCGaze.h */,
+				CE1BDFA219BBBDA00033A237 /* TCGaze.m */,
+				CE1BDF9B19BB8BB70033A237 /* TCScene.h */,
+				CE1BDF9C19BB8BB70033A237 /* TCScene.m */,
+				CE1BDF9E19BB95190033A237 /* TCRegion.h */,
+				CE1BDF9F19BB95190033A237 /* TCRegion.m */,
 			);
 			path = "Telepathic Cinema";
 			sourceTree = "<group>";
@@ -245,16 +265,16 @@
 		CE18564119AA3E4000B552EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CEE4ECF119ACC6E800AAE1ED /* sample.mov */,
+				CEE4ECF119ACC6E800AAE1ED /* left.mov */,
 				CE18564219AA3E7400B552EE /* bdtsdata */,
 				CE18564319AA3E7400B552EE /* candide.wfm */,
 				CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */,
+				CEB647F819BEBD2900E4BFB3 /* right.mov */,
 				CE18564519AA3E7400B552EE /* candide3-exp.wfm */,
 				CE18564619AA3E7400B552EE /* candide3.fdp */,
 				CE18564719AA3E7400B552EE /* candide3.wfm */,
 				CE18564819AA3E7400B552EE /* Face Detector.cfg */,
 				CE18564919AA3E7400B552EE /* face.png */,
-				CEE4ECFA19AD04A500AAE1ED /* tree.mov */,
 				CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */,
 				CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */,
 				CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */,
@@ -389,11 +409,11 @@
 				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
 				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,
-				CEE4ECF219ACC6E800AAE1ED /* sample.mov in Resources */,
+				CEE4ECF219ACC6E800AAE1ED /* left.mov in Resources */,
 				CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */,
 				CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */,
+				CEB647F919BEBD2900E4BFB3 /* right.mov in Resources */,
 				CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */,
-				CEE4ECFB19AD04A500AAE1ED /* tree.mov in Resources */,
 				CE18565119AA3E7400B552EE /* candide.wfm in Resources */,
 				CE18565419AA3E7400B552EE /* candide3.fdp in Resources */,
 				CE18565A19AA3E7400B552EE /* FFT - MidPerformance.cfg in Resources */,
@@ -415,11 +435,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */,
 				CE18567F19AAB69500B552EE /* DemoObserver.mm in Sources */,
 				CE18568019AAB69500B552EE /* TrackerWrapper.mm in Sources */,
 				CE18568119AAB69500B552EE /* CustomGLView.m in Sources */,
 				CE18561519AA3BD600B552EE /* ViewController.m in Sources */,
+				CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */,
 				CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */,
+				CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */,
+				CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */,
 				CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */,
 				CE18560819AA3BD600B552EE /* main.m in Sources */,
 			);

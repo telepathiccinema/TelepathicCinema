@@ -30,11 +30,12 @@ using namespace VisageSDK;
     
 	glView = view;
     demoObserver = new DemoObserver();
+    show = NO;
 
     // choose configuration based on device at run-time
     NSString* deviceType = [UIDeviceHardware platform];
     
-    NSLog(deviceType);
+    NSLog(@"%@", deviceType);
 #ifdef FACE_TRACKER    
     if ([deviceType hasPrefix:@"iPhone3"])
         tracker = new VisageTracker2("FFT - LowPerformance.cfg");      // iPhone4
@@ -83,7 +84,6 @@ using namespace VisageSDK;
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-//    [alert release];
 #else
 	[self stopTracker];
     
@@ -498,7 +498,7 @@ void drawFeaturePoints2D(int* points,
 - (void) drawResultsFromFeaturePoints: (FDP*) featurePoints2D
 {
 	//sizes of the fdp's groups
-    int GrSize[12] = {0,0,14,14,6,4,4,1,10,15,10,5};
+//    int GrSize[12] = {0,0,14,14,6,4,4,1,10,15,10,5};
     
 		glPointSize(3);
         
@@ -768,6 +768,12 @@ void drawFeaturePoints2D(int* points,
 		drawFeaturePoints2D(hairLinesPoints, 4, GL_LINES, featurePoints2D);
 	
 }
+- (float* ) getGaze
+{
+    tracker->getTrackingData(&trackingData);
+    
+    return trackingData.gazeDirection;
+}
 
 - (void) drawGazeDirection: (const float *) gazeDirection
               withFeatures: (FDP *) featurePoints3D
@@ -863,7 +869,7 @@ int last_pts = 0;
         return;
     }
     
-    if(!glView)
+    if(!show)
         return;
     
     inGetTrackingResults = true;
@@ -894,7 +900,8 @@ int last_pts = 0;
 	if(framecount == MEASURE_FRAMES) framecount = 0;
 	float displayFrameRate = MEASURE_FRAMES * 1000.0f / (float)(currentTime - last_times[framecount]);
 	last_times[framecount] = currentTime;
-
+    if(framecount%30 == 0)
+        NSLog(@"Framerate: %f", displayFrameRate);
     
 	if (trackingStatus == TRACK_STAT_OK) {
         
@@ -938,12 +945,12 @@ int last_pts = 0;
         
         [self drawGazeDirection:trackingData.gazeDirectionGlobal withFeatures:trackingData.featurePoints3D];
 		
-		const GLfloat rightEye[] = {0.0f, 0.0f, 0.0f};
-		const GLfloat blue[] = {0.0f, 0.0f, 1.0f, 1.0f,
-            0.0f, 0.0f, 1.0f, 1.0f,
-            0.0f, 0.0f, 1.0f, 1.0f,
-            0.0f, 0.0f, 1.0f, 1.0f
-		};
+//		const GLfloat rightEye[] = {0.0f, 0.0f, 0.0f};
+//		const GLfloat blue[] = {0.0f, 0.0f, 1.0f, 1.0f,
+//            0.0f, 0.0f, 1.0f, 1.0f,
+//            0.0f, 0.0f, 1.0f, 1.0f,
+//            0.0f, 0.0f, 1.0f, 1.0f
+//		};
         
 		glTranslatef(trackingData.faceTranslation[0],trackingData.faceTranslation[1],trackingData.faceTranslation[2]);
 		glRotatef((trackingData.faceRotation[1]+3.1415926f)*180.0f/3.1415926f, 0.0f, 1.0f, 0.0f);
@@ -960,15 +967,26 @@ int last_pts = 0;
         
         glColor4ub(255,255,0,255);
         
-        static int irisPoints[] = {
-            3,	5,
-            3,	6,
-        };
+//        static int irisPoints[] = {
+//            3,	5,
+//            3,	6,
+//        };
         //tracker->drawPoints2D(irisPoints, 2, GL_POINTS);
         
         // draw tracking data from origin (right eye)
 		//[self drawPoint3D:rightEye withColor:blue andSize:10.0f];
-        
+        //----jdjd
+//        GLfloat  vertices[] = {0.0, 0.5, 0.0, 0.5, 0.0, 0.0, -0.5, 0.0, 0.0};
+//        glLoadIdentity();
+//        
+//        glEnableClientState(GL_VERTEX_ARRAY);
+//        glColor4f(0.0, 1.0, 0.0, 0.1);
+//        glVertexPointer(3, GL_FLOAT, 0, vertices);
+//        glDrawArrays(GL_TRIANGLE_STRIP, 0, 12);
+//        glDisableClientState(GL_VERTEX_ARRAY);
+//        
+//        
+        //--
 		[glView swapOpenGLBuffers];
 	}
 	// only disply video
@@ -993,7 +1011,19 @@ int last_pts = 0;
             }
             [self displayInstructions];
         }
+        //----jdjd
         
+//        GLfloat  vertices[] = {0.0, 0.5, 0.0, 0.5, 0.0, 0.0, -0.5, 0.0, 0.0};
+//        glLoadIdentity();
+//        glEnable(GL_BLEND);
+//        glEnableClientState(GL_VERTEX_ARRAY);
+//        glColor4f(1.0, 0.0, 0.0, 0.1);
+//        glVertexPointer(3, GL_FLOAT, 0, vertices);
+//        glDrawArrays(GL_TRIANGLE_STRIP, 0, 12);
+//        glDisableClientState(GL_VERTEX_ARRAY);
+//        
+        
+        //--
 		[glView swapOpenGLBuffers];
 	}
     
@@ -1035,6 +1065,14 @@ int last_pts = 0;
     inGetTrackingResults = false;
 }
 
-
-
+-(void)blank{
+    [glView setOpenGLContext];
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    [glView swapOpenGLBuffers];
+}
+-(void)display:(BOOL)flag
+{
+    show = flag;
+}
 @end
