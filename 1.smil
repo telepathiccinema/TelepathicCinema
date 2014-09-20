@@ -3,7 +3,7 @@
     <body>
         <par>
             <video src="1.mov" />
-                <area title="blue" href="2.smil" coords="0%,0%,50%,50%" begin="5s" end="32s"/>
+                <area title="blue" href="2.smil" coords="0%,0%,50%,50%" />
                 <area title="red" href="3.smil" coords="50%,50%,100%,100%" begin="20s" dur="40s"/>
             </par>
             </body>

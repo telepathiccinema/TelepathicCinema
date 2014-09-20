@@ -53,6 +53,18 @@
     CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y);    //tl
     CGContextStrokePath(context);
     
+    // Create text attributes
+    NSDictionary *textAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18.0]};
+    
+    // Create string drawing context
+    NSStringDrawingContext *drawingContext = [[NSStringDrawingContext alloc] init];
+    drawingContext.minimumScaleFactor = 0.5; // Half the font size
+    
+    CGRect drawRect = CGRectMake(0.0, 0.0, 200.0, 100.0);
+    [self.target drawWithRect:drawRect
+                 options:NSStringDrawingUsesLineFragmentOrigin
+              attributes:textAttributes
+                 context:drawingContext];
 }
 
 -(NSString *)getTargetFile
