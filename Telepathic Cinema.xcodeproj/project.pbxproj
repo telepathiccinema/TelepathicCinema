@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F363F3619CE3844009C4C33 /* 0.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F2919CE3844009C4C33 /* 0.mov */; };
+		0F363F3719CE3844009C4C33 /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F2A19CE3844009C4C33 /* 1.mov */; };
+		0F363F3819CE3844009C4C33 /* 2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F2B19CE3844009C4C33 /* 2.mov */; };
+		0F363F3919CE3844009C4C33 /* 3.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F2C19CE3844009C4C33 /* 3.mov */; };
+		0F363F3A19CE3844009C4C33 /* 11.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F2D19CE3844009C4C33 /* 11.mov */; };
+		0F363F3B19CE3844009C4C33 /* 12.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F2E19CE3844009C4C33 /* 12.mov */; };
+		0F363F3C19CE3844009C4C33 /* 13.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F2F19CE3844009C4C33 /* 13.mov */; };
+		0F363F3D19CE3844009C4C33 /* 21.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F3019CE3844009C4C33 /* 21.mov */; };
+		0F363F3E19CE3844009C4C33 /* 22.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F3119CE3844009C4C33 /* 22.mov */; };
+		0F363F3F19CE3844009C4C33 /* 23.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F3219CE3844009C4C33 /* 23.mov */; };
+		0F363F4019CE3844009C4C33 /* 31.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F3319CE3844009C4C33 /* 31.mov */; };
+		0F363F4119CE3844009C4C33 /* 32.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F3419CE3844009C4C33 /* 32.mov */; };
+		0F363F4219CE3844009C4C33 /* 33.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F363F3519CE3844009C4C33 /* 33.mov */; };
 		CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
 		CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */; };
 		CE18560019AA3BD600B552EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FF19AA3BD600B552EE /* UIKit.framework */; };
@@ -61,7 +74,6 @@
 		CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6819C9247B00380BE9 /* DDXMLDocument.m */; };
 		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
 		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
-		CEA6048A19CE2C880051887F /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEA6048919CE2C880051887F /* 1.mov */; };
 		CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +88,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F363F2919CE3844009C4C33 /* 0.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 0.mov; path = ../../SVN/telepathicCinema/testMovies/0.mov; sourceTree = "<group>"; };
+		0F363F2A19CE3844009C4C33 /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 1.mov; path = ../../SVN/telepathicCinema/testMovies/1.mov; sourceTree = "<group>"; };
+		0F363F2B19CE3844009C4C33 /* 2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 2.mov; path = ../../SVN/telepathicCinema/testMovies/2.mov; sourceTree = "<group>"; };
+		0F363F2C19CE3844009C4C33 /* 3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 3.mov; path = ../../SVN/telepathicCinema/testMovies/3.mov; sourceTree = "<group>"; };
+		0F363F2D19CE3844009C4C33 /* 11.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 11.mov; path = ../../SVN/telepathicCinema/testMovies/11.mov; sourceTree = "<group>"; };
+		0F363F2E19CE3844009C4C33 /* 12.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 12.mov; path = ../../SVN/telepathicCinema/testMovies/12.mov; sourceTree = "<group>"; };
+		0F363F2F19CE3844009C4C33 /* 13.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 13.mov; path = ../../SVN/telepathicCinema/testMovies/13.mov; sourceTree = "<group>"; };
+		0F363F3019CE3844009C4C33 /* 21.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 21.mov; path = ../../SVN/telepathicCinema/testMovies/21.mov; sourceTree = "<group>"; };
+		0F363F3119CE3844009C4C33 /* 22.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 22.mov; path = ../../SVN/telepathicCinema/testMovies/22.mov; sourceTree = "<group>"; };
+		0F363F3219CE3844009C4C33 /* 23.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 23.mov; path = ../../SVN/telepathicCinema/testMovies/23.mov; sourceTree = "<group>"; };
+		0F363F3319CE3844009C4C33 /* 31.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 31.mov; path = ../../SVN/telepathicCinema/testMovies/31.mov; sourceTree = "<group>"; };
+		0F363F3419CE3844009C4C33 /* 32.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 32.mov; path = ../../SVN/telepathicCinema/testMovies/32.mov; sourceTree = "<group>"; };
+		0F363F3519CE3844009C4C33 /* 33.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 33.mov; path = ../../SVN/telepathicCinema/testMovies/33.mov; sourceTree = "<group>"; };
 		CE1855F819AA3BD600B552EE /* Telepathic Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telepathic Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1855FB19AA3BD600B552EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,7 +179,6 @@
 		CE5F2C6B19C9247B00380BE9 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
 		CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE5F2C6E19C9247B00380BE9 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
-		CEA6048919CE2C880051887F /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 1.mov; sourceTree = "<group>"; };
 		CEFBB63D19B9F2100056FC0C /* TelepathicCinema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelepathicCinema.h; sourceTree = "<group>"; };
 		CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelepathicCinema.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -346,8 +370,20 @@
 		CE5F2C3B19C919C300380BE9 /* MovieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0F363F2919CE3844009C4C33 /* 0.mov */,
+				0F363F2A19CE3844009C4C33 /* 1.mov */,
+				0F363F2B19CE3844009C4C33 /* 2.mov */,
+				0F363F2C19CE3844009C4C33 /* 3.mov */,
+				0F363F2D19CE3844009C4C33 /* 11.mov */,
+				0F363F2E19CE3844009C4C33 /* 12.mov */,
+				0F363F2F19CE3844009C4C33 /* 13.mov */,
+				0F363F3019CE3844009C4C33 /* 21.mov */,
+				0F363F3119CE3844009C4C33 /* 22.mov */,
+				0F363F3219CE3844009C4C33 /* 23.mov */,
+				0F363F3319CE3844009C4C33 /* 31.mov */,
+				0F363F3419CE3844009C4C33 /* 32.mov */,
+				0F363F3519CE3844009C4C33 /* 33.mov */,
 				CE5F2C4019C91D2F00380BE9 /* 3.smil */,
-				CEA6048919CE2C880051887F /* 1.mov */,
 				CE5F2C3E19C91D1900380BE9 /* 2.smil */,
 				CE5F2C3C19C91BEA00380BE9 /* 1.smil */,
 			);
@@ -483,18 +519,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F363F3E19CE3844009C4C33 /* 22.mov in Resources */,
 				CE5F2C3419C8CFA700380BE9 /* 583-001-424-721-219-376-240-341-975-140-243.vlc in Resources */,
+				0F363F3C19CE3844009C4C33 /* 13.mov in Resources */,
 				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
 				CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */,
 				CE18561219AA3BD600B552EE /* Main_iPad.storyboard in Resources */,
 				CE18565719AA3E7400B552EE /* face.png in Resources */,
+				0F363F4119CE3844009C4C33 /* 32.mov in Resources */,
 				CE18565219AA3E7400B552EE /* candide3-ClosedMouth.wfm in Resources */,
-				CEA6048A19CE2C880051887F /* 1.mov in Resources */,
+				0F363F3719CE3844009C4C33 /* 1.mov in Resources */,
 				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
+				0F363F3F19CE3844009C4C33 /* 23.mov in Resources */,
 				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
 				CE18560F19AA3BD600B552EE /* Main_iPhone.storyboard in Resources */,
+				0F363F3A19CE3844009C4C33 /* 11.mov in Resources */,
 				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
+				0F363F4019CE3844009C4C33 /* 31.mov in Resources */,
+				0F363F3819CE3844009C4C33 /* 2.mov in Resources */,
+				0F363F3D19CE3844009C4C33 /* 21.mov in Resources */,
+				0F363F4219CE3844009C4C33 /* 33.mov in Resources */,
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
 				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,
 				CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */,
@@ -502,10 +547,13 @@
 				CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */,
 				CE18565119AA3E7400B552EE /* candide.wfm in Resources */,
 				CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */,
+				0F363F3919CE3844009C4C33 /* 3.mov in Resources */,
 				CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */,
 				CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */,
 				CE18565419AA3E7400B552EE /* candide3.fdp in Resources */,
+				0F363F3B19CE3844009C4C33 /* 12.mov in Resources */,
 				CE18565A19AA3E7400B552EE /* FFT - MidPerformance.cfg in Resources */,
+				0F363F3619CE3844009C4C33 /* 0.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
