@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TCRegion : NSObject
+#define GREEN {0.0, 1.0, 0.0, 1.0}
+#define YELLOW {1.0, 1.0, 0.0, 1.0}
 
+@interface TCRegion : NSObject
+{
+    bool isHit;
+}
 @property NSString* target;
 @property CGRect box;
 @property float starttime;

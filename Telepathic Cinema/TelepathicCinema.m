@@ -31,17 +31,35 @@
     self.cursor.confidence = 0;
     self->player = avplayer;
     
+    
     NSBundle *bundle = [NSBundle mainBundle];
-    NSURL *moviePath1 = [bundle URLForResource:[currentScene getTargetFile] withExtension:[currentScene getTargetExtension]];
-    AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
+    NSURL *moviePath1 = [bundle URLForResource: [currentScene getTargetFile] withExtension:[currentScene getTargetExtension]];
+    if(moviePath1)
+    {
+        
+        AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
+        [self->player insertItem:video1 afterItem:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(sceneEnded:)
+                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                   object:video1 ];
+        [self->player insertItem:video1 afterItem:nil];
+        [self->player play];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(sceneEnded:)
+                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                   object:[self->player currentItem]];
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find file."
+                                                        message:[@"Failed to load resource: " stringByAppendingString: currentScene.videoFile]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     
-    [self->player insertItem:video1 afterItem:nil];
-    [self->player play];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(sceneEnded:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self->player currentItem]];
     
     return self;
 }
