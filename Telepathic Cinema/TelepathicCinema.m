@@ -43,14 +43,7 @@
                                                  selector:@selector(sceneEnded:)
                                                      name:AVPlayerItemDidPlayToEndTimeNotification
                                                    object:video1 ];
-        [self->player insertItem:video1 afterItem:nil];
         [self->player play];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(sceneEnded:)
-                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-                                                   object:[self->player currentItem]];
-        
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find file."
                                                         message:[@"Failed to load resource: " stringByAppendingString: currentScene.videoFile]
@@ -165,6 +158,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self->player currentItem]];
     [self->player advanceToNextItem];
     currentScene = queuedScene;
+
+    
 }
 
 @end
