@@ -12,6 +12,7 @@
 @synthesize overlay;
 @synthesize currentScene;
 @synthesize queuedScene;
+@synthesize defaultScene;
 
 -(id)initWithView:(CustomGLView *)view
          andScene:(NSString * )filename
@@ -31,10 +32,12 @@
     self->player = avplayer;
     
     NSBundle *bundle = [NSBundle mainBundle];
-    NSURL *moviePath1 = [bundle URLForResource:@"left" withExtension:@"mov"];
+    NSURL *moviePath1 = [bundle URLForResource:[currentScene getTargetFile] withExtension:[currentScene getTargetExtension]];
     AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
+    
     [self->player insertItem:video1 afterItem:nil];
     [self->player play];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(sceneEnded:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
@@ -45,34 +48,46 @@
 
 
 -(void)queueScene{
-
+    
     TCRegion* winner;
+    
     for(TCRegion* r in self.currentScene.regions)
     {
-        NSLog(@"==Queueing scene..iterating through %@", r.target);
         if(!winner)
-        {
             winner = r;
-        }else
+        else
             if(r.count > winner.count)
                 winner = r;
-        NSLog(@"==iteration end winner is %@ with a score of %i ", winner.target, winner.count);
     }
+    
     if(!winner)
         return;
     
     queuedScene= [[TCScene alloc] initWithName: winner.target];
     
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSURL *moviePath1 = [bundle URLForResource:winner.target withExtension:@"mov"];
-    AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
-    [self->player insertItem:video1 afterItem:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(sceneEnded:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:video1 ];
     
-    NSLog(@"==========queued scene %@", queuedScene.name);
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSURL *moviePath1 = [bundle URLForResource: [queuedScene getTargetFile] withExtension:[queuedScene getTargetExtension]];
+    if(moviePath1)
+    {
+        
+        AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
+        [self->player insertItem:video1 afterItem:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(sceneEnded:)
+                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                   object:video1 ];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find file."
+                                                        message:@"Failed to find resource."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    
 }
 
 

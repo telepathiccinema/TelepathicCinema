@@ -10,6 +10,11 @@
 
 @implementation TCGaze
 
+-(void)resetTimer
+{
+    self.inactiveTime = 0;
+}
+
 -(void) drawWithContext: (CGContextRef) context
 {
     if(self.active)
@@ -29,6 +34,7 @@
     else
     {
         self.active = NO;
+        self.inactiveTime++;
         return;
     }
     

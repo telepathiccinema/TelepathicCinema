@@ -32,19 +32,19 @@
     self.tracker = [[TrackerWrapper alloc] init];
 	[self.tracker initTracker:glView];
     
-    resultsDisplayTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60
+    resultsDisplayTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30
 														   target:self
 														 selector:@selector(update:)
 														 userInfo:nil
 														  repeats:YES];
     [self.tracker startTrackingFromCam];
-    [self setupMovie];
-    tc = [[TelepathicCinema alloc] initWithView:glView andScene:@"start" andPlayer:self.mPlayer];
+    [self setupVideoPlayer];
+    tc = [[TelepathicCinema alloc] initWithView:glView andScene:@"1.smil" andPlayer:self.mPlayer];
     [self.view.layer addSublayer:tc.overlay];
     
 }
 
--(void) setupMovie
+-(void) setupVideoPlayer
 {
     
     self.mPlayer = [AVQueuePlayer queuePlayerWithItems:[NSArray arrayWithObjects:nil]];
@@ -54,8 +54,6 @@
     movieLayer = [AVPlayerLayer playerLayerWithPlayer:self.mPlayer];
     
     movieLayer.frame = self.view.bounds;
-    
-    NSLog(@"Video deets: %f,%f of size: %f, %f", movieLayer.frame.origin.x, movieLayer.frame.origin.y, movieLayer.frame.size.width, movieLayer.frame.size.height);
     
     [self.view.layer addSublayer: movieLayer];
     

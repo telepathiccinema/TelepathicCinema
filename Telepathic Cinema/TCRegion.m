@@ -11,16 +11,19 @@
 @implementation TCRegion
 @synthesize count;
 @synthesize target;
+@synthesize isCalibration;
 
 -(id)initWithTarget: (NSString *) name
            withRect: (CGRect) r
       withStartTime: (float) start
-        withEndTime: (float) end{
+        withEndTime: (float) end
+        isCalibration:(BOOL)calibrationFlag{
     
     self.target = name;
     self.box = r;
     self.starttime = start;
     self.endtime = end;
+    self.isCalibration = calibrationFlag;
     return self;
 }
 
@@ -39,18 +42,29 @@
 -(void)drawWithContext: (CGContextRef ) context
                   time:(float) t
 {
-    if(t < self.starttime || t > self.endtime)
-        return;
+    if( self.starttime != 0 && self.endtime != 0)
+        if(t < self.starttime || t > self.endtime)
+            return;
     
     CGContextMoveToPoint(context, self.box.origin.x, self.box.origin.y);    //tl
     CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y);   //tr
     CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y+self.box.size.height);//br
     CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y + self.box.size.height); //bl
     CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y);    //tl
-    
     CGContextStrokePath(context);
     
 }
+
+-(NSString *)getTargetFile
+{
+    return [self.target substringToIndex: [self.target rangeOfString:[@"." stringByAppendingString:[self getTargetExtension]]].location];
+}
+
+-(NSString *)getTargetExtension
+{
+    return [self.target pathExtension];
+}
+
 
 
 @end

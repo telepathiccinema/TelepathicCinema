@@ -15,16 +15,21 @@
 @property float starttime;
 @property float endtime;
 @property int count;
+@property bool isCalibration;
 
 -(id)initWithTarget: (NSString *) name
-         withRect: (CGRect ) r
+         withRect: (CGRect ) rect
     withStartTime: (float) start
-      withEndTime: (float) end;
+      withEndTime: (float) end
+      isCalibration: (BOOL) calibration;
 
 -(void)checkHitWith: (CGRect ) target
              atTime: (float) t;
 
 -(void)drawWithContext: (CGContextRef ) c
                   time: (float) t;
+
+-(NSString *)getTargetFile;
+-(NSString *)getTargetExtension;
 
 @end

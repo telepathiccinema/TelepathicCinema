@@ -7,11 +7,16 @@
 
 #import <Foundation/Foundation.h>
 #import "TCRegion.h"
+#import "DDXML.h"
 
 @interface TCScene : NSObject
 @property(strong, retain) NSString* name;
 @property(strong, retain) NSMutableArray* regions;
+@property(strong, retain) NSString* videoFile;
 
 -(id)initWithName: (NSString *) filename;
+-(float)coordToFloat: (NSString *) c;
+-(NSString *)getTargetFile;
+-(NSString *)getTargetExtension;
 
 @end

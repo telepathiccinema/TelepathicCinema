@@ -25,7 +25,7 @@ using namespace VisageSDK;
     
     //initialize licensing
     //example how to initialize license key
-    //initializeLicenseManager("license-key-filename.vlc");
+    initializeLicenseManager("583-001-424-721-219-376-240-341-975-140-243.vlc");
     
     
 	glView = view;
