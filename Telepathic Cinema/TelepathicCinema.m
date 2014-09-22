@@ -76,8 +76,6 @@
     
     queuedScene= [[TCScene alloc] initWithName: winner.target];
     
-    
-    
     NSBundle *bundle = [NSBundle mainBundle];
     NSURL *moviePath1 = [bundle URLForResource: [queuedScene getTargetFile] withExtension:[queuedScene getTargetExtension]];
     if(moviePath1)
@@ -158,8 +156,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self->player currentItem]];
     [self->player advanceToNextItem];
     currentScene = queuedScene;
-
-    
+    [self.cursor resetTimer];
 }
 
 @end

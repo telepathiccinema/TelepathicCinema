@@ -775,6 +775,11 @@ void drawFeaturePoints2D(int* points,
     return trackingData.gazeDirection;
 }
 
+-(float *) getGlobalGaze
+{
+    return trackingData.gazeDirectionGlobal;
+}
+
 - (void) drawGazeDirection: (const float *) gazeDirection
               withFeatures: (FDP *) featurePoints3D
 {

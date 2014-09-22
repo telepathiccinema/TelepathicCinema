@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreText/CoreText.h>
 
 #define GREEN {0.0, 1.0, 0.0, 1.0}
 #define YELLOW {1.0, 1.0, 0.0, 1.0}
@@ -16,6 +17,7 @@
     bool isHit;
 }
 @property NSString* target;
+@property NSString* title;
 @property CGRect box;
 @property float starttime;
 @property float endtime;
@@ -23,6 +25,7 @@
 @property bool isCalibration;
 
 -(id)initWithTarget: (NSString *) name
+          withTitle: (NSString *)title
          withRect: (CGRect ) rect
     withStartTime: (float) start
       withEndTime: (float) end

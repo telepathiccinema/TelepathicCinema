@@ -12,8 +12,10 @@
 @synthesize count;
 @synthesize target;
 @synthesize isCalibration;
+@synthesize title;
 
 -(id)initWithTarget: (NSString *) name
+          withTitle: (NSString *) t
            withRect: (CGRect) r
       withStartTime: (float) start
         withEndTime: (float) end
@@ -24,14 +26,17 @@
     self.starttime = start;
     self.endtime = end;
     self.isCalibration = calibrationFlag;
+    self.title = t;
+    NSLog(@"Created Region: %@ => %f,%f,%f,%f => start: %f => end: %f", name, r.origin.x, r.origin.y, r.size.width, r.size.height, start, end);
     return self;
 }
 
 -(void)checkHitWith: (CGRect) collider
          atTime:(float)t
 {
-    if(t < self.starttime || t > self.endtime)
-        return;
+    if( self.starttime != 0 && self.endtime != 0)
+        if(t < self.starttime || t > self.endtime)
+            return;
     
     if(CGRectIntersectsRect(self.box, collider))
     {
@@ -48,7 +53,7 @@
     if( self.starttime != 0 && self.endtime != 0)
         if(t < self.starttime || t > self.endtime)
             return;
-
+    CGContextSaveGState(context);
     if(isHit)
         CGContextSetStrokeColor(context, CGColorGetComponents([UIColor greenColor].CGColor));
     else
@@ -62,7 +67,40 @@
     CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y + self.box.size.height); //bl
     CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y);    //tl
     CGContextStrokePath(context);
+
+    CGContextSaveGState(context);
+    NSString *text = [NSString stringWithFormat: @"%@(%0.1f)", self.title, self.count*1.0/30.0];
     
+    CGColorRef color = [UIColor whiteColor].CGColor;
+    CTFontRef font = CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 20.0, NULL);
+
+    NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    CFBridgingRelease(font), (NSString *)kCTFontAttributeName,
+                                    color, (NSString *)kCTForegroundColorAttributeName,
+                                    nil];
+    
+    
+    NSAttributedString *stringToDraw = [[NSAttributedString alloc] initWithString:text attributes:attributesDict];
+    
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)stringToDraw);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
+    transform = CGAffineTransformTranslate(transform, 0, - self.box.size.height);
+
+    CGRect frameText = CGRectMake(self.box.origin.x+self.box.size.width/2, self.box.origin.y+self.box.size.height/2,
+                                  self.box.origin.x+self.box.size.width, self.box.origin.y+self.box.size.height);
+    CGRect newRectForUIKit = CGRectApplyAffineTransform(frameText, transform);
+    CGPathAddRect(path, NULL, newRectForUIKit);
+    
+    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
+
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    CGContextTranslateCTM(context, 0, ([self box]).size.height );
+    CGContextScaleCTM(context, 1.0, -1.0);
+ 
+    CTFrameDraw(frame, context);
+    CFRelease(path);
+    CGContextRestoreGState(context);
 }
 
 -(NSString *)getTargetFile

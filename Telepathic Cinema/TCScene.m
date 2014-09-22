@@ -57,6 +57,9 @@
             float start = [startTime floatValue];
             float end = [endTime floatValue];
             float dur = [duration floatValue];
+            
+            if(!title)
+                title = target;
 
             //make sense of them all
             if([startTime hasSuffix:@"s"] == YES)
@@ -94,7 +97,9 @@
                       target, aId, title, topLeftX, topLeftY, bottomRightX, bottomRightY, start, end, dur);
                 
                 [self.regions addObject:[[TCRegion alloc] initWithTarget:target
-                                                                withRect: CGRectMake(topLeftX*1024, topLeftY*768, bottomRightX*1024, bottomRightY*768)
+                                                               withTitle:title
+                                                                withRect: CGRectMake(topLeftX*1024, topLeftY*768,
+                                                                                     (bottomRightX-topLeftX)*1024, (bottomRightY-topLeftY)*768)
                                                            withStartTime:start
                                                              withEndTime:end
                                                            isCalibration:false]];

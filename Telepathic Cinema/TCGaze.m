@@ -21,8 +21,8 @@
         CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
     else
         CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
-    CGContextSetFillColor(context, CGColorGetComponents([UIColor whiteColor].CGColor));
-    CGContextAddArc(context,self.boundingBox.origin.x, self.boundingBox.origin.y,self.boundingBox.size.width,0,M_PI*2,YES);
+    
+    CGContextAddArc(context,self.boundingBox.origin.x+self.boundingBox.size.width/2, self.boundingBox.origin.y+self.boundingBox.size.height/2,self.boundingBox.size.width/2,0,M_PI*2,YES);
     CGContextStrokePath(context);
 
 }
@@ -42,7 +42,7 @@
     float* d = [tracker getGaze];
     float newx, newy;
     
-//    NSLog(@"Tracking data %f, %f", d[0], d[1]);
+    NSLog(@"Tracking data %f, %f", d[0], d[1]);
     if(d[0] < 0)
         newx = self.boundingBox.origin.x - 10;
     else if(d[0] > 0)
