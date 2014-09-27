@@ -238,6 +238,12 @@ typedef void FDP;
 - (void)displayTrackingResults;
 - (int) getTrackingStatus;
 - (float*) getGaze;
+- (float*) getGlobalGaze;
+- (float*) getFaceTranslation;
 - (void) blank;
 - (void) display: (BOOL) show;
+- (float) getCameraBrightness;
+- (void) initGazeCalibration;
+- (void) addGazeCalibrationPoint: (float) x andY: (float) y;
+- (void) endGazeCalibration;
 @end

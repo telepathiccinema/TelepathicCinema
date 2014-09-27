@@ -22,10 +22,10 @@ using namespace VisageSDK;
 {
     //initialize multithreading
     BOOL isMT = [self startMultithread];
-    
+    NSLog(@"here again..");
     //initialize licensing
     //example how to initialize license key
-    initializeLicenseManager("583-001-424-721-219-376-240-341-975-140-243.vlc");
+    //initializeLicenseManager("637-055-282-782-699-137-004-446-835-604-044.vlc");
     
     
 	glView = view;
@@ -34,9 +34,7 @@ using namespace VisageSDK;
 
     // choose configuration based on device at run-time
     NSString* deviceType = [UIDeviceHardware platform];
-    
-    NSLog(@"%@", deviceType);
-#ifdef FACE_TRACKER    
+#ifdef FACE_TRACKER
     if ([deviceType hasPrefix:@"iPhone3"])
         tracker = new VisageTracker2("FFT - LowPerformance.cfg");      // iPhone4
     else if ([deviceType hasPrefix:@"iPhone4"])
@@ -274,6 +272,19 @@ using namespace VisageSDK;
     
     videoAspect = image->width / (float) image->height;
     glHeight = glWidth / videoAspect;
+}
+
+-(float) getCameraBrightness
+{
+    if(trackingData.frame)
+    {
+        CvRect old_roi = cvGetImageROI(trackingData.frame);
+        cvSetImageROI(trackingData.frame, cvRect(trackingData.frame->width/2 ,trackingData.frame->height/2,trackingData.frame->width,20));
+        CvScalar c = cvAvg(trackingData.frame);
+        cvSetImageROI(trackingData.frame,old_roi); // reset old roi
+        return c.val[0];
+    }
+    return 0.0f;
 }
 
 - (void) setFrameTexture: (const IplImage *)image
@@ -775,6 +786,12 @@ void drawFeaturePoints2D(int* points,
     return trackingData.gazeDirection;
 }
 
+- (float* ) getFaceTranslation
+{
+    tracker->getTrackingData(&trackingData);
+    return trackingData.faceTranslation;
+}
+
 -(float *) getGlobalGaze
 {
     return trackingData.gazeDirectionGlobal;
@@ -905,8 +922,8 @@ int last_pts = 0;
 	if(framecount == MEASURE_FRAMES) framecount = 0;
 	float displayFrameRate = MEASURE_FRAMES * 1000.0f / (float)(currentTime - last_times[framecount]);
 	last_times[framecount] = currentTime;
-    if(framecount%30 == 0)
-        NSLog(@"Framerate: %f", displayFrameRate);
+//    if(framecount%30 == 0)
+//        NSLog(@"Framerate: %f", displayFrameRate);
     
 	if (trackingStatus == TRACK_STAT_OK) {
         
@@ -1080,4 +1097,6 @@ int last_pts = 0;
 {
     show = flag;
 }
+
+
 @end
