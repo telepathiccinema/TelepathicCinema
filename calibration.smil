@@ -2,7 +2,6 @@
     <head></head>
     <body>
         <par>
-<<<<<<< HEAD
             <video id="calibration" src="1.mov" />
             <area title="center/center" coords="50%,50%,12.5%,12.5%" begin="0s" dur="5s"/>
             <area title="left/center" coords="0%,50%,12.5%,12.5%" begin="5s" dur="5s"/>
@@ -17,18 +16,3 @@
         </par>
     </body>
 </smil>
-=======
-            <video src="0.mov" />
-            <area id="calibration" title="center/center" coords="50%,50%,12.5%,12.5%" begin="0s" dur="5s"/>
-            <area id="calibration" title="left/center" coords="0%,50%,12.5%,12.5%" begin="5s" dur="5s"/>
-            <area id="calibration" title="right/center" coords="100%,50%,12.5%,12.5%" begin="10s" dur="5s"/>
-            <area id="calibration" title="center/top" coords="50%,0%,12.5%,12.5%" begin="15s" dur="5s"/>
-            <area id="calibration" title="center/bottom" coords="50%,100%,12.5%,12.5%" begin="20s" dur="5s"/>
-            <area id="calibration" title="left/top" coords="0%,0%,12.5%,12.5%" begin="25s" dur="5s"/>
-            <area id="calibration" title="right/bottom" coords="100%,100%,12.5%,12.5%" begin="30s" dur="5s"/>
-            <area id="calibration" title="left/bottom" coords="0%,100%,12.5%,12.5%" begin="35s" dur="5s"/>
-            <area id="calibration" title="right/top" coords="100%,0%,12.5%,12.5%" begin="40s" dur="5s"/>
-        </par>
-    </body>
-</smil>
->>>>>>> f7931cc1a5fc206ea274209bf9b3ce9f2ec2ba78
