@@ -31,10 +31,10 @@
       withEndTime: (float) end
       isCalibration: (BOOL) calibration;
 
--(void)checkHitWith: (CGRect ) target
+-(bool)checkHitWith: (CGRect ) target
              atTime: (float) t;
 
--(void)drawWithContext: (CGContextRef ) c
+-(bool)drawWithContext: (CGContextRef ) c
                   time: (float) t;
 
 -(NSString *)getTargetFile;

@@ -31,6 +31,7 @@
     self.cursor.boundingBox = CGRectMake(overlay.frame.size.width/2, overlay.frame.size.height/2, 100,100);
     self.cursor.confidence = 0;
     self->player = avplayer;
+    isDone = NO;
     
     
     NSBundle *bundle = [NSBundle mainBundle];
@@ -51,6 +52,7 @@
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
+        isDone = YES;
         [alert show];
     }
     
@@ -94,10 +96,9 @@
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
+        isDone = YES;
         [alert show];
     }
-    
-    
 }
 
 
@@ -109,9 +110,13 @@
 
 -(void)update: (AVQueuePlayer *) player withTracker:(TrackerWrapper *)tracker
 {
+    if(isDone)
+        return;
+    
     float currentTime = CMTimeGetSeconds([[self->player currentItem] currentTime]);
     float duration = CMTimeGetSeconds([[self->player currentItem] duration]);
     
+    //queue up next scene
     if(duration - currentTime <= 1.0 && duration-currentTime > 0 && [[self->player items] count] <= 1)
     {
         [self queueScene];
@@ -121,10 +126,7 @@
     
     //check collisions on regions
     if(self.cursor.active == YES)
-        for(TCRegion* r in self.currentScene.regions)
-        {
-            [r checkHitWith: self.cursor.boundingBox atTime:CMTimeGetSeconds([self->player currentTime])];
-        }
+        [currentScene updateWithTracker:tracker withGaze:self.cursor withTime:CMTimeGetSeconds([self->player currentTime])];
 }
 
 
@@ -138,13 +140,7 @@
     CGContextFillRect(context, CGRectMake(0.0f, 0.0f, image.size.width, image.size.height));
     CGContextSetLineWidth(context, 4.0f);
     
-    TCRegion *region;
-    
-    for(region in currentScene.regions)
-    {
-        [region drawWithContext:context time: CMTimeGetSeconds([[self->player currentItem] currentTime])];
-    }
-    
+    [currentScene drawWithContext: context withTime: CMTimeGetSeconds([[self->player currentItem] currentTime])];
     [self.cursor drawWithContext:context];
     
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();

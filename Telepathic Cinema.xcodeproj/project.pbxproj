@@ -61,6 +61,7 @@
 		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
 		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
 		CEA6048A19CE2C880051887F /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEA6048919CE2C880051887F /* 1.mov */; };
+		CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEB5F2D819D669FB000CDF9E /* calibration.smil */; };
 		CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */ = {isa = PBXBuildFile; fileRef = CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */; };
 		CEEC98EB19CFC32800CCF95F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC98EA19CFC32800CCF95F /* CoreText.framework */; };
 		CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */; };
@@ -162,6 +163,7 @@
 		CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE5F2C6E19C9247B00380BE9 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		CEA6048919CE2C880051887F /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 1.mov; sourceTree = "<group>"; };
+		CEB5F2D819D669FB000CDF9E /* calibration.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calibration.smil; sourceTree = "<group>"; };
 		CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "637-055-282-782-699-137-004-446-835-604-044.vlc"; sourceTree = "<group>"; };
 		CEEC98EA19CFC32800CCF95F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		CEFBB63D19B9F2100056FC0C /* TelepathicCinema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelepathicCinema.h; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		CE5F2C3B19C919C300380BE9 /* MovieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				CEB5F2D819D669FB000CDF9E /* calibration.smil */,
 				CE5F2C4019C91D2F00380BE9 /* 3.smil */,
 				CE5F2C3E19C91D1900380BE9 /* 2.smil */,
 				CE5F2C3C19C91BEA00380BE9 /* 1.smil */,
@@ -511,6 +514,7 @@
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
 				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
 				CE18560F19AA3BD600B552EE /* Main_iPhone.storyboard in Resources */,
+				CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */,
 				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
 				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,

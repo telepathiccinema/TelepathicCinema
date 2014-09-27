@@ -31,12 +31,12 @@
     return self;
 }
 
--(void)checkHitWith: (CGRect) collider
+-(bool)checkHitWith: (CGRect) collider
          atTime:(float)t
 {
     if( self.starttime != 0 && self.endtime != 0)
         if(t < self.starttime || t > self.endtime)
-            return;
+            return NO;
     
     if(CGRectIntersectsRect(self.box, collider))
     {
@@ -45,14 +45,17 @@
     }
     else
         isHit = NO;
+    
+    return YES;
 }
 
--(void)drawWithContext: (CGContextRef ) context
+-(bool)drawWithContext: (CGContextRef ) context
                   time:(float) t
 {
-    if( self.starttime != 0 && self.endtime != 0)
+    if(self.endtime != 0)
         if(t < self.starttime || t > self.endtime)
-            return;
+            return NO;
+    
     CGContextSaveGState(context);
     if(isHit)
         CGContextSetStrokeColor(context, CGColorGetComponents([UIColor greenColor].CGColor));
@@ -101,6 +104,7 @@
     CTFrameDraw(frame, context);
     CFRelease(path);
     CGContextRestoreGState(context);
+    return YES;
 }
 
 -(NSString *)getTargetFile

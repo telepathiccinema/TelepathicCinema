@@ -1,0 +1,18 @@
+<smil>
+    <head></head>
+    <body>
+        <par>
+            <video id="calibration" src="1.mov" />
+            <area title="center/center" coords="50%,50%,12.5%,12.5%" begin="0s" dur="5s"/>
+            <area title="left/center" coords="0%,50%,12.5%,12.5%" begin="5s" dur="5s"/>
+            <area title="right/center" coords="100%,50%,12.5%,12.5%" begin="10s" dur="5s"/>
+            <area title="center/top" coords="50%,0%,12.5%,12.5%" begin="15s" dur="5s"/>
+            <area title="center/bottom" coords="50%,100%,12.5%,12.5%" begin="20s" dur="5s"/>
+            <area title="left/top" coords="0%,0%,12.5%,12.5%" begin="25s" dur="5s"/>
+            <area title="right/bottom" coords="100%,100%,12.5%,12.5%" begin="30s" dur="5s"/>
+            <area title="left/bottom" coords="0%,100%,12.5%,12.5%" begin="35s" dur="5s"/>
+            <area title="right/top" coords="100%,0%,12.5%,12.5%" begin="40s" dur="5s"/>
+            <area id="default" href="2.smil" coords="0%,0%,0%,0%"/>
+        </par>
+    </body>
+</smil>

@@ -40,6 +40,12 @@
 
         DDXMLElement *vid = [vidResult firstObject];
         self.videoFile = [[vid attributeForName:@"src"] stringValue];
+        self->sceneID = [[vid attributeForName:@"id"] stringValue];
+        if([self->sceneID isEqualToString:@"calibration"])
+            self->isCalibration = YES;
+        else
+            self->isCalibration = NO;
+        
 
         //get anchors and make regions
         NSArray *anchorResult = [par nodesForXPath:@"area" error:&error];
@@ -85,33 +91,33 @@
             {
                 NSString *tlx = [parts objectAtIndex:0];
                 NSString *tly = [parts objectAtIndex:1];
-                NSString *brx = [parts objectAtIndex:2];
-                NSString *bry = [parts objectAtIndex:3];
+                NSString *w = [parts objectAtIndex:2];
+                NSString *h = [parts objectAtIndex:3];
 
                 float topLeftX = [self coordToFloat:tlx];
                 float topLeftY = [self coordToFloat:tly];
-                float bottomRightX = [self coordToFloat:brx];
-                float bottomRightY = [self coordToFloat:bry];
+                float width = [self coordToFloat:w];
+                float height = [self coordToFloat:h];
 
-                NSLog(@"Adding Region: target: %@ =>id: %@  => title: %@ => coords=>%f,%f,%f,%f start=>%f end=>%f dur=>%f",
-                      target, aId, title, topLeftX, topLeftY, bottomRightX, bottomRightY, start, end, dur);
+                NSLog(@"Adding Region: target: %@ =>id: %@  => title: %@ => coords=>%f,%f,%f,%f start=>%f end=>%f dur=>%f ",
+                      target, aId, title, topLeftX, topLeftY, width, height, start, end, dur);
                 
                 [self.regions addObject:[[TCRegion alloc] initWithTarget:target
                                                                withTitle:title
                                                                 withRect: CGRectMake(topLeftX*1024, topLeftY*768,
-                                                                                     (bottomRightX-topLeftX)*1024, (bottomRightY-topLeftY)*768)
+                                                                                     (width)*1024, (height)*768)
                                                            withStartTime:start
                                                              withEndTime:end
                                                            isCalibration:false]];
             }
             else{
-                NSLog(@"No area found");
+                NSLog(@"No area found, last scene?");
             }
         }
 
     }
     
-    NSLog(@"New Scene Created for video: %@ with %i regions.", self.videoFile, [self.regions count] );
+    NSLog(@"New Scene Created for video: %@ with %i regions. isCalibration=>%d", self.videoFile, [self.regions count] , isCalibration);
     return self;
 }
 
@@ -137,5 +143,31 @@
     return [self.videoFile pathExtension];
 }
 
+-(void) updateWithTracker:(TrackerWrapper *) tracker
+                 withGaze:(TCGaze *) cursor
+                 withTime:(float) t
+{
+    for(TCRegion* r in self.regions)
+    {
+        if ([r checkHitWith: cursor.boundingBox atTime:t])
+            if(isCalibration)
+            {
+                //call gaze to record callibration data
+                float* gazedata = [tracker getGaze];
+                NSLog(@"Record Calibration Data: %.2f, %.2f, %.2f", gazedata[0], gazedata[1], gazedata[2]);
+                return;
+            }
+    }
+}
 
+-(void) drawWithContext:(CGContextRef)context withTime:(float)t
+{    
+    for(TCRegion* region in self.regions)
+    {
+        
+        if([region drawWithContext:context time: t])
+            if(isCalibration)
+                return;
+    }
+}
 @end

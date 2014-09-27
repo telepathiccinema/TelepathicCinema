@@ -24,6 +24,7 @@
     AVQueuePlayer *player;
     float gazeLimit;
     float calibrationLimit;
+    bool isDone;
 }
 
 @property (nonatomic, retain) CALayer* overlay;

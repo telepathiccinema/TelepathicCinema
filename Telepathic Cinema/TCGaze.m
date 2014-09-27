@@ -43,7 +43,7 @@
     float* f = [tracker getFaceTranslation];
     float newx, newy;
     
-    NSLog(@"DATA,%0.02f,%0.02f,%0.02f,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2], f[0], f[1], f[2]);
+    //NSLog(@"DATA,%0.02f,%0.02f,%0.02f,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2], f[0], f[1], f[2]);
 //    
 //
 //    
