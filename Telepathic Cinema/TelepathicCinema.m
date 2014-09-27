@@ -25,6 +25,7 @@
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     overlay.contents = (__bridge id)(image.CGImage);
+    overlay.hidden = false;
     currentScene = [[TCScene alloc] initWithName:filename];
     self.cursor = [[TCGaze alloc] init];
     self.cursor.boundingBox = CGRectMake(overlay.frame.size.width/2, overlay.frame.size.height/2, 100,100);
@@ -119,10 +120,11 @@
     [self.cursor updateWithTracker:tracker];
     
     //check collisions on regions
-    for(TCRegion* r in self.currentScene.regions)
-    {
-        [r checkHitWith: self.cursor.boundingBox atTime:CMTimeGetSeconds([self->player currentTime])];
-    }
+    if(self.cursor.active == YES)
+        for(TCRegion* r in self.currentScene.regions)
+        {
+            [r checkHitWith: self.cursor.boundingBox atTime:CMTimeGetSeconds([self->player currentTime])];
+        }
 }
 
 

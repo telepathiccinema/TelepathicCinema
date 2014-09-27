@@ -52,7 +52,6 @@
 		CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9C19BB8BB70033A237 /* TCScene.m */; };
 		CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9F19BB95190033A237 /* TCRegion.m */; };
 		CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDFA219BBBDA00033A237 /* TCGaze.m */; };
-		CE5F2C3419C8CFA700380BE9 /* 583-001-424-721-219-376-240-341-975-140-243.vlc in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3319C8CFA700380BE9 /* 583-001-424-721-219-376-240-341-975-140-243.vlc */; };
 		CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3C19C91BEA00380BE9 /* 1.smil */; };
 		CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3E19C91D1900380BE9 /* 2.smil */; };
 		CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C4019C91D2F00380BE9 /* 3.smil */; };
@@ -62,6 +61,7 @@
 		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
 		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
 		CEA6048A19CE2C880051887F /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEA6048919CE2C880051887F /* 1.mov */; };
+		CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */ = {isa = PBXBuildFile; fileRef = CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */; };
 		CEEC98EB19CFC32800CCF95F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC98EA19CFC32800CCF95F /* CoreText.framework */; };
 		CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */; };
 /* End PBXBuildFile section */
@@ -139,7 +139,13 @@
 		CE1BDF9F19BB95190033A237 /* TCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRegion.m; sourceTree = "<group>"; };
 		CE1BDFA119BBBDA00033A237 /* TCGaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGaze.h; sourceTree = "<group>"; };
 		CE1BDFA219BBBDA00033A237 /* TCGaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGaze.m; sourceTree = "<group>"; };
-		CE5F2C3319C8CFA700380BE9 /* 583-001-424-721-219-376-240-341-975-140-243.vlc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "583-001-424-721-219-376-240-341-975-140-243.vlc"; sourceTree = "<group>"; };
+		CE556D8019D5253800ED25FA /* TrackerGazeCalibrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackerGazeCalibrator.h; sourceTree = "<group>"; };
+		CE556D8119D5255100ED25FA /* Estimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Estimator.h; sourceTree = "<group>"; };
+		CE556D8219D5255100ED25FA /* Estimator6P.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Estimator6P.h; sourceTree = "<group>"; };
+		CE556D8319D5255E00ED25FA /* VisageEstimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisageEstimator.h; sourceTree = "<group>"; };
+		CE556D8419D5257700ED25FA /* Weighter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weighter.h; sourceTree = "<group>"; };
+		CE556D8519D5258200ED25FA /* MAFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAFilter.h; sourceTree = "<group>"; };
+		CE556D8619D525B000ED25FA /* RANSACUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RANSACUtil.h; sourceTree = "<group>"; };
 		CE5F2C3C19C91BEA00380BE9 /* 1.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.smil; sourceTree = "<group>"; };
 		CE5F2C3E19C91D1900380BE9 /* 2.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.smil; sourceTree = "<group>"; };
 		CE5F2C4019C91D2F00380BE9 /* 3.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.smil; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 		CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE5F2C6E19C9247B00380BE9 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		CEA6048919CE2C880051887F /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 1.mov; sourceTree = "<group>"; };
+		CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "637-055-282-782-699-137-004-446-835-604-044.vlc"; sourceTree = "<group>"; };
 		CEEC98EA19CFC32800CCF95F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		CEFBB63D19B9F2100056FC0C /* TelepathicCinema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelepathicCinema.h; sourceTree = "<group>"; };
 		CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelepathicCinema.m; sourceTree = "<group>"; };
@@ -292,11 +299,11 @@
 		CE18564119AA3E4000B552EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE5F2C3319C8CFA700380BE9 /* 583-001-424-721-219-376-240-341-975-140-243.vlc */,
 				CE18564219AA3E7400B552EE /* bdtsdata */,
 				CE18564319AA3E7400B552EE /* candide.wfm */,
 				CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */,
 				CE18564519AA3E7400B552EE /* candide3-exp.wfm */,
+				CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */,
 				CE18564619AA3E7400B552EE /* candide3.fdp */,
 				CE18564719AA3E7400B552EE /* candide3.wfm */,
 				CE18564819AA3E7400B552EE /* Face Detector.cfg */,
@@ -314,6 +321,13 @@
 		CE18566719AAB09900B552EE /* VisageHeaders */ = {
 			isa = PBXGroup;
 			children = (
+				CE556D8519D5258200ED25FA /* MAFilter.h */,
+				CE556D8119D5255100ED25FA /* Estimator.h */,
+				CE556D8619D525B000ED25FA /* RANSACUtil.h */,
+				CE556D8219D5255100ED25FA /* Estimator6P.h */,
+				CE556D8019D5253800ED25FA /* TrackerGazeCalibrator.h */,
+				CE556D8419D5257700ED25FA /* Weighter.h */,
+				CE556D8319D5255E00ED25FA /* VisageEstimator.h */,
 				CE18566819AAB0B300B552EE /* FBAPs.h */,
 				CE18566919AAB0B300B552EE /* FDP.h */,
 				CE18566A19AAB0B300B552EE /* gluLookAt.h */,
@@ -339,8 +353,8 @@
 				CE18567419AAB69500B552EE /* UIDeviceHardware.m */,
 				CE18567719AAB69500B552EE /* DemoObserver.h */,
 				CE18567819AAB69500B552EE /* DemoObserver.mm */,
-				CE18567919AAB69500B552EE /* TrackerWrapper.h */,
 				CE18567A19AAB69500B552EE /* TrackerWrapper.mm */,
+				CE18567919AAB69500B552EE /* TrackerWrapper.h */,
 				CE18567B19AAB69500B552EE /* CustomGLView.m */,
 				CE18567C19AAB69500B552EE /* CustomGLView.h */,
 			);
@@ -486,8 +500,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE5F2C3419C8CFA700380BE9 /* 583-001-424-721-219-376-240-341-975-140-243.vlc in Resources */,
 				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
+				CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */,
 				CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */,
 				CE18561219AA3BD600B552EE /* Main_iPad.storyboard in Resources */,
 				CE18565719AA3E7400B552EE /* face.png in Resources */,
