@@ -14,7 +14,7 @@
 {
     BOOL isCalibration;
     NSString* sceneID;
-    TCRegion* defaultRegion;
+    NSString* defaultTarget;
     TCRegion* calibrationRegion;
 }
 @property(strong, retain) NSString* name;
@@ -27,6 +27,6 @@
 -(NSString *)getTargetFile;
 -(NSString *)getTargetExtension;
 -(void) updateWithTracker:(TrackerWrapper*) tracker withGaze:(TCGaze *) cursor withTime:(float) t;
--(TCRegion*) getNextScene;
+-(NSString*) getNextScene;
 
 @end

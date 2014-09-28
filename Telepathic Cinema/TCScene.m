@@ -17,11 +17,10 @@
 
 
 -(id)initWithName: (NSString *) filename{
-    NSLog(@"initing TCScene...%@", filename);
+    NSLog(@"init'ing TCScene...%@", filename);
     //load the XML file and get the regions w/targets
     self.name = filename;
     self.regions = [[NSMutableArray alloc] init];
-    defaultRegion = nil;
     calibrationRegion = nil;
 
     //get the file
@@ -43,6 +42,8 @@
         DDXMLElement *vid = [vidResult firstObject];
         self.videoFile = [[vid attributeForName:@"src"] stringValue];
         self->sceneID = [[vid attributeForName:@"id"] stringValue];
+        defaultTarget = [[vid attributeForName:@"href"] stringValue];
+        
         if([self->sceneID isEqualToString:@"calibration"])
             self->isCalibration = YES;
         else
@@ -111,9 +112,7 @@
                                                    withEndTime:end
                                                  isCalibration:false];
                 
-                if([aId isEqualToString:@"default"])
-                    defaultRegion = r;
-                else if([aId isEqualToString:@"calibration"])
+                if([aId isEqualToString:@"calibration"])
                         calibrationRegion = r;
 
                 
@@ -180,12 +179,12 @@
                 return;
     }
 }
--(TCRegion* )getNextScene
+-(NSString* )getNextScene
 {
     //calibration only supports a single target
     
     if(isCalibration)
-        return defaultRegion;
+        return defaultTarget;
     
     TCRegion* winner;
     
@@ -197,6 +196,6 @@
             if(r.count > winner.count)
                 winner = r;
     }
-    return winner;
+    return winner.target;
 }
 @end
