@@ -64,11 +64,11 @@
 
     CGContextBeginPath(context);
 
-    CGContextMoveToPoint(context, self.box.origin.x, self.box.origin.y);    //tl
-    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y);   //tr
-    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y+self.box.size.height);//br
-    CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y + self.box.size.height); //bl
-    CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y);    //tl
+    CGContextMoveToPoint(context, self.box.origin.x-self.box.size.width*.5, self.box.origin.y-self.box.size.height*.5);     //tl
+    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width*.5, self.box.origin.y-self.box.size.height*.5);  //tr
+    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width*.5, self.box.origin.y+self.box.size.height*.5);  //br
+    CGContextAddLineToPoint(context, self.box.origin.x-self.box.size.width*.5, self.box.origin.y+self.box.size.height*.5);  //bl
+    CGContextAddLineToPoint(context, self.box.origin.x-self.box.size.width*.5, self.box.origin.y-self.box.size.height*.5);  //tl
     CGContextStrokePath(context);
 
     CGContextSaveGState(context);
