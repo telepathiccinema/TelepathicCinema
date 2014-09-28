@@ -63,7 +63,7 @@
 
 -(void)queueScene{
     
-    TCRegion* winner = [currentScene getNextScene];
+    NSString* winner = [currentScene getNextScene];
     
     if(!winner)
     {
@@ -77,7 +77,7 @@
         return;
     }
 
-    queuedScene= [[TCScene alloc] initWithName: winner.target];
+    queuedScene= [[TCScene alloc] initWithName: winner];
     
     NSBundle *bundle = [NSBundle mainBundle];
     NSURL *moviePath1 = [bundle URLForResource: [queuedScene getTargetFile] withExtension:[queuedScene getTargetExtension]];
@@ -92,7 +92,7 @@
                                                    object:video1 ];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find file."
-                                                        message:@"Failed to find resource."
+                                                        message:[NSString stringWithFormat: @"Failed to find resource:%@.%@ \nwhen loading scene: %@", [queuedScene getTargetFile], [queuedScene getTargetExtension], queuedScene.name ]
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
