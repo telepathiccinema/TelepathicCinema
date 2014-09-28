@@ -1,0 +1,12 @@
+<smil>
+	<head>
+	</head>
+	<body>
+		<par>
+			<video src="13.mov" href="13.smil" />
+            <area title="replay track" href="11.smil" coords="75%,75%,25%,25%" />
+            <area title="2nd track" href="21.smil" coords="25%,25%,25%,25%" />
+            <area title="3rd track" href="31.smil" coords="25%,75%,12.5%,12.5%" />
+		<par>
+	</body>
+</smil>
