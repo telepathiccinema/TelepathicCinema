@@ -21,6 +21,8 @@
     //load the XML file and get the regions w/targets
     self.name = filename;
     self.regions = [[NSMutableArray alloc] init];
+    defaultRegion = nil;
+    calibrationRegion = nil;
 
     //get the file
     NSString *extension = [filename pathExtension];
@@ -66,7 +68,7 @@
             
             if(!title)
                 title = target;
-
+            
             //make sense of them all
             if([startTime hasSuffix:@"s"] == YES)
             {
@@ -101,14 +103,22 @@
 
                 NSLog(@"Adding Region: target: %@ =>id: %@  => title: %@ => coords=>%f,%f,%f,%f start=>%f end=>%f dur=>%f ",
                       target, aId, title, topLeftX, topLeftY, width, height, start, end, dur);
+                TCRegion* r = [[TCRegion alloc] initWithTarget:target
+                                                     withTitle:title
+                                                      withRect: CGRectMake(topLeftX*1024, topLeftY*768,
+                                                                           (width)*1024, (height)*768)
+                                                 withStartTime:start
+                                                   withEndTime:end
+                                                 isCalibration:false];
                 
-                [self.regions addObject:[[TCRegion alloc] initWithTarget:target
-                                                               withTitle:title
-                                                                withRect: CGRectMake(topLeftX*1024, topLeftY*768,
-                                                                                     (width)*1024, (height)*768)
-                                                           withStartTime:start
-                                                             withEndTime:end
-                                                           isCalibration:false]];
+                if([aId isEqualToString:@"default"])
+                    defaultRegion = r;
+                else if([aId isEqualToString:@"calibration"])
+                        calibrationRegion = r;
+
+                
+                [self.regions addObject:r];
+                
             }
             else{
                 NSLog(@"No area found, last scene?");
@@ -169,5 +179,24 @@
             if(isCalibration)
                 return;
     }
+}
+-(TCRegion* )getNextScene
+{
+    //calibration only supports a single target
+    
+    if(isCalibration)
+        return defaultRegion;
+    
+    TCRegion* winner;
+    
+    for(TCRegion* r in self.regions)
+    {
+        if(!winner)
+            winner = r;
+        else
+            if(r.count > winner.count)
+                winner = r;
+    }
+    return winner;
 }
 @end
