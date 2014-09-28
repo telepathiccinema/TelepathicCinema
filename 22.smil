@@ -7,6 +7,6 @@
             <area title="replay track" href="21.smil" coords="75%,75%,12.5%,12.5%" />
             <area title="stay on track" href="23.smil" coords="25%,25%,12.5%,12.5%" />
             <area title="3rd track" href="31.smil" coords="25%,75%,12.5%,6.25%" />
-		<par>
+		</par>
 	</body>
 </smil>

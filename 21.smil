@@ -6,6 +6,6 @@
 			<video src="21.mov" href="21.smil" />
             <area title="stay on track" href="22.smil" coords="75%,50%,50%,100%" />
             <area title="3rd track" href="31.smil" coords="25%,50%,50%,100%" />
-		<par>
+		</par>
 	</body>
 </smil>
