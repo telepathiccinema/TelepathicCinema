@@ -63,20 +63,20 @@
 
 -(void)queueScene{
     
-    TCRegion* winner;
-    
-    for(TCRegion* r in self.currentScene.regions)
-    {
-        if(!winner)
-            winner = r;
-        else
-            if(r.count > winner.count)
-                winner = r;
-    }
+    TCRegion* winner = [currentScene getNextScene];
     
     if(!winner)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fin."
+                                                        message:@"Fin."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        isDone = YES;
+        [alert show];
         return;
-    
+    }
+
     queuedScene= [[TCScene alloc] initWithName: winner.target];
     
     NSBundle *bundle = [NSBundle mainBundle];
