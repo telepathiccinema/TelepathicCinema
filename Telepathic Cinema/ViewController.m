@@ -39,7 +39,7 @@
 														  repeats:YES];
     [self.tracker startTrackingFromCam];
     [self setupVideoPlayer];
-    tc = [[TelepathicCinema alloc] initWithView:glView andScene:@"calibration.smil" andPlayer:self.mPlayer];
+    tc = [[TelepathicCinema alloc] initWithView:glView withScene:@"calibration.smil" withPlayer:self.mPlayer withTracker:tracker];
     [self.view.layer addSublayer:tc.overlay];
     
 }

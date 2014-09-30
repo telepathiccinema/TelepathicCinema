@@ -8,24 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "TrackerWrapper.h"
-struct gazeData
-{
-    CGPoint headPosition;
-    CGVector GazeVector;
-};
-
 
 @interface TCGaze : NSObject
+{
+    TrackerWrapper* tracker;
+    NSMutableArray* calibrationpoints;
+    bool isCalibrating;
+    bool isCalibrated;
+}
 @property CGRect boundingBox;
 @property float confidence;
 @property BOOL active;
 @property int inactiveTime;
-@property NSMutableDictionary* targets;
 
+-(id)   initWithTracker: (TrackerWrapper*) t;
 -(void) drawWithContext: (CGContextRef) context;
--(void) updateWithTracker: (TrackerWrapper *) tracker;
+-(void) update;
 -(void) resetTimer;
--(void) startCalibrationWithRect: (CGRect) region;
--(void) endCalibration;
+-(void) initCalibration;
+-(void) calibrationPointX:(float) x
+                        Y:(float) y;
+-(void) finalizeCalibration;
 
 @end

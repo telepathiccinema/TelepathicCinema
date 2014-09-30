@@ -49,6 +49,14 @@
     return YES;
 }
 
+-(bool)isActiveAtTime:(float)time
+{
+    if(self.endtime == 0 || (time > self.starttime && time < self.endtime))
+        return true;
+    
+    return false;
+}
+
 -(bool)drawWithContext: (CGContextRef ) context
                   time:(float) t
 {
@@ -74,24 +82,24 @@
     CGContextSaveGState(context);
     NSString *text = [NSString stringWithFormat: @"%@(%0.1f)", self.title, self.count*1.0/30.0];
     
-    CGColorRef color = [UIColor whiteColor].CGColor;
-    CTFontRef font = CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 20.0, NULL);
-
+ 
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    CFBridgingRelease(font), (NSString *)kCTFontAttributeName,
-                                    color, (NSString *)kCTForegroundColorAttributeName,
+                                    CFBridgingRelease(CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 20.0, NULL)),
+                                    (NSString *)kCTFontAttributeName,
+                                    [UIColor whiteColor].CGColor,
+                                    (NSString *)kCTForegroundColorAttributeName,
                                     nil];
     
     
-    NSAttributedString *stringToDraw = [[NSAttributedString alloc] initWithString:text attributes:attributesDict];
+    NSAttributedString *stringToDraw = [[NSAttributedString alloc] initWithString:text
+                                                                       attributes:attributesDict];
     
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)stringToDraw);
     CGMutablePathRef path = CGPathCreateMutable();
     CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
     transform = CGAffineTransformTranslate(transform, 0, - self.box.size.height);
 
-    CGRect frameText = CGRectMake(self.box.origin.x+self.box.size.width/2, self.box.origin.y+self.box.size.height/2,
-                                  self.box.origin.x+self.box.size.width, self.box.origin.y+self.box.size.height);
+    CGRect frameText = self.box;
     CGRect newRectForUIKit = CGRectApplyAffineTransform(frameText, transform);
     CGPathAddRect(path, NULL, newRectForUIKit);
     

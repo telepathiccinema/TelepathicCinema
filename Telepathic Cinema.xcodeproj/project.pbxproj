@@ -14,6 +14,7 @@
 		0F7BA29B19D864A400FA92EF /* 22.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0F7BA29419D864A300FA92EF /* 22.smil */; };
 		0F7BA29C19D864A400FA92EF /* 23.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0F7BA29519D864A400FA92EF /* 23.smil */; };
 		0F7BA29D19D864A400FA92EF /* 31.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0F7BA29619D864A400FA92EF /* 31.smil */; };
+		CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */; };
 		CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
 		CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */; };
 		CE18560019AA3BD600B552EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FF19AA3BD600B552EE /* UIKit.framework */; };
@@ -67,7 +68,6 @@
 		CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6819C9247B00380BE9 /* DDXMLDocument.m */; };
 		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
 		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
-		CEA6048A19CE2C880051887F /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEA6048919CE2C880051887F /* 1.mov */; };
 		CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEB5F2D819D669FB000CDF9E /* calibration.smil */; };
 		CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */ = {isa = PBXBuildFile; fileRef = CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */; };
 		CEEC98EB19CFC32800CCF95F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC98EA19CFC32800CCF95F /* CoreText.framework */; };
@@ -92,6 +92,8 @@
 		0F7BA29419D864A300FA92EF /* 22.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 22.smil; sourceTree = "<group>"; };
 		0F7BA29519D864A400FA92EF /* 23.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 23.smil; sourceTree = "<group>"; };
 		0F7BA29619D864A400FA92EF /* 31.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 31.smil; sourceTree = "<group>"; };
+		CE08071219DAC00000D44B50 /* TCCalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCalibrationPoint.h; sourceTree = "<group>"; };
+		CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCalibrationPoint.m; sourceTree = "<group>"; };
 		CE1855F819AA3BD600B552EE /* Telepathic Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telepathic Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1855FB19AA3BD600B552EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,7 +178,6 @@
 		CE5F2C6B19C9247B00380BE9 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
 		CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE5F2C6E19C9247B00380BE9 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
-		CEA6048919CE2C880051887F /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 1.mov; sourceTree = "<group>"; };
 		CEB5F2D819D669FB000CDF9E /* calibration.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calibration.smil; sourceTree = "<group>"; };
 		CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "637-055-282-782-699-137-004-446-835-604-044.vlc"; sourceTree = "<group>"; };
 		CEEC98EA19CFC32800CCF95F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -273,6 +274,8 @@
 				CE18560219AA3BD600B552EE /* Supporting Files */,
 				CEFBB63D19B9F2100056FC0C /* TelepathicCinema.h */,
 				CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */,
+				CE08071219DAC00000D44B50 /* TCCalibrationPoint.h */,
+				CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */,
 				CE1BDFA119BBBDA00033A237 /* TCGaze.h */,
 				CE1BDFA219BBBDA00033A237 /* TCGaze.m */,
 				CE1BDF9B19BB8BB70033A237 /* TCScene.h */,
@@ -533,7 +536,6 @@
 				CE18565719AA3E7400B552EE /* face.png in Resources */,
 				0F7BA29A19D864A400FA92EF /* 21.smil in Resources */,
 				CE18565219AA3E7400B552EE /* candide3-ClosedMouth.wfm in Resources */,
-				CEA6048A19CE2C880051887F /* 1.mov in Resources */,
 				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
 				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
@@ -575,6 +577,7 @@
 			files = (
 				CE5F2C6F19C9247B00380BE9 /* DDXMLElementAdditions.m in Sources */,
 				CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */,
+				CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */,
 				CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */,
 				CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */,
 				CE5F2C7019C9247B00380BE9 /* NSString+DDXML.m in Sources */,

@@ -16,13 +16,15 @@
 
 
 
--(id)initWithName: (NSString *) filename{
-    NSLog(@"init'ing TCScene...%@", filename);
+-(id)initWithName: (NSString *) filename
+         withGaze:(TCGaze *)_gaze
+{
     //load the XML file and get the regions w/targets
     self.name = filename;
     self.regions = [[NSMutableArray alloc] init];
     calibrationRegion = nil;
-
+    gaze = _gaze;
+    
     //get the file
     NSString *extension = [filename pathExtension];
     NSString *name = [filename substringToIndex: [filename rangeOfString:[@"." stringByAppendingString:extension]].location] ;
@@ -152,24 +154,34 @@
     return [self.videoFile pathExtension];
 }
 
--(void) updateWithTracker:(TrackerWrapper *) tracker
-                 withGaze:(TCGaze *) cursor
-                 withTime:(float) t
+-(void) updateWithTime:(float) t
 {
+    if(isCalibration)
+        return [self processCalibrationWthTime: t];
+
     for(TCRegion* r in self.regions)
     {
-        if ([r checkHitWith: cursor.boundingBox atTime:t])
-            if(isCalibration)
-            {
-                //call gaze to record callibration data
-                float* gazedata = [tracker getGaze];
-                NSLog(@"Record Calibration Data: %.2f, %.2f, %.2f", gazedata[0], gazedata[1], gazedata[2]);
-                return;
-            }
+        [r checkHitWith: gaze.boundingBox atTime:t];
     }
 }
 
--(void) drawWithContext:(CGContextRef)context withTime:(float)t
+-(void) processCalibrationWthTime: (float) time
+{
+    NSLog(@"processing calibration data....");
+    for(TCRegion* r in self.regions)
+    {
+        //only allow one active gaze point at a time
+        if([r isActiveAtTime:time])
+        {
+            [gaze calibrationPointX:r.box.origin.x + r.box.size.width/2
+                                     Y:r.box.origin.y + r.box.size.height/2];
+            return;
+        }
+    }
+}
+
+-(void) drawWithContext:(CGContextRef)context
+               withTime:(float)t
 {    
     for(TCRegion* region in self.regions)
     {
@@ -198,4 +210,17 @@
     }
     return winner.target;
 }
+
+-(void) makeActive //WithTracker:(TrackerWrapper*) tracker
+{
+    if(isCalibration)
+        [gaze initCalibration];
+}
+
+-(void)deactivateWithTracker:(TrackerWrapper *) tracker
+{
+    if(isCalibration)
+        [gaze finalizeCalibration];
+}
+
 @end

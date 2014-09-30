@@ -39,5 +39,5 @@
 
 -(NSString *)getTargetFile;
 -(NSString *)getTargetExtension;
-
+-(bool)isActiveAtTime: (float) time;
 @end

@@ -12,24 +12,25 @@
 @synthesize overlay;
 @synthesize currentScene;
 @synthesize queuedScene;
-@synthesize defaultScene;
 
 -(id)initWithView:(CustomGLView *)view
-         andScene:(NSString * )filename
-        andPlayer: (AVQueuePlayer *) avplayer
+        withScene:(NSString * )filename
+       withPlayer: (AVQueuePlayer *) avplayer
+      withTracker:(TrackerWrapper *)_tracker
 {
     overlay = [CALayer layer];
     overlay.frame = view.frame;
     overlay.opacity = .25;
+    tracker = _tracker;
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height), NO, 0.0);
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     overlay.contents = (__bridge id)(image.CGImage);
     overlay.hidden = false;
-    currentScene = [[TCScene alloc] initWithName:filename];
-    self.cursor = [[TCGaze alloc] init];
+    self.cursor = [[TCGaze alloc] initWithTracker:_tracker];
     self.cursor.boundingBox = CGRectMake(overlay.frame.size.width/2, overlay.frame.size.height/2, 100,100);
     self.cursor.confidence = 0;
+    currentScene = [[TCScene alloc] initWithName:filename withGaze:self.cursor];
     self->player = avplayer;
     isDone = NO;
     
@@ -55,7 +56,7 @@
         isDone = YES;
         [alert show];
     }
-    
+    [currentScene makeActive];
     
     return self;
 }
@@ -77,7 +78,7 @@
         return;
     }
 
-    queuedScene= [[TCScene alloc] initWithName: winner];
+    queuedScene= [[TCScene alloc] initWithName: winner withGaze:self.cursor];
     
     NSBundle *bundle = [NSBundle mainBundle];
     NSURL *moviePath1 = [bundle URLForResource: [queuedScene getTargetFile] withExtension:[queuedScene getTargetExtension]];
@@ -122,11 +123,11 @@
         [self queueScene];
     }
     
-    [self.cursor updateWithTracker:tracker];
+    [self.cursor update];
     
     //check collisions on regions
     if(self.cursor.active == YES)
-        [currentScene updateWithTracker:tracker withGaze:self.cursor withTime:CMTimeGetSeconds([self->player currentTime])];
+        [currentScene updateWithTime:CMTimeGetSeconds([self->player currentTime])];
 }
 
 
@@ -153,7 +154,9 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self->player currentItem]];
     [self->player advanceToNextItem];
+    [currentScene deactivateWithTracker:tracker];
     currentScene = queuedScene;
+    [currentScene makeActive];
     [self.cursor resetTimer];
 }
 

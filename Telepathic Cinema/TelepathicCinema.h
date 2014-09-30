@@ -25,20 +25,20 @@
     float gazeLimit;
     float calibrationLimit;
     bool isDone;
+    TrackerWrapper* tracker;
 }
 
 @property (nonatomic, retain) CALayer* overlay;
 @property (nonatomic, retain) TCScene* currentScene;
 @property (nonatomic, retain) TCScene* queuedScene;
-@property (nonatomic, retain) TCScene* calibrationScene;
-@property (nonatomic, retain) TCScene* defaultScene;
 @property (nonatomic, retain) TCGaze* cursor;
 @property (nonatomic) float gazeLimit;
 @property (nonatomic) float calibrationLimit;
 
 -(id)initWithView:(CustomGLView *)view
-         andScene:(NSString * ) filename
-        andPlayer: (AVQueuePlayer *) player;
+        withScene:(NSString * ) filename
+       withPlayer: (AVQueuePlayer *) player
+      withTracker: (TrackerWrapper*) tracker;
 
 -(void)queueScene;
 
