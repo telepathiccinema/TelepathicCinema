@@ -147,7 +147,7 @@
         if(newx > 1024)
             newx = 1024 - 1024/3;
         NSLog(@"current position is %f, %f , confidence: %f", newx, newy, confidence);
-        self.boundingBox = CGRectMake(newx, newy, 1024/3, 768/3);
+        self.boundingBox = CGRectMake(newx, newy, 1024/3, 768/4);
     }
 }
 
