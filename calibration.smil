@@ -2,16 +2,9 @@
     <head></head>
     <body>
         <par>
-            <video id="calibration" src="0.mov" href="11.smil" />
-            <area title="center/center" coords="50%,50%,12.5%,12.5%" begin="0s" dur="5s"/>
+            <video id="calibration" src="0_leftRight.mov" href="11.smil" />
             <area title="left/center" coords="0%,50%,12.5%,12.5%" begin="6s" dur="4s"/>
             <area title="right/center" coords="100%,50%,12.5%,12.5%" begin="11s" dur="4s"/>
-            <area title="center/top" coords="50%,0%,12.5%,12.5%" begin="16s" dur="4s"/>
-            <area title="center/bottom" coords="50%,100%,12.5%,12.5%" begin="21s" dur="4s"/>
-            <area title="left/top" coords="0%,0%,12.5%,12.5%" begin="26s" dur="4s"/>
-            <area title="right/bottom" coords="100%,100%,12.5%,12.5%" begin="31s" dur="4s"/>
-            <area title="left/bottom" coords="0%,100%,12.5%,12.5%" begin="36s" dur="4s"/>
-            <area title="right/top" coords="100%,0%,12.5%,12.5%" begin="41s" dur="4s"/>
         </par>
     </body>
 </smil>

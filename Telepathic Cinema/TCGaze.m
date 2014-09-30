@@ -27,6 +27,9 @@
 
 -(void) drawWithContext: (CGContextRef) context
 {
+    if(isCalibrating)
+        return;
+    
     if(self.active)
         CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
     else
@@ -115,9 +118,9 @@
     if(isCalibrating)
         return;
     
-    NSLog(@"updating gaze");
     //update cursor
-    float* d = [tracker getGlobalGaze];
+    //float* d = [tracker getGlobalGaze];
+    float* d = [tracker getGaze];
     float newx, newy;
     
     TCCalibrationPoint * winner = nil;
@@ -137,9 +140,10 @@
     {
         newx = winner.x;
         newy = winner.y;
+        if(newx > 1024)
+            newx = 1024 - 1024/3;
         NSLog(@"current position is %f, %f , confidence: %f", newx, newy, confidence);
-        self.boundingBox = CGRectMake(newx, newy, 1024/2, 768/2);
-        
+        self.boundingBox = CGRectMake(newx, newy, 1024/3, 768/3);
     }
 }
 

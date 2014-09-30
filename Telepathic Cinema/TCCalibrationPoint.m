@@ -63,11 +63,12 @@
                                      Z: (float) vz
 {
     float c = 0;
-    if(vx >= minVX && vx <= maxVX &&
+    if(vx >= minVX && vx <= maxVX)
+        /*&&
        vy >= minVY && vy <= maxVY &&
-       vz >= minVZ && vz <= maxVZ)
+       vz >= minVZ && vz <= maxVZ)*/
     {
-        c = fabsf(avgVX - vx)/fabsf(maxVX-minVX) + fabsf(avgVY - vy)/fabsf(maxVY - minVY) + fabsf(avgVZ - vz)/fabsf(maxVZ - minVZ);
+        c = 1 - fabsf(avgVX - vx)/fabsf(maxVX-minVX);
     }
     
     NSLog(@"confidence for point %0.02f, %0.02f => %0.02f", self.x, self.y, c);
