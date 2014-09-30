@@ -64,14 +64,16 @@
 {
     float c = 0;
     if(vx >= minVX && vx <= maxVX)
-        /*&&
-       vy >= minVY && vy <= maxVY &&
-       vz >= minVZ && vz <= maxVZ)*/
-    {
-        c = 1 - fabsf(avgVX - vx)/fabsf(maxVX-minVX);
-    }
+        c += 1 - fabsf(avgVX - vx)/fabsf(maxVX-minVX);
+
+    if(vy >= minVY && vy <= maxVY)
+        c += 1 - fabsf(avgVY - vy)/fabs(maxVX - minVY);
+
+    if(vz >= minVZ && vz <= maxVZ)
+        c += 1 - fabsf(avgVZ - vz)/fabsf(maxVZ - minVZ);
     
     NSLog(@"confidence for point %0.02f, %0.02f => %0.02f", self.x, self.y, c);
+
     return c;
 }
 

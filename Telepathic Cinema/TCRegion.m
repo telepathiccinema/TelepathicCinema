@@ -38,6 +38,7 @@
         if(t < self.starttime || t > self.endtime)
             return NO;
     
+    NSLog(@"Checking hit between %0.02f, %0.02f, %0.02f, %0.02f and \n%0.02f, %0.02f, %0.02f, %0.02f", self.box.origin.x, self.box.origin.y, self.box.size.width, self.box.size.height, collider.origin.x, collider.origin.y, collider.size.width, collider.size.height);
     if(CGRectIntersectsRect(self.box, collider))
     {
         self.count++;

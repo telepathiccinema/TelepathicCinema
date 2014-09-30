@@ -35,7 +35,10 @@
     else
         CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
     
-    CGContextAddArc(context,self.boundingBox.origin.x+self.boundingBox.size.width/2, self.boundingBox.origin.y+self.boundingBox.size.height/2,self.boundingBox.size.width/2,0,M_PI*2,YES);
+    CGContextAddArc(context,
+                    self.boundingBox.origin.x + self.boundingBox.size.width*.5,
+                    self.boundingBox.origin.y + self.boundingBox.size.height*.5,
+                    self.boundingBox.size.width/2 , 0 , M_PI*2, YES);
     CGContextStrokePath(context);
     
 }
@@ -46,7 +49,8 @@
     if(!isCalibrating)
         return;
     
-    float* d = [tracker getGlobalGaze];
+//    float* d = [tracker getGlobalGaze];
+    float* d = [tracker getGaze];
     
     NSLog(@"DATA,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
 
