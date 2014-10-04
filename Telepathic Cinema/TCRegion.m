@@ -81,11 +81,11 @@
     CGContextStrokePath(context);
 
     CGContextSaveGState(context);
-    NSString *text = [NSString stringWithFormat: @"%@(%0.1f)", self.title, self.count*1.0/30.0];
+    NSString *text = [NSString stringWithFormat: @"%@ (%0.1f)", self.title, self.count*1.0/30.0];
     
  
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    CFBridgingRelease(CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 20.0, NULL)),
+                                    CFBridgingRelease(CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 28.0, NULL)),
                                     (NSString *)kCTFontAttributeName,
                                     [UIColor whiteColor].CGColor,
                                     (NSString *)kCTForegroundColorAttributeName,

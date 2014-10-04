@@ -39,7 +39,7 @@
 														  repeats:YES];
     [self.tracker startTrackingFromCam];
     [self setupVideoPlayer];
-    tc = [[TelepathicCinema alloc] initWithView:glView withScene:@"calibration.smil" withPlayer:self.mPlayer withTracker:tracker];
+    tc = [[TelepathicCinema alloc] initWithView:glView withScene:@"alpha.smil" withPlayer:self.mPlayer withTracker:tracker withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
     [self.view.layer addSublayer:tc.overlay];
     
 }
@@ -76,6 +76,7 @@
 }
 
 - (IBAction)onTouch:(id)sender {
+    
     if(self->state == STATE_VIDEO)
     {
         [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];

@@ -36,10 +36,12 @@
 
 -(void) addVectorX:(float)vx Y:(float)vy Z:(float)vz
 {
+    //simply keep a running average
     avgVX  = (avgVX + vx) / 2;
     avgVY  = (avgVY + vy) / 2;
     avgVZ  = (avgVZ + vz) / 2;
 
+    //maintain boundary information
     if(vx < minVX)
         minVX = vx;
     if(vx > maxVX)

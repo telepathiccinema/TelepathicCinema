@@ -273,18 +273,6 @@ using namespace VisageSDK;
     glHeight = glWidth / videoAspect;
 }
 
--(float) getCameraBrightness
-{
-    if(trackingData.frame)
-    {
-        CvRect old_roi = cvGetImageROI(trackingData.frame);
-        cvSetImageROI(trackingData.frame, cvRect(trackingData.frame->width/2 ,trackingData.frame->height/2,trackingData.frame->width,20));
-        CvScalar c = cvAvg(trackingData.frame);
-        cvSetImageROI(trackingData.frame,old_roi); // reset old roi
-        return c.val[0];
-    }
-    return 0.0f;
-}
 
 - (void) setFrameTexture: (const IplImage *)image
 {
@@ -996,18 +984,6 @@ int last_pts = 0;
         
         // draw tracking data from origin (right eye)
 		//[self drawPoint3D:rightEye withColor:blue andSize:10.0f];
-        //----jdjd
-//        GLfloat  vertices[] = {0.0, 0.5, 0.0, 0.5, 0.0, 0.0, -0.5, 0.0, 0.0};
-//        glLoadIdentity();
-//        
-//        glEnableClientState(GL_VERTEX_ARRAY);
-//        glColor4f(0.0, 1.0, 0.0, 0.1);
-//        glVertexPointer(3, GL_FLOAT, 0, vertices);
-//        glDrawArrays(GL_TRIANGLE_STRIP, 0, 12);
-//        glDisableClientState(GL_VERTEX_ARRAY);
-//        
-//        
-        //--
 		[glView swapOpenGLBuffers];
 	}
 	// only disply video
@@ -1032,19 +1008,7 @@ int last_pts = 0;
             }
             [self displayInstructions];
         }
-        //----jdjd
-        
-//        GLfloat  vertices[] = {0.0, 0.5, 0.0, 0.5, 0.0, 0.0, -0.5, 0.0, 0.0};
-//        glLoadIdentity();
-//        glEnable(GL_BLEND);
-//        glEnableClientState(GL_VERTEX_ARRAY);
-//        glColor4f(1.0, 0.0, 0.0, 0.1);
-//        glVertexPointer(3, GL_FLOAT, 0, vertices);
-//        glDrawArrays(GL_TRIANGLE_STRIP, 0, 12);
-//        glDisableClientState(GL_VERTEX_ARRAY);
-//        
-        
-        //--
+
 		[glView swapOpenGLBuffers];
 	}
     
@@ -1075,13 +1039,10 @@ int last_pts = 0;
     {
 		for(int i=0;i<3;i++) {
 			r[i] = trackingData.faceRotation[i] * 180.0f / 3.14159f; //rads to degs
-			t[i] = trackingData.faceTranslation[i] * 100.0f; //translation is expressed in meters so this gives approximate values in centimeters if camera focus distance parameter is set correctly in configuration file
+			t[i] = trackingData.faceTranslation[i] * 100.0f;
+            //translation is expressed in meters so this gives approximate values in centimeters if camera focus distance parameter is set correctly in configuration file
 		}
 	}
-    
-//	[fpsLabel setText:[NSString stringWithFormat:@"%4.1f FPS (tracking)\n %4.1f FPS (display)",trackingData.frameRate,displayFrameRate]];
-//	[statusLabel setText:[NSString stringWithFormat:@"Status: %s",trackingStatusString]];
-//	[infoLabel setText:[NSString stringWithFormat:@"Head position %+5.1f %+5.1f %+5.1f \nRotation (deg) %+5.1f %+5.1f %+5.1f",t[0],t[1],t[2],r[0],r[1],r[2]]];
     
     inGetTrackingResults = false;
 }
@@ -1092,9 +1053,23 @@ int last_pts = 0;
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     [glView swapOpenGLBuffers];
 }
+
 -(void)display:(BOOL)flag
 {
     show = flag;
+}
+
+-(float) getCameraBrightness
+{
+    if(trackingData.frame)
+    {
+        CvRect old_roi = cvGetImageROI(trackingData.frame);
+        cvSetImageROI(trackingData.frame, cvRect(trackingData.frame->width/2 ,trackingData.frame->height/2,trackingData.frame->width,20));
+        CvScalar c = cvAvg(trackingData.frame);
+        cvSetImageROI(trackingData.frame,old_roi); // reset old roi
+        return c.val[0];
+    }
+    return 0.0f;
 }
 
 

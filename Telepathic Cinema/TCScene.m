@@ -44,6 +44,10 @@
         DDXMLElement *vid = [vidResult firstObject];
         self.videoFile = [[vid attributeForName:@"src"] stringValue];
         self->sceneID = [[vid attributeForName:@"id"] stringValue];
+
+        if(!self->sceneID)
+            self->sceneID = filename;
+        
         defaultTarget = [[vid attributeForName:@"href"] stringValue];
         
         if([self->sceneID isEqualToString:@"calibration"])
@@ -62,12 +66,12 @@
             NSString *coords = [[anchor attributeForName:@"coords"] stringValue];
             NSString *startTime = [[anchor attributeForName:@"begin"] stringValue];
             NSString *endTime = [[anchor attributeForName:@"end"] stringValue];
-            NSString *duration = [[anchor attributeForName:@"dur"] stringValue];
+            NSString *regionDuration = [[anchor attributeForName:@"dur"] stringValue];
             NSString *aId = [[anchor attributeForName:@"id"] stringValue];
             NSString *title = [[anchor attributeForName:@"title"] stringValue];
             float start = [startTime floatValue];
             float end = [endTime floatValue];
-            float dur = [duration floatValue];
+            float dur = [regionDuration floatValue];
             
             if(!title)
                 title = target;
@@ -83,10 +87,10 @@
                 endTime = [endTime substringToIndex:([endTime length] - 1)];
                 end = [endTime floatValue];
             }
-            else if([duration hasSuffix:@"s"] == YES)
+            else if([regionDuration hasSuffix:@"s"] == YES)
             {
-                duration = [duration substringToIndex:([duration length] - 1)];
-                dur = [duration floatValue];
+                regionDuration = [regionDuration substringToIndex:([regionDuration length] - 1)];
+                dur = [regionDuration floatValue];
                 end = start + dur;
             }
             
@@ -182,7 +186,8 @@
 
 -(void) drawWithContext:(CGContextRef)context
                withTime:(float)t
-{    
+{
+
     for(TCRegion* region in self.regions)
     {
         
@@ -208,10 +213,14 @@
             if(r.count > winner.count)
                 winner = r;
     }
-    return winner.target;
+
+    if(winner && winner.count > 0)
+        return winner.target;
+    
+    return defaultTarget;
 }
 
--(void) makeActive //WithTracker:(TrackerWrapper*) tracker
+-(void) makeActive
 {
     if(isCalibration)
         [gaze initCalibration];
@@ -221,6 +230,15 @@
 {
     if(isCalibration)
         [gaze finalizeCalibration];
+}
+
+-(void)setDuration:(float)d
+{
+    duration = d;
+}
+-(NSString*) getSceneID
+{
+    return sceneID;
 }
 
 @end

@@ -17,20 +17,22 @@
     NSString* defaultTarget;
     TCRegion* calibrationRegion;
     TCGaze* gaze;
+    float duration;
 }
 @property(strong, retain) NSString* name;
 @property(strong, retain) NSMutableArray* regions;
 @property(strong, retain) NSString* videoFile;
 
 -(id)initWithName: (NSString *) filename
-       withGaze: (TCGaze *) gaze;
+         withGaze: (TCGaze *) gaze;
 -(void) drawWithContext: (CGContextRef) context withTime:(float) t;
 -(float)coordToFloat: (NSString *) c;
 -(NSString *)getTargetFile;
 -(NSString *)getTargetExtension;
 -(void) updateWithTime:(float) t;
 -(NSString*) getNextScene;
--(void) makeActive;//:(TrackerWrapper*) tracker;
+-(void) makeActive;
 -(void)deactivateWithTracker:(TrackerWrapper *) tracker;
-
+-(void) setDuration: (float) d;
+-(NSString*) getSceneID;
 @end

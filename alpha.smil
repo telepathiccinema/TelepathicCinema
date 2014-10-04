@@ -3,7 +3,7 @@
 	</head>
 	<body>
 		<par>
-			<video src="alpha.mov" href="2.smil" />
+			<video src="1.mov" href="2.smil" />
 		</par>
 	</body>
 </smil>

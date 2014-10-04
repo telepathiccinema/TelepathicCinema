@@ -26,6 +26,8 @@
     float calibrationLimit;
     bool isDone;
     TrackerWrapper* tracker;
+    CGRect bounds;
+    
 }
 
 @property (nonatomic, retain) CALayer* overlay;
@@ -38,7 +40,8 @@
 -(id)initWithView:(CustomGLView *)view
         withScene:(NSString * ) filename
        withPlayer: (AVQueuePlayer *) player
-      withTracker: (TrackerWrapper*) tracker;
+      withTracker: (TrackerWrapper*) tracker
+       withBounds: (CGRect) bounds;
 
 -(void)queueScene;
 

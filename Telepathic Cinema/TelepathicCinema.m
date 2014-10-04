@@ -17,7 +17,9 @@
         withScene:(NSString * )filename
        withPlayer: (AVQueuePlayer *) avplayer
       withTracker:(TrackerWrapper *)_tracker
+       withBounds:(CGRect)bounds_
 {
+    bounds = bounds_;
     overlay = [CALayer layer];
     overlay.frame = view.frame;
     overlay.opacity = .25;
@@ -68,8 +70,8 @@
     
     if(!winner)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fin."
-                                                        message:@"Fin."
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"End."
+                                                        message:@"End."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -91,6 +93,7 @@
                                                  selector:@selector(sceneEnded:)
                                                      name:AVPlayerItemDidPlayToEndTimeNotification
                                                    object:video1 ];
+        [currentScene setDuration:CMTimeGetSeconds(self->player.currentItem.duration)];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find file."
                                                         message:[NSString stringWithFormat: @"Failed to find resource:%@.%@ \nwhen loading scene: %@", [queuedScene getTargetFile], [queuedScene getTargetExtension], queuedScene.name ]
@@ -140,9 +143,46 @@
     CGContextSetStrokeColorWithColor(context, [[UIColor yellowColor] CGColor]);
     CGContextFillRect(context, CGRectMake(0.0f, 0.0f, image.size.width, image.size.height));
     CGContextSetLineWidth(context, 4.0f);
+    float currentSceneTime = CMTimeGetSeconds([[self->player currentItem] currentTime]);
     
-    [currentScene drawWithContext: context withTime: CMTimeGetSeconds([[self->player currentItem] currentTime])];
+    [currentScene drawWithContext: context withTime: currentSceneTime];
     [self.cursor drawWithContext:context];
+
+//--
+    CGContextSaveGState(context);
+    NSString *header = [NSString stringWithFormat: @"Current Scene: %@ \nCurrent Time: %0.1f / %0.1f \nCamera Brightness: %0.1f", [currentScene getSceneID],currentSceneTime, CMTimeGetSeconds(player.currentItem.duration), [tracker getCameraBrightness]];
+    
+    
+    NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    CFBridgingRelease(CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 28.0, NULL)),
+                                    (NSString *)kCTFontAttributeName,
+                                    [UIColor whiteColor].CGColor,
+                                    (NSString *)kCTForegroundColorAttributeName,
+                                    nil];
+    
+    
+    NSAttributedString *headerString = [[NSAttributedString alloc] initWithString:header
+                                                                       attributes:attributesDict];
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)headerString);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
+    transform = CGAffineTransformTranslate(transform, 0, - bounds.size.height);
+    
+    CGRect frameText = bounds;
+    CGRect newRectForUIKit = CGRectApplyAffineTransform(frameText, transform);
+    CGPathAddRect(path, NULL, newRectForUIKit);
+    
+    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
+    
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    CGContextTranslateCTM(context, 0, bounds.size.height );
+    CGContextScaleCTM(context, 1.0, -1.0);
+    
+    CTFrameDraw(frame, context);
+    CFRelease(path);
+    
+//--
+    
     
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
     overlay.contents = (__bridge id)(result.CGImage);
