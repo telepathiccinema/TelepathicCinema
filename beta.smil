@@ -1,0 +1,9 @@
+<smil>
+	<head>
+	</head>
+	<body>
+		<par>
+			<video src="beta.mov" href="2.smil" />
+		</par>
+	</body>
+</smil>

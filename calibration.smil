@@ -2,7 +2,7 @@
     <head></head>
     <body>
         <par>
-            <video id="calibration" src="0_leftRight.mov" href="11.smil" />
+            <video id="calibration" src="0_leftRight.mov" href="1.smil" />
             <area title="left/center" coords="0%,50%,12.5%,12.5%" begin="6s" dur="4s"/>
             <area title="right/center" coords="100%,50%,12.5%,12.5%" begin="11s" dur="4s"/>
         </par>
