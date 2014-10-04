@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self->state = STATE_VIDEO;
+    self->state = STATE_PLAYER;
     
     self.tracker = [[TrackerWrapper alloc] init];
 	[self.tracker initTracker:glView];
@@ -61,12 +61,9 @@
 
 
 -(void)update:(NSTimer *)timer {
-    if(state == DEBUG)
-    {
-        [self.tracker displayTrackingResults];
-        [self.tc draw];
-    }
     [self.tc update: self.mPlayer withTracker:self.tracker];
+    [self.tracker displayTrackingResults];
+    [self.tc draw];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,22 +74,29 @@
 
 - (IBAction)onTouch:(id)sender {
     
-    if(self->state == STATE_VIDEO)
-    {
-        [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
-        [self.tracker display:YES];
-        self->state = STATE_DEBUG;
-        [self.tc display:YES];
-        
-    }else{
-        [self.tracker blank];
-        [self.tracker display:NO];
-        [[self.view.layer.sublayers objectAtIndex:0] setOpacity:1.0];
-        
-        self->state = STATE_VIDEO;
-        [self.mPlayer play];
-        [self.tc display:NO];
-    }
     
+    self->state = ++self->state % STATE_TOTAL;
+    
+    switch(state)
+    {
+        case STATE_PLAYER:
+            [self.tracker blank];
+            [self.tc display:NO];
+            [self.tracker display:NO];
+            [[self.view.layer.sublayers objectAtIndex:0] setOpacity:1.0];
+            break;
+        case STATE_DEBUG:
+            [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
+            [self.tc display:YES];
+            [self.tracker blank];
+            [self.tracker display:NO];
+            break;
+        case STATE_TRACKER:
+            [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
+            [self.tc display:YES];
+            [self.tracker blank];
+            [self.tracker display:YES];
+            break;
+    }
 }
 @end

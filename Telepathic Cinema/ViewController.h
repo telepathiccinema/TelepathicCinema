@@ -11,8 +11,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreText/CoreText.h>
 
-#define STATE_VIDEO 0
-#define STATE_DEBUG 1
+#define STATE_PLAYER    0
+#define STATE_DEBUG     1
+#define STATE_TRACKER   2
+
+#define STATE_TOTAL     3
 
 @class CustomGLView;
 @class TrackerWrapper;

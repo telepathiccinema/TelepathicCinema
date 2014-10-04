@@ -1,9 +1,0 @@
-<smil>
-	<head></head>
-	<body>
-		<par>
-			<video src="11.mov" href="11.smil" />
-            <area title="stayOnTrack" href="12.smil" coords="75%,50%,50%,100%" />
-		</par>
-	</body>
-</smil>

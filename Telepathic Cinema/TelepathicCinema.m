@@ -148,9 +148,8 @@
     [currentScene drawWithContext: context withTime: currentSceneTime];
     [self.cursor drawWithContext:context];
 
-//--
     CGContextSaveGState(context);
-    NSString *header = [NSString stringWithFormat: @"Current Scene: %@ \nCurrent Time: %0.1f / %0.1f \nCamera Brightness: %0.1f", [currentScene getSceneID],currentSceneTime, CMTimeGetSeconds(player.currentItem.duration), [tracker getCameraBrightness]];
+    NSString *header = [NSString stringWithFormat: @"Scene: %@ \nTime: %0.1f / %0.1f \nBrightness: %0.1f", [currentScene getSceneID],currentSceneTime, CMTimeGetSeconds(player.currentItem.duration), [tracker getCameraBrightness]];
     
     
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -180,9 +179,6 @@
     
     CTFrameDraw(frame, context);
     CFRelease(path);
-    
-//--
-    
     
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
     overlay.contents = (__bridge id)(result.CGImage);
