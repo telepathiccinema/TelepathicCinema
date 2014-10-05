@@ -38,7 +38,6 @@
         if(t < self.starttime || t > self.endtime)
             return NO;
     
-    NSLog(@"Checking hit between %0.02f, %0.02f, %0.02f, %0.02f and \n%0.02f, %0.02f, %0.02f, %0.02f", self.box.origin.x, self.box.origin.y, self.box.size.width, self.box.size.height, collider.origin.x, collider.origin.y, collider.size.width, collider.size.height);
     if(CGRectIntersectsRect(self.box, collider))
     {
         self.count++;
@@ -73,11 +72,11 @@
 
     CGContextBeginPath(context);
 
-    CGContextMoveToPoint(context, self.box.origin.x-self.box.size.width*.5, self.box.origin.y-self.box.size.height*.5);     //tl
-    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width*.5, self.box.origin.y-self.box.size.height*.5);  //tr
-    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width*.5, self.box.origin.y+self.box.size.height*.5);  //br
-    CGContextAddLineToPoint(context, self.box.origin.x-self.box.size.width*.5, self.box.origin.y+self.box.size.height*.5);  //bl
-    CGContextAddLineToPoint(context, self.box.origin.x-self.box.size.width*.5, self.box.origin.y-self.box.size.height*.5);  //tl
+    CGContextMoveToPoint(context, self.box.origin.x, self.box.origin.y);     //tl
+    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y);  //tr
+    CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y+self.box.size.height);  //br
+    CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y+self.box.size.height);  //bl
+    CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y);  //tl
     CGContextStrokePath(context);
 
     CGContextSaveGState(context);
@@ -98,7 +97,7 @@
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)stringToDraw);
     CGMutablePathRef path = CGPathCreateMutable();
     CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
-    transform = CGAffineTransformTranslate(transform, 0, - self.box.size.height);
+    transform = CGAffineTransformTranslate(transform, self.box.size.width*.5, - self.box.size.height*.5);
 
     CGRect frameText = self.box;
     CGRect newRectForUIKit = CGRectApplyAffineTransform(frameText, transform);

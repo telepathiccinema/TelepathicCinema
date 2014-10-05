@@ -60,6 +60,7 @@
 		CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6819C9247B00380BE9 /* DDXMLDocument.m */; };
 		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
 		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
+		CE6073C519E0F7B8001E4EB4 /* calibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE6073C419E0F7B8001E4EB4 /* calibration.mov */; };
 		CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0ED19E0A01800D541F9 /* beta.mov */; };
 		CE7BE0F419E0A01800D541F9 /* gamma.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0EE19E0A01800D541F9 /* gamma.mov */; };
 		CE7BE0F519E0A01800D541F9 /* alpha.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0EF19E0A01800D541F9 /* alpha.mov */; };
@@ -172,6 +173,7 @@
 		CE5F2C6B19C9247B00380BE9 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
 		CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE5F2C6E19C9247B00380BE9 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		CE6073C419E0F7B8001E4EB4 /* calibration.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = calibration.mov; sourceTree = "<group>"; };
 		CE7BE0ED19E0A01800D541F9 /* beta.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = beta.mov; sourceTree = "<group>"; };
 		CE7BE0EE19E0A01800D541F9 /* gamma.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gamma.mov; sourceTree = "<group>"; };
 		CE7BE0EF19E0A01800D541F9 /* alpha.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = alpha.mov; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				CE7BE0ED19E0A01800D541F9 /* beta.mov */,
 				CE7BE0EE19E0A01800D541F9 /* gamma.mov */,
 				CE7BE0EF19E0A01800D541F9 /* alpha.mov */,
+				CE6073C419E0F7B8001E4EB4 /* calibration.mov */,
 				CE7BE0F019E0A01800D541F9 /* 3.mov */,
 				CE7BE0F119E0A01800D541F9 /* 2.mov */,
 				CE7BE0F219E0A01800D541F9 /* 1.mov */,
@@ -549,6 +552,7 @@
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
 				CE7BE0F419E0A01800D541F9 /* gamma.mov in Resources */,
 				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,
+				CE6073C519E0F7B8001E4EB4 /* calibration.mov in Resources */,
 				CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */,
 				CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */,
 				CE7BE0F819E0A01800D541F9 /* 1.mov in Resources */,

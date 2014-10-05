@@ -38,7 +38,7 @@
         CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
     else
         CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
-    
+
     CGContextAddArc(context,
                     self.boundingBox.origin.x + self.boundingBox.size.width*.5,
                     self.boundingBox.origin.y + self.boundingBox.size.height*.5,
@@ -121,37 +121,54 @@
     {
         self.active = NO;
         self.inactiveTime++;
-        return;
     }
     if(isCalibrating)
         return;
     
-    //update cursor
-    //float* d = [tracker getGlobalGaze];
-    float* d = [tracker getGaze];
     float newx, newy;
+    float size = 20;
+    float dx,dy,ds;
     
-    TCCalibrationPoint * winner = nil;
-    float confidence = 0;
-    
-    //calculate latest gaze position
-    for (TCCalibrationPoint* item in calibrationpoints) {
-        float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
-        if(c > confidence)
+    if(self.active)
+    {
+        //update cursor
+        //float* d = [tracker getGlobalGaze];
+        float* d = [tracker getGaze];
+        TCCalibrationPoint * winner = nil;
+        float confidence = 0;
+        
+        //calculate latest gaze position
+        for (TCCalibrationPoint* item in calibrationpoints) {
+            float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
+            if(c > confidence)
+            {
+                confidence = c;
+                winner = item;
+            }
+        }
+        if(confidence > 0)
         {
-            confidence = c;
-            winner = item;
+            dx = winner.x - self.boundingBox.origin.x;
+            dy = winner.y - self.boundingBox.origin.y;
+            size = bounds.size.height/4;
+            ds = size - self.boundingBox.size.width;
+            
+            self.boundingBox = CGRectMake(self.boundingBox.origin.x + dx *.1,
+                                          self.boundingBox.origin.y + dx *.1,
+                                          size + ds*.1, size + ds*.1);
         }
     }
-    
-    if(confidence > 0)
+    else
     {
-        newx = winner.x;
-        newy = winner.y;
-        if(newx > bounds.size.width)
-            newx = bounds.size.width;
-        NSLog(@"current position is %f, %f , confidence: %f", newx, newy, confidence);
-        self.boundingBox = CGRectMake(newx, newy, 1024/3, 768/4);
+        dx = bounds.size.width*.5 - self.boundingBox.origin.x;
+        dy = bounds.size.height*.5 - self.boundingBox.origin.y;
+        size = 30;
+        ds = size - self.boundingBox.size.width;
+        
+        self.boundingBox = CGRectMake(self.boundingBox.origin.x + dx *.1,
+                                      self.boundingBox.origin.y + dx *.1,
+                                      size + ds*.1, size + ds*.1);
+
     }
 }
 

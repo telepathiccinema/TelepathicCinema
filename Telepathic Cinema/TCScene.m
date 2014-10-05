@@ -179,8 +179,9 @@
         //only allow one active gaze point at a time
         if([r isActiveAtTime:time])
         {
-            [gaze calibrationPointX:r.box.origin.x + r.box.size.width/2
-                                  Y:r.box.origin.y + r.box.size.height/2];
+            //use the center of the region as our calibration point
+            [gaze calibrationPointX:r.box.origin.x + r.box.size.width*.5
+                                  Y:r.box.origin.y + r.box.size.height*.5];
             return;
         }
     }
