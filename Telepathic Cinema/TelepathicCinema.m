@@ -191,8 +191,10 @@
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
     overlay.contents = (__bridge id)(result.CGImage);
     UIGraphicsEndImageContext();
+    CFRelease(frame);
     CFRelease(path);
     CFRelease(framesetter);
+
     lastUpdateTime = CACurrentMediaTime();
 }
 
