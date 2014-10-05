@@ -125,7 +125,6 @@
     if(isCalibrating)
         return;
     
-    float newx, newy;
     float size = 20;
     float dx,dy,ds;
     
@@ -148,25 +147,25 @@
         }
         if(confidence > 0)
         {
-            dx = winner.x - self.boundingBox.origin.x;
-            dy = winner.y - self.boundingBox.origin.y;
             size = bounds.size.height/4;
+            dx = winner.x - (self.boundingBox.origin.x + size * .5);
+            dy = winner.y - (self.boundingBox.origin.y + size * .5);
             ds = size - self.boundingBox.size.width;
             
             self.boundingBox = CGRectMake(self.boundingBox.origin.x + dx *.1,
-                                          self.boundingBox.origin.y + dx *.1,
+                                          self.boundingBox.origin.y + dy *.1,
                                           size + ds*.1, size + ds*.1);
         }
     }
     else
     {
-        dx = bounds.size.width*.5 - self.boundingBox.origin.x;
-        dy = bounds.size.height*.5 - self.boundingBox.origin.y;
         size = 30;
+        dx = bounds.size.width*.5 - (self.boundingBox.origin.x + size*.5);
+        dy = bounds.size.height*.5 - (self.boundingBox.origin.y + size*.5);
         ds = size - self.boundingBox.size.width;
         
         self.boundingBox = CGRectMake(self.boundingBox.origin.x + dx *.1,
-                                      self.boundingBox.origin.y + dx *.1,
+                                      self.boundingBox.origin.y + dy *.1,
                                       size + ds*.1, size + ds*.1);
 
     }
