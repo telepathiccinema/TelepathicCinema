@@ -51,7 +51,7 @@ typedef void FDP;
      */
 	bool isTracking;
     bool show;
-	
+    
     /**
      * Texture ID for displaying frames from the tracker.
      */
@@ -246,4 +246,5 @@ typedef void FDP;
 - (void) initGazeCalibration;
 - (void) addGazeCalibrationPoint: (float) x andY: (float) y;
 - (void) endGazeCalibration;
+- (float) getFrameRate;
 @end

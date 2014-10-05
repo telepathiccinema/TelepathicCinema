@@ -111,8 +111,10 @@
     CGContextScaleCTM(context, 1.0, -1.0);
  
     CTFrameDraw(frame, context);
-    CFRelease(path);
     CGContextRestoreGState(context);
+    CFRelease(path);
+    CFRelease(framesetter);
+    
     return YES;
 }
 

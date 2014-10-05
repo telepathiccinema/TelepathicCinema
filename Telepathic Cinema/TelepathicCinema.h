@@ -27,6 +27,7 @@
     bool isDone;
     TrackerWrapper* tracker;
     CGRect bounds;
+    CFTimeInterval lastUpdateTime;
     
 }
 
@@ -48,7 +49,7 @@
 -(void)draw;
 
 -(void)display: (BOOL) show;
--(void)update: (AVQueuePlayer *) player withTracker:(TrackerWrapper *)tracker;
+-(void)update;
 
 
 @end

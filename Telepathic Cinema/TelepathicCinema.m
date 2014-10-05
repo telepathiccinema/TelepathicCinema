@@ -12,6 +12,8 @@
 @synthesize overlay;
 @synthesize currentScene;
 @synthesize queuedScene;
+@synthesize calibrationLimit;
+@synthesize gazeLimit;
 
 -(id)initWithView:(CustomGLView *)view
         withScene:(NSString * )filename
@@ -19,47 +21,51 @@
       withTracker:(TrackerWrapper *)_tracker
        withBounds:(CGRect)bounds_
 {
-    bounds = bounds_;
-    overlay = [CALayer layer];
-    overlay.frame = view.frame;
-    overlay.opacity = .25;
-    tracker = _tracker;
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height), NO, 0.0);
-    image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    overlay.contents = (__bridge id)(image.CGImage);
-    overlay.hidden = false;
-    self.cursor = [[TCGaze alloc] initWithTracker:_tracker];
-    self.cursor.boundingBox = CGRectMake(overlay.frame.size.width/2, overlay.frame.size.height/2, 100,100);
-    self.cursor.confidence = 0;
-    currentScene = [[TCScene alloc] initWithName:filename withGaze:self.cursor];
-    self->player = avplayer;
-    isDone = NO;
-    
-    
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSURL *moviePath1 = [bundle URLForResource: [currentScene getTargetFile] withExtension:[currentScene getTargetExtension]];
-    if(moviePath1)
+    if ((self = [super init]))
     {
         
-        AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
-        [self->player insertItem:video1 afterItem:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(sceneEnded:)
-                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-                                                   object:video1 ];
-        [self->player play];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find file."
-                                                        message:[@"Failed to load resource: " stringByAppendingString: currentScene.videoFile]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        isDone = YES;
-        [alert show];
+        bounds = bounds_;
+        overlay = [CALayer layer];
+        overlay.frame = view.frame;
+        overlay.opacity = .25;
+        tracker = _tracker;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height), NO, 0.0);
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        overlay.contents = (__bridge id)(image.CGImage);
+        overlay.hidden = false;
+        self.cursor = [[TCGaze alloc] initWithTracker:_tracker withBounds: bounds];
+        self.cursor.boundingBox = CGRectMake(overlay.frame.size.width/2, overlay.frame.size.height/2, 100,100);
+        self.cursor.confidence = 0;
+        currentScene = [[TCScene alloc] initWithName:filename withGaze:self.cursor withBounds:bounds];
+        self->player = avplayer;
+        isDone = NO;
+        
+        
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSURL *moviePath1 = [bundle URLForResource: [currentScene getTargetFile] withExtension:[currentScene getTargetExtension]];
+        if(moviePath1)
+        {
+            
+            AVPlayerItem *video1 = [AVPlayerItem playerItemWithURL: moviePath1];
+            [self->player insertItem:video1 afterItem:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(sceneEnded:)
+                                                         name:AVPlayerItemDidPlayToEndTimeNotification
+                                                       object:video1 ];
+            [self->player play];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find file."
+                                                            message:[@"Failed to load resource: " stringByAppendingString: currentScene.videoFile]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            isDone = YES;
+            [alert show];
+        }
+        [currentScene makeActive];
+        lastUpdateTime = CACurrentMediaTime();
     }
-    [currentScene makeActive];
-    
     return self;
 }
 
@@ -79,8 +85,8 @@
         [alert show];
         return;
     }
-
-    queuedScene= [[TCScene alloc] initWithName: winner withGaze:self.cursor];
+    
+    queuedScene= [[TCScene alloc] initWithName: winner withGaze:self.cursor withBounds:bounds];
     
     NSBundle *bundle = [NSBundle mainBundle];
     NSURL *moviePath1 = [bundle URLForResource: [queuedScene getTargetFile] withExtension:[queuedScene getTargetExtension]];
@@ -112,7 +118,7 @@
     overlay.hidden = !show;
 }
 
--(void)update: (AVQueuePlayer *) player withTracker:(TrackerWrapper *)tracker
+-(void)update
 {
     if(isDone)
         return;
@@ -131,10 +137,13 @@
     //check collisions on regions
     if(self.cursor.active == YES)
         [currentScene updateWithTime:CMTimeGetSeconds([self->player currentTime])];
+    CACurrentMediaTime();
 }
 
 
--(void)draw{
+-(void)draw
+{
+
     if(overlay.hidden)
         return;
     
@@ -147,9 +156,9 @@
     
     [currentScene drawWithContext: context withTime: currentSceneTime];
     [self.cursor drawWithContext:context];
-
+    
     CGContextSaveGState(context);
-    NSString *header = [NSString stringWithFormat: @"Scene: %@ \nTime: %0.1f / %0.1f \nBrightness: %0.1f", [currentScene getSceneID],currentSceneTime, CMTimeGetSeconds(player.currentItem.duration), [tracker getCameraBrightness]];
+    NSString *header = [NSString stringWithFormat: @"Scene: %@ \nTime: %0.1f / %0.1f \nBrightness: %0.1f\nTracker FPS:%0.1f\nFPS: %0.1f", [currentScene getSceneID],currentSceneTime, CMTimeGetSeconds(player.currentItem.duration), [tracker getCameraBrightness], [tracker getFrameRate], 1/(CACurrentMediaTime()-lastUpdateTime)];
     
     
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -178,12 +187,13 @@
     CGContextScaleCTM(context, 1.0, -1.0);
     
     CTFrameDraw(frame, context);
-    CFRelease(path);
     
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
     overlay.contents = (__bridge id)(result.CGImage);
     UIGraphicsEndImageContext();
-    
+    CFRelease(path);
+    CFRelease(framesetter);
+    lastUpdateTime = CACurrentMediaTime();
 }
 
 - (void)sceneEnded:(NSNotification *)notification

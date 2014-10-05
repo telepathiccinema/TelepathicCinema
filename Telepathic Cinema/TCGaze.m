@@ -12,11 +12,15 @@
 @implementation TCGaze
 
 -(id) initWithTracker:(TrackerWrapper *)t
+           withBounds:(CGRect)bounds_
 {
-    tracker = t;
-    isCalibrating = false;
-    calibrationpoints = [[NSMutableArray alloc]init];
-    
+    if ((self = [super init]))
+    {
+        bounds = bounds_;
+        tracker = t;
+        isCalibrating = false;
+        calibrationpoints = [[NSMutableArray alloc]init];
+    }
     return self;
 }
 
@@ -44,18 +48,18 @@
 }
 
 -(void) calibrationPointX:(float) x
-                           Y:(float) y
+                        Y:(float) y
 {
     if(!isCalibrating)
         return;
     
-//    float* d = [tracker getGlobalGaze];
+    //    float* d = [tracker getGlobalGaze];
     float* d = [tracker getGaze];
     
     NSLog(@"DATA,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
-
+    
     NSString* key = [NSString stringWithFormat:@"%0.02f,%0.02f",x,y];
-
+    
     //check for point in dictionary
     TCCalibrationPoint* pt = [self getCalibrationPointX:x Y:y];
     
@@ -89,9 +93,9 @@
     [calibrationpoints removeAllObjects];
     isCalibrating = true;
     NSLog(@"preparing calibration");
-
+    
     //[tracker initGazeCalibration];  //Visage beta gaze tracker call
-
+    
 }
 
 -(void)finalizeCalibration
@@ -103,9 +107,9 @@
     
     for(id item in calibrationpoints)
     {
-               NSLog(@"Calibration Point values: %@",[item getInfoString]);
+        NSLog(@"Calibration Point values: %@",[item getInfoString]);
     }
-
+    
 }
 
 -(void) update
@@ -133,19 +137,19 @@
     //calculate latest gaze position
     for (TCCalibrationPoint* item in calibrationpoints) {
         float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
-            if(c > confidence)
-            {
-                confidence = c;
-                winner = item;
-            }
+        if(c > confidence)
+        {
+            confidence = c;
+            winner = item;
+        }
     }
     
     if(confidence > 0)
     {
         newx = winner.x;
         newy = winner.y;
-        if(newx > 1024)
-            newx = 1024 - 1024/3;
+        if(newx > bounds.size.width)
+            newx = bounds.size.width;
         NSLog(@"current position is %f, %f , confidence: %f", newx, newy, confidence);
         self.boundingBox = CGRectMake(newx, newy, 1024/3, 768/4);
     }

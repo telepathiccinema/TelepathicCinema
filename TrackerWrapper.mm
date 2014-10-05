@@ -1003,10 +1003,7 @@ int last_pts = 0;
         
         // display instructions during initialization
         if (trackingStatus == TRACK_STAT_INIT) {
-            if (!instructionsTexId) {
-                [self initAndSetInstructionsTexture];
-            }
-            [self displayInstructions];
+            [self displayVideo];
         }
 
 		[glView swapOpenGLBuffers];
@@ -1063,13 +1060,33 @@ int last_pts = 0;
 {
     if(trackingData.frame)
     {
-        CvRect old_roi = cvGetImageROI(trackingData.frame);
+        CvRect temp = cvGetImageROI(trackingData.frame);
         cvSetImageROI(trackingData.frame, cvRect(trackingData.frame->width/2 ,trackingData.frame->height/2,trackingData.frame->width,20));
         CvScalar c = cvAvg(trackingData.frame);
-        cvSetImageROI(trackingData.frame,old_roi); // reset old roi
+        cvSetImageROI(trackingData.frame,temp); // reset old roi
         return c.val[0];
     }
     return 0.0f;
+}
+
+- (void) initGazeCalibration
+{
+        //start the tracker calibration via visage beta
+}
+
+- (void) addGazeCalibrationPoint: (float) x andY: (float) y
+{
+    //add tracker calibration via visage beta
+}
+
+- (void) endGazeCalibration
+{
+    //finalize the online calibration via visage beta
+}
+
+-(float) getFrameRate
+{
+    return tracker->getFrameRate();
 }
 
 

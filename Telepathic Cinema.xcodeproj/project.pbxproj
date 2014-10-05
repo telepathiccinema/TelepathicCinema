@@ -15,8 +15,6 @@
 		CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE18560419AA3BD600B552EE /* InfoPlist.strings */; };
 		CE18560819AA3BD600B552EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560719AA3BD600B552EE /* main.m */; };
 		CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560B19AA3BD600B552EE /* AppDelegate.m */; };
-		CE18560F19AA3BD600B552EE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE18560D19AA3BD600B552EE /* Main_iPhone.storyboard */; };
-		CE18561219AA3BD600B552EE /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE18561019AA3BD600B552EE /* Main_iPad.storyboard */; };
 		CE18561519AA3BD600B552EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18561419AA3BD600B552EE /* ViewController.m */; };
 		CE18561719AA3BD600B552EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE18561619AA3BD600B552EE /* Images.xcassets */; };
 		CE18561E19AA3BD600B552EE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18561D19AA3BD600B552EE /* XCTest.framework */; };
@@ -539,7 +537,6 @@
 				0F8392F519E09C96008BD7EE /* gamma.smil in Resources */,
 				CE7BE0F719E0A01800D541F9 /* 2.mov in Resources */,
 				CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */,
-				CE18561219AA3BD600B552EE /* Main_iPad.storyboard in Resources */,
 				CEA6F85A19E05992006EA414 /* beta.smil in Resources */,
 				CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */,
 				CE18565719AA3E7400B552EE /* face.png in Resources */,
@@ -547,7 +544,6 @@
 				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
 				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
-				CE18560F19AA3BD600B552EE /* Main_iPhone.storyboard in Resources */,
 				CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */,
 				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,

@@ -41,7 +41,11 @@
     [self setupVideoPlayer];
     tc = [[TelepathicCinema alloc] initWithView:glView withScene:@"alpha.smil" withPlayer:self.mPlayer withTracker:tracker withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
     [self.view.layer addSublayer:tc.overlay];
-    
+
+    //initial display state (player only)
+    [self.tracker blank];
+    [self.tc display:NO];
+    [self.tracker display:NO];
 }
 
 -(void) setupVideoPlayer
@@ -61,7 +65,7 @@
 
 
 -(void)update:(NSTimer *)timer {
-    [self.tc update: self.mPlayer withTracker:self.tracker];
+    [self.tc update];
     [self.tracker displayTrackingResults];
     [self.tc draw];
 }

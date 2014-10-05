@@ -18,13 +18,15 @@
     TCRegion* calibrationRegion;
     TCGaze* gaze;
     float duration;
+    CGRect bounds;
 }
 @property(strong, retain) NSString* name;
 @property(strong, retain) NSMutableArray* regions;
 @property(strong, retain) NSString* videoFile;
 
 -(id)initWithName: (NSString *) filename
-         withGaze: (TCGaze *) gaze;
+         withGaze: (TCGaze *) gaze
+       withBounds: (CGRect ) bounds;
 -(void) drawWithContext: (CGContextRef) context withTime:(float) t;
 -(float)coordToFloat: (NSString *) c;
 -(NSString *)getTargetFile;

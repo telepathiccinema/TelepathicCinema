@@ -15,13 +15,15 @@
     NSMutableArray* calibrationpoints;
     bool isCalibrating;
     bool isCalibrated;
+    CGRect bounds;
 }
 @property CGRect boundingBox;
 @property float confidence;
 @property BOOL active;
 @property int inactiveTime;
 
--(id)   initWithTracker: (TrackerWrapper*) t;
+-(id)   initWithTracker: (TrackerWrapper*) t
+             withBounds: (CGRect)bounds;
 -(void) drawWithContext: (CGContextRef) context;
 -(void) update;
 -(void) resetTimer;
