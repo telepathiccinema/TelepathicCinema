@@ -14,6 +14,7 @@
 @synthesize queuedScene;
 @synthesize calibrationLimit;
 @synthesize gazeLimit;
+@synthesize renderDetails;
 
 -(id)initWithView:(CustomGLView *)view
         withScene:(NSString * )filename
@@ -25,6 +26,7 @@
     {
         
         bounds = bounds_;
+        renderDetails = NO;
         overlay = [CALayer layer];
         overlay.frame = view.frame;
         overlay.opacity = .25;
@@ -137,13 +139,13 @@
     //check collisions on regions
     if(self.cursor.active == YES)
         [currentScene updateWithTime:CMTimeGetSeconds([self->player currentTime])];
-    CACurrentMediaTime();
+    
 }
 
 
 -(void)draw
 {
-
+    
     if(overlay.hidden)
         return;
     
@@ -157,44 +159,46 @@
     [currentScene drawWithContext: context withTime: currentSceneTime];
     [self.cursor drawWithContext:context];
     
-    CGContextSaveGState(context);
-    NSString *header = [NSString stringWithFormat: @"Scene: %@ \nTime: %0.1f / %0.1f \nBrightness: %0.1f\nTracker FPS:%0.1f\nFPS: %0.1f", [currentScene getSceneID],currentSceneTime, CMTimeGetSeconds(player.currentItem.duration), [tracker getCameraBrightness], [tracker getFrameRate], 1/(CACurrentMediaTime()-lastUpdateTime)];
-    
-    
-    NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    CFBridgingRelease(CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 28.0, NULL)),
-                                    (NSString *)kCTFontAttributeName,
-                                    [UIColor whiteColor].CGColor,
-                                    (NSString *)kCTForegroundColorAttributeName,
-                                    nil];
-    
-    
-    NSAttributedString *headerString = [[NSAttributedString alloc] initWithString:header
-                                                                       attributes:attributesDict];
-    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)headerString);
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
-    transform = CGAffineTransformTranslate(transform, 0, - bounds.size.height);
-    
-    CGRect frameText = bounds;
-    CGRect newRectForUIKit = CGRectApplyAffineTransform(frameText, transform);
-    CGPathAddRect(path, NULL, newRectForUIKit);
-    
-    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
-    
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGContextTranslateCTM(context, 0, bounds.size.height );
-    CGContextScaleCTM(context, 1.0, -1.0);
-    
-    CTFrameDraw(frame, context);
-    
+    if(self.renderDetails)
+    {
+        CGContextSaveGState(context);
+        NSString *header = [NSString stringWithFormat: @"Scene: %@ \nTime: %0.1f / %0.1f \nBrightness: %0.1f\nTracker FPS:%0.1f\nFPS: %0.1f", [currentScene getSceneID],currentSceneTime, CMTimeGetSeconds(player.currentItem.duration), [tracker getCameraBrightness], [tracker getFrameRate], 1/(CACurrentMediaTime()-lastUpdateTime)];
+        
+        
+        NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        CFBridgingRelease(CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 28.0, NULL)),
+                                        (NSString *)kCTFontAttributeName,
+                                        [UIColor whiteColor].CGColor,
+                                        (NSString *)kCTForegroundColorAttributeName,
+                                        nil];
+        
+        
+        NSAttributedString *headerString = [[NSAttributedString alloc] initWithString:header
+                                                                           attributes:attributesDict];
+        CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)headerString);
+        CGMutablePathRef path = CGPathCreateMutable();
+        CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
+        transform = CGAffineTransformTranslate(transform, 0, - bounds.size.height);
+        
+        CGRect frameText = bounds;
+        CGRect newRectForUIKit = CGRectApplyAffineTransform(frameText, transform);
+        CGPathAddRect(path, NULL, newRectForUIKit);
+        
+        CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
+        
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        CGContextTranslateCTM(context, 0, bounds.size.height );
+        CGContextScaleCTM(context, 1.0, -1.0);
+        
+        CTFrameDraw(frame, context);
+        CFRelease(frame);
+        CFRelease(path);
+        CFRelease(framesetter);
+    }
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
     overlay.contents = (__bridge id)(result.CGImage);
     UIGraphicsEndImageContext();
-    CFRelease(frame);
-    CFRelease(path);
-    CFRelease(framesetter);
-
+    
     lastUpdateTime = CACurrentMediaTime();
 }
 

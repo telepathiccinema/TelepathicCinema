@@ -27,7 +27,7 @@
     self.endtime = end;
     self.isCalibration = calibrationFlag;
     self.title = t;
-    NSLog(@"Created Region: %@ => %f,%f,%f,%f => start: %f => end: %f", name, r.origin.x, r.origin.y, r.size.width, r.size.height, start, end);
+    NSLog(@"Created Region: %@ => %0.2f,%0.2f,%0.2f,%0.2f => start: %0.2f => end: %0.2f", name, r.origin.x, r.origin.y, r.size.width, r.size.height, start, end);
     return self;
 }
 

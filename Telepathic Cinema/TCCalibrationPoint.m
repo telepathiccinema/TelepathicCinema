@@ -74,8 +74,6 @@
     if(vz >= minVZ && vz <= maxVZ)
         c += 1 - fabsf(avgVZ - vz)/fabsf(maxVZ - minVZ);
     
-    NSLog(@"confidence for point %0.02f, %0.02f => %0.02f", self.x, self.y, c);
-
     return c;
 }
 

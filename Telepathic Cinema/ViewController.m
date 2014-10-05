@@ -86,6 +86,7 @@
         case STATE_PLAYER:
             [self.tracker blank];
             [self.tc display:NO];
+            tc.renderDetails = NO;
             [self.tracker display:NO];
             [[self.view.layer.sublayers objectAtIndex:0] setOpacity:1.0];
             break;
@@ -94,12 +95,14 @@
             [self.tc display:YES];
             [self.tracker blank];
             [self.tracker display:NO];
+            self.tc.renderDetails = NO;
             break;
         case STATE_TRACKER:
             [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
             [self.tc display:YES];
             [self.tracker blank];
             [self.tracker display:YES];
+            self.tc.renderDetails = YES;
             break;
     }
 }

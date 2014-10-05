@@ -28,7 +28,6 @@
     TrackerWrapper* tracker;
     CGRect bounds;
     CFTimeInterval lastUpdateTime;
-    
 }
 
 @property (nonatomic, retain) CALayer* overlay;
@@ -37,6 +36,7 @@
 @property (nonatomic, retain) TCGaze* cursor;
 @property (nonatomic) float gazeLimit;
 @property (nonatomic) float calibrationLimit;
+@property (nonatomic) bool renderDetails;
 
 -(id)initWithView:(CustomGLView *)view
         withScene:(NSString * ) filename

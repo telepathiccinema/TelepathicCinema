@@ -113,7 +113,7 @@
                     float width = [self coordToFloat:w];
                     float height = [self coordToFloat:h];
                     
-                    NSLog(@"Adding Region: target: %@ =>id: %@  => title: %@ => coords=>%f,%f,%f,%f start=>%f end=>%f dur=>%f ",
+                    NSLog(@"Adding Region: target: %@ =>id: %@  => title: %@ => coords=>%0.2f,%0.2f,%0.2f,%0.2f start=>%0.2f end=>%0.2f dur=>%0.2f ",
                           target, aId, title, topLeftX, topLeftY, width, height, start, end, dur);
                     TCRegion* r = [[TCRegion alloc] initWithTarget:target
                                                          withTitle:title
@@ -173,7 +173,6 @@
 
 -(void) processCalibrationWthTime: (float) time
 {
-    NSLog(@"processing calibration data....");
     for(TCRegion* r in self.regions)
     {
         //only allow one active gaze point at a time
