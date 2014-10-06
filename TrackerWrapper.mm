@@ -1061,7 +1061,7 @@ int last_pts = 0;
     if(trackingData.frame)
     {
         CvRect temp = cvGetImageROI(trackingData.frame);
-        cvSetImageROI(trackingData.frame, cvRect(trackingData.frame->width/2 ,trackingData.frame->height/2,trackingData.frame->width,20));
+        cvSetImageROI(trackingData.frame, cvRect(0 ,trackingData.frame->height/2,trackingData.frame->width,20));
         CvScalar c = cvAvg(trackingData.frame);
         cvSetImageROI(trackingData.frame,temp); // reset old roi
         return c.val[0];
