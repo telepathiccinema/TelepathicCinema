@@ -67,6 +67,7 @@
 		CE7BE0F619E0A01800D541F9 /* 3.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0F019E0A01800D541F9 /* 3.mov */; };
 		CE7BE0F719E0A01800D541F9 /* 2.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0F119E0A01800D541F9 /* 2.mov */; };
 		CE7BE0F819E0A01800D541F9 /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0F219E0A01800D541F9 /* 1.mov */; };
+		CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE18561019AA3BD600B552EE /* Main_iPad.storyboard */; };
 		CEA6F85919E05992006EA414 /* alpha.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEA6F85719E05992006EA414 /* alpha.smil */; };
 		CEA6F85A19E05992006EA414 /* beta.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEA6F85819E05992006EA414 /* beta.smil */; };
 		CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEB5F2D819D669FB000CDF9E /* calibration.smil */; };
@@ -534,6 +535,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */,
 				CE7BE0F619E0A01800D541F9 /* 3.mov in Resources */,
 				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
 				CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */,
