@@ -38,7 +38,7 @@
         CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
     else
         CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
-
+    
     CGContextAddArc(context,
                     self.boundingBox.origin.x + self.boundingBox.size.width*.5,
                     self.boundingBox.origin.y + self.boundingBox.size.height*.5,
@@ -131,25 +131,44 @@
     if(self.active)
     {
         //update cursor
-        //float* d = [tracker getGlobalGaze];
-        float* d = [tracker getGaze];
+        float* d = [tracker getGlobalGaze];
+        //float* d = [tracker getGaze];
         TCCalibrationPoint * winner = nil;
-        float confidence = 0;
+        float higestConfidence = 0;
+        float targetx = 0;
+        float targety = 0;
         
-        //calculate latest gaze position
-        for (TCCalibrationPoint* item in calibrationpoints) {
-            float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
-            if(c > confidence)
-            {
-                confidence = c;
-                winner = item;
+        if([calibrationpoints count] > 0 )
+        {
+            //calculate latest gaze position
+            for (TCCalibrationPoint* item in calibrationpoints) {
+                float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
+                if(c > higestConfidence)
+                {
+                    higestConfidence = c;
+                    winner = item;
+                    targetx = winner.x;
+                    targety = winner.y;
+                }
             }
+        }else{
+                //let's bias a bit left....
+                if(d[1] <= 0.15)
+                {
+                    targetx = bounds.size.width*.25;
+                    targety = bounds.size.height * .5;
+                }else{
+                    targetx = bounds.size.width*.75;
+                    targety = bounds.size.height * .5;
+                }
+            NSLog(@"YROLL: %0.2f",d[1]);
+            higestConfidence = .50;
         }
-        if(confidence > 0)
+        if(higestConfidence > 0)
         {
             size = bounds.size.height/4;
-            dx = winner.x - (self.boundingBox.origin.x + size * .5);
-            dy = winner.y - (self.boundingBox.origin.y + size * .5);
+            dx = targetx - (self.boundingBox.origin.x + size * .5);
+            dy = targety - (self.boundingBox.origin.y + size * .5);
             ds = size - self.boundingBox.size.width;
             
             self.boundingBox = CGRectMake(self.boundingBox.origin.x + dx *.1,
@@ -167,7 +186,7 @@
         self.boundingBox = CGRectMake(self.boundingBox.origin.x + dx *.1,
                                       self.boundingBox.origin.y + dy *.1,
                                       size + ds*.1, size + ds*.1);
-
+        
     }
 }
 

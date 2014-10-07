@@ -24,7 +24,8 @@ using namespace VisageSDK;
     BOOL isMT = [self startMultithread];
     //initialize licensing
     //example how to initialize license key
-    initializeLicenseManager("637-055-282-782-699-137-004-446-835-604-044.vlc");
+    char licenseFile[] = "637-055-282-782-699-137-004-446-835-604-044.vlc";
+    initializeLicenseManager(licenseFile);
     
     
 	glView = view;
