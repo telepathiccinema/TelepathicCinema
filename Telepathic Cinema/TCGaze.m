@@ -153,7 +153,7 @@
             }
         }else{
                 //let's bias a bit left....
-                if(d[1] <= 0.15)
+                if(d[1] < 0.13)
                 {
                     targetx = bounds.size.width*.25;
                     targety = bounds.size.height * .5;
@@ -161,7 +161,6 @@
                     targetx = bounds.size.width*.75;
                     targety = bounds.size.height * .5;
                 }
-            NSLog(@"YROLL: %0.2f",d[1]);
             higestConfidence = .50;
         }
         if(higestConfidence > 0)
