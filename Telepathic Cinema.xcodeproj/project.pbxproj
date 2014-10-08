@@ -68,6 +68,12 @@
 		CE7BE0F719E0A01800D541F9 /* 2.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0F119E0A01800D541F9 /* 2.mov */; };
 		CE7BE0F819E0A01800D541F9 /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0F219E0A01800D541F9 /* 1.mov */; };
 		CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE18561019AA3BD600B552EE /* Main_iPad.storyboard */; };
+		CEA6825D19E4EE3F00C8CAEF /* FFT - HighPerformancePortrait.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CEA6825719E4EE3F00C8CAEF /* FFT - HighPerformancePortrait.cfg */; };
+		CEA6825E19E4EE3F00C8CAEF /* FFT - LowPerformancePortrait.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CEA6825819E4EE3F00C8CAEF /* FFT - LowPerformancePortrait.cfg */; };
+		CEA6825F19E4EE3F00C8CAEF /* FFT - MidPerformancePortrait.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CEA6825919E4EE3F00C8CAEF /* FFT - MidPerformancePortrait.cfg */; };
+		CEA6826019E4EE3F00C8CAEF /* HT - HighPerformancePortrait.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CEA6825A19E4EE3F00C8CAEF /* HT - HighPerformancePortrait.cfg */; };
+		CEA6826119E4EE3F00C8CAEF /* HT - LowPerformancePortrait.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CEA6825B19E4EE3F00C8CAEF /* HT - LowPerformancePortrait.cfg */; };
+		CEA6826219E4EE3F00C8CAEF /* HT - MidPerformancePortrait.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CEA6825C19E4EE3F00C8CAEF /* HT - MidPerformancePortrait.cfg */; };
 		CEA6F85919E05992006EA414 /* alpha.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEA6F85719E05992006EA414 /* alpha.smil */; };
 		CEA6F85A19E05992006EA414 /* beta.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEA6F85819E05992006EA414 /* beta.smil */; };
 		CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEB5F2D819D669FB000CDF9E /* calibration.smil */; };
@@ -181,6 +187,12 @@
 		CE7BE0F019E0A01800D541F9 /* 3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 3.mov; sourceTree = "<group>"; };
 		CE7BE0F119E0A01800D541F9 /* 2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2.mov; sourceTree = "<group>"; };
 		CE7BE0F219E0A01800D541F9 /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 1.mov; sourceTree = "<group>"; };
+		CEA6825719E4EE3F00C8CAEF /* FFT - HighPerformancePortrait.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - HighPerformancePortrait.cfg"; path = "visageSDK-iOS/data/FFT - HighPerformancePortrait.cfg"; sourceTree = "<group>"; };
+		CEA6825819E4EE3F00C8CAEF /* FFT - LowPerformancePortrait.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - LowPerformancePortrait.cfg"; path = "visageSDK-iOS/data/FFT - LowPerformancePortrait.cfg"; sourceTree = "<group>"; };
+		CEA6825919E4EE3F00C8CAEF /* FFT - MidPerformancePortrait.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - MidPerformancePortrait.cfg"; path = "visageSDK-iOS/data/FFT - MidPerformancePortrait.cfg"; sourceTree = "<group>"; };
+		CEA6825A19E4EE3F00C8CAEF /* HT - HighPerformancePortrait.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - HighPerformancePortrait.cfg"; path = "visageSDK-iOS/data/HT - HighPerformancePortrait.cfg"; sourceTree = "<group>"; };
+		CEA6825B19E4EE3F00C8CAEF /* HT - LowPerformancePortrait.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - LowPerformancePortrait.cfg"; path = "visageSDK-iOS/data/HT - LowPerformancePortrait.cfg"; sourceTree = "<group>"; };
+		CEA6825C19E4EE3F00C8CAEF /* HT - MidPerformancePortrait.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - MidPerformancePortrait.cfg"; path = "visageSDK-iOS/data/HT - MidPerformancePortrait.cfg"; sourceTree = "<group>"; };
 		CEA6F85719E05992006EA414 /* alpha.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alpha.smil; sourceTree = "<group>"; };
 		CEA6F85819E05992006EA414 /* beta.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beta.smil; sourceTree = "<group>"; };
 		CEB5F2D819D669FB000CDF9E /* calibration.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calibration.smil; sourceTree = "<group>"; };
@@ -332,6 +344,12 @@
 				CE18564719AA3E7400B552EE /* candide3.wfm */,
 				CE18564819AA3E7400B552EE /* Face Detector.cfg */,
 				CE18564919AA3E7400B552EE /* face.png */,
+				CEA6825719E4EE3F00C8CAEF /* FFT - HighPerformancePortrait.cfg */,
+				CEA6825819E4EE3F00C8CAEF /* FFT - LowPerformancePortrait.cfg */,
+				CEA6825919E4EE3F00C8CAEF /* FFT - MidPerformancePortrait.cfg */,
+				CEA6825A19E4EE3F00C8CAEF /* HT - HighPerformancePortrait.cfg */,
+				CEA6825B19E4EE3F00C8CAEF /* HT - LowPerformancePortrait.cfg */,
+				CEA6825C19E4EE3F00C8CAEF /* HT - MidPerformancePortrait.cfg */,
 				CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */,
 				CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */,
 				CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */,
@@ -535,12 +553,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA6826019E4EE3F00C8CAEF /* HT - HighPerformancePortrait.cfg in Resources */,
 				CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */,
 				CE7BE0F619E0A01800D541F9 /* 3.mov in Resources */,
 				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
 				CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */,
+				CEA6825D19E4EE3F00C8CAEF /* FFT - HighPerformancePortrait.cfg in Resources */,
 				0F8392F519E09C96008BD7EE /* gamma.smil in Resources */,
 				CE7BE0F719E0A01800D541F9 /* 2.mov in Resources */,
+				CEA6825F19E4EE3F00C8CAEF /* FFT - MidPerformancePortrait.cfg in Resources */,
 				CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */,
 				CEA6F85A19E05992006EA414 /* beta.smil in Resources */,
 				CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */,
@@ -549,6 +570,7 @@
 				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
 				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
+				CEA6826219E4EE3F00C8CAEF /* HT - MidPerformancePortrait.cfg in Resources */,
 				CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */,
 				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
@@ -560,10 +582,12 @@
 				CE7BE0F819E0A01800D541F9 /* 1.mov in Resources */,
 				CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */,
 				CEA6F85919E05992006EA414 /* alpha.smil in Resources */,
+				CEA6826119E4EE3F00C8CAEF /* HT - LowPerformancePortrait.cfg in Resources */,
 				CE7BE0F519E0A01800D541F9 /* alpha.mov in Resources */,
 				CE18565119AA3E7400B552EE /* candide.wfm in Resources */,
 				CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */,
 				CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */,
+				CEA6825E19E4EE3F00C8CAEF /* FFT - LowPerformancePortrait.cfg in Resources */,
 				CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */,
 				CE18565419AA3E7400B552EE /* candide3.fdp in Resources */,
 				CE18565A19AA3E7400B552EE /* FFT - MidPerformance.cfg in Resources */,

@@ -154,7 +154,7 @@
         }else{
                 //let's bias a bit left....for no calibration
                 //   
-                if(d[1] < 0.13)
+                if(d[1] < 0.0)
                 {
                     targetx = bounds.size.width*.25;
                     targety = bounds.size.height * .5;

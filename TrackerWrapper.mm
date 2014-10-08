@@ -36,30 +36,30 @@ using namespace VisageSDK;
     NSString* deviceType = [UIDeviceHardware platform];
 #ifdef FACE_TRACKER
     if ([deviceType hasPrefix:@"iPhone3"])
-        tracker = new VisageTracker2("FFT - LowPerformance.cfg");      // iPhone4
+        tracker = new VisageTracker2("FFT - LowPerformancePortrait.cfg");      // iPhone4
     else if ([deviceType hasPrefix:@"iPhone4"])
-        tracker = new VisageTracker2("FFT - MidPerformance.cfg");      // iPhone4S
+        tracker = new VisageTracker2("FFT - MidPerformancePortrait.cfg");      // iPhone4S
     else if ([deviceType hasPrefix:@"iPhone5"])
-        tracker = new VisageTracker2("FFT - HighPerformance.cfg");     // iPhone5
+        tracker = new VisageTracker2("FFT - HighPerformancePortrait.cfg");     // iPhone5
     else if ([deviceType hasPrefix:@"iPad2"])
-        tracker = new VisageTracker2("FFT - MidPerformance.cfg");      // iPad2
+        tracker = new VisageTracker2("FFT - MidPerformancePortrait.cfg");      // iPad2
     else if ([deviceType hasPrefix:@"iPad3"])
-        tracker = new VisageTracker2("FFT - HighPerformance.cfg");     // iPad3
+        tracker = new VisageTracker2("FFT - HighPerformancePortrait.cfg");     // iPad3
     else
-        tracker = new VisageTracker2("FFT - MidPerformance.cfg");
+        tracker = new VisageTracker2("FFT - MidPerformancePortrait.cfg");
 #else
     if ([deviceType hasPrefix:@"iPhone3"])
-        tracker = new VisageTracker2("HT - LowPerformance.cfg");       // iPhone4
+        tracker = new VisageTracker2("HT - LowPerformancePortrait.cfg");       // iPhone4
     else if ([deviceType hasPrefix:@"iPhone4"])
-        tracker = new VisageTracker2("HT - MidPerformance.cfg");       // iPhone4S
+        tracker = new VisageTracker2("HT - MidPerformancePortrait.cfg");       // iPhone4S
     else if ([deviceType hasPrefix:@"iPhone5"])
-        tracker = new VisageTracker2("HT - HighPerformance.cfg");      // iPhone5
+        tracker = new VisageTracker2("HT - HighPerformancePortrait.cfg");      // iPhone5
     else if ([deviceType hasPrefix:@"iPad2"])
-        tracker = new VisageTracker2("HT - MidPerformance.cfg");       // iPad2
+        tracker = new VisageTracker2("HT - MidPerformancePortrait.cfg");       // iPad2
     else if ([deviceType hasPrefix:@"iPad3"])
-        tracker = new VisageTracker2("HT - HighPerformance.cfg");      // iPad3
+        tracker = new VisageTracker2("HT - HighPerformancePortrait.cfg");      // iPad3
     else
-        tracker = new VisageTracker2("HT - MidPerformance.cfg");
+        tracker = new VisageTracker2("HT - MidPerformancePortrait.cfg");
 #endif
 
 	//get OpenGL context size
