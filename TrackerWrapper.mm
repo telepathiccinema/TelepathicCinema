@@ -1073,16 +1073,20 @@ int last_pts = 0;
 - (void) initGazeCalibration
 {
         //start the tracker calibration via visage beta
+        //tracker->InitOnlineGazeCalibration();
 }
 
 - (void) addGazeCalibrationPoint: (float) x andY: (float) y
 {
     //add tracker calibration via visage beta
+    //tracker->AddGazeCalibrationPoint(x, y) ;
+
 }
 
 - (void) endGazeCalibration
 {
     //finalize the online calibration via visage beta
+    //    tracker->FinalizeOnlineGazeCalibration();
 }
 
 -(float) getFrameRate
