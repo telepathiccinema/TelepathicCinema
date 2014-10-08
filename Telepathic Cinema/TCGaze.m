@@ -53,8 +53,8 @@
     if(!isCalibrating)
         return;
 
-    //    float* d = [tracker getGlobalGaze];
-    float* d = [tracker getGaze];
+    float* d = [tracker getGlobalGaze];
+    //float* d = [tracker getGaze];
     
     NSLog(@"DATA,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
     
@@ -64,10 +64,8 @@
     if( pt != nil)
     {
         [pt addVectorX:d[0] Y:d[1] Z:d[2]];
-        NSLog(@"updating data for point: %0.2f, %0.2f", x, y);
     }else
     {
-        NSLog(@"adding new calibration point: %0.2f, %0.2f", x, y);
         pt = [[TCCalibrationPoint alloc] initWithPointX:x Y:y gazeVectorX:d[0] Y:d[1] Z:d[2]];
         NSLog(@"Adding this: %@", [pt getInfoString]);
         [calibrationpoints addObject:pt];
@@ -101,7 +99,7 @@
     isCalibrating = false;
     isCalibrated = true;
     NSLog(@"finalizing calibration, number of regions: %i", [calibrationpoints count]);
-    //[tracker endGazeCalibration];
+    //[tracker endGazeCalibration];  //Visage beta gaze tracker call
     
     for(id item in calibrationpoints)
     {

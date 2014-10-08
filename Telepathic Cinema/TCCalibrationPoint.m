@@ -34,14 +34,17 @@
     return self;
 }
 
+//Adding a vector position to our running data
 -(void) addVectorX:(float)vx Y:(float)vy Z:(float)vz
 {
-    //simply keep a running average
+    //keep a running average, should normalize outliers
+    //   provided we have enough consistent data
     avgVX  = (avgVX + vx) / 2;
     avgVY  = (avgVY + vy) / 2;
     avgVZ  = (avgVZ + vz) / 2;
 
-    //maintain boundary information
+    //maintain boundary information to
+    //  filter future points to our domain
     if(vx < minVX)
         minVX = vx;
     if(vx > maxVX)
@@ -60,6 +63,10 @@
     sampleCount++;
 }
 
+
+//confidence is simply going to be created by
+//  piece-wise normalized error.  First we filter
+//  by our domain then normalize per component
 -(float) getConfidenceRatingForVectorX: (float) vx
                                      Y: (float) vy
                                      Z: (float) vz

@@ -39,7 +39,7 @@
 														  repeats:YES];
     [self.tracker startTrackingFromCam];
     [self setupVideoPlayer];
-    tc = [[TelepathicCinema alloc] initWithView:glView withScene:@"1.smil" withPlayer:self.mPlayer withTracker:tracker withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
+    tc = [[TelepathicCinema alloc] initWithView:glView withScene:@"calibration.smil" withPlayer:self.mPlayer withTracker:tracker withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
     [self.view.layer addSublayer:tc.overlay];
 
     //initial display state (player only)
