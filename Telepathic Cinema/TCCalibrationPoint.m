@@ -2,8 +2,8 @@
 //  TCCalibrationPoint.m
 //  Telepathic Cinema
 //
-//  Created by user on 9/30/14.
-//  Copyright (c) 2014 Ket.ai. All rights reserved.
+//  Created by ketai on 9/30/14.
+//  Copyright (c) 2014 Telepathic Cinema All rights reserved.
 //
 
 #import "TCCalibrationPoint.h"
@@ -66,10 +66,10 @@
 {
     float c = 0;
     if(vx >= minVX && vx <= maxVX)
-        c += 1 - fabsf(avgVX - vx)/fabsf(maxVX-minVX);
+        c += 1 - fabsf(avgVX - vx)/fabsf(maxVX - minVX);
 
     if(vy >= minVY && vy <= maxVY)
-        c += 1 - fabsf(avgVY - vy)/fabs(maxVX - minVY);
+        c += 1 - fabsf(avgVY - vy)/fabs(maxVY - minVY);
 
     if(vz >= minVZ && vz <= maxVZ)
         c += 1 - fabsf(avgVZ - vz)/fabsf(maxVZ - minVZ);

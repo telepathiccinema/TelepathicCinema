@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreText/CoreText.h>
 
-#define GREEN {0.0, 1.0, 0.0, 1.0}
-#define YELLOW {1.0, 1.0, 0.0, 1.0}
-
 @interface TCRegion : NSObject
 {
     bool isHit;

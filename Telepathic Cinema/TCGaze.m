@@ -52,13 +52,11 @@
 {
     if(!isCalibrating)
         return;
-    
+
     //    float* d = [tracker getGlobalGaze];
     float* d = [tracker getGaze];
     
     NSLog(@"DATA,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
-    
-    NSString* key = [NSString stringWithFormat:@"%0.02f,%0.02f",x,y];
     
     //check for point in dictionary
     TCCalibrationPoint* pt = [self getCalibrationPointX:x Y:y];
@@ -66,10 +64,10 @@
     if( pt != nil)
     {
         [pt addVectorX:d[0] Y:d[1] Z:d[2]];
-        NSLog(@"updating data for point: %@", key);
+        NSLog(@"updating data for point: %0.2f, %0.2f", x, y);
     }else
     {
-        NSLog(@"adding new calibration point: %@", key);
+        NSLog(@"adding new calibration point: %0.2f, %0.2f", x, y);
         pt = [[TCCalibrationPoint alloc] initWithPointX:x Y:y gazeVectorX:d[0] Y:d[1] Z:d[2]];
         NSLog(@"Adding this: %@", [pt getInfoString]);
         [calibrationpoints addObject:pt];
@@ -130,9 +128,11 @@
     
     if(self.active)
     {
+        
         //update cursor
         float* d = [tracker getGlobalGaze];
         //float* d = [tracker getGaze];
+        
         TCCalibrationPoint * winner = nil;
         float higestConfidence = 0;
         float targetx = 0;
@@ -152,7 +152,8 @@
                 }
             }
         }else{
-                //let's bias a bit left....
+                //let's bias a bit left....for no calibration
+                //   
                 if(d[1] < 0.13)
                 {
                     targetx = bounds.size.width*.25;

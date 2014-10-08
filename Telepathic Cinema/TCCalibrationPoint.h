@@ -2,7 +2,7 @@
 //  TCCalibrationPoint.h
 //  Telepathic Cinema
 //
-//  Created by user on 9/30/14.
+//  Created by ketai on 9/30/14.
 //  Copyright (c) 2014 Ket.ai. All rights reserved.
 //
 
