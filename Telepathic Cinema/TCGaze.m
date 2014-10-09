@@ -132,16 +132,19 @@
         //float* d = [tracker getGaze];
         
         TCCalibrationPoint * winner = nil;
-        float higestConfidence = 0;
-        float targetx = 0;
-        float targety = 0;
+        float higestConfidence = MAXFLOAT;
+        float targetx = -1;
+        float targety = -1;
         
         if([calibrationpoints count] > 0 )
         {
             //calculate latest gaze position
             for (TCCalibrationPoint* item in calibrationpoints) {
                 float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
-                if(c > higestConfidence)
+
+                //confidence is actually the lowest distance for any point
+                //  this is the closest calibration point to the current values
+                if(c < higestConfidence)
                 {
                     higestConfidence = c;
                     winner = item;
@@ -162,8 +165,10 @@
                 }
             higestConfidence = .50;
         }
-        if(higestConfidence > 0)
+        
+        if(higestConfidence >= 0)
         {
+            NSLog(@"moving towards %0.2f, %0.2f", targetx, targety);
             size = bounds.size.height/4;
             dx = targetx - (self.boundingBox.origin.x + size * .5);
             dy = targety - (self.boundingBox.origin.y + size * .5);

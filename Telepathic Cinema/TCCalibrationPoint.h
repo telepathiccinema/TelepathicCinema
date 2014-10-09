@@ -10,11 +10,7 @@
 
 @interface TCCalibrationPoint : NSObject
 {
-    float minVX, minVY, minVZ;
-    float maxVX, maxVY, maxVZ;
-    float avgVX, avgVY, avgVZ;
-    
-    int sampleCount;
+    NSMutableArray* values;
 }
 @property float x;
 @property float y;
@@ -33,7 +29,6 @@
 -(float) getConfidenceRatingForVectorX: (float) vx
                                      Y: (float) vy
                                      Z: (float) vz;
-
 -(NSString*) getInfoString;
 
 @end

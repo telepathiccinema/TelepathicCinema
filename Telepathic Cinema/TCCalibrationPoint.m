@@ -18,75 +18,55 @@
 {
     self.x = px;
     self.y = py;
-    
-    minVX = vx;
-    minVY = vy;
-    minVZ = vz;
-    maxVX = vx;
-    maxVY = vy;
-    maxVZ = vz;
-    avgVX = vx;
-    avgVY = vy;
-    avgVZ = vz;
-    
-    sampleCount=1;
+    values = [[NSMutableArray alloc]init];
     
     return self;
 }
 
 //Adding a vector position to our running data
+//  currently only 2D
 -(void) addVectorX:(float)vx Y:(float)vy Z:(float)vz
 {
-    //keep a running average, should normalize outliers
-    //   provided we have enough consistent data
-    avgVX  = (avgVX + vx) / 2;
-    avgVY  = (avgVY + vy) / 2;
-    avgVZ  = (avgVZ + vz) / 2;
+    struct CGVector *v = malloc(sizeof(struct CGVector));
+    v->dx = vx;
+    v->dy = vy;
+    
+    NSValue *value = [NSValue valueWithBytes:v objCType:@encode(CGVector)];
 
-    //maintain boundary information to
-    //  filter future points to our domain
-    if(vx < minVX)
-        minVX = vx;
-    if(vx > maxVX)
-        maxVX = vx;
-    
-    if(vy < minVY)
-        minVY = vy;
-    if(vy > maxVY)
-        maxVY = vy;
-    
-    if(vz < minVZ)
-        minVZ = vz;
-    if(vz > maxVZ)
-        maxVZ = vz;
-    
-    sampleCount++;
+    [values addObject:value];
 }
 
 
-//confidence is simply going to be created by
-//  piece-wise normalized error.  First we filter
-//  by our domain then normalize per component
+//calculate the minimum distance to any point we have in our training set
+
 -(float) getConfidenceRatingForVectorX: (float) vx
                                      Y: (float) vy
                                      Z: (float) vz
 {
-    float c = 0;
-    if(vx >= minVX && vx <= maxVX)
-        c += 1 - fabsf(avgVX - vx)/fabsf(maxVX - minVX);
-
-    if(vy >= minVY && vy <= maxVY)
-        c += 1 - fabsf(avgVY - vy)/fabs(maxVY - minVY);
-
-    if(vz >= minVZ && vz <= maxVZ)
-        c += 1 - fabsf(avgVZ - vz)/fabsf(maxVZ - minVZ);
+    float minDistance = -1;
     
-    return c;
+    //calculate the closest point to the current values
+    for (NSValue* item in values)
+    {
+        struct CGVector v;
+        [item getValue:&v];
+
+        
+        float d = hypotf(v.dx - vx, v.dy - vy);
+        if(minDistance < 0)
+            minDistance = d;
+        
+        if(d < minDistance)
+            minDistance = d;
+    }
+    
+    
+    return minDistance;
 }
 
 -(NSString*) getInfoString
 {
-    return [NSString stringWithFormat:@"x:%0.02f,y:%0.02f,avgX:%0.02f, avgY:%0.02f, avgZ:%0.02f, count: %i",self.x,self.y,avgVX, avgVY, avgVZ, sampleCount];
+    return [NSString stringWithFormat:@"Dataset for %0.2f, %0.2f with %i points", self.x, self.y, [values count]];
 }
 
 @end
