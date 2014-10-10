@@ -168,7 +168,6 @@
         
         if(higestConfidence >= 0)
         {
-            NSLog(@"moving towards %0.2f, %0.2f", targetx, targety);
             size = bounds.size.height/4;
             dx = targetx - (self.boundingBox.origin.x + size * .5);
             dy = targety - (self.boundingBox.origin.y + size * .5);
