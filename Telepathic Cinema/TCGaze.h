@@ -16,6 +16,8 @@
     bool isCalibrating;
     bool isCalibrated;
     CGRect bounds;
+    float avgCenterX;
+    uint64 dataCount;
 }
 @property CGRect boundingBox;
 @property float confidence;

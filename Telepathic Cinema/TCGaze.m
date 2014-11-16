@@ -20,6 +20,7 @@
         tracker = t;
         isCalibrating = false;
         calibrationpoints = [[NSMutableArray alloc]init];
+        dataCount = 0;
     }
     return self;
 }
@@ -47,16 +48,27 @@
     
 }
 
+/*
+    Adding calibration points here...we will only take the average for the
+    X point to serve as a reference....
+ 
+ */
+
 -(void) calibrationPointX:(float) x
                         Y:(float) y
 {
     if(!isCalibrating)
         return;
-
+    
+    
     float* d = [tracker getGlobalGaze];
     //float* d = [tracker getGaze];
     
-    NSLog(@"DATA,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
+    NSLog(@"Calibration Data values: ,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
+
+    //otherwise we will just average...for now...
+    avgCenterX += d[1];
+    dataCount++;
     
     //check for point in dictionary
     TCCalibrationPoint* pt = [self getCalibrationPointX:x Y:y];
@@ -67,9 +79,10 @@
     }else
     {
         pt = [[TCCalibrationPoint alloc] initWithPointX:x Y:y gazeVectorX:d[0] Y:d[1] Z:d[2]];
-        NSLog(@"Adding this: %@", [pt getInfoString]);
+        NSLog(@"Adding this new calibration point: %@", [pt getInfoString]);
         [calibrationpoints addObject:pt];
     }
+    //Using the Visage would happen below, thereby eliminating the code above
     
 }
 
@@ -98,13 +111,15 @@
 {
     isCalibrating = false;
     isCalibrated = true;
-    NSLog(@"finalizing calibration, number of regions: %i", [calibrationpoints count]);
+    avgCenterX = avgCenterX/dataCount;
+    NSLog(@"Finalizing calibration with avgX: %0.2f from %llu data samples", avgCenterX, dataCount);
+//    NSLog(@"finalizing calibration, number of regions: %i", [calibrationpoints count]);
     //[tracker endGazeCalibration];  //Visage beta gaze tracker call
     
-    for(id item in calibrationpoints)
-    {
-        NSLog(@"Calibration Point values: %@",[item getInfoString]);
-    }
+//    for(id item in calibrationpoints)
+//    {
+//        NSLog(@"Calibration Point values: %@",[item getInfoString]);
+//    }
     
 }
 
@@ -126,30 +141,35 @@
     
     if(self.active)
     {
+        float* d;
         
         //update cursor
-        float* d = [tracker getGlobalGaze];
-        //float* d = [tracker getGaze];
+        if(isCalibrated)
+            d = [tracker getGlobalGaze];
+        else
+            d = [tracker getGaze];
         
         TCCalibrationPoint * winner = nil;
         float higestConfidence = 0;
         float targetx = 0;
         float targety = 0;
         
-        if([calibrationpoints count] > 0 )
+        //making sure we have SOME data to work from...and just simple decisions
+        if(isCalibrated && dataCount > 0)
         {
-            //calculate latest gaze position
-            for (TCCalibrationPoint* item in calibrationpoints) {
-                float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
-                if(c > higestConfidence)
-                {
-                    higestConfidence = c;
-                    winner = item;
-                    targetx = winner.x;
-                    targety = winner.y;
-                }
+            if(d[1] < avgCenterX)
+            {
+                targetx = bounds.size.width * .3;
             }
-        }else{
+            else
+            {
+                targetx = bounds.size.width * .67;
+            }
+            
+            targety = bounds.size.height * .5;
+            higestConfidence = .5;
+            
+        }else{  //default calibration
                 //let's bias a bit left....for no calibration
                 //   
                 if(d[1] < 0.13)
