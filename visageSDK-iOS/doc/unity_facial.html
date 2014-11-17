@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Facial Animation Unity Demo sample project</h1>
+
+<p>
+The FacialAnimationUnityDemo sample project demonstrates the integration of visage|SDK with Unity game engine and is aimed at developers starting to use face tracking functionality of visage|SDK to drive facial animation using blendshapes and bones in the Unity game engine.
+</p>
+<p>
+The sample project shows how to animate a character and make it mimic the users facial expressions using action units from visage|SDK. Developers may use parts of this project to speed up their own
+development in Unity using visage|SDK or use this application as a starting point for own projects.
+</p>
+
+<h2>Building and running the project</h2>
+
+<p>
+Before making an application with Unity3D it is important to copy libraries libVisageCore.a and libVisageVision.a from folder /libstdc++ to /lib and library libOpenCV.a from /dependencies/OpenCV-iOS/libstdc++ to /dependencies/OpenCV-iOS/lib. This is necessary because Unity uses libstdc++ 
+standard library while visage|SDK and OpenCV 2.4.9 typically use libc++ which is not 
+interoperable with libstdc++. This is considered a temporary fix until Unity3D team switches to libc++ standard library.
+</p>
+<p>
+The files related to FacialAnimationUnityDemo sample project are located in the Samples/iOS/FacialAnimationUnityDemo
+subfolder of the visage|SDK for iOS folder.<br/><br/>
+Prerequisites to running the sample project are:
+<ul>
+<li>XCode (version 6.x)</li>
+<li>Unity (version 4.5.x)</li>
+<li>iOS device (iPhone 4S/5 or iPad 2/3rd gen/4th gen/mini recommended; iPhone 4 works with reduced performance)</li>
+</ul>
+
+To build and run FacialAnimationUnityDemo sample two steps are involved: creating the Unity project from the provided
+Unity package and generating and modifying the XCode project from Unity. These tasks are executed semi - automatically.<br/><br/>
+
+<b>NOTE:</b> The Visage Tracker Unity plugin for iOS will not work in Unity editor, it will only work on actual device.
+
+</p>
+
+<h3>Step 1. Creating the Unity project from Unity package</h3>
+
+<p>
+To create the Unity project from provided Unity package follow these steps:<br/>
+<ol>
+<li>Open Unity</li>
+<li>Create a new Unity project</li>
+<li>Import FacialAnimationUnityDemo.unitypackage (provided in Samples/iOS/FacialAnimationUnityDemo folder) by
+selecting Assets->Import Package->Custom Package... item from the menu. That way all the assets that
+are used by the example project will be imported into the new project.</li>
+<li>Select and open the Main scene.</li>
+</ol>
+</p>
+
+<h3>Step 2. Generating the XCode project</h3>
+<p>
+To generate the XCode project for this sample follow these steps:<br/>
+<ol>
+<li>Generate the XCode project by selecting File->Build settings... and choosing iOS as target.</li>
+<li>Open the player settings by pressing Player Settings... button.</li>
+<li>Set the Company name to "visagetechnologies.com", Product name to "facialanimationunitydemo" and Bundle Identifier
+to "com.visagetechnologies.facialanimationunitydemo".</li>
+<li>Press the Build button to generate the project, a dialog window will appear. In this window, locate and set
+destination folder to Samples/iOS/FacialAnimationUnityDemo. This generates XCode project in that folder.</li>
+<li>Successful build completion triggers post build processing. This modifies the generated XCode project adding additional required frameworks and libraries to it.</li>
+<li>Add the files and folders from Samples/iOS/data folder by dragging and dropping them into newly created Resources
+group, a dialog window will appear. In this window, select the "Create folder references for any added
+folders":<br/>
+</li>
+<li>This step is optional. If you have a license key file, add it by dragging and dropping them into newly created Resources
+group in generated XCode project. Also, please read the section <a href="licensing.html#include_license">Including the License Key File in your application</a> in the Registration and Licensing page.</li>
+</ol>
+</p>
+
+<p>
+This sample is designed to be cross-platform for Windows, iOS and Android. If you want to add support for Windows and iOS import the sample source code from visage|SDK for Windows and visage|SDK for iOS into the same Unity project and follow instructions for each platform.
+</p>
+
+<h2>Using the sample app</h2>
+<p>
+As soon as the application starts, tracking will begin. When a face is found in the camera frame, the character will
+start moving - mimicking the user's facial expressions. Try opening your mouth, smiling or moving your eyebrows.
+If no license key is present the tracking will automatically stop after a period of time - please refer to the <a href="licensing.html">licensing section</a> for details.
+</p>
+
+<h3>Implementation overview</h3>
+<p>
+The project consists of a main scene with the Unity’s GameObjects that provide different functionalities. A GameObject
+is the main building block of a scene in Unity. It consists of different Components and can parent other GameObjects.
+Manipulation of GameObjects is done with Scripts. It is recommended for developers to get familiar with Unity basics
+before continuing. The integration with visage|SDK is done through the VisageTrackerUnityPlugin.
+</p>
+
+<h4>Visage Tracker GameObject</h4>
+<p>
+The core of the example is the Visage Tracker GameObject. It handles communication with the tracker
+(starts it and gets results from it). The behaviour of the script can be modified by changing its properties and the script
+code. Other properties can be added as well. The existing Visage Tracker script properties of interest are as follows:<br/>
+• Config File Andriod: filename of the tracker configuration file (see the <a href="VisageTracker Configuration Manual.pdf">VisageTracker Configuration manual</a> for information on modifying the tracker configuration) that will be used by the tracker for Android<br/>
+• BindingConfigurations: list of binding configurations (see the Binding Configuration section on this page) used in the scene<br/>
+</p>
+
+<h4>Cameras</h4>
+<p>
+There are two cameras in the scene, one for displaying the character (Main Camera) and other for the background (Background Camera).
+The main camera "Field of View" is automatically set according to the Visage Tracker focus (camera_focus parameter in
+configuration file).
+</p>
+
+<h4>Jones</h4>
+<p>
+Jones is the character with defined blendshape animations which are controlled using the a binding configuration and bones
+which are controlled using the <i>Visage Tracker/Jones/Scripts/Movement.cs</i> script. The visage|SDK provides relevant information about facial expressions through action units. Their values are then mapped to specific blendshapes using 
+binding configurations in the <i>VisageTracker.cs</i> script. For more information on creating characters with such blendshapes, consult the <a href="modeling_guide.pdf" target="_blank">Modeling Guide</a>.
+</p>
+
+<h4>Binding Configuration</h4>
+<p>
+Binding configurations map action unit values to specific blendshapes and animate them. A reference binding configuration used to animate Jones is located in <i>Visage Tracker/Jones/jones.bind.txt</i>. <br/>
+<i>ActionUnitBinding.cs</i> components are created based on the <i>VisageTracker.cs</i> Binding Configuration list in the current scene at runtime. They receive action unit data from the Visage Tracker component and map them to [0,1] values based on the info given in the binding configuration. You can omit the binding configuration in the Visage Tracker GameObject and create the <i>ActionUnitBinding.cs</i> components manually for more control.
+</p>
+
+<h4>Visage Tracker Unity Plugin</h4>
+<p>
+The integration of visage|SDK face tracking with Unity is done through a plugin that wraps native code calls and
+provides functions that can be called from Unity scripts. For more information about the plugin including it's source code, see the <a href="unity_plugin.html">VisageTrackerUnityPlugin</a> project and its documentation.
+</p>
+
+</body>
+</html>

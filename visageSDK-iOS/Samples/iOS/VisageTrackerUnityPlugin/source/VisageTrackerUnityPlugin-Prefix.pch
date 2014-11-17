@@ -1,0 +1,11 @@
+//
+// Prefix header for all source files of the 'VisageTrackerUnityPlugin' target in the 'VisageTrackerUnityPlugin' project
+//
+
+#ifdef __OBJC__
+    #include <cv.h>
+    #import <Foundation/Foundation.h>
+    #import <OpenGLES/EAGL.h>
+    #import <OpenGLES/ES1/gl.h>
+    #import <OpenGLES/ES1/glext.h>
+#endif

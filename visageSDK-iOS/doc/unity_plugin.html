@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h2>Visage Tracker Unity Plugin (C# wrapper) project</h2>
+
+<p>
+The VisageTrackerUnityPlugin is a wrapper that exposes some of VisageTracker's functionality for use in managed programming languages such as C# and Java. A prebuilt version of the wrapper is provided in <em>libs/libVisageTrackerUnityPlugin.a</em>. It's use is demonstrated in <a href="unity_ar.html">VisageTrackerUnityDemo</a> and <a href="unity_facial.html">FacialAnimationUnityDemo</a> samples where a C# script is used to call functions exposed in this library. This project is designed to be integrated in other applications and cannot be run on its own.
+</p>
+
+<h3>Building the project</h3>
+
+<p>
+The files related to Visage Tracker Unity Plugin project are located in the Samples/iOS/VisageTrackerUnityPlugin
+sub-folder of the visage|SDK for iOS folder.<br/><br/>
+Prerequisites to building the sample project are :<br/>
+<ul>
+<li>XCode (version 6.x)</li>
+</ul>
+
+The VisageTrackerUnityPlugin can be built from the XCode project in the sample folder.<br/>
+</p>
+
+<h3>Implementation overview</h3>
+<p>
+The project consists of a XCode project and .mm and .h files in which a Visage Tracker Observer interface is implemented. The observer exposes some of Visage Tracker's properties such as translation, rotation and Action Units and wraps some of Visage Tracker's functions such as initiating and stopping tracking. More functionality can be exposed in the same manner. Refer to the API documentation for more information on how to access various properties and functionalities of the Visage Tracker.
+</p>
+
+</body>
+</html>
