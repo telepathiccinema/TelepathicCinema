@@ -239,6 +239,7 @@ typedef void FDP;
 - (int) getTrackingStatus;
 - (float*) getGaze;
 - (float*) getGlobalGaze;
+- (float*) getScreenSpaceGazeData;
 - (float*) getFaceTranslation;
 - (void) blank;
 - (void) display: (BOOL) show;

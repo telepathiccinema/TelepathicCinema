@@ -784,6 +784,14 @@ void drawFeaturePoints2D(int* points,
     return trackingData.gazeDirectionGlobal;
 }
 
+//jdjd
+-(float *) getScreenSpaceGazeData
+{
+    float values[2];
+    values[0] = trackingData.gazeData.x;
+    values[1] = trackingData.gazeData.y;
+    return values;
+}
 
 - (void) drawGazeDirection: (const float *) gazeDirection
               withFeatures: (FDP *) featurePoints3D
