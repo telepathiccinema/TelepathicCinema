@@ -18,6 +18,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		5FB2A1831994CF9800375E62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB2A1821994CF9800375E62 /* Images.xcassets */; };
 		5FC0CB61182B922900FAECDD /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB5D182B922800FAECDD /* bdtsdata */; };
 		5FC0CB62182B922900FAECDD /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB5E182B922800FAECDD /* candide3.fdp */; };
 		5FC0CB63182B922900FAECDD /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB5F182B922800FAECDD /* candide3.wfm */; };
@@ -53,6 +54,7 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5FB2A1821994CF9800375E62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FaceDetectDemo/Images.xcassets; sourceTree = "<group>"; };
 		5FC0CB5D182B922800FAECDD /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = ../data/bdtsdata; sourceTree = "<group>"; };
 		5FC0CB5E182B922800FAECDD /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = ../data/candide3.fdp; sourceTree = "<group>"; };
 		5FC0CB5F182B922800FAECDD /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = ../data/candide3.wfm; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FB2A1821994CF9800375E62 /* Images.xcassets */,
 				5FC69E901834BDE000958088 /* icon.png */,
 				5FC0CB5D182B922800FAECDD /* bdtsdata */,
 				5FC0CB5E182B922800FAECDD /* candide3.fdp */,
@@ -281,6 +284,7 @@
 				7F9AEDE714A10525004E034C /* MainWindow-iPad.xib in Resources */,
 				10BB55841672140B0071DDB6 /* candide.wfm in Resources */,
 				10259AB9167B25C2002501BB /* candide3.fdp in Resources */,
+				5FB2A1831994CF9800375E62 /* Images.xcassets in Resources */,
 				10259ABA167B25C2002501BB /* candide3.wfm in Resources */,
 				5FC0CB61182B922900FAECDD /* bdtsdata in Resources */,
 				5FC69E911834BDE000958088 /* icon.png in Resources */,
@@ -312,6 +316,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
@@ -356,6 +362,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

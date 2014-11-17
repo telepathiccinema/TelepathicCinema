@@ -42,7 +42,7 @@ struct odet;
 * Demonstrated in .
 *
 */
-class VISAGE_DECLSPEC VisageDetector {
+class VisageDetector {
 
 friend class VisageFeaturesDetector;
 
@@ -175,6 +175,7 @@ public:
 	//
 	int detectFDP(IplImage* frame, CvRect* faceRect, FDP* fdp, int group, int n, float& r_x, float& r_y); // for initialization
 	int detectFDP(IplImage* frame, FDP* fdp, int group, int n, float& r_x, float& r_y, float& sigma);
+	int detectFDPs(IplImage* frame, FDP* fdp, float *r_x, float *r_y, float *sigma);
 
 	//
 	float detectEyeOpenness(IplImage* frame, FDP* fdp, char eye, float *sigma = 0, float *out = 0);
@@ -200,7 +201,10 @@ public:
 	LPLocRuntime* LpLoc;
 private:
 	bool GetFacialLandmark(IplImage* gray, float* r, float* c, float s, float* sigma, IplImage* frame, int group, int index, bool flip);
-	bool FindLandmarkPoint(IplImage* gray, float* r, float* c, float s, float* sigma, Cascade* cascade, int nperturbs, int stage = 0);
+	bool FindLandmarkPoint(IplImage* gray, float* r, float* c, float s, float* sigma, Cascade* cascade, int nperturbs, int stage = 0, int disable_macro = 0);
+
+	bool FindLandmarkPoints(IplImage* gray, float* r, float* c, float s, float* sigma, int nperturbs, int disable_macro = 0);
+
 	bool FindScalar(IplImage* gray, float* r, float* c, float s, float* o, float* sigma, Ensemble* ensemble, int nperturbs);
 
 	int N3FindFaces(IplImage* gray, CvRect rects[], IplImage* frame);
@@ -227,6 +231,8 @@ private:
 	Cascade *cascade82;
 	Cascade *cascade34;
 	Cascade *cascade32;
+	Cascade *cascade22;
+	Cascade *cascade23;
 	odet *faceOd;
 	Ensemble *eye_closure;
 
@@ -252,6 +258,13 @@ private:
 	FBFT* fbft;
 
 	int fliph;
+
+	//Multiply with carry PRNG
+	unsigned int m_w;
+	unsigned int m_z;
+	void smwcrand(unsigned int m_w_, unsigned int m_z_);
+	unsigned int mwcrand();
+
 };
 
 }

@@ -117,20 +117,20 @@
 		CE18563B19AA3CCA00B552EE /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		CE18563D19AA3CE700B552EE /* libVisageCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageCore.a; path = "visageSDK-iOS/lib/libVisageCore.a"; sourceTree = "<group>"; };
 		CE18563E19AA3CE700B552EE /* libVisageVision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageVision.a; path = "visageSDK-iOS/lib/libVisageVision.a"; sourceTree = "<group>"; };
-		CE18564219AA3E7400B552EE /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = "visageSDK-iOS/data/bdtsdata"; sourceTree = "<group>"; };
-		CE18564319AA3E7400B552EE /* candide.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide.wfm; path = "visageSDK-iOS/data/candide.wfm"; sourceTree = "<group>"; };
-		CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-ClosedMouth.wfm"; path = "visageSDK-iOS/data/candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
-		CE18564519AA3E7400B552EE /* candide3-exp.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-exp.wfm"; path = "visageSDK-iOS/data/candide3-exp.wfm"; sourceTree = "<group>"; };
-		CE18564619AA3E7400B552EE /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = "visageSDK-iOS/data/candide3.fdp"; sourceTree = "<group>"; };
-		CE18564719AA3E7400B552EE /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = "visageSDK-iOS/data/candide3.wfm"; sourceTree = "<group>"; };
-		CE18564819AA3E7400B552EE /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Face Detector.cfg"; path = "visageSDK-iOS/data/Face Detector.cfg"; sourceTree = "<group>"; };
-		CE18564919AA3E7400B552EE /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = "visageSDK-iOS/data/face.png"; sourceTree = "<group>"; };
-		CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - HighPerformance.cfg"; path = "visageSDK-iOS/data/FFT - HighPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - LowPerformance.cfg"; path = "visageSDK-iOS/data/FFT - LowPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - MidPerformance.cfg"; path = "visageSDK-iOS/data/FFT - MidPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - HighPerformance.cfg"; path = "visageSDK-iOS/data/HT - HighPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - LowPerformance.cfg"; path = "visageSDK-iOS/data/HT - LowPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - MidPerformance.cfg"; path = "visageSDK-iOS/data/HT - MidPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564219AA3E7400B552EE /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = "visageSDK-iOS/Samples/iOS/data/bdtsdata"; sourceTree = "<group>"; };
+		CE18564319AA3E7400B552EE /* candide.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide.wfm; path = "visageSDK-iOS/Samples/iOS/data/candide.wfm"; sourceTree = "<group>"; };
+		CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-ClosedMouth.wfm"; path = "visageSDK-iOS/Samples/iOS/data/candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
+		CE18564519AA3E7400B552EE /* candide3-exp.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-exp.wfm"; path = "visageSDK-iOS/Samples/iOS/data/candide3-exp.wfm"; sourceTree = "<group>"; };
+		CE18564619AA3E7400B552EE /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = "visageSDK-iOS/Samples/iOS/data/candide3.fdp"; sourceTree = "<group>"; };
+		CE18564719AA3E7400B552EE /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = "visageSDK-iOS/Samples/iOS/data/candide3.wfm"; sourceTree = "<group>"; };
+		CE18564819AA3E7400B552EE /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Face Detector.cfg"; path = "visageSDK-iOS/Samples/iOS/data/Face Detector.cfg"; sourceTree = "<group>"; };
+		CE18564919AA3E7400B552EE /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = "visageSDK-iOS/Samples/iOS/data/face.png"; sourceTree = "<group>"; };
+		CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - HighPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/FFT - HighPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - LowPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/FFT - LowPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - MidPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/FFT - MidPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - HighPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/HT - HighPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - LowPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/HT - LowPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - MidPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/HT - MidPerformance.cfg"; sourceTree = "<group>"; };
 		CE18566819AAB0B300B552EE /* FBAPs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAPs.h; sourceTree = "<group>"; };
 		CE18566919AAB0B300B552EE /* FDP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDP.h; sourceTree = "<group>"; };
 		CE18566A19AAB0B300B552EE /* gluLookAt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gluLookAt.h; sourceTree = "<group>"; };
@@ -703,7 +703,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -748,7 +748,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -782,7 +782,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WARNING_CFLAGS = "-Wno-comment";
 				"WARNING_CFLAGS[arch=*]" = "-Wno-comment";
 				WRAPPER_EXTENSION = app;
@@ -817,7 +817,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WARNING_CFLAGS = "-Wno-comment";
 				WRAPPER_EXTENSION = app;
 			};

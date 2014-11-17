@@ -70,6 +70,8 @@
 
 //from func_gl.h
 
+//#define USE_OLD_BB
+
 #if defined(WIN32)
 #define NOMINMAX
 #include <windows.h>
@@ -268,6 +270,7 @@ private:
 	float tracking_quality_bdts; // bdts quality average for this frame
 	IplImage* prev_frame; //the previous frame
 	IplImage* cur_frame; //the current frame
+	IplImage* prev_frame_full; //the current frame
 	iu32 n_recovery_frames; // number of recovery frames to be used
 	iu32 recovery_frames; // recovery frames counter
 	FDP *fp_corres; // FDP structure used to store correspondence between MPEG-4 Feature Points and vertices in the 3D model
@@ -343,6 +346,53 @@ private:
 
 	VisageDetector* m_DetectorBDF;
 	FDP *featurePoints2D;
+
+	int face_bb_x;
+	int face_bb_y;
+	int face_bb_x_prev;
+	int face_bb_y_prev;
+	int face_bb_size;
+	int max_face_width;
+	int face_bb_init;
+	float face_bb_scale;
+	int max_work_eye_dist;
+	int cur_eye_dist;
+	IplImage *face_bb_new;
+	IplImage *face_bb_prev;
+	IplImage *face_bb_tex;
+	CvRect face_bb_rect;
+	CvRect face_bb_rect_scaled;
+
+	f32 find_point_new (
+		IplImage* image, //image B
+		CvSize search_image_size, //search image size
+		IplImage* patch_image, //image A
+		CvSize patch_image_size, //patch image size
+		IplImage* result_image, //matching results
+		f32 patch_x, //feature point coordinate u
+		f32 patch_y, //feature point coordinate v
+		f32 &x_find, //new feature point coordinate u, output
+		f32 &y_find, //new feature point coordinate v, output
+		iu32 method, //matching method to use
+		iu32 tex_use // are we using texture or previous frame?
+	);
+
+	void estimate_eye_rotations (
+		float f,
+		float s,
+		const float* r,
+		const float* t,
+		const CvMat* su,
+		const CvMat* au,
+		const CvMat* g,
+		const CvMat* Su,
+		const CvMat* Au,
+		CvMat* vertex0,
+		CvMat* vertex1,
+		int* eye_ind = 0
+	);
+
+	float r_eye[2]; //eye rotations
 
 	int bdts_points_num;
 	iu32 use_bdts_points;
@@ -634,6 +684,15 @@ private:
 		const CvMat* tri_index,
 		const CvMat** tex_coord
 		);
+
+	void getNormalizedFaceImage (
+		IplImage* frame,
+		IplImage* normFace,
+		f32 f,
+		const CvMat* vertex,
+		const CvMat* tri_index,
+		const CvMat* tex_coord
+	);
 
 	#endif
 

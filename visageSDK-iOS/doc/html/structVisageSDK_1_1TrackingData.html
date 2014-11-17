@@ -161,6 +161,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a33899a52c4daf6edb7c70e56c03613aa inherit pub_attribs_structVisageSDK_1_1FaceData"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVisageSDK_1_1FaceData.html#a33899a52c4daf6edb7c70e56c03613aa">initDisplayStatus</a></td></tr>
 <tr class="memdesc:a33899a52c4daf6edb7c70e56c03613aa inherit pub_attribs_structVisageSDK_1_1FaceData"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization status display enabled/disabled.  <a href="#a33899a52c4daf6edb7c70e56c03613aa"></a><br/></td></tr>
 <tr class="separator:a33899a52c4daf6edb7c70e56c03613aa inherit pub_attribs_structVisageSDK_1_1FaceData"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa666a789971fb67bd4e485c505ba61b inherit pub_attribs_structVisageSDK_1_1FaceData"><td class="memItemLeft" align="right" valign="top">ScreenSpaceGazeData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b">gazeData</a></td></tr>
+<tr class="memdesc:afa666a789971fb67bd4e485c505ba61b inherit pub_attribs_structVisageSDK_1_1FaceData"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure holding screen space gaze position and quality for current frame.  <a href="#afa666a789971fb67bd4e485c505ba61b"></a><br/></td></tr>
+<tr class="separator:afa666a789971fb67bd4e485c505ba61b inherit pub_attribs_structVisageSDK_1_1FaceData"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Please use <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> instead.</p>
@@ -170,13 +173,13 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td width="100"><b>TRACKER STATUS</b></td><td><b>DESCRIPTION</b></td><td><b>ACTIVE VARIABLES</b> </td></tr>
 <tr>
-<td>TRACK_STAT_OFF</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> is not active, i.e. it has not yet been started, or it has been stopped. </td><td>N/A </td></tr>
+<td>TRACK_STAT_OFF</td><td>Tracker is not active, i.e. it has not yet been started, or it has been stopped. </td><td>N/A </td></tr>
 <tr>
-<td>TRACK_STAT_OK</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> is tracking normally. </td><td>trackingQuality, frameRate, frame, cameraFocus, faceTranslation, faceRotation, faceAnimationParameters, actionUnitCount, actionUnitsUsed, actionUnits, actionUnitsNames, featurePoints3D, featurePoints3DRelative, featurePoints2D, faceModelVertexCount, faceModelVertices, faceModelVerticesProjected, faceModelTriangleCount, faceModelTriangles, faceModelTextureCoords  </td></tr>
+<td>TRACK_STAT_OK</td><td>Tracker is tracking normally. </td><td>trackingQuality, frameRate, frame, cameraFocus, faceTranslation, faceRotation, faceAnimationParameters, actionUnitCount, actionUnitsUsed, actionUnits, actionUnitsNames, featurePoints3D, featurePoints3DRelative, featurePoints2D, faceModelVertexCount, faceModelVertices, faceModelVerticesProjected, faceModelTriangleCount, faceModelTriangles, faceModelTextureCoords  </td></tr>
 <tr>
-<td>TRACK_STAT_RECOVERING</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> has lost the face and is attempting to recover and continue tracking. If it can not recover within the time defined by the parameter recovery_timeout in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file</a>, the tracker will fully re-initialize (i.e. it will assume that a new user may be present). </td><td>frameRate, frame, cameraFocus </td></tr>
+<td>TRACK_STAT_RECOVERING</td><td>Tracker has lost the face and is attempting to recover and continue tracking. If it can not recover within the time defined by the parameter recovery_timeout in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file</a>, the tracker will fully re-initialize (i.e. it will assume that a new user may be present). </td><td>frameRate, frame, cameraFocus </td></tr>
 <tr>
-<td>TRACK_STAT_INIT</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> is initializing. The tracker enters this state immediately when it is started, or when it has lost the face and failed to recover (see TRACK_STAT_RECOVERING above). The initialization process is configurable through a number of parameters in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file.</a> </td><td><p class="starttd">frameRate, frame, cameraFocus, initDisplayStatus, initFaceDetected</p>
+<td>TRACK_STAT_INIT</td><td>Tracker is initializing. The tracker enters this state immediately when it is started, or when it has lost the face and failed to recover (see TRACK_STAT_RECOVERING above). The initialization process is configurable through a number of parameters in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file.</a> </td><td><p class="starttd">frameRate, frame, cameraFocus, initDisplayStatus, initFaceDetected</p>
 <p>If initFaceDetected is "true", the following member variables are also active:</p>
 <p class="endtd">initYaw, initRoll, initVelocity </p>
 </td></tr>
@@ -324,7 +327,7 @@ Additional Inherited Members</h2></td></tr>
  AU16: Rotate eyes left<br/>
  AU17: Rotate eyes down<br/>
 </p>
-<p>Off-line configuration (Off-line Facial Features <a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> (semi-automatic setup).cfg) uses an extended set of Action Units (defined in the candide3-exp.wfm file), as follows:</p>
+<p>Off-line configuration (Off-line Facial Features Tracker (semi-automatic setup).cfg) uses an extended set of Action Units (defined in the candide3-exp.wfm file), as follows:</p>
 <p>AU1: Nose wrinkler<br/>
  AU2: Jaw z-push<br/>
  AU3: Jaw x-push<br/>
@@ -419,7 +422,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 16 2014 15:39:58 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 11 2014 18:49:07 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

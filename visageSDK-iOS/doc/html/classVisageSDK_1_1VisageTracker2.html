@@ -76,6 +76,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aef0051e31528af4d11352a6582e16031"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031">trackFromCam</a> (const char *outFbaFileName=NULL, int orientation=VISAGE_CAMERA_UP, int frameGrabberImageFormat=VISAGE_FRAMEGRABBER_FMT_RGB)</td></tr>
 <tr class="memdesc:aef0051e31528af4d11352a6582e16031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track the face and facial features from a digital camera .  <a href="#aef0051e31528af4d11352a6582e16031"></a><br/></td></tr>
 <tr class="separator:aef0051e31528af4d11352a6582e16031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b67e97dfdcc851e27a39f73a96db65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65">trackFromVideo</a> (const char *inVideoFileName, const char *outFbaFileName=NULL)</td></tr>
+<tr class="memdesc:ae7b67e97dfdcc851e27a39f73a96db65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track the face and facial features in a video file.  <a href="#ae7b67e97dfdcc851e27a39f73a96db65"></a><br/></td></tr>
+<tr class="separator:ae7b67e97dfdcc851e27a39f73a96db65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa525abefb97fb430f19d911ba9c47237"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa525abefb97fb430f19d911ba9c47237"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#aa525abefb97fb430f19d911ba9c47237">trackFromAvi</a> (const char *inAviFileName, const char *outFbaFileName=NULL)</td></tr>
+<tr class="memdesc:aa525abefb97fb430f19d911ba9c47237"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEPRECATED, replaced by <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65" title="Track the face and facial features in a video file.">trackFromVideo()</a>. <br/></td></tr>
+<tr class="separator:aa525abefb97fb430f19d911ba9c47237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76fa48e42678b8371fe78ca558cb8cad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad">trackFromRawImages</a> (<a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html">VisageTrackerFrameGrabber</a> *frameGrabber, int width, int height, int format, int origin, const char *outFbaFileName=NULL)</td></tr>
 <tr class="memdesc:a76fa48e42678b8371fe78ca558cb8cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track the face and facial features in images passed from the application using the raw image interface (<a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a>)  <a href="#a76fa48e42678b8371fe78ca558cb8cad"></a><br/></td></tr>
 <tr class="separator:a76fa48e42678b8371fe78ca558cb8cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,6 +98,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8af56d31d87e706df6fa45bc702a03d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a8af56d31d87e706df6fa45bc702a03d6">detach</a> ()</td></tr>
 <tr class="memdesc:a8af56d31d87e706df6fa45bc702a03d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detaches all attached observers from the tracker.  <a href="#a8af56d31d87e706df6fa45bc702a03d6"></a><br/></td></tr>
 <tr class="separator:a8af56d31d87e706df6fa45bc702a03d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ef8d42312facc63b7daf382310853dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a7ef8d42312facc63b7daf382310853dc">setIPD</a> (float value)</td></tr>
+<tr class="memdesc:a7ef8d42312facc63b7daf382310853dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the inter pupillary distance.  <a href="#a7ef8d42312facc63b7daf382310853dc"></a><br/></td></tr>
+<tr class="separator:a7ef8d42312facc63b7daf382310853dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c32bf2acdcfabab9bfdb47c2d75b30b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a1c32bf2acdcfabab9bfdb47c2d75b30b">getIPD</a> ()</td></tr>
+<tr class="memdesc:a1c32bf2acdcfabab9bfdb47c2d75b30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inter pupillary distance.  <a href="#a1c32bf2acdcfabab9bfdb47c2d75b30b"></a><br/></td></tr>
+<tr class="separator:a1c32bf2acdcfabab9bfdb47c2d75b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1767523ef2565e4bb8c345e81a5edffb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a1767523ef2565e4bb8c345e81a5edffb">DetectStrip</a> (double &amp;size)</td></tr>
+<tr class="memdesc:a1767523ef2565e4bb8c345e81a5edffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects a credit card magnetic stripe in the current frame.  <a href="#a1767523ef2565e4bb8c345e81a5edffb"></a><br/></td></tr>
+<tr class="separator:a1767523ef2565e4bb8c345e81a5edffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7895436c1ada4226274b8b8e00e7fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9b7895436c1ada4226274b8b8e00e7fd">InitOnlineGazeCalibration</a> ()</td></tr>
+<tr class="memdesc:a9b7895436c1ada4226274b8b8e00e7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes online screen space gaze tracking.  <a href="#a9b7895436c1ada4226274b8b8e00e7fd"></a><br/></td></tr>
+<tr class="separator:a9b7895436c1ada4226274b8b8e00e7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9656a4723bc8fbb1c88217c597ebf9a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9656a4723bc8fbb1c88217c597ebf9a3">AddGazeCalibrationPoint</a> (float x, float y)</td></tr>
+<tr class="memdesc:a9656a4723bc8fbb1c88217c597ebf9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passes a calibration point to the tracker in online screen space gaze tracking mode.  <a href="#a9656a4723bc8fbb1c88217c597ebf9a3"></a><br/></td></tr>
+<tr class="separator:a9656a4723bc8fbb1c88217c597ebf9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c5ce35d5f19d1154c7067f66e01f448"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a6c5ce35d5f19d1154c7067f66e01f448">FinalizeOnlineGazeCalibration</a> ()</td></tr>
+<tr class="memdesc:a6c5ce35d5f19d1154c7067f66e01f448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finializes online screen space gaze tracking calibration.  <a href="#a6c5ce35d5f19d1154c7067f66e01f448"></a><br/></td></tr>
+<tr class="separator:a6c5ce35d5f19d1154c7067f66e01f448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40a8dabf06ed117fd44f937a84b1ce49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a40a8dabf06ed117fd44f937a84b1ce49">InitOfflineGazeCalibration</a> (ScreenSpaceGazeRepository *calibrator)</td></tr>
+<tr class="memdesc:a40a8dabf06ed117fd44f937a84b1ce49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiallizes offline screen space gaze tracking.  <a href="#a40a8dabf06ed117fd44f937a84b1ce49"></a><br/></td></tr>
+<tr class="separator:a40a8dabf06ed117fd44f937a84b1ce49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b33ef2758687c42dedac009f074357"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#af2b33ef2758687c42dedac009f074357">getGazeEstimations</a> (ScreenSpaceGazeRepository *repository)</td></tr>
+<tr class="memdesc:af2b33ef2758687c42dedac009f074357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns screen space gaze estimation data obtained in offline gaze tracking mode.  <a href="#af2b33ef2758687c42dedac009f074357"></a><br/></td></tr>
+<tr class="separator:af2b33ef2758687c42dedac009f074357"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c4717dfb98aace5b5b531e17c1fa860"><td class="memItemLeft" align="right" valign="top">FBAPs *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a0c4717dfb98aace5b5b531e17c1fa860">getFBAPs</a> (long globalTime, FBAPs *lastFBAPs, VisageCharModel *model)</td></tr>
 <tr class="memdesc:a0c4717dfb98aace5b5b531e17c1fa860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Face Animation Parameters (FbaAction implementation).  <a href="#a0c4717dfb98aace5b5b531e17c1fa860"></a><br/></td></tr>
 <tr class="separator:a0c4717dfb98aace5b5b531e17c1fa860"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,15 +135,6 @@ Public Member Functions</h2></td></tr>
 char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a53765c77a7a5df057d9874abb48e6e92">actionTypeName</a> ()</td></tr>
 <tr class="memdesc:a53765c77a7a5df057d9874abb48e6e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action name (FbaAction implementation). <br/></td></tr>
 <tr class="separator:a53765c77a7a5df057d9874abb48e6e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1767523ef2565e4bb8c345e81a5edffb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a1767523ef2565e4bb8c345e81a5edffb">DetectStrip</a> (double &amp;size)</td></tr>
-<tr class="memdesc:a1767523ef2565e4bb8c345e81a5edffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects a credit card magnetic stripe in the current frame.  <a href="#a1767523ef2565e4bb8c345e81a5edffb"></a><br/></td></tr>
-<tr class="separator:a1767523ef2565e4bb8c345e81a5edffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ef8d42312facc63b7daf382310853dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a7ef8d42312facc63b7daf382310853dc">setIPD</a> (float value)</td></tr>
-<tr class="memdesc:a7ef8d42312facc63b7daf382310853dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the inter pupillary distance.  <a href="#a7ef8d42312facc63b7daf382310853dc"></a><br/></td></tr>
-<tr class="separator:a7ef8d42312facc63b7daf382310853dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c32bf2acdcfabab9bfdb47c2d75b30b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a1c32bf2acdcfabab9bfdb47c2d75b30b">getIPD</a> ()</td></tr>
-<tr class="memdesc:a1c32bf2acdcfabab9bfdb47c2d75b30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inter pupillary distance.  <a href="#a1c32bf2acdcfabab9bfdb47c2d75b30b"></a><br/></td></tr>
-<tr class="separator:a1c32bf2acdcfabab9bfdb47c2d75b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9635e5397a2b3e3b67d496def065ec8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageTracker2.html#ac9635e5397a2b3e3b67d496def065ec8">setDataBundle</a> (NSBundle *bundle)</td></tr>
 <tr class="memdesc:ac9635e5397a2b3e3b67d496def065ec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data bundle.  <a href="#ac9635e5397a2b3e3b67d496def065ec8"></a><br/></td></tr>
 <tr class="separator:ac9635e5397a2b3e3b67d496def065ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,7 +143,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="textblock"><p><a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a head/facial features tracker capable of tracking facial features in video coming ...">VisageTracker2</a> is a head/facial features tracker capable of tracking facial features in video coming from a video file, camera or other sources. </p>
 <p>The tracker is fully configurable through comprehensive tracker configuration files. visage|SDK contains optimal configurations for common uses such as head tracking and facial features tracking. Please refer to the <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for the list of available configurations. Please read more details about configuration selection in the section <a href="../../doc/creatingxc.html#config_selection">Device-specific configuration selection</a></p>
 <p>The <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> provides full detail on all available configuration options, allowing to customize the tracker in terms of performance, quality, tracked features, range of tracked facial actions and other options and produce in effect a variety of different trackers suited for specific applications.</p>
-<p>trackFromVideo() and <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a> track the facial features from a video file or from a video camera. Tracking the facial features from raw image input is enabled by <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> and allows tracking from any source.</p>
+<p><a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65" title="Track the face and facial features in a video file.">trackFromVideo()</a> and <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a> track the facial features from a video file or from a video camera. Tracking the facial features from raw image input is enabled by <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> and allows tracking from any source.</p>
 <p>The tracker offers the following outputs, available through method <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>:</p>
 <ul>
 <li>3D head pose</li>
@@ -130,16 +152,45 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <li>eye closure</li>
 <li>facial feature points</li>
 <li>full 3D face model, textured</li>
+<li>screen space gaze point - see <a class="el" href="classVisageSDK_1_1VisageTracker2.html#screenSGT">Screen Space Gaze Tracking</a> Screen Space Gaze Tracking</li>
+<li>detected credit card stripe for size adjustment - see <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a1767523ef2565e4bb8c345e81a5edffb" title="Detects a credit card magnetic stripe in the current frame.">DetectStrip()</a></li>
 </ul>
 <p>The tracker can apply a smoothing filter to tracking results to reduce the inevitable tracking noise. Smoothing factors are adjusted separately for global face rotation, translation and different parts of the face. The smoothing settings in the supplied tracker configurations are adjusted conservatively to avoid delay in tracking response, yet provide reasonable smoothing. For further details please see the smoothing_factors parameter array in the <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a>.</p>
-<p>The tracker works in its own thread and the functions trackFromVideo(), <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a> and <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> immediately return control. This means that the <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">VisageTracker2::getTrackingData()</a> function can be called at any time to interrogate the tracker and get results. This is the simplest way to obtain the results.</p>
+<p>The tracker works in its own thread and the functions <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65" title="Track the face and facial features in a video file.">trackFromVideo()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a> and <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> immediately return control. This means that the <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">VisageTracker2::getTrackingData()</a> function can be called at any time to interrogate the tracker and get results. This is the simplest way to obtain the results.</p>
 <p>Furthermore, the <a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html" title="VisageTrackerObserver interface.">VisageTrackerObserver</a> can be used to obtain the tracking results. This is particularly useful for synchronisation.</p>
 <p>To attach one or more observers, use the <a class="el" href="classVisageSDK_1_1VisageTracker2.html#abd95ebff358b73527a107e9c81c2cb5f" title="Attaches an observer implementation to the tracker.">attach()</a> method. The <a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html#ac97fdbbb4679d3d270cdbd2220920b55" title="Notification function.">VisageTrackerObserver::Notify()</a> function shall then be called by the tracker after each processed video frame (even if the face was not found in the current frame).</p>
 <p>In semi-automatic mode, the tracker requires access to certain manual interventions by the user. For this purpose, the application that uses the tracker in semi-automatic mode must implement an instance of the <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html" title="Optional GUI Interface for VisageTracker2.">TrackerGUIInterface</a> abstract class and provide the necessary functions to the tracker by implementing the functions in <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html" title="Optional GUI Interface for VisageTracker2.">TrackerGUIInterface</a>.</p>
 <p>If the OpenGL window access is provided through the optional <a class="el" href="classVisageSDK_1_1TrackerOpenGLInterface.html" title="Optional OpenGL Interface for VisageTracker2.">TrackerOpenGLInterface</a>, the tracker can display the video, the tracking results and some auxiliary information. This is intended mainly as help for configuring the tracker. The display is controled through the <a href="#config">tracker configuration file</a>.</p>
-<p>The tracker requires the following data and configuration files (available in Samples/iOS/data) . Please either copy the complete contents of this folder into your application's working folder, or consult <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for detailed settings. </p>
+<p>The tracker requires the following data and configuration files (available in Samples/iOS/data) . Please either copy the complete contents of this folder into your application's working folder, or consult <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for detailed settings.</p>
+<h1><a class="anchor" id="screenSGT"></a>
+Screen Space Gaze Tracking</h1>
+<p>Screen space gaze tracking feature estimates gaze position (the location on the screen where the user is looking) in normalized screen coordinates. Screen space gaze tracking works in two phases: calibration and estimation.</p>
+<p>In the calibration phase, the system is calibrated for gaze estimation by passing the calibration data to the tracker. Calibration data consists of series of points displayed on screen. The user looks at the calibration point. During the calibration phase tracker collects calibration points and matching tracking data for each point. After all calibration points have been passed to the tracker, the tracker performs calibration of gaze tracking system and switches to estimation phase.</p>
+<p>In the estimation phase the tracker estimates gaze location in screen space coordinates and returns the data as ScreenSpaceGazeData object for each frame.</p>
+<p>Screen space gaze tracking works in two different modes. Online mode is used when tracking in real time from camera. Offline mode is used when tracking from video files. The key differences between the two modes are:</p>
+<ul>
+<li>In online mode each <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> object returned by <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a> contains screen space gaze data for the current frame.</li>
+<li>In offline mode, gaze estimation is done as a post process after the tracking is finished for the whole video sequence. <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects returned by the tracker contain no screen space gaze data for current frame.</li>
+<li>In online mode, calibration data is passed to the tracker as it is shown on screen.</li>
+<li>In offline mode, calibration data is passed as a ScreenSpaceGazeRepository object for the whole video sequence.</li>
+<li>Online mode can be initalized at any time during tracking.</li>
+<li>Offline mode has to be initalized before tracking is started.</li>
+<li>In online mode the application is responsible for finalizing gaze tracking system calibration.</li>
+<li>In offline mode the calibration is finalized automatically.</li>
+</ul>
+<h3>Online screen space gaze tracking</h3>
+<p>Online mode implies using the screen space gaze tracking when tracking from camera.</p>
+<p>It is initialized by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9b7895436c1ada4226274b8b8e00e7fd" title="Initializes online screen space gaze tracking.">InitOnlineGazeCalibration()</a> method. This method prepares the tracker for real time gaze tracking calibration. Each calibration point in normalized screen coordinates is passed to tracker by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9656a4723bc8fbb1c88217c597ebf9a3" title="Passes a calibration point to the tracker in online screen space gaze tracking mode.">AddGazeCalibrationPoint()</a>. It is expected that the point is displayed on the screen before calling the method and that the user looks at calibration points during the calibration. Application is responsible for reading or generating the calibration data, displaying it on screen and synchronization with the tracker. It is required to manually notify the tracker that calibration is finished (once all calibration points are used) by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a6c5ce35d5f19d1154c7067f66e01f448" title="Finializes online screen space gaze tracking calibration.">FinalizeOnlineGazeCalibration()</a> method. Once this method is called the tracker performs calibration of screen space gaze tracking system using provided calibration data and tracking data collected during the calibration process.</p>
+<p>After the system is calibrated the estimation phase starts. Estimations are returned as part of <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects obtained by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a> method specifically in <a class="el" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b" title="Structure holding screen space gaze position and quality for current frame.">FaceData::gazeData</a>.</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9b7895436c1ada4226274b8b8e00e7fd" title="Initializes online screen space gaze tracking.">InitOnlineGazeCalibration()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9656a4723bc8fbb1c88217c597ebf9a3" title="Passes a calibration point to the tracker in online screen space gaze tracking mode.">AddGazeCalibrationPoint()</a> <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a6c5ce35d5f19d1154c7067f66e01f448" title="Finializes online screen space gaze tracking calibration.">FinalizeOnlineGazeCalibration()</a>, ScreenSpaceGazeData, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a></dd></dl>
+<h3>Offline screen space gaze tracking</h3>
+<p>Offline mode implies using gaze tracking feature when tracking from video file. It is assumend that calibration points have been displayed to the user while recording the video of the user's face; that user actually looked at the calibration points; and that these calibration points have been stored, together with corresponding time stamps. Furthermore, it is assumed that calibration was performed during a part of the video sequence. Gaze estimation is performed on the remaining parts of the video sequence. The calibration parts of the video need not be contiguous.</p>
+<p>Offline mode initialized by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a40a8dabf06ed117fd44f937a84b1ce49" title="Initiallizes offline screen space gaze tracking.">InitOfflineGazeCalibration()</a> method. This method takes ScreenSpaceGazeRepository object as parameter. This object contains calibration data for the tracked video sequence. Each calibration point consists of x and y coordinates given in normalized screen coordinates and the index of the frame in which calibration point was displayed to the user. The tracker reads calibration points from the provided repository and collects tracking data from corresponding frames of the tracked video sequence. Once all calibration data from provided repository is used, the tracker automatically performs calibration of the gaze tracking system using provided calibration data and tracking data collected during the calibration process.</p>
+<p>Offline mode must be initalized before tracking is started, otherwise some of the calibration frames may be discarded.</p>
+<p>After the whole video file has been processed, tracking stops and gaze estimations are available as ScreenSpaceGazeRepository object, obtained by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#af2b33ef2758687c42dedac009f074357" title="Returns screen space gaze estimation data obtained in offline gaze tracking mode.">getGazeEstimations()</a> method. The returned repository contains ScreenSpaceGazeData object with screen space gaze position for each non-calibration frame of the tracked video sequence.</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a40a8dabf06ed117fd44f937a84b1ce49" title="Initiallizes offline screen space gaze tracking.">InitOfflineGazeCalibration()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#af2b33ef2758687c42dedac009f074357" title="Returns screen space gaze estimation data obtained in offline gaze tracking mode.">getGazeEstimations()</a>, ScreenSpaceGazeRepository, ScreenSpaceGazeData </dd></dl>
 
-<p>Definition at line <a class="el" href="VisageTracker2_8h_source.html#l00181">181</a> of file <a class="el" href="VisageTracker2_8h_source.html">VisageTracker2.h</a>.</p>
+<p>Definition at line <a class="el" href="VisageTracker2_8h_source.html#l00235">235</a> of file <a class="el" href="VisageTracker2_8h_source.html">VisageTracker2.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aebe7637e883200e58ea217f7c26e3731"></a>
 <div class="memitem">
@@ -211,6 +262,44 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9656a4723bc8fbb1c88217c597ebf9a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VisageSDK::VisageTracker2::AddGazeCalibrationPoint </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Passes a calibration point to the tracker in online screen space gaze tracking mode. </p>
+<p>This method is used in online gaze tracking mode to pass the position of the currently displayed calibration point to the tracker. This method should be called once for each calibration point, after the calibration point is displayed on the screen. Position of the calibration point is in normalized screen coordinates. The origin of the coordinate system is in the upper left corner of the screen; the lower right corner has coordinates (1, 1).</p>
+<p>NOTE: Application is responsible for synchronization between the frequency of passing calibration points to the tracker and the frequency at which the tracker processes video frames. If calibration points are passed faster than the tracker works, it may happen that two (or more) calibration points are passed while the tracker is processing a single video frame. In such case, if the difference in speed is large enough, it is possible that the tracking data for the processed frame does not match to the calibration point. This reduces the quality of calibration and, consequently, estimation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x coordinate of the calibration point in normalized screen coordinates </td></tr>
+    <tr><td class="paramname">y</td><td>y coordinate of the calibration point in normalized screen coordinates </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd>ScreenSpaceGazeData, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9b7895436c1ada4226274b8b8e00e7fd" title="Initializes online screen space gaze tracking.">InitOnlineGazeCalibration()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a6c5ce35d5f19d1154c7067f66e01f448" title="Finializes online screen space gaze tracking calibration.">FinalizeOnlineGazeCalibration()</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="abd95ebff358b73527a107e9c81c2cb5f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +331,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html" title="VisageTrackerObserver interface.">VisageTrackerObserver</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a8af56d31d87e706df6fa45bc702a03d6" title="Detaches all attached observers from the tracker.">detach()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="VisageTracker2_8h_source.html#l00416">416</a> of file <a class="el" href="VisageTracker2_8h_source.html">VisageTracker2.h</a>.</p>
+<p>Definition at line <a class="el" href="VisageTracker2_8h_source.html#l00471">471</a> of file <a class="el" href="VisageTracker2_8h_source.html">VisageTracker2.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +361,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>NOTE: the observer objects are only detached, not destroyed. </p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html" title="VisageTrackerObserver interface.">VisageTrackerObserver</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#abd95ebff358b73527a107e9c81c2cb5f" title="Attaches an observer implementation to the tracker.">attach()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="VisageTracker2_8h_source.html#l00425">425</a> of file <a class="el" href="VisageTracker2_8h_source.html">VisageTracker2.h</a>.</p>
+<p>Definition at line <a class="el" href="VisageTracker2_8h_source.html#l00480">480</a> of file <a class="el" href="VisageTracker2_8h_source.html">VisageTracker2.h</a>.</p>
 
 </div>
 </div>
@@ -301,6 +390,26 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the stripe was found, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6c5ce35d5f19d1154c7067f66e01f448"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VisageSDK::VisageTracker2::FinalizeOnlineGazeCalibration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finializes online screen space gaze tracking calibration. </p>
+<p>This method should be called after all calibration data is displayed and passed to the tracker. After this method is called the tracker performs calibration of gaze tracking system using the provided calibration data and the tracking data collected during the calibration phase.</p>
+<p>After the calibration is finished, screen space gaze postion is obtained by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a> method. The returned <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> object contains gaze position stored in ScreenSpaceGazeData object, specifically in <a class="el" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b" title="Structure holding screen space gaze position and quality for current frame.">FaceData::gazeData</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9b7895436c1ada4226274b8b8e00e7fd" title="Initializes online screen space gaze tracking.">InitOnlineGazeCalibration()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>, ScreenSpaceGazeData, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9656a4723bc8fbb1c88217c597ebf9a3" title="Passes a calibration point to the tracker in online screen space gaze tracking mode.">AddGazeCalibrationPoint()</a> </dd></dl>
 
 </div>
 </div>
@@ -357,6 +466,35 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
+<a class="anchor" id="af2b33ef2758687c42dedac009f074357"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VisageSDK::VisageTracker2::getGazeEstimations </td>
+          <td>(</td>
+          <td class="paramtype">ScreenSpaceGazeRepository *&#160;</td>
+          <td class="paramname"><em>repository</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns screen space gaze estimation data obtained in offline gaze tracking mode. </p>
+<p>This function is used for obtaining estimation data in offline mode (in online mode use <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>). It returns the repository containing screen space gaze data for each non - calibration frame of processed sequence.</p>
+<p>The method returns an empty array if called during tracking.</p>
+<p>Note that each time this method is called, the memory for returned ScreenSpaceGazeRepository object is deallocated and reallocated.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">repository</td><td>to be filled with scren sapce gaze data for last tracked sequence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fitQuality Percentage of inliers in total sample count used for calibration. </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd>ScreenSpaceGazeRepository, ScreenSpaceGazeData, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a40a8dabf06ed117fd44f937a84b1ce49" title="Initiallizes offline screen space gaze tracking.">InitOfflineGazeCalibration()</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a1c32bf2acdcfabab9bfdb47c2d75b30b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -404,6 +542,53 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> </dd></dl>
 
 <p>Referenced by <a class="el" href="DemoObserver_8mm_source.html#l00018">DemoObserver::Notify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40a8dabf06ed117fd44f937a84b1ce49"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VisageSDK::VisageTracker2::InitOfflineGazeCalibration </td>
+          <td>(</td>
+          <td class="paramtype">ScreenSpaceGazeRepository *&#160;</td>
+          <td class="paramname"><em>calibrator</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initiallizes offline screen space gaze tracking. </p>
+<p>Offline mode is used when tracking from video file. This method must be called before tracking is started using trackFromVideo. Calibration data is passed to the tracker as a ScreenSpaceGazeRepository object containing a number of calibration points, each consisting of the position of the calibration point in normalized screen coordinates and the frame index in which the calibration point was displayed to the user. The data for each calibration point is stored as a ScreenSpaceGazeData object.</p>
+<p>During the calibration phase tracker reads calibration points from the provided ScreenSpaceGazeRepository and collects tracking data in corresponding frames of the tracked video sequence. The gaze tracking system is calibrated automatically after all calibration points from the provided repository are used. After the tracking of the whole video sequence is finished, the screen space gaze positions can be obtained by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#af2b33ef2758687c42dedac009f074357" title="Returns screen space gaze estimation data obtained in offline gaze tracking mode.">getGazeEstimations()</a> method.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calibrator</td><td>Pointer to ScreenSpaceGazeRepository containing calibration data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fitQuality Percentage of inliers in total sample count used for calibration. </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd>ScreenSpaceGazeData, ScreenSpaceGazeRepository, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#af2b33ef2758687c42dedac009f074357" title="Returns screen space gaze estimation data obtained in offline gaze tracking mode.">getGazeEstimations()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9b7895436c1ada4226274b8b8e00e7fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VisageSDK::VisageTracker2::InitOnlineGazeCalibration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes online screen space gaze tracking. </p>
+<p>Online mode is used when tracking from camera. This method starts the calibration phase of screen space gaze tracking. In the calibration phase the application displays the calibration data on the screen and passes it to the tracker using <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9656a4723bc8fbb1c88217c597ebf9a3" title="Passes a calibration point to the tracker in online screen space gaze tracking mode.">AddGazeCalibrationPoint()</a>. Application is responsible for finishing the calibration phase by calling <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a6c5ce35d5f19d1154c7067f66e01f448" title="Finializes online screen space gaze tracking calibration.">FinalizeOnlineGazeCalibration()</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9656a4723bc8fbb1c88217c597ebf9a3" title="Passes a calibration point to the tracker in online screen space gaze tracking mode.">AddGazeCalibrationPoint()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a6c5ce35d5f19d1154c7067f66e01f448" title="Finializes online screen space gaze tracking calibration.">FinalizeOnlineGazeCalibration()</a> </dd></dl>
 
 </div>
 </div>
@@ -467,7 +652,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Set configuration file name. </p>
-<p>The tracker configuration file name is set and this configuration file will be used for next tracking session (i.e. when trackFromVideo(), <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a> or <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> is called). Default configuration files (.cfg) are provided in Samples/iOS/data folder. Please refer to the <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for further details on using the configuration files and all configurable options. Also, please read the section on automatic device-specific configuration selection.</p>
+<p>The tracker configuration file name is set and this configuration file will be used for next tracking session (i.e. when <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65" title="Track the face and facial features in a video file.">trackFromVideo()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a> or <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> is called). Default configuration files (.cfg) are provided in Samples/iOS/data folder. Please refer to the <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for further details on using the configuration files and all configurable options. Also, please read the section on automatic device-specific configuration selection.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">trackerConfigFile</td><td>the name of the tracker configuration file. </td></tr>
@@ -560,7 +745,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if successful</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>, trackFromVideo(), <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65" title="Track the face and facial features in a video file.">trackFromVideo()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> </dd></dl>
 
 </div>
 </div>
@@ -641,7 +826,49 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if successful</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a>, trackFromVideo() </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65" title="Track the face and facial features in a video file.">trackFromVideo()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7b67e97dfdcc851e27a39f73a96db65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VisageSDK::VisageTracker2::trackFromVideo </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>inVideoFileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>outFbaFileName</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Track the face and facial features in a video file. </p>
+<p>The function opens the video file and starts tracking the face and facial features (assuming that there is a face in the video).</p>
+<p>The tracking is started in a separate thread so this function returns immediately and function <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a> can be used to obtain the tracking results at any time. For more details about the available mechanisms for obtaining the tracking results see the <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a head/facial features tracker capable of tracking facial features in video coming ...">VisageTracker2</a> main documentation text.</p>
+<p>Depending on the used tracker configuration file, the tracker may run fully automatically or with a semi-automatic initial fitting of the facial shape mask. If semi-automatic mode is used, the tracker captures the first image with the face clearly visible and in suitable front-facing pose, and fits the face shape mask to the image. The automatic fitting may not be absolutely precise, so at this point it is may be necessary to manually adjust the face shape mask. For this purpose the tracker calls the <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html#affab75e881d5e611781161e8a799b282" title="A virtual function to let the user manually adjust the face shape mask.">TrackerGUIInterface::ManuallyAdjustShapeMask()</a> function. The face shape mask adjustment settings are written into a profile and used next time when the same person is tracked, so manual adjustment is done only the first time. The name of the profile is the same as the video file but with the extension .su; therefore for a file video.avi the face shape mask adjustment settings are written into the file video.su. After the initial adjustment the tracker tracks the facial features in the video until the end of the video is reached or until it is stopped using the <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aff1e3d0e4cb98e63e2ee9e4a4a35d666" title="Stop tracking (FbaAction implementation).">stop()</a> function.</p>
+<p>The resulting animation can be saved in a .fba file (MPEG-FBA encoded); leave the parameter outFbaFileName NULL if you do not want any file to be created.</p>
+<p>It is recommended to run the VisageTrackerDemo sample and get familiar with all its functions in order to get a practical understanding of the functioning of the tracker.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inVideoFileName</td><td>the name of the input video file (can be full path). It is recommended to use a DIVX encoded AVI file on Windows and MP4 or Quicktime MOV file on iOS. </td></tr>
+    <tr><td class="paramname">outFbaFileName</td><td>the name of the output .fba file (can be full path). If NULL, the .fba file is not produced. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">getTrackingData()</a>, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031" title="Track the face and facial features from a digital camera .">trackFromCam()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">trackFromRawImages()</a> </dd></dl>
 
 </div>
 </div>
@@ -651,7 +878,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 16 2014 15:39:58 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 11 2014 18:49:07 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

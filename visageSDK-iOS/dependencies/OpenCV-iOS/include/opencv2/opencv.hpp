@@ -59,7 +59,3 @@
 #include "opencv2/contrib/contrib.hpp"
 
 #endif
-hgui.hpp"
-#include "opencv2/contrib/contrib.hpp"
-
-#endif

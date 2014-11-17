@@ -640,6 +640,8 @@ struct VISAGE_DECLSPEC TrackingData : FaceData {
 
     TrackingData();
     ~TrackingData();
+
+	TrackingData& operator=(TrackingData data);
 };
 }
 

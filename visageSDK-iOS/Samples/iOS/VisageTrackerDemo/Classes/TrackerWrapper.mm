@@ -231,7 +231,7 @@ using namespace VisageSDK;
 	glVertexPointer(3, GL_FLOAT, 0, vertices);
 	glTexCoordPointer(2, GL_FLOAT, 0, texcoords);
 	
-	glViewport(0, glHeight-glWidth, glWidth, glWidth);
+    glViewport(0, (glHeight-glWidth)*(glWidth/(float)glHeight), glWidth, glWidth);
     
     glBindTexture(GL_TEXTURE_2D, instructionsTexId);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);

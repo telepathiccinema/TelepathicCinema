@@ -67,6 +67,9 @@
     }else
     {
         pt = [[TCCalibrationPoint alloc] initWithPointX:x Y:y gazeVectorX:d[0] Y:d[1] Z:d[2]];
+
+        //add normalized x/y calibration point to the visage model only ONCE
+        [tracker addGazeCalibrationPoint:x/bounds.size.width andY:y/bounds.size.height];
         NSLog(@"Adding this: %@", [pt getInfoString]);
         [calibrationpoints addObject:pt];
     }
@@ -129,6 +132,7 @@
         
         //update cursor
         float* d = [tracker getGlobalGaze];
+        
         //float* d = [tracker getGaze];
         
         TCCalibrationPoint * winner = nil;

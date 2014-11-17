@@ -29,6 +29,12 @@
 #include "VisageTrackerFrameGrabber.h"
 #include "TrackingData.h"
 #include "VisageDetector.h"
+#include "TrackerGazeCalibrator.h"
+//#include "Estimator6P.h"
+#include "VisageEstimator.h"
+#include "Estimator.h"
+#include "EstimatorGauss.h"
+//#include "IVTFilter.h"
 
 using namespace std;
 #ifdef WIN32
@@ -108,7 +114,10 @@ class ModelFitter;
 * - eye closure
 * - facial feature points
 * - full 3D face model, textured
+* - screen space gaze point - see \ref screenSGT Screen Space Gaze Tracking
+* - detected credit card stripe for size adjustment -  see DetectStrip()
 * 
+*
 * The tracker can apply a smoothing filter to tracking results to reduce the inevitable tracking noise. Smoothing factors 
 * are adjusted separately for global face rotation, translation and different parts of the face. The smoothing settings 
 * in the supplied tracker configurations are adjusted conservatively to avoid delay in tracking response, yet provide 
@@ -175,8 +184,53 @@ class ModelFitter;
 * The tracker requires the following data and configuration files \if IOS_DOXY (available in Samples/iOS/data) \elseif ANDROID_DOXY (available in Samples/Android/VisageTrackerUnityDemo/data) \else (available in Samples/OpenGL/data/FaceTracker2) \endif.
 * Please either copy the complete contents of this folder into your application's working folder, or consult <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for detailed settings.
 *
+* \section screenSGT Screen Space Gaze Tracking
+* Screen space gaze tracking feature estimates gaze position (the location on the screen where the user is looking) in normalized screen coordinates. 
+* Screen space gaze tracking works in two phases: calibration and estimation. 
 *
+* In the calibration phase, the system is calibrated for gaze estimation by passing the calibration data to the tracker. Calibration data consists of series of points displayed on screen. The user looks at the calibration point. During the calibration phase tracker collects calibration points and matching tracking data for each point.
+* After all calibration points have been passed to the tracker, the tracker performs calibration of gaze tracking system and switches to estimation phase. 
 *
+* In the estimation phase the tracker estimates gaze location in screen space coordinates and returns the data as ScreenSpaceGazeData object for each frame. 
+*
+* Screen space gaze tracking works in two different modes. Online mode is used when tracking in real time from camera. 
+* Offline mode is used when tracking from video files. The key differences between the two modes are:
+* - In online mode each FaceData object returned by getTrackingData() contains screen space gaze data for the current frame.
+* - In offline mode, gaze estimation is done as a post process after the tracking is finished for the whole video sequence. FaceData objects returned by the tracker contain no screen space gaze data for current frame.
+* - In online mode, calibration data is passed to the tracker as it is shown on screen.
+* - In offline mode, calibration data is passed as a ScreenSpaceGazeRepository object for the whole video sequence.
+* - Online mode can be initalized at any time during tracking.
+* - Offline mode has to be initalized before tracking is started. 
+* - In online mode the application is responsible for finalizing gaze tracking system calibration.
+* - In offline mode the calibration is finalized automatically.
+*
+* <h3> Online screen space gaze tracking</h3>
+* Online mode implies using the screen space gaze tracking when tracking from camera. 
+*
+* It is initialized by calling InitOnlineGazeCalibration() method. This method prepares the tracker for real time gaze tracking calibration.
+* Each calibration point in normalized screen coordinates is passed to tracker by calling AddGazeCalibrationPoint(). It is expected that the point is displayed on the screen before calling the method and that the user looks at calibration points during the calibration.
+* Application is responsible for reading or generating the calibration data, displaying it on screen and synchronization with the tracker.
+* It is required to manually notify the tracker that calibration is finished (once all calibration points are used) by calling FinalizeOnlineGazeCalibration() method. Once this method is called the tracker performs calibration of screen space gaze tracking system using provided calibration data and tracking data collected during the calibration process.
+* 
+* After the system is calibrated the estimation phase starts. Estimations are returned as part of FaceData objects obtained by calling getTrackingData() method specifically in FaceData::gazeData.
+*
+* @see InitOnlineGazeCalibration(), AddGazeCalibrationPoint() FinalizeOnlineGazeCalibration(), ScreenSpaceGazeData, FaceData
+*
+*<h3>Offline screen space gaze tracking</h3>
+* Offline mode implies using gaze tracking feature when tracking from video file.
+* It is assumend that calibration points have been displayed to the user while recording the video of the user's face; that user actually looked at the calibration points; 
+* and that these calibration points have been stored, together with corresponding time stamps. Furthermore, it is assumed that calibration was performed during a part of the video sequence.
+* Gaze estimation is performed on the remaining parts of the video sequence. The calibration parts of the video need not be contiguous.
+*
+* Offline mode initialized by calling InitOfflineGazeCalibration() method. This method takes ScreenSpaceGazeRepository object as parameter.
+* This object contains calibration data for the tracked video sequence. Each calibration point consists of x and y coordinates given in normalized screen coordinates and the index of the frame in which calibration point was displayed to the user. The tracker reads calibration points from the provided repository and collects tracking data from corresponding frames of the tracked video sequence.
+* Once all calibration data from provided repository is used, the tracker automatically performs calibration of the gaze tracking system using provided calibration data and tracking data collected during the calibration process. 
+*
+* Offline mode must be initalized before tracking is started, otherwise some of the calibration frames may be discarded.
+* 
+* After the whole video file has been processed, tracking stops and gaze estimations are available as ScreenSpaceGazeRepository object, obtained by calling getGazeEstimations() method. The returned repository contains ScreenSpaceGazeData object with screen space gaze position for each non-calibration frame of the tracked video sequence.
+*
+* @see InitOfflineGazeCalibration(), getGazeEstimations(), ScreenSpaceGazeRepository, ScreenSpaceGazeData 
 */
 class VISAGE_DECLSPEC VisageTracker2 : public FbaAction
 {
@@ -250,9 +304,9 @@ public:
 	*
 	* @see getTrackingData(), FaceData, trackFromVideo(), trackFromRawImages()
 	*/
-	bool trackFromCam(const char* outFbaFileName = NULL, int orientation = VISAGE_CAMERA_RIGHT, int frameGrabberImageFormat = VISAGE_FRAMEGRABBER_FMT_RGB);
-
-	/*! \cond !ANDROID_DOXY */
+	bool trackFromCam(const char* outFbaFileName = NULL, int orientation = VISAGE_CAMERA_UP, int frameGrabberImageFormat = VISAGE_FRAMEGRABBER_FMT_RGB);
+	
+	/** \ifnot ANDROID_DOXY */
 	/** Track the face and facial features in a video file.
 	*
 	* The function opens the video file and starts tracking the face and facial features (assuming that there is a face in the video).
@@ -297,11 +351,12 @@ public:
 	*/
 	bool trackFromVideo(const char* inVideoFileName,
 					  const char* outFbaFileName = NULL);
-	/* DEPRECATED, replaced by trackFromVideo().
+
+	/** DEPRECATED, replaced by trackFromVideo().
 	*/
 	bool trackFromAvi(const char* inAviFileName,
 					  const char* outFbaFileName = NULL);
-	/*! \endcond */
+	/** \endif */
 	/** Track the face and facial features in images passed from the application using the raw image interface (VisageTrackerFrameGrabber)
 	*
 	* The tracking is started in a separate thread so this function returns immediately and
@@ -423,47 +478,6 @@ public:
 	* @see VisageTrackerObserver, attach()
 	*/
 	void detach() {nObs = 0;};
-
-	/** \if IOS_DOXY\elseif ANDROID_DOXY\else Show the camera settings dialog.
-	*
-	* Opens the camera settings dialog box, allowing the user to set parameters such as brightness, contrast, gain etc.
-	* The dialog opens only if the tracking from camera is currently active and if the camera_input parameter in the tracker configuration file is set to 0 (this is the default setting).
-	*
-	* @return true on success, false if dialog is not shown
-	* \endif
-	*/
-	bool showCameraSettingsDialog();
-
-
-	/** Get Face Animation Parameters (FbaAction implementation).
-	*
-	* <b>NOTE:</b> Do not use this function directly, use getTrackingData() instead.
-	*
-	* This function implements the FbaAction interface. It is not intended to be called directly.
-	* It returns a FBAPs class that contains the Face Animation Parameters (FAPs)
-	* currently estimated by the tracker.
-	* The global translation of the face is stored in the global translation Body Animation Parameters (BAPs).
-	* The specification of the FAP and BAP parameters
-	* is contained in the the <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>.
-	*
-	* Certain parameters, like the ones on the tongue, teeth, nose and ears, can currently not be reliably estimated so they are not returned
-	* and their values are always set to zero. These parameters are:
-	* - FAPs 14 - 18 (jaw thrust and shift, lips forward push)
-	* - FAPs 23 - 30 (eyeball rotation and thrust)
-	* - FAPs 39 - 40 (puff cheeks)
-	* - FAPs 43 - 47 (tongue motion)
-	* - FAPs 61 - 68 (nose and ear motion)
-	*
-	* Furthermore, the parameters of the outer lip contour (51 - 60) and the corresponding parameters of the inner lip
-	* contour (4 -13) are both set to the mean value of the outer and inner lip displacement. For example, parameters 4 (vertical displacement of top inner lip) and 51 (vertical displacement of top outer lip)
-	* are both set to the same value, and this value is the mean displacement of the upper lip midpoint.
-	*
-	*
-	* @param globalTime the time for which the FAPs are requested, in milliseconds; in this implementation we ignore this parameter so it can be 0. The function always returns the most recent estimated FBAPs.
-	* @param lastFBAPs the final FBAPs from the previous frame of animation; in this implementation we ignore this parameter so it can be NULL
-	* @param model the %Model currently used in the player; in this implementation we ignore this parameter so it can be NULL
-	*/
-	FBAPs *getFBAPs(long globalTime, FBAPs *lastFBAPs, VisageCharModel* model);
 
 
 	/* Get facial feature points estimated by the tracker.
@@ -685,26 +699,6 @@ public:
 	*/
 	 const IplImage *getCurrentVideoFrame(){return(isActive() ? (const IplImage *)frame_input : NULL);};
 
-	/** Start the action (FbaAction implementation).
-	*
-	* Note: Do not call this function directly.
-	*
-	* This function implements the FbaAction interface.
-	*/
-	void start(long globalTime);
-
-	/** Stop tracking (FbaAction implementation).
-	*
-	* This function implements the FbaAction interface. It stops the tracking.
-	*
-	*/
-	void stop();
-
-	/** Action name (FbaAction implementation).
-	*
-	*/
-	char* actionTypeName() {return "VisageTracker2";};
-
 	/*
 	* Set the upper and lower limit for each of Facial Animation Parameters, i.e., the maximum and minimum allowed values for
 	* each of the 68 FAPs. The tracker will cut off any values outside these limits.
@@ -729,21 +723,7 @@ public:
 	* @return the lower FAP limits.
 	*/
 	FAPs *getLowerFAPLimits();
-
-	/** Detects a credit card magnetic stripe in the current frame.
-	* 
-	* This function attempts to detect a standard-size credit card stripe in the current frame. 
-	* The search is performed within a search region defined with respect to the location of the face in the frame. 
-	* The search is performed only while the tracker is tracking a face (tracking status returned by GetTrackingData() is TRACK_STAT_OK). 
-	* Various parameters of the search can be configured in the tracker configuration file - see the <a href="doc/VisageTracker Configuration Manual.pdf">Tracker Configuration Manual</a> for details.
-	*
-	* @param size detected stripe width in pixels.
-	* @param ratioerror detected stripe ratio error in percentage of the ideal ratio.
-	* @param angleerror detected stripe angle error expressed as a cos of the maximum angle deviation.
-	* @return true if the stripe was found, false otherwise.
-	*/
-	bool DetectStrip(double &size);
-
+	
 	/** Sets the inter pupillary distance
 	* 
 	* Inter pupillary distance (IPD) is used by the tracker to estimate the distance of the face from the camera. 
@@ -762,7 +742,155 @@ public:
 	* @see setIPD()
 	*/
 	float getIPD();
+
+	/** Detects a credit card magnetic stripe in the current frame.
+	* 
+	* This function attempts to detect a standard-size credit card stripe in the current frame. 
+	* The search is performed within a search region defined with respect to the location of the face in the frame. 
+	* The search is performed only while the tracker is tracking a face (tracking status returned by GetTrackingData() is TRACK_STAT_OK). 
+	* Various parameters of the search can be configured in the tracker configuration file - see the <a href="doc/VisageTracker Configuration Manual.pdf">Tracker Configuration Manual</a> for details.
+	*
+	* @param size detected stripe width in pixels.
+	* @param ratioerror detected stripe ratio error in percentage of the ideal ratio.
+	* @param angleerror detected stripe angle error expressed as a cos of the maximum angle deviation.
+	* @return true if the stripe was found, false otherwise.
+	*/
+	bool DetectStrip(double &size);
+	
+	/** Initializes online screen space gaze tracking. Online mode is used when tracking from camera.
+	* This method starts the calibration phase of screen space gaze tracking. In the calibration phase the application displays the calibration data on the screen and passes it to the tracker using AddGazeCalibrationPoint(). 
+	* Application is responsible for finishing the calibration phase by calling FinalizeOnlineGazeCalibration().
+	* @see AddGazeCalibrationPoint(), FinalizeOnlineGazeCalibration()
+	*/
+	void InitOnlineGazeCalibration();
+
+	/** Passes a calibration point to the tracker in online screen space gaze tracking mode.
+	* This method is used in online gaze tracking mode to pass the position of the currently displayed calibration point to the tracker. This method should be called once for each calibration point, after the calibration point is displayed on the screen. 
+	* Position of the calibration point is in normalized screen coordinates. The origin of the coordinate system is in the upper left corner of the screen; the lower right corner has coordinates (1, 1). 
+	*
+	* NOTE: 
+	* Application is responsible for synchronization between the frequency of passing calibration points to the tracker and the frequency at which the tracker processes video frames.
+	* If calibration points are passed faster than the tracker works, it may happen that two (or more) calibration points are passed while the tracker is processing a single video frame.
+	* In such case, if the difference in speed is large enough, it is possible that the tracking data for the processed frame does not match to the calibration point. This reduces the quality of calibration and, consequently, estimation. 
+	*
+	*@param x x coordinate of the calibration point in normalized screen coordinates
+	*@param y y coordinate of the calibration point in normalized screen coordinates
+	*@see ScreenSpaceGazeData, InitOnlineGazeCalibration(), FinalizeOnlineGazeCalibration()
+	*/
+	void AddGazeCalibrationPoint(float x, float y);
+	
+	/** Finializes online screen space gaze tracking calibration.
+	* This method should be called after all calibration data is displayed and passed to the tracker. After this method is called the tracker performs calibration of gaze tracking system using the provided calibration data and the tracking data collected during the calibration phase.
+	* 
+	* After the calibration is finished, screen space gaze postion is obtained by calling getTrackingData() method. The returned FaceData object contains gaze position stored in ScreenSpaceGazeData object, specifically in FaceData::gazeData.
+	* @see InitOnlineGazeCalibration(), getTrackingData(), ScreenSpaceGazeData, FaceData, AddGazeCalibrationPoint()
+	*/
+	float FinalizeOnlineGazeCalibration();
+
+	/**Initiallizes offline screen space gaze tracking. Offline mode is used when tracking from video file.
+	* This method must be called before tracking is started using trackFromVideo. Calibration data is passed to the tracker as a ScreenSpaceGazeRepository object containing a number of calibration points, each consisting of the position of the calibration point in normalized screen coordinates and the frame index in which the calibration point was displayed to the user. 
+	* The data for each calibration point is stored as a ScreenSpaceGazeData object.
+	* 
+	* During the calibration phase tracker reads calibration points from the provided ScreenSpaceGazeRepository and collects tracking data in corresponding frames of the tracked video sequence.
+	* The gaze tracking system is calibrated automatically after all calibration points from the provided repository are used.
+	* After the tracking of the whole video sequence is finished, the screen space gaze positions can be obtained by calling getGazeEstimations() method.
+	*
+	*@param calibrator Pointer to ScreenSpaceGazeRepository containing calibration data.
+	*@return fitQuality Percentage of inliers in total sample count used for calibration.
+	*@see ScreenSpaceGazeData, ScreenSpaceGazeRepository, getGazeEstimations() 
+	*/
+	void InitOfflineGazeCalibration(ScreenSpaceGazeRepository* calibrator);
+	
+	/**Returns screen space gaze estimation data obtained in offline gaze tracking mode
+	*
+	* This function is used for obtaining estimation data in offline mode (in online mode use getTrackingData()). 
+	* It returns the repository containing screen space gaze data for each non - calibration frame of processed sequence.
+	* 
+	* The method returns an empty array if called during tracking. 
+	*
+	* Note that each time this method is called, the memory for returned ScreenSpaceGazeRepository object is deallocated and reallocated.
+	*
+	* @param repository to be filled with scren sapce gaze data for last tracked sequence
+	* @return fitQuality Percentage of inliers in total sample count used for calibration.
+	* @see ScreenSpaceGazeRepository, ScreenSpaceGazeData, InitOfflineGazeCalibration() 
+	**/
+	float getGazeEstimations(ScreenSpaceGazeRepository* repository);
+	
+	/** \if IOS_DOXY\elseif ANDROID_DOXY\else Show the camera settings dialog.
+	*
+	* Opens the camera settings dialog box, allowing the user to set parameters such as brightness, contrast, gain etc.
+	* The dialog opens only if the tracking from camera is currently active and if the camera_input parameter in the tracker configuration file is set to 0 (this is the default setting).
+	*
+	* @return true on success, false if dialog is not shown
+	* \endif
+	*/
+	bool showCameraSettingsDialog();
+
+
+	/** Get Face Animation Parameters (FbaAction implementation).
+	*
+	* <b>NOTE:</b> Do not use this function directly, use getTrackingData() instead.
+	*
+	* This function implements the FbaAction interface. It is not intended to be called directly.
+	* It returns a FBAPs class that contains the Face Animation Parameters (FAPs)
+	* currently estimated by the tracker.
+	* The global translation of the face is stored in the global translation Body Animation Parameters (BAPs).
+	* The specification of the FAP and BAP parameters
+	* is contained in the the <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>.
+	*
+	* Certain parameters, like the ones on the tongue, teeth, nose and ears, can currently not be reliably estimated so they are not returned
+	* and their values are always set to zero. These parameters are:
+	* - FAPs 14 - 18 (jaw thrust and shift, lips forward push)
+	* - FAPs 23 - 30 (eyeball rotation and thrust)
+	* - FAPs 39 - 40 (puff cheeks)
+	* - FAPs 43 - 47 (tongue motion)
+	* - FAPs 61 - 68 (nose and ear motion)
+	*
+	* Furthermore, the parameters of the outer lip contour (51 - 60) and the corresponding parameters of the inner lip
+	* contour (4 -13) are both set to the mean value of the outer and inner lip displacement. For example, parameters 4 (vertical displacement of top inner lip) and 51 (vertical displacement of top outer lip)
+	* are both set to the same value, and this value is the mean displacement of the upper lip midpoint.
+	*
+	*
+	* @param globalTime the time for which the FAPs are requested, in milliseconds; in this implementation we ignore this parameter so it can be 0. The function always returns the most recent estimated FBAPs.
+	* @param lastFBAPs the final FBAPs from the previous frame of animation; in this implementation we ignore this parameter so it can be NULL
+	* @param model the %Model currently used in the player; in this implementation we ignore this parameter so it can be NULL
+	*/
+	FBAPs *getFBAPs(long globalTime, FBAPs *lastFBAPs, VisageCharModel* model);
+
+	/** Start the action (FbaAction implementation).
+	*
+	* Note: Do not call this function directly.
+	*
+	* This function implements the FbaAction interface.
+	*/
+	void start(long globalTime);
+
+	/** Stop tracking (FbaAction implementation).
+	*
+	* This function implements the FbaAction interface. It stops the tracking.
+	*
+	*/
+	void stop();
+
+	/** Action name (FbaAction implementation).
+	*
+	*/
+	char* actionTypeName() {return "VisageTracker2";};
+
+	void SetScalingFactor(float factor);
+
+	void SetEstimatorGaze(bool state);
+
+	void SetGazeOffset(float x, float y);
+	void SetGazeScale(float x, float y);
+
+	void SetGazeViewportSize(int w, int h);
+
+	void reset();
+	volatile bool doReset;
     
+	void SetGazeCenter(float x, float y);
+
 #ifdef IOS
     /** Set data bundle
      * 
@@ -773,6 +901,7 @@ public:
 #endif
 
 	TrackerOpenGLInterface *oglIface;
+    TrackerOpenGLInterface *tmpOglIface;
 	TrackerGUIInterface *guiIface;
 	TrackerInternalInterface *internalIface;
 	void display_func();
@@ -884,6 +1013,7 @@ private:
 	bool verifyPose(FDP *f);
     bool testPose(FDP *f, FDP *best);
     bool refitModelToFace();
+	void calculateScreenSpaceGaze();
 
 	static void  trackInThread(void* vt);
 	void writeBits(FILE *streamHandle, unsigned char *bits, int size);//void writeBits(int streamHandle, unsigned char *bits, int size);
@@ -892,7 +1022,7 @@ private:
 
 	int Init(void);
 
-	bool testFrontalPose(FDP *latestFP, FDP *bestFP,int parts=VS_FACE);
+	bool testFrontalPose(FDP *latestFP, FDP *bestFP,bool& reco_timeout, int parts=VS_FACE);
 
 	FDP *tmpLatestFP;
 	FDP *tmpBestFP;
@@ -1036,6 +1166,8 @@ private:
 	void initTrackingData(void);
 	void swapTrackingData(void);
 	void smoothTrackingData(void);
+	void smoothGazeData(void);
+	void smoothGazeEstimations(void);
 
 	CvMat *smoothing_factors;
 
@@ -1065,6 +1197,20 @@ private:
 	volatile int detector_parts;
 	volatile int detect;
 	volatile int new_detector_frame;
+	int windowScaler;
+	ScreenSpaceGazeRepository* calibrator;
+	ScreenSpaceGazeData currentGazeData;
+	ScreenSpaceGazeRepository* estimations;
+	Estimator* estimator;
+	Estimator* fpEstimator;
+	int calibFrameCount;
+	int calibIndex;
+	int startFrameOffset;
+	float initGazeX;
+	float initGazeY;
+	
+	CvMat* projection;
+	CvMat* neutral;
 };
 
 }

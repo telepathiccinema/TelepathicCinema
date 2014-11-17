@@ -27,11 +27,10 @@ using namespace VisageSDK;
     char licenseFile[] = "637-055-282-782-699-137-004-446-835-604-044.vlc";
     initializeLicenseManager(licenseFile);
     
-    
 	glView = view;
     demoObserver = new DemoObserver();
     show = NO;
-
+    
     // choose configuration based on device at run-time
     NSString* deviceType = [UIDeviceHardware platform];
 #ifdef FACE_TRACKER
@@ -61,7 +60,7 @@ using namespace VisageSDK;
     else
         tracker = new VisageTracker2("HT - MidPerformance.cfg");
 #endif
-
+    
 	//get OpenGL context size
 	glWidth = glView.bounds.size.width;
 	glHeight = glView.bounds.size.height;
@@ -74,11 +73,11 @@ using namespace VisageSDK;
 
 - (void)startTrackingFromCam
 {
-
+    
 #if TARGET_IPHONE_SIMULATOR
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:@"No camera available on simulator." 
-                                                   delegate:nil 
+                                                    message:@"No camera available on simulator."
+                                                   delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
@@ -86,9 +85,9 @@ using namespace VisageSDK;
 	[self stopTracker];
     
     while(inGetTrackingResults);
-
+    
     tracker->attach(demoObserver);
-
+    
     tracker->trackFromCam();
 	isTracking = true;
 #endif
@@ -100,9 +99,9 @@ using namespace VisageSDK;
     
     while(inGetTrackingResults)
         ;
-
+    
     tracker->attach(demoObserver);
-
+    
     if (filename) {
         tracker->trackFromVideo([filename UTF8String]);
     } else {
@@ -119,7 +118,7 @@ using namespace VisageSDK;
     
     while(inGetTrackingResults)
         ;
-
+    
     tracker->attach(demoObserver);
 	
 	isTracking = true;
@@ -130,7 +129,7 @@ using namespace VisageSDK;
 	isTracking = false;
 	tracker->stop();
     tracker->detach();
-
+    
     if (demoObserver) {
         demoObserver->notifyCount = 0;
     }
@@ -162,7 +161,7 @@ using namespace VisageSDK;
     CGContextRef imageContext = CGBitmapContextCreate(imageData, image.size.width, image.size.height, 8, image.size.width * 4, CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedLast);
     CGContextDrawImage(imageContext, CGRectMake(0.0, 0.0, image.size.width, image.size.height), image.CGImage);
     CGContextRelease(imageContext);
-
+    
     // Create The Texture
     glGenTextures(1, &instructionsTexId);
     
@@ -171,9 +170,9 @@ using namespace VisageSDK;
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); 
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
+    
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.size.width, image.size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 }
 
@@ -243,7 +242,7 @@ using namespace VisageSDK;
     yTexSize = 1;
     while((image->width / xTexSize) > 0) xTexSize <<= 1;
     while((image->height / yTexSize) > 0) yTexSize <<= 1;
-
+    
 	// Create The Texture
 	glGenTextures(1, &frameTexId);
 	
@@ -278,7 +277,7 @@ using namespace VisageSDK;
 - (void) setFrameTexture: (const IplImage *)image
 {
 	glBindTexture(GL_TEXTURE_2D, frameTexId);
-
+    
 	switch (image->nChannels) {
 		case 3:
 			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, image->width, image->height, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
@@ -298,7 +297,7 @@ using namespace VisageSDK;
 - (void) displayVideo
 {
 	glDisable(GL_DEPTH_TEST);
-
+    
 	glEnable(GL_TEXTURE_2D);
 	
 	glMatrixMode(GL_MODELVIEW);
@@ -344,7 +343,7 @@ using namespace VisageSDK;
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
-
+    
 	glClear(GL_DEPTH_BUFFER_BIT);
 }
 
@@ -353,7 +352,7 @@ using namespace VisageSDK;
 	glShadeModel(GL_FLAT);
 	glColor4f(color[0], color[1], color[2], color[3]);
 	glPointSize(size);
-
+    
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, point);
 	glDrawArrays(GL_POINTS, 0, 1);
@@ -362,8 +361,8 @@ using namespace VisageSDK;
 
 //set the camera and its view (frustum)
 + (void) setupFrustumWithWidth: (int) width //width of image to be drawn
-                    andHeight: (int) height //height of image to be drawn
-                     andFocus: (float) f //focus
+                     andHeight: (int) height //height of image to be drawn
+                      andFocus: (float) f //focus
 {
 	GLfloat x_offset = 1;
 	GLfloat y_offset = 1;
@@ -382,9 +381,9 @@ using namespace VisageSDK;
 	//set frustum
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-
+    
 	glFrustumf(-frustum_x,frustum_x,-frustum_y,frustum_y,frustum_near,frustum_far);
-
+    
 	glMatrixMode(GL_MODELVIEW);
 	//clear matrix
 	glLoadIdentity();
@@ -400,13 +399,13 @@ using namespace VisageSDK;
 			frameWidth:(int)width
 		   frameHeight:(int)height
 {
-
+    
 	//enable stuff
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
+    
 	glShadeModel(GL_FLAT);
 	//clear buffer
 	glClear(GL_DEPTH_BUFFER_BIT);
@@ -414,7 +413,7 @@ using namespace VisageSDK;
 	//glColor4f(1.0f,1.0f,1.0f,1.0f);
 	//tinted red to show difference
 	glColor4f(1.0f,0.5f,0.5f,1.0f);
-		
+    
 	//vertex list
 	glVertexPointer(3,GL_FLOAT,0,vertices);
 	
@@ -442,7 +441,7 @@ using namespace VisageSDK;
 	}
 	//glDrawElements(GL_TRIANGLES,triangleNum*3,GL_UNSIGNED_SHORT,tris);
     glDisable(GL_TEXTURE_2D);
-
+    
 	glColor4f(0.0f,1.0f,0.0f,1.0f);
     GLushort *lines = new GLushort[triangleNum*6];
     for (int i = 0, j = 0; i < triangleNum*6; i+=6, j+=3) {
@@ -451,17 +450,17 @@ using namespace VisageSDK;
 		lines[i+3] = lines[i+4] = triangles[j+2];
 	}
 	glDrawElements(GL_LINES,triangleNum*6,GL_UNSIGNED_SHORT,lines);
-
+    
 	delete[] tex;
 	delete[] tris;
     delete[] lines;
-
+    
 	//disable stuff
 	glDisable(GL_DEPTH_TEST);
-
+    
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
+    
 }
 
 void drawFeaturePoints2D(int* points,
@@ -497,274 +496,274 @@ void drawFeaturePoints2D(int* points,
 - (void) drawResultsFromFeaturePoints: (FDP*) featurePoints2D
 {
 	//sizes of the fdp's groups
-//    int GrSize[12] = {0,0,14,14,6,4,4,1,10,15,10,5};
+    //    int GrSize[12] = {0,0,14,14,6,4,4,1,10,15,10,5};
     
-		glPointSize(3);
-        
-		//draw chin points
-		glColor4ub(128,128,255,255);
-        
-		static int chinPoints[] = {
-			2,	14,
-			2,	12,
-			2,	1,
-			2,	11,
-			2,	13,
-			2,	10,
-		};
-		static int chinLinesPoints[] = {
-			2,	14,
-			2,	12,
-			2,	12,
-			2,	1,
-			2,	1,
-			2,	11,
-			2,	11,
-			2,	13,
-			2,	1,
-			2,	10,
-		};
-        
-		drawFeaturePoints2D(chinPoints, 6, GL_POINTS, featurePoints2D);
-		drawFeaturePoints2D(chinLinesPoints, 10, GL_LINES, featurePoints2D);
-        
-		// draw inner lip points
-		glColor4ub(236,0,0,255);
-        
-		static int innerLipPoints[] = {
-			2,	2,
-			2,	6,
-			2,	4,
-			2,	8,
-			2,	3,
-			2,	9,
-			2,	5,
-			2,	7,
-		};
-        
-		drawFeaturePoints2D(innerLipPoints, 8, GL_POINTS, featurePoints2D);
-		drawFeaturePoints2D(innerLipPoints, 8, GL_LINE_LOOP, featurePoints2D);
-        
-		// draw outer lip points
-		glColor4ub(236,0,0,255);
-        
-		static int outerLipPoints[] = {
-			8,	1,
-			8,	10,
-			8,	5,
-			8,	3,
-			8,	7,
-			8,	2,
-			8,	8,
-			8,	4,
-			8,	6,
-			8,	9,
-		};
-		drawFeaturePoints2D(outerLipPoints, 10, GL_POINTS, featurePoints2D);
-		drawFeaturePoints2D(outerLipPoints, 10, GL_LINE_LOOP, featurePoints2D);
-        
-		//draw nose
-		glColor4ub(100,100,100,255);
-        
-		static int nosePoints[] = {
-			9,	1,
-			9,	2,
-			9,	3,
-			9,	4,
-			9,	5,
-			9,	6,
-			9,	7,
-			9,	8,
-			9,	9,
-			9,	10,
-			9,	11,
-			9,	12,
-			9,	13,
-			9,	14,
-			9,	15,
-		};
-		static int noseLinesPoints1[] = {
-			9,	15,		//part one
-			9,	4,
-			9,	2,
-			9,	3,
-			9,	1,
-			9,	5,
-		};
-		static int noseLinesPoints2[] = {
-			9,	6,		//part two
-			9,	7,
-			9,	13,
-			9,	12,
-			9,	14,
-		};
-		static int noseLinesPoints3[] = {
-			9,	14,		//part three
-			9,	2,
-			9,	13,
-			9,	1,
-		};
-        
-		drawFeaturePoints2D(nosePoints, 15, GL_POINTS, featurePoints2D);
-		drawFeaturePoints2D(noseLinesPoints1, 6, GL_LINE_LOOP, featurePoints2D);
-		drawFeaturePoints2D(noseLinesPoints2, 5, GL_LINE_LOOP, featurePoints2D);
-		drawFeaturePoints2D(noseLinesPoints3, 4, GL_LINES, featurePoints2D);
-        
-        //draw eyes
+    glPointSize(3);
+    
+    //draw chin points
+    glColor4ub(128,128,255,255);
+    
+    static int chinPoints[] = {
+        2,	14,
+        2,	12,
+        2,	1,
+        2,	11,
+        2,	13,
+        2,	10,
+    };
+    static int chinLinesPoints[] = {
+        2,	14,
+        2,	12,
+        2,	12,
+        2,	1,
+        2,	1,
+        2,	11,
+        2,	11,
+        2,	13,
+        2,	1,
+        2,	10,
+    };
+    
+    drawFeaturePoints2D(chinPoints, 6, GL_POINTS, featurePoints2D);
+    drawFeaturePoints2D(chinLinesPoints, 10, GL_LINES, featurePoints2D);
+    
+    // draw inner lip points
+    glColor4ub(236,0,0,255);
+    
+    static int innerLipPoints[] = {
+        2,	2,
+        2,	6,
+        2,	4,
+        2,	8,
+        2,	3,
+        2,	9,
+        2,	5,
+        2,	7,
+    };
+    
+    drawFeaturePoints2D(innerLipPoints, 8, GL_POINTS, featurePoints2D);
+    drawFeaturePoints2D(innerLipPoints, 8, GL_LINE_LOOP, featurePoints2D);
+    
+    // draw outer lip points
+    glColor4ub(236,0,0,255);
+    
+    static int outerLipPoints[] = {
+        8,	1,
+        8,	10,
+        8,	5,
+        8,	3,
+        8,	7,
+        8,	2,
+        8,	8,
+        8,	4,
+        8,	6,
+        8,	9,
+    };
+    drawFeaturePoints2D(outerLipPoints, 10, GL_POINTS, featurePoints2D);
+    drawFeaturePoints2D(outerLipPoints, 10, GL_LINE_LOOP, featurePoints2D);
+    
+    //draw nose
+    glColor4ub(100,100,100,255);
+    
+    static int nosePoints[] = {
+        9,	1,
+        9,	2,
+        9,	3,
+        9,	4,
+        9,	5,
+        9,	6,
+        9,	7,
+        9,	8,
+        9,	9,
+        9,	10,
+        9,	11,
+        9,	12,
+        9,	13,
+        9,	14,
+        9,	15,
+    };
+    static int noseLinesPoints1[] = {
+        9,	15,		//part one
+        9,	4,
+        9,	2,
+        9,	3,
+        9,	1,
+        9,	5,
+    };
+    static int noseLinesPoints2[] = {
+        9,	6,		//part two
+        9,	7,
+        9,	13,
+        9,	12,
+        9,	14,
+    };
+    static int noseLinesPoints3[] = {
+        9,	14,		//part three
+        9,	2,
+        9,	13,
+        9,	1,
+    };
+    
+    drawFeaturePoints2D(nosePoints, 15, GL_POINTS, featurePoints2D);
+    drawFeaturePoints2D(noseLinesPoints1, 6, GL_LINE_LOOP, featurePoints2D);
+    drawFeaturePoints2D(noseLinesPoints2, 5, GL_LINE_LOOP, featurePoints2D);
+    drawFeaturePoints2D(noseLinesPoints3, 4, GL_LINES, featurePoints2D);
+    
+    //draw eyes
+    //if eye is open, draw the iris
+    if (trackingData.eyeClosure[1])
+    {
         //if eye is open, draw the iris
-        if (trackingData.eyeClosure[1])
-        {
-            //if eye is open, draw the iris
-            glColor4ub(255,255,0,255);
+        glColor4ub(255,255,0,255);
         
-            static int irisPoints[] = {
-                3,	5,
-                3,	6,
-            };
-            drawFeaturePoints2D(irisPoints, 2, GL_POINTS,featurePoints2D);
-        }
-        if (trackingData.eyeClosure[1]){
-            glColor4ub(255,143,32,255);
-        }
-        else
-        {
-            glColor4ub(255,0,0,255);
-        }
+        static int irisPoints[] = {
+            3,	5,
+            3,	6,
+        };
+        drawFeaturePoints2D(irisPoints, 2, GL_POINTS,featurePoints2D);
+    }
+    if (trackingData.eyeClosure[1]){
+        glColor4ub(255,143,32,255);
+    }
+    else
+    {
+        glColor4ub(255,0,0,255);
+    }
     
-		static int eyesPoints[] = {
-			3,	1,
-			3,	2,
-			3,	3,
-			3,	4,
-			3,	7,
-			3,	8,
-			3,	9,
-			3,	10,
-			3,	11,
-			3,	12,
-			3,	13,
-			3,	14,
-		};
-		static int eyesLinesPoints1[] = {
-			3,	12,
-			3,	14,
-			3,	8,
-			3,	10,
-		};
-		static int eyesLinesPoints2[] = {
-			3,	12,
-			3,	2,
-			3,	8,
-			3,	4,
-		};
-		static int eyesLinesPoints3[] = {
-			3,	11,
-			3,	13,
-			3,	7,
-			3,	9,
-		};
-		static int eyesLinesPoints4[] = {
-			3,	11,
-			3,	1,
-			3,	7,
-			3,	3,
-		};
-        
-		drawFeaturePoints2D(eyesPoints, 12, GL_POINTS, featurePoints2D);
-		drawFeaturePoints2D(eyesLinesPoints1, 4, GL_LINE_LOOP, featurePoints2D);
-		drawFeaturePoints2D(eyesLinesPoints2, 4, GL_LINE_LOOP, featurePoints2D);
-		drawFeaturePoints2D(eyesLinesPoints3, 4, GL_LINE_LOOP, featurePoints2D);
-		drawFeaturePoints2D(eyesLinesPoints4, 4, GL_LINE_LOOP, featurePoints2D);
-        
-        
-		//draw cheeks
-		glColor4ub(100,100,100,255);
-        
-		static int cheekPoints[] = {
-			5,	1,
-			5,	2,
-			5,	3,
-			5,	4,
-		};
-        
-		drawFeaturePoints2D(cheekPoints, 4, GL_POINTS, featurePoints2D);
-        
-		//draw ears
-		static int earPoints[] = {
-			10,	1,
-			10,	2,
-			10,	3,
-			10,	4,
-			10,	5,
-			10,	6,
-			10,	7,
-			10,	8,
-			10,	9,
-			10,	10,
-		};
-        
-		drawFeaturePoints2D(earPoints, 10, GL_POINTS, featurePoints2D);
-        
-		//draw lines connecting ears and cheeks
-		static int earcheekLinesPoints1[] = {
-			5,	2,
-			5,	4,
-			10,	10,
-			10,	8,
-		};
-		static int earcheekLinesPoints2[] = {
-			5,	1,
-			5,	3,
-			10,	9,
-			10,	7,
-		};
-        
-		drawFeaturePoints2D(earcheekLinesPoints1, 4, GL_LINE_LOOP, featurePoints2D);
-		drawFeaturePoints2D(earcheekLinesPoints2, 4, GL_LINE_LOOP, featurePoints2D);
-        
-		//draw eyebrows
-		glColor4ub(227,254,73,255);
-		static int eyebrowPoints[] = {
-			4,	1,
-			4,	2,
-			4,	3,
-			4,	4,
-			4,	5,
-			4,	6,
-		};
-		static int eyebrowLinesPoints[] = {
-			4,	6,
-			4,	4,
-			4,	4,
-			4,	2,
-			4,	1,
-			4,	3,
-			4,	3,
-			4,	5,
-		};
-		drawFeaturePoints2D(eyebrowPoints, 6, GL_POINTS, featurePoints2D);
-		drawFeaturePoints2D(eyebrowLinesPoints, 8, GL_LINES, featurePoints2D);
-        
-		//draw head/hair
-		glColor4ub(100,100,100,255);
-        
-		static int hairPoints[] = {
-			11,	1,
-			11,	2,
-			11,	3,
-			11,	4,
-			11,	5,
-			11,	6,
-		};
-		static int hairLinesPoints[] = {
-			11,	2,
-			11,	1,
-			11,	1,
-			11,	3,
-		};
-        
-		drawFeaturePoints2D(hairPoints, 6, GL_POINTS, featurePoints2D);
-		drawFeaturePoints2D(hairLinesPoints, 4, GL_LINES, featurePoints2D);
+    static int eyesPoints[] = {
+        3,	1,
+        3,	2,
+        3,	3,
+        3,	4,
+        3,	7,
+        3,	8,
+        3,	9,
+        3,	10,
+        3,	11,
+        3,	12,
+        3,	13,
+        3,	14,
+    };
+    static int eyesLinesPoints1[] = {
+        3,	12,
+        3,	14,
+        3,	8,
+        3,	10,
+    };
+    static int eyesLinesPoints2[] = {
+        3,	12,
+        3,	2,
+        3,	8,
+        3,	4,
+    };
+    static int eyesLinesPoints3[] = {
+        3,	11,
+        3,	13,
+        3,	7,
+        3,	9,
+    };
+    static int eyesLinesPoints4[] = {
+        3,	11,
+        3,	1,
+        3,	7,
+        3,	3,
+    };
+    
+    drawFeaturePoints2D(eyesPoints, 12, GL_POINTS, featurePoints2D);
+    drawFeaturePoints2D(eyesLinesPoints1, 4, GL_LINE_LOOP, featurePoints2D);
+    drawFeaturePoints2D(eyesLinesPoints2, 4, GL_LINE_LOOP, featurePoints2D);
+    drawFeaturePoints2D(eyesLinesPoints3, 4, GL_LINE_LOOP, featurePoints2D);
+    drawFeaturePoints2D(eyesLinesPoints4, 4, GL_LINE_LOOP, featurePoints2D);
+    
+    
+    //draw cheeks
+    glColor4ub(100,100,100,255);
+    
+    static int cheekPoints[] = {
+        5,	1,
+        5,	2,
+        5,	3,
+        5,	4,
+    };
+    
+    drawFeaturePoints2D(cheekPoints, 4, GL_POINTS, featurePoints2D);
+    
+    //draw ears
+    static int earPoints[] = {
+        10,	1,
+        10,	2,
+        10,	3,
+        10,	4,
+        10,	5,
+        10,	6,
+        10,	7,
+        10,	8,
+        10,	9,
+        10,	10,
+    };
+    
+    drawFeaturePoints2D(earPoints, 10, GL_POINTS, featurePoints2D);
+    
+    //draw lines connecting ears and cheeks
+    static int earcheekLinesPoints1[] = {
+        5,	2,
+        5,	4,
+        10,	10,
+        10,	8,
+    };
+    static int earcheekLinesPoints2[] = {
+        5,	1,
+        5,	3,
+        10,	9,
+        10,	7,
+    };
+    
+    drawFeaturePoints2D(earcheekLinesPoints1, 4, GL_LINE_LOOP, featurePoints2D);
+    drawFeaturePoints2D(earcheekLinesPoints2, 4, GL_LINE_LOOP, featurePoints2D);
+    
+    //draw eyebrows
+    glColor4ub(227,254,73,255);
+    static int eyebrowPoints[] = {
+        4,	1,
+        4,	2,
+        4,	3,
+        4,	4,
+        4,	5,
+        4,	6,
+    };
+    static int eyebrowLinesPoints[] = {
+        4,	6,
+        4,	4,
+        4,	4,
+        4,	2,
+        4,	1,
+        4,	3,
+        4,	3,
+        4,	5,
+    };
+    drawFeaturePoints2D(eyebrowPoints, 6, GL_POINTS, featurePoints2D);
+    drawFeaturePoints2D(eyebrowLinesPoints, 8, GL_LINES, featurePoints2D);
+    
+    //draw head/hair
+    glColor4ub(100,100,100,255);
+    
+    static int hairPoints[] = {
+        11,	1,
+        11,	2,
+        11,	3,
+        11,	4,
+        11,	5,
+        11,	6,
+    };
+    static int hairLinesPoints[] = {
+        11,	2,
+        11,	1,
+        11,	1,
+        11,	3,
+    };
+    
+    drawFeaturePoints2D(hairPoints, 6, GL_POINTS, featurePoints2D);
+    drawFeaturePoints2D(hairLinesPoints, 4, GL_LINES, featurePoints2D);
 	
 }
 - (float* ) getGaze
@@ -785,6 +784,7 @@ void drawFeaturePoints2D(int* points,
     return trackingData.gazeDirectionGlobal;
 }
 
+
 - (void) drawGazeDirection: (const float *) gazeDirection
               withFeatures: (FDP *) featurePoints3D
 {
@@ -799,7 +799,7 @@ void drawFeaturePoints2D(int* points,
     FeaturePoint* fp2;
     
     float tr[6];
-  
+    
     fp1 = const_cast<FeaturePoint*>( &featurePoints3D->getFP(3,5) );
     fp2 = const_cast<FeaturePoint*>( &featurePoints3D->getFP(3,6) );
     if(fp1->defined && fp2->defined)
@@ -892,12 +892,12 @@ int last_pts = 0;
         inGetTrackingResults = false;
         return;
     }
-
+    
     last_pts = pts;
     
     mach_timebase_info_data_t timeBaseInfo;
 	mach_timebase_info(&timeBaseInfo);
-
+    
     //measure the frame rate
 	uint64_t currentTime = mach_absolute_time() * timeBaseInfo.numer / (timeBaseInfo.denom * 1e6);
 	if(framecount == -1)
@@ -910,8 +910,8 @@ int last_pts = 0;
 	if(framecount == MEASURE_FRAMES) framecount = 0;
 	float displayFrameRate = MEASURE_FRAMES * 1000.0f / (float)(currentTime - last_times[framecount]);
 	last_times[framecount] = currentTime;
-//    if(framecount%30 == 0)
-//        NSLog(@"Framerate: %f", displayFrameRate);
+    //    if(framecount%30 == 0)
+    //        NSLog(@"Framerate: %f", displayFrameRate);
     
 	if (trackingStatus == TRACK_STAT_OK) {
         
@@ -920,7 +920,7 @@ int last_pts = 0;
         
 		//video texture is also used for face model texture
 		if (!frameTexId && trackingData.frame != 0) {
-			[self initFrameTexture: trackingData.frame];			
+			[self initFrameTexture: trackingData.frame];
 		}
         
         if (trackingData.frame != 0) {
@@ -949,18 +949,18 @@ int last_pts = 0;
         
         //tracker->EyeDetectorTest(glWidth,glHeight);
         
-
+        
 		//set camera frustum
         [TrackerWrapper setupFrustumWithWidth:glWidth andHeight:glHeight andFocus:trackingData.cameraFocus];
         
         [self drawGazeDirection:trackingData.gazeDirectionGlobal withFeatures:trackingData.featurePoints3D];
 		
-//		const GLfloat rightEye[] = {0.0f, 0.0f, 0.0f};
-//		const GLfloat blue[] = {0.0f, 0.0f, 1.0f, 1.0f,
-//            0.0f, 0.0f, 1.0f, 1.0f,
-//            0.0f, 0.0f, 1.0f, 1.0f,
-//            0.0f, 0.0f, 1.0f, 1.0f
-//		};
+        //		const GLfloat rightEye[] = {0.0f, 0.0f, 0.0f};
+        //		const GLfloat blue[] = {0.0f, 0.0f, 1.0f, 1.0f,
+        //            0.0f, 0.0f, 1.0f, 1.0f,
+        //            0.0f, 0.0f, 1.0f, 1.0f,
+        //            0.0f, 0.0f, 1.0f, 1.0f
+        //		};
         
 		glTranslatef(trackingData.faceTranslation[0],trackingData.faceTranslation[1],trackingData.faceTranslation[2]);
 		glRotatef((trackingData.faceRotation[1]+3.1415926f)*180.0f/3.1415926f, 0.0f, 1.0f, 0.0f);
@@ -969,7 +969,7 @@ int last_pts = 0;
         
 		//now we are in the 3d coordinate system of the head and we can draw what we want
 		//note: origin is the right eye
-
+        
         // draw 3D face model from the tracking data
         if (trackingData.frame != 0) {
             //[self drawFaceModel:trackingData.faceModelVertices vNum:trackingData.faceModelVertexCount tris:trackingData.faceModelTriangles tNum:trackingData.faceModelTriangleCount tCoords:trackingData.faceModelTextureCoords frameWidth:trackingData.frame->width frameHeight:trackingData.frame->height];
@@ -977,10 +977,10 @@ int last_pts = 0;
         
         glColor4ub(255,255,0,255);
         
-//        static int irisPoints[] = {
-//            3,	5,
-//            3,	6,
-//        };
+        //        static int irisPoints[] = {
+        //            3,	5,
+        //            3,	6,
+        //        };
         //tracker->drawPoints2D(irisPoints, 2, GL_POINTS);
         
         // draw tracking data from origin (right eye)
@@ -1006,7 +1006,7 @@ int last_pts = 0;
         if (trackingStatus == TRACK_STAT_INIT) {
             [self displayVideo];
         }
-
+        
 		[glView swapOpenGLBuffers];
 	}
     
@@ -1073,20 +1073,23 @@ int last_pts = 0;
 - (void) initGazeCalibration
 {
     //start the tracker calibration via visage beta
-    //tracker->InitOnlineGazeCalibration();
+    tracker->InitOnlineGazeCalibration();
+    NSLog(@"Finalizing online screen gaze calibration");
 }
 
 - (void) addGazeCalibrationPoint: (float) x andY: (float) y
 {
     //add tracker calibration via visage beta
-    //tracker->AddGazeCalibrationPoint(x, y) ;
+    NSLog(@"Finalizing online screen gaze calibration");
+    tracker->AddGazeCalibrationPoint(x, y) ;
     
 }
 
 - (void) endGazeCalibration
 {
     //finalize the online calibration via visage beta
-    //    tracker->FinalizeOnlineGazeCalibration();
+    NSLog(@"Finalizing online screen gaze calibration");
+    tracker->FinalizeOnlineGazeCalibration();
 }
 -(float) getFrameRate
 {
