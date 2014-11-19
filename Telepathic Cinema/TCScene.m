@@ -10,9 +10,11 @@
 
 @implementation TCScene
 
+@synthesize isCalibration;
+
 /*
  Parse Scene file and generate regions
- */
+*/
 
 
 
@@ -225,7 +227,9 @@
 -(void) makeActive
 {
     if(isCalibration)
+    {
         [gaze initCalibration];
+    }
 }
 
 -(void)deactivateWithTracker:(TrackerWrapper *) tracker

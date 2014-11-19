@@ -68,6 +68,9 @@
     [self.tc update];
     [self.tracker displayTrackingResults];
     [self.tc draw];
+    
+//    if( tc.currentScene.isCalibration)
+//        state = STATE_TRACKER;
 }
 
 - (void)didReceiveMemoryWarning

@@ -52,6 +52,7 @@
 		CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9C19BB8BB70033A237 /* TCScene.m */; };
 		CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9F19BB95190033A237 /* TCRegion.m */; };
 		CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDFA219BBBDA00033A237 /* TCGaze.m */; };
+		CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE44A0241A1C53F600667AEB /* IntroViewController.m */; };
 		CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3C19C91BEA00380BE9 /* 1.smil */; };
 		CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3E19C91D1900380BE9 /* 2.smil */; };
 		CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C4019C91D2F00380BE9 /* 3.smil */; };
@@ -152,6 +153,8 @@
 		CE1BDF9F19BB95190033A237 /* TCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRegion.m; sourceTree = "<group>"; };
 		CE1BDFA119BBBDA00033A237 /* TCGaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGaze.h; sourceTree = "<group>"; };
 		CE1BDFA219BBBDA00033A237 /* TCGaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGaze.m; sourceTree = "<group>"; };
+		CE44A0231A1C53F600667AEB /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		CE44A0241A1C53F600667AEB /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		CE556D8019D5253800ED25FA /* TrackerGazeCalibrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackerGazeCalibrator.h; sourceTree = "<group>"; };
 		CE556D8119D5255100ED25FA /* Estimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Estimator.h; sourceTree = "<group>"; };
 		CE556D8219D5255100ED25FA /* Estimator6P.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Estimator6P.h; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 				CE1BDF9C19BB8BB70033A237 /* TCScene.m */,
 				CE1BDF9E19BB95190033A237 /* TCRegion.h */,
 				CE1BDF9F19BB95190033A237 /* TCRegion.m */,
+				CE44A0231A1C53F600667AEB /* IntroViewController.h */,
+				CE44A0241A1C53F600667AEB /* IntroViewController.m */,
 			);
 			path = "Telepathic Cinema";
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 				CE18561519AA3BD600B552EE /* ViewController.m in Sources */,
 				CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */,
 				CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */,
+				CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */,
 				CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */,
 				CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */,
 				CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */,

@@ -1,10 +1,13 @@
 <smil>
-    <head></head>
-    <body>
-        <par>
+	<head>
+	</head>
+	<body>
+		<par>
             <video id="calibration" src="calibration.mov" href="1.smil" />
-            <area title="left/center" coords="0%,40%,10%,10%" begin="6s" dur="4s"/>
-            <area title="right/center" coords="90%,40%,10%,10%" begin="11s" dur="4s"/>
-        </par>
-    </body>
-</smil>
+                <area coords="20%,20%,10%,10%" begin="8s" end="9s" title="top left" />
+                <area coords="70%,70%,10%,10%" begin="12s" end="13s" title="bottom right" />
+                <area coords="20%,70%,10%,10%" begin="17s" end="18s" title="bottom left" />
+                <area coords="70%,20%,10%,10%" begin="22s" end="23s" title="top right" />
+                </par>
+                </body>
+            </smil>
