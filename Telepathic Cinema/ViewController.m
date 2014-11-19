@@ -106,4 +106,9 @@
             break;
     }
 }
+
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
 @end

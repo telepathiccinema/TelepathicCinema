@@ -50,13 +50,15 @@
 -(void) calibrationPointX:(float) x
                         Y:(float) y
 {
+    
+    NSLog(@"Calling calibration point with %.2f, %.2f",x,y);
     if(!isCalibrating)
         return;
-
+    
     float* d = [tracker getGlobalGaze];
     //float* d = [tracker getGaze];
     
-    NSLog(@"DATA,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
+    //    NSLog(@"DATA,%0.02f,%0.02f,%0.02f", d[0], d[1], d[2]);
     
     //check for point in dictionary
     TCCalibrationPoint* pt = [self getCalibrationPointX:x Y:y];
@@ -67,7 +69,7 @@
     }else
     {
         pt = [[TCCalibrationPoint alloc] initWithPointX:x Y:y gazeVectorX:d[0] Y:d[1] Z:d[2]];
-
+        
         //add normalized x/y calibration point to the visage model only ONCE
         [tracker addGazeCalibrationPoint:x/bounds.size.width andY:y/bounds.size.height];
         NSLog(@"Adding this: %@", [pt getInfoString]);
@@ -93,7 +95,7 @@
     isCalibrating = true;
     NSLog(@"preparing calibration");
     
-    //[tracker initGazeCalibration];  //Visage beta gaze tracker call
+    [tracker initGazeCalibration];  //Visage beta gaze tracker call
     
 }
 
@@ -102,7 +104,7 @@
     isCalibrating = false;
     isCalibrated = true;
     NSLog(@"finalizing calibration, number of regions: %i", [calibrationpoints count]);
-    //[tracker endGazeCalibration];  //Visage beta gaze tracker call
+    [tracker endGazeCalibration];  //Visage beta gaze tracker call
     
     for(id item in calibrationpoints)
     {
@@ -129,43 +131,35 @@
     
     if(self.active)
     {
-        
-        //update cursor
-        float* d = [tracker getGlobalGaze];
-        
-        //float* d = [tracker getGaze];
-        
-        TCCalibrationPoint * winner = nil;
         float higestConfidence = 0;
         float targetx = 0;
         float targety = 0;
         
+        //update cursor
+        CGPoint p = [tracker getScreenSpaceGazeLocation];
+        
+        //float* d = [tracker getGaze];
+        float* d = [tracker getGlobalGaze];
+        
         if([calibrationpoints count] > 0 )
         {
-            //calculate latest gaze position
-            for (TCCalibrationPoint* item in calibrationpoints) {
-                float c = [item getConfidenceRatingForVectorX:d[0] Y:d[1] Z:d[2]];
-                if(c > higestConfidence)
-                {
-                    higestConfidence = c;
-                    winner = item;
-                    targetx = winner.x;
-                    targety = winner.y;
-                }
-            }
+            targetx = p.x*bounds.size.width;
+            targety = p.y*bounds.size.height;
+            higestConfidence = .5;
         }else{
-                //let's bias a bit left....for no calibration
-                //   
-                if(d[1] < 0.13)
-                {
-                    targetx = bounds.size.width*.25;
-                    targety = bounds.size.height * .5;
-                }else{
-                    targetx = bounds.size.width*.75;
-                    targety = bounds.size.height * .5;
-                }
+            //let's bias a bit left....for no calibration
+            //
+            if(d[1] < 0.13)
+            {
+                targetx = bounds.size.width*.25;
+                targety = bounds.size.height * .5;
+            }else{
+                targetx = bounds.size.width*.75;
+                targety = bounds.size.height * .5;
+            }
             higestConfidence = .50;
         }
+        
         if(higestConfidence > 0)
         {
             size = bounds.size.height/4;
