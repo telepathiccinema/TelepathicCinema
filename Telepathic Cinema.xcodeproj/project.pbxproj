@@ -8,6 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		0F8392F519E09C96008BD7EE /* gamma.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0F8392F419E09C96008BD7EE /* gamma.smil */; };
+		0FD887271A3A69B800C14F24 /* NOLA_A0A2B.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8871B1A3A69B800C14F24 /* NOLA_A0A2B.mov */; };
+		0FD887281A3A69B800C14F24 /* NOLA_A0A2B2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8871C1A3A69B800C14F24 /* NOLA_A0A2B2.mov */; };
+		0FD887291A3A69B800C14F24 /* NOLA_A.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8871D1A3A69B800C14F24 /* NOLA_A.mov */; };
+		0FD8872A1A3A69B800C14F24 /* NOLA_A0A.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8871E1A3A69B800C14F24 /* NOLA_A0A.mov */; };
+		0FD8872B1A3A69B800C14F24 /* NOLA_A1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8871F1A3A69B800C14F24 /* NOLA_A1.mov */; };
+		0FD8872C1A3A69B800C14F24 /* NOLA_A2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887201A3A69B800C14F24 /* NOLA_A2.mov */; };
+		0FD8872D1A3A69B800C14F24 /* NOLA_A0A2A.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887211A3A69B800C14F24 /* NOLA_A0A2A.mov */; };
+		0FD8872E1A3A69B800C14F24 /* NOLA_A0A1A.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887221A3A69B800C14F24 /* NOLA_A0A1A.mov */; };
+		0FD8872F1A3A69B800C14F24 /* NOLA_A0A2B1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887231A3A69B800C14F24 /* NOLA_A0A2B1.mov */; };
+		0FD887301A3A69B800C14F24 /* NOLA_A0A2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887241A3A69B800C14F24 /* NOLA_A0A2.mov */; };
+		0FD887311A3A69B800C14F24 /* NOLA_A0A1B.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887251A3A69B800C14F24 /* NOLA_A0A1B.mov */; };
+		0FD887321A3A69B800C14F24 /* NOLA_A0A1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887261A3A69B800C14F24 /* NOLA_A0A1.mov */; };
+		0FD887341A3A6B7A00C14F24 /* NOLA_A.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887331A3A6B7A00C14F24 /* NOLA_A.smil */; };
+		0FD887361A3A6DFC00C14F24 /* NOLA_A1.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887351A3A6DFC00C14F24 /* NOLA_A1.smil */; };
+		0FD887381A3A6E7600C14F24 /* NOLA_A2.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887371A3A6E7600C14F24 /* NOLA_A2.smil */; };
+		0FD8873A1A3A6F2A00C14F24 /* NOLA_A0A.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887391A3A6F2A00C14F24 /* NOLA_A0A.smil */; };
+		0FD8873C1A3A71BC00C14F24 /* NOLA_A0A1.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8873B1A3A71BC00C14F24 /* NOLA_A0A1.smil */; };
+		0FD8873E1A3A800E00C14F24 /* NOLA_A0A1A.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8873D1A3A800E00C14F24 /* NOLA_A0A1A.smil */; };
+		0FD887401A3A803100C14F24 /* NOLA_A0A1B.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD8873F1A3A803100C14F24 /* NOLA_A0A1B.smil */; };
+		0FD887421A3A807200C14F24 /* NOLA_A0A2.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887411A3A807200C14F24 /* NOLA_A0A2.smil */; };
+		0FD887441A3A80F100C14F24 /* NOLA_A0A2A.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887431A3A80F100C14F24 /* NOLA_A0A2A.smil */; };
+		0FD887461A3A81BB00C14F24 /* NOLA_A0A2B.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887451A3A81BB00C14F24 /* NOLA_A0A2B.smil */; };
+		0FD887481A3A865F00C14F24 /* NOLA_A0A2B1.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887471A3A865F00C14F24 /* NOLA_A0A2B1.smil */; };
+		0FD8874A1A3A868A00C14F24 /* NOLA_A0A2B2.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0FD887491A3A868A00C14F24 /* NOLA_A0A2B2.smil */; };
 		CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */; };
 		CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
 		CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */; };
@@ -89,6 +113,30 @@
 
 /* Begin PBXFileReference section */
 		0F8392F419E09C96008BD7EE /* gamma.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gamma.smil; sourceTree = "<group>"; };
+		0FD8871B1A3A69B800C14F24 /* NOLA_A0A2B.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A2B.mov; sourceTree = "<group>"; };
+		0FD8871C1A3A69B800C14F24 /* NOLA_A0A2B2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A2B2.mov; sourceTree = "<group>"; };
+		0FD8871D1A3A69B800C14F24 /* NOLA_A.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A.mov; sourceTree = "<group>"; };
+		0FD8871E1A3A69B800C14F24 /* NOLA_A0A.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A.mov; sourceTree = "<group>"; };
+		0FD8871F1A3A69B800C14F24 /* NOLA_A1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A1.mov; sourceTree = "<group>"; };
+		0FD887201A3A69B800C14F24 /* NOLA_A2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A2.mov; sourceTree = "<group>"; };
+		0FD887211A3A69B800C14F24 /* NOLA_A0A2A.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A2A.mov; sourceTree = "<group>"; };
+		0FD887221A3A69B800C14F24 /* NOLA_A0A1A.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A1A.mov; sourceTree = "<group>"; };
+		0FD887231A3A69B800C14F24 /* NOLA_A0A2B1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A2B1.mov; sourceTree = "<group>"; };
+		0FD887241A3A69B800C14F24 /* NOLA_A0A2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A2.mov; sourceTree = "<group>"; };
+		0FD887251A3A69B800C14F24 /* NOLA_A0A1B.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A1B.mov; sourceTree = "<group>"; };
+		0FD887261A3A69B800C14F24 /* NOLA_A0A1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NOLA_A0A1.mov; sourceTree = "<group>"; };
+		0FD887331A3A6B7A00C14F24 /* NOLA_A.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A.smil; sourceTree = "<group>"; };
+		0FD887351A3A6DFC00C14F24 /* NOLA_A1.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A1.smil; sourceTree = "<group>"; };
+		0FD887371A3A6E7600C14F24 /* NOLA_A2.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A2.smil; sourceTree = "<group>"; };
+		0FD887391A3A6F2A00C14F24 /* NOLA_A0A.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A.smil; sourceTree = "<group>"; };
+		0FD8873B1A3A71BC00C14F24 /* NOLA_A0A1.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A1.smil; sourceTree = "<group>"; };
+		0FD8873D1A3A800E00C14F24 /* NOLA_A0A1A.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A1A.smil; sourceTree = "<group>"; };
+		0FD8873F1A3A803100C14F24 /* NOLA_A0A1B.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A1B.smil; sourceTree = "<group>"; };
+		0FD887411A3A807200C14F24 /* NOLA_A0A2.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A2.smil; sourceTree = "<group>"; };
+		0FD887431A3A80F100C14F24 /* NOLA_A0A2A.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A2A.smil; sourceTree = "<group>"; };
+		0FD887451A3A81BB00C14F24 /* NOLA_A0A2B.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A2B.smil; sourceTree = "<group>"; };
+		0FD887471A3A865F00C14F24 /* NOLA_A0A2B1.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A2B1.smil; sourceTree = "<group>"; };
+		0FD887491A3A868A00C14F24 /* NOLA_A0A2B2.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOLA_A0A2B2.smil; sourceTree = "<group>"; };
 		CE08071219DAC00000D44B50 /* TCCalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCalibrationPoint.h; sourceTree = "<group>"; };
 		CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCalibrationPoint.m; sourceTree = "<group>"; };
 		CE1855F819AA3BD600B552EE /* Telepathic Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telepathic Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -393,7 +441,31 @@
 		CE5F2C3B19C919C300380BE9 /* MovieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0FD8871D1A3A69B800C14F24 /* NOLA_A.mov */,
+				0FD8871E1A3A69B800C14F24 /* NOLA_A0A.mov */,
+				0FD8871F1A3A69B800C14F24 /* NOLA_A1.mov */,
+				0FD887201A3A69B800C14F24 /* NOLA_A2.mov */,
+				0FD887261A3A69B800C14F24 /* NOLA_A0A1.mov */,
+				0FD887241A3A69B800C14F24 /* NOLA_A0A2.mov */,
+				0FD887221A3A69B800C14F24 /* NOLA_A0A1A.mov */,
+				0FD887251A3A69B800C14F24 /* NOLA_A0A1B.mov */,
+				0FD887211A3A69B800C14F24 /* NOLA_A0A2A.mov */,
+				0FD8871B1A3A69B800C14F24 /* NOLA_A0A2B.mov */,
+				0FD887231A3A69B800C14F24 /* NOLA_A0A2B1.mov */,
+				0FD8871C1A3A69B800C14F24 /* NOLA_A0A2B2.mov */,
 				CEB5F2D819D669FB000CDF9E /* calibration.smil */,
+				0FD887331A3A6B7A00C14F24 /* NOLA_A.smil */,
+				0FD887351A3A6DFC00C14F24 /* NOLA_A1.smil */,
+				0FD887371A3A6E7600C14F24 /* NOLA_A2.smil */,
+				0FD887391A3A6F2A00C14F24 /* NOLA_A0A.smil */,
+				0FD8873B1A3A71BC00C14F24 /* NOLA_A0A1.smil */,
+				0FD8873D1A3A800E00C14F24 /* NOLA_A0A1A.smil */,
+				0FD8873F1A3A803100C14F24 /* NOLA_A0A1B.smil */,
+				0FD887411A3A807200C14F24 /* NOLA_A0A2.smil */,
+				0FD887431A3A80F100C14F24 /* NOLA_A0A2A.smil */,
+				0FD887451A3A81BB00C14F24 /* NOLA_A0A2B.smil */,
+				0FD887471A3A865F00C14F24 /* NOLA_A0A2B1.smil */,
+				0FD887491A3A868A00C14F24 /* NOLA_A0A2B2.smil */,
 				CE5F2C4019C91D2F00380BE9 /* 3.smil */,
 				CEA6F85719E05992006EA414 /* alpha.smil */,
 				CEA6F85819E05992006EA414 /* beta.smil */,
@@ -541,7 +613,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */,
+				0FD8872C1A3A69B800C14F24 /* NOLA_A2.mov in Resources */,
 				CE7BE0F619E0A01800D541F9 /* 3.mov in Resources */,
+				0FD8872D1A3A69B800C14F24 /* NOLA_A0A2A.mov in Resources */,
 				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
 				CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */,
 				0F8392F519E09C96008BD7EE /* gamma.smil in Resources */,
@@ -550,28 +624,50 @@
 				CEA6F85A19E05992006EA414 /* beta.smil in Resources */,
 				CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */,
 				CE18565719AA3E7400B552EE /* face.png in Resources */,
+				0FD8872B1A3A69B800C14F24 /* NOLA_A1.mov in Resources */,
+				0FD887461A3A81BB00C14F24 /* NOLA_A0A2B.smil in Resources */,
 				CE18565219AA3E7400B552EE /* candide3-ClosedMouth.wfm in Resources */,
 				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
+				0FD887281A3A69B800C14F24 /* NOLA_A0A2B2.mov in Resources */,
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
+				0FD887441A3A80F100C14F24 /* NOLA_A0A2A.smil in Resources */,
+				0FD8873E1A3A800E00C14F24 /* NOLA_A0A1A.smil in Resources */,
+				0FD887321A3A69B800C14F24 /* NOLA_A0A1.mov in Resources */,
 				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
+				0FD8872A1A3A69B800C14F24 /* NOLA_A0A.mov in Resources */,
 				CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */,
 				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
 				CE7BE0F419E0A01800D541F9 /* gamma.mov in Resources */,
 				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,
+				0FD8872F1A3A69B800C14F24 /* NOLA_A0A2B1.mov in Resources */,
 				CE6073C519E0F7B8001E4EB4 /* calibration.mov in Resources */,
+				0FD887291A3A69B800C14F24 /* NOLA_A.mov in Resources */,
 				CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */,
 				CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */,
+				0FD887381A3A6E7600C14F24 /* NOLA_A2.smil in Resources */,
 				CE7BE0F819E0A01800D541F9 /* 1.mov in Resources */,
 				CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */,
+				0FD8874A1A3A868A00C14F24 /* NOLA_A0A2B2.smil in Resources */,
 				CEA6F85919E05992006EA414 /* alpha.smil in Resources */,
 				CE7BE0F519E0A01800D541F9 /* alpha.mov in Resources */,
 				CE18565119AA3E7400B552EE /* candide.wfm in Resources */,
+				0FD887301A3A69B800C14F24 /* NOLA_A0A2.mov in Resources */,
+				0FD887401A3A803100C14F24 /* NOLA_A0A1B.smil in Resources */,
+				0FD887311A3A69B800C14F24 /* NOLA_A0A1B.mov in Resources */,
 				CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */,
+				0FD8873C1A3A71BC00C14F24 /* NOLA_A0A1.smil in Resources */,
+				0FD887361A3A6DFC00C14F24 /* NOLA_A1.smil in Resources */,
 				CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */,
+				0FD8872E1A3A69B800C14F24 /* NOLA_A0A1A.mov in Resources */,
+				0FD887341A3A6B7A00C14F24 /* NOLA_A.smil in Resources */,
+				0FD8873A1A3A6F2A00C14F24 /* NOLA_A0A.smil in Resources */,
+				0FD887271A3A69B800C14F24 /* NOLA_A0A2B.mov in Resources */,
 				CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */,
 				CE18565419AA3E7400B552EE /* candide3.fdp in Resources */,
+				0FD887421A3A807200C14F24 /* NOLA_A0A2.smil in Resources */,
 				CE18565A19AA3E7400B552EE /* FFT - MidPerformance.cfg in Resources */,
+				0FD887481A3A865F00C14F24 /* NOLA_A0A2B1.smil in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

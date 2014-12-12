@@ -1,0 +1,13 @@
+<smil>
+    <head></head>
+    <body>
+        <par>
+            <video src="NOLA_A.mov"/>
+            <area title="A0A1A: smiley sun" href="NOLA_A0A1A.smil" coords="0%,0%,50%,100%" begin="12s" end="29s" target="NOLA_A0A1.smil;NOLA_A0A2.smil"/>
+            <area title="A0A1B: frowning cloud" href="NOLA_A0A1B.smil" coords="50%,0%,50%,100%" begin="12s" end="29s" target="NOLA_A0A1.smil;NOLA_A0A2.smil"/>
+            
+            <area title="A1: apple" href="NOLA_A1.smil" coords="0%,0%,50%,100%" begin="48s" end="53s" target="NOLA_A0A1.smil"/>
+            <area title="A2: tomato" href="NOLA_A2.smil" coords="50%,0%,50%,100%" begin="48s" end="53s" target="NOLA_A0A1.smil"/>
+        </par>
+    </body>
+</smil>
