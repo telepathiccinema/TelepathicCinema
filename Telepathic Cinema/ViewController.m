@@ -50,6 +50,7 @@
                                      withPlayer:self.mPlayer
                                     withTracker:tracker
                                      withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
+    [tc setCalibrationCompletedDelegate:self withSelector:@selector(completedCalibration:)];
     
     tc.overlay.zPosition = 0;
     [self.view.layer addSublayer:tc.overlay];
@@ -72,7 +73,7 @@
 -(void)update:(NSTimer *)timer {
     [self.tc update];
     
-    if([self.tc.currentScene isCalibration])
+    if([self.tc.currentScene isCalibration] || [self.tracker getCalibrationState] != CALIBRATION_CALIBRATED)
     {
         [self.tracker updateCalibration];
         [self updateCalibration];
@@ -92,6 +93,7 @@
     self->state = ++self->state % STATE_TOTAL;
     [self updateState];
 }
+
 
 -(void)updateState
 {
@@ -139,15 +141,16 @@
 
 -(void) updateCalibration
 {
-    if(self->state != STATE_TRACKER)
+    int currentCalibrationState = [self.tracker getCalibrationState];
+    if(self->state != STATE_TRACKER &&  currentCalibrationState != CALIBRATION_CALIBRATED )
     {
         self->state = STATE_TRACKER;
         [self updateState];
     }
     
-    if(lastCalibrationState != [self.tracker getCalibrationState])
+    if(lastCalibrationState != currentCalibrationState)
     {
-        lastCalibrationState = [self.tracker getCalibrationState];
+        lastCalibrationState = currentCalibrationState;
         UIImage* calibrationImage;
         
         switch(lastCalibrationState)
@@ -171,11 +174,22 @@
                 calibrationImage = [UIImage imageNamed:@"08CalibrationLostFace.png"];
                 [calibrationView setImage:calibrationImage];
                 break;
+            case CALIBRATION_CALIBRATED:
+                state = STATE_PLAYER;
+                [self updateState];
+                break;
             default:
                 [calibrationView setImage:nil];
                 break;
         }
     }
+}
+
+-(void) completedCalibration:(id)sender
+{
+    state = STATE_PLAYER;
+    [self updateState];
+    NSLog(@"calibration completed...resetting vc state in the ViewController!!!!!");
 }
 
 @end

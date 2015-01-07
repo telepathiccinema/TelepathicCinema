@@ -28,6 +28,8 @@
     TrackerWrapper* tracker;
     CGRect bounds;
     CFTimeInterval lastUpdateTime;
+    id calibrationCompetedDelegate;
+    SEL calibrationCompletedSelector;
 }
 
 @property (nonatomic, retain) CALayer* overlay;
@@ -50,6 +52,6 @@
 
 -(void)display: (BOOL) show;
 -(void)update;
-
+- (void)setCalibrationCompletedDelegate:(id)delegate withSelector:(SEL)selector;
 
 @end

@@ -53,5 +53,6 @@
 @property(nonatomic, retain) AVPlayerLayer* movieLayer;
 
 - (IBAction)onTouch:(id)sender;
+- (void) completedCalibration;
 
 @end

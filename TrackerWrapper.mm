@@ -1095,7 +1095,6 @@ int last_pts = 0;
     //add tracker calibration via visage beta
     NSLog(@"Adding online screen gaze calibration point");
     tracker->AddGazeCalibrationPoint(x, y) ;
-    
 }
 
 - (void) endGazeCalibration
@@ -1104,6 +1103,7 @@ int last_pts = 0;
     NSLog(@"Finalizing online screen gaze calibration");
     tracker->FinalizeOnlineGazeCalibration();
     isCalibrating = FALSE;
+    calibrationState = CALIBRATION_CALIBRATED;
 }
 -(float) getFrameRate
 {

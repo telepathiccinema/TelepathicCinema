@@ -220,12 +220,25 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[self->player currentItem]];
     [self->player advanceToNextItem];
     [currentScene deactivateWithTracker:tracker];
+    if(currentScene.isCalibration)
+    {
+        [calibrationCompetedDelegate performSelector:calibrationCompletedSelector withObject:self afterDelay:0];
+        NSLog(@"calibration completed...called vc to reset");
+    }
     currentScene = queuedScene;
     [currentScene makeActive];
     if(currentScene.isCalibration && tracker.getTrackingStatus != 1)
        [self->player pause];
     
+
     [self.cursor resetTimer];
+}
+
+
+- (void)setCalibrationCompletedDelegate:(id)delegate withSelector:(SEL)selector
+{
+    calibrationCompetedDelegate = delegate;
+    calibrationCompletedSelector = selector;
 }
 
 @end
