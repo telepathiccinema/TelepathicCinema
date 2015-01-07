@@ -12,7 +12,6 @@
 
 @interface TCScene : NSObject
 {
-    BOOL isCalibration;
     NSString* sceneID;
     NSString* defaultTarget;
     TCRegion* calibrationRegion;
@@ -20,6 +19,7 @@
     float duration;
     CGRect bounds;
 }
+@property BOOL isCalibration;
 @property(strong, retain) NSString* name;
 @property(strong, retain) NSMutableArray* regions;
 @property(strong, retain) NSString* videoFile;

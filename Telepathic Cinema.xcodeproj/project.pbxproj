@@ -36,7 +36,6 @@
 		CE18565419AA3E7400B552EE /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = CE18564619AA3E7400B552EE /* candide3.fdp */; };
 		CE18565519AA3E7400B552EE /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = CE18564719AA3E7400B552EE /* candide3.wfm */; };
 		CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564819AA3E7400B552EE /* Face Detector.cfg */; };
-		CE18565719AA3E7400B552EE /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = CE18564919AA3E7400B552EE /* face.png */; };
 		CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */; };
 		CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */; };
 		CE18565A19AA3E7400B552EE /* FFT - MidPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */; };
@@ -52,6 +51,9 @@
 		CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9C19BB8BB70033A237 /* TCScene.m */; };
 		CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9F19BB95190033A237 /* TCRegion.m */; };
 		CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDFA219BBBDA00033A237 /* TCGaze.m */; };
+		CE3CA6791A5B7A96008610BF /* HistoricalGazeDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */; };
+		CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE44A0241A1C53F600667AEB /* IntroViewController.m */; };
+		CE45A3CD1A572677006F39CC /* 08CalibrationLostFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE45A3CC1A572677006F39CC /* 08CalibrationLostFace.png */; };
 		CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3C19C91BEA00380BE9 /* 1.smil */; };
 		CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3E19C91D1900380BE9 /* 2.smil */; };
 		CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C4019C91D2F00380BE9 /* 3.smil */; };
@@ -61,6 +63,14 @@
 		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
 		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
 		CE6073C519E0F7B8001E4EB4 /* calibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE6073C419E0F7B8001E4EB4 /* calibration.mov */; };
+		CE7894E71A4F1BC900B42345 /* 09Finalize.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E01A4F1BC900B42345 /* 09Finalize.png */; };
+		CE7894E81A4F1BC900B42345 /* 05Success.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E11A4F1BC900B42345 /* 05Success.png */; };
+		CE7894E91A4F1BC900B42345 /* 04LostFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E21A4F1BC900B42345 /* 04LostFace.png */; };
+		CE7894EA1A4F1BC900B42345 /* 03FindFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E31A4F1BC900B42345 /* 03FindFace.png */; };
+		CE7894EB1A4F1BC900B42345 /* 01Load.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E41A4F1BC900B42345 /* 01Load.png */; };
+		CE7894EC1A4F1BC900B42345 /* 00Load.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E51A4F1BC900B42345 /* 00Load.png */; };
+		CE7894ED1A4F1BC900B42345 /* 02Home.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E61A4F1BC900B42345 /* 02Home.png */; };
+		CE7894F01A4F556900B42345 /* TCGazeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7894EF1A4F556900B42345 /* TCGazeDB.m */; };
 		CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0ED19E0A01800D541F9 /* beta.mov */; };
 		CE7BE0F419E0A01800D541F9 /* gamma.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0EE19E0A01800D541F9 /* gamma.mov */; };
 		CE7BE0F519E0A01800D541F9 /* alpha.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0EF19E0A01800D541F9 /* alpha.mov */; };
@@ -117,20 +127,19 @@
 		CE18563B19AA3CCA00B552EE /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		CE18563D19AA3CE700B552EE /* libVisageCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageCore.a; path = "visageSDK-iOS/lib/libVisageCore.a"; sourceTree = "<group>"; };
 		CE18563E19AA3CE700B552EE /* libVisageVision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageVision.a; path = "visageSDK-iOS/lib/libVisageVision.a"; sourceTree = "<group>"; };
-		CE18564219AA3E7400B552EE /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = "visageSDK-iOS/data/bdtsdata"; sourceTree = "<group>"; };
-		CE18564319AA3E7400B552EE /* candide.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide.wfm; path = "visageSDK-iOS/data/candide.wfm"; sourceTree = "<group>"; };
-		CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-ClosedMouth.wfm"; path = "visageSDK-iOS/data/candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
-		CE18564519AA3E7400B552EE /* candide3-exp.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-exp.wfm"; path = "visageSDK-iOS/data/candide3-exp.wfm"; sourceTree = "<group>"; };
-		CE18564619AA3E7400B552EE /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = "visageSDK-iOS/data/candide3.fdp"; sourceTree = "<group>"; };
-		CE18564719AA3E7400B552EE /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = "visageSDK-iOS/data/candide3.wfm"; sourceTree = "<group>"; };
-		CE18564819AA3E7400B552EE /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Face Detector.cfg"; path = "visageSDK-iOS/data/Face Detector.cfg"; sourceTree = "<group>"; };
-		CE18564919AA3E7400B552EE /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = "visageSDK-iOS/data/face.png"; sourceTree = "<group>"; };
-		CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - HighPerformance.cfg"; path = "visageSDK-iOS/data/FFT - HighPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - LowPerformance.cfg"; path = "visageSDK-iOS/data/FFT - LowPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - MidPerformance.cfg"; path = "visageSDK-iOS/data/FFT - MidPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - HighPerformance.cfg"; path = "visageSDK-iOS/data/HT - HighPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - LowPerformance.cfg"; path = "visageSDK-iOS/data/HT - LowPerformance.cfg"; sourceTree = "<group>"; };
-		CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - MidPerformance.cfg"; path = "visageSDK-iOS/data/HT - MidPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564219AA3E7400B552EE /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = "visageSDK-iOS/Samples/iOS/data/bdtsdata"; sourceTree = "<group>"; };
+		CE18564319AA3E7400B552EE /* candide.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide.wfm; path = "visageSDK-iOS/Samples/iOS/data/candide.wfm"; sourceTree = "<group>"; };
+		CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-ClosedMouth.wfm"; path = "visageSDK-iOS/Samples/iOS/data/candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
+		CE18564519AA3E7400B552EE /* candide3-exp.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "candide3-exp.wfm"; path = "visageSDK-iOS/Samples/iOS/data/candide3-exp.wfm"; sourceTree = "<group>"; };
+		CE18564619AA3E7400B552EE /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = "visageSDK-iOS/Samples/iOS/data/candide3.fdp"; sourceTree = "<group>"; };
+		CE18564719AA3E7400B552EE /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = "visageSDK-iOS/Samples/iOS/data/candide3.wfm"; sourceTree = "<group>"; };
+		CE18564819AA3E7400B552EE /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Face Detector.cfg"; path = "visageSDK-iOS/Samples/iOS/data/Face Detector.cfg"; sourceTree = "<group>"; };
+		CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - HighPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/FFT - HighPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - LowPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/FFT - LowPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - MidPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/FFT - MidPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - HighPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/HT - HighPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - LowPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/HT - LowPerformance.cfg"; sourceTree = "<group>"; };
+		CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - MidPerformance.cfg"; path = "visageSDK-iOS/Samples/iOS/data/HT - MidPerformance.cfg"; sourceTree = "<group>"; };
 		CE18566819AAB0B300B552EE /* FBAPs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAPs.h; sourceTree = "<group>"; };
 		CE18566919AAB0B300B552EE /* FDP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDP.h; sourceTree = "<group>"; };
 		CE18566A19AAB0B300B552EE /* gluLookAt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gluLookAt.h; sourceTree = "<group>"; };
@@ -152,6 +161,11 @@
 		CE1BDF9F19BB95190033A237 /* TCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCRegion.m; sourceTree = "<group>"; };
 		CE1BDFA119BBBDA00033A237 /* TCGaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGaze.h; sourceTree = "<group>"; };
 		CE1BDFA219BBBDA00033A237 /* TCGaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGaze.m; sourceTree = "<group>"; };
+		CE3CA6771A5B7A96008610BF /* HistoricalGazeDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalGazeDataPoint.h; sourceTree = "<group>"; };
+		CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricalGazeDataPoint.m; sourceTree = "<group>"; };
+		CE44A0231A1C53F600667AEB /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		CE44A0241A1C53F600667AEB /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		CE45A3CC1A572677006F39CC /* 08CalibrationLostFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 08CalibrationLostFace.png; sourceTree = "<group>"; };
 		CE556D8019D5253800ED25FA /* TrackerGazeCalibrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackerGazeCalibrator.h; sourceTree = "<group>"; };
 		CE556D8119D5255100ED25FA /* Estimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Estimator.h; sourceTree = "<group>"; };
 		CE556D8219D5255100ED25FA /* Estimator6P.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Estimator6P.h; sourceTree = "<group>"; };
@@ -175,6 +189,15 @@
 		CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE5F2C6E19C9247B00380BE9 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		CE6073C419E0F7B8001E4EB4 /* calibration.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = calibration.mov; sourceTree = "<group>"; };
+		CE7894E01A4F1BC900B42345 /* 09Finalize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 09Finalize.png; sourceTree = "<group>"; };
+		CE7894E11A4F1BC900B42345 /* 05Success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05Success.png; sourceTree = "<group>"; };
+		CE7894E21A4F1BC900B42345 /* 04LostFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 04LostFace.png; sourceTree = "<group>"; };
+		CE7894E31A4F1BC900B42345 /* 03FindFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03FindFace.png; sourceTree = "<group>"; };
+		CE7894E41A4F1BC900B42345 /* 01Load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01Load.png; sourceTree = "<group>"; };
+		CE7894E51A4F1BC900B42345 /* 00Load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00Load.png; sourceTree = "<group>"; };
+		CE7894E61A4F1BC900B42345 /* 02Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02Home.png; sourceTree = "<group>"; };
+		CE7894EE1A4F556900B42345 /* TCGazeDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCGazeDB.h; sourceTree = "<group>"; };
+		CE7894EF1A4F556900B42345 /* TCGazeDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGazeDB.m; sourceTree = "<group>"; };
 		CE7BE0ED19E0A01800D541F9 /* beta.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = beta.mov; sourceTree = "<group>"; };
 		CE7BE0EE19E0A01800D541F9 /* gamma.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gamma.mov; sourceTree = "<group>"; };
 		CE7BE0EF19E0A01800D541F9 /* alpha.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = alpha.mov; sourceTree = "<group>"; };
@@ -287,6 +310,12 @@
 				CE1BDF9C19BB8BB70033A237 /* TCScene.m */,
 				CE1BDF9E19BB95190033A237 /* TCRegion.h */,
 				CE1BDF9F19BB95190033A237 /* TCRegion.m */,
+				CE44A0231A1C53F600667AEB /* IntroViewController.h */,
+				CE44A0241A1C53F600667AEB /* IntroViewController.m */,
+				CE7894EE1A4F556900B42345 /* TCGazeDB.h */,
+				CE7894EF1A4F556900B42345 /* TCGazeDB.m */,
+				CE3CA6771A5B7A96008610BF /* HistoricalGazeDataPoint.h */,
+				CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */,
 			);
 			path = "Telepathic Cinema";
 			sourceTree = "<group>";
@@ -323,21 +352,8 @@
 		CE18564119AA3E4000B552EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE18564219AA3E7400B552EE /* bdtsdata */,
-				CE18564319AA3E7400B552EE /* candide.wfm */,
-				CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */,
-				CE18564519AA3E7400B552EE /* candide3-exp.wfm */,
-				CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */,
-				CE18564619AA3E7400B552EE /* candide3.fdp */,
-				CE18564719AA3E7400B552EE /* candide3.wfm */,
-				CE18564819AA3E7400B552EE /* Face Detector.cfg */,
-				CE18564919AA3E7400B552EE /* face.png */,
-				CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */,
-				CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */,
-				CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */,
-				CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */,
-				CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */,
-				CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */,
+				CE7894DF1A4F1B7500B42345 /* visageConfigData */,
+				CE7894DE1A4F1B5C00B42345 /* graphics */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -459,6 +475,42 @@
 			name = Visage;
 			sourceTree = "<group>";
 		};
+		CE7894DE1A4F1B5C00B42345 /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				CE7894E01A4F1BC900B42345 /* 09Finalize.png */,
+				CE45A3CC1A572677006F39CC /* 08CalibrationLostFace.png */,
+				CE7894E11A4F1BC900B42345 /* 05Success.png */,
+				CE7894E21A4F1BC900B42345 /* 04LostFace.png */,
+				CE7894E31A4F1BC900B42345 /* 03FindFace.png */,
+				CE7894E41A4F1BC900B42345 /* 01Load.png */,
+				CE7894E51A4F1BC900B42345 /* 00Load.png */,
+				CE7894E61A4F1BC900B42345 /* 02Home.png */,
+			);
+			name = graphics;
+			sourceTree = "<group>";
+		};
+		CE7894DF1A4F1B7500B42345 /* visageConfigData */ = {
+			isa = PBXGroup;
+			children = (
+				CE18564219AA3E7400B552EE /* bdtsdata */,
+				CE18564319AA3E7400B552EE /* candide.wfm */,
+				CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */,
+				CE18564519AA3E7400B552EE /* candide3-exp.wfm */,
+				CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */,
+				CE18564619AA3E7400B552EE /* candide3.fdp */,
+				CE18564719AA3E7400B552EE /* candide3.wfm */,
+				CE18564819AA3E7400B552EE /* Face Detector.cfg */,
+				CE18564A19AA3E7400B552EE /* FFT - HighPerformance.cfg */,
+				CE18564B19AA3E7400B552EE /* FFT - LowPerformance.cfg */,
+				CE18564C19AA3E7400B552EE /* FFT - MidPerformance.cfg */,
+				CE18564D19AA3E7400B552EE /* HT - HighPerformance.cfg */,
+				CE18564E19AA3E7400B552EE /* HT - LowPerformance.cfg */,
+				CE18564F19AA3E7400B552EE /* HT - MidPerformance.cfg */,
+			);
+			name = visageConfigData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -538,29 +590,36 @@
 				CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */,
 				CE7BE0F619E0A01800D541F9 /* 3.mov in Resources */,
 				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
+				CE7894EC1A4F1BC900B42345 /* 00Load.png in Resources */,
 				CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */,
 				0F8392F519E09C96008BD7EE /* gamma.smil in Resources */,
 				CE7BE0F719E0A01800D541F9 /* 2.mov in Resources */,
 				CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */,
 				CEA6F85A19E05992006EA414 /* beta.smil in Resources */,
 				CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */,
-				CE18565719AA3E7400B552EE /* face.png in Resources */,
 				CE18565219AA3E7400B552EE /* candide3-ClosedMouth.wfm in Resources */,
 				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
+				CE45A3CD1A572677006F39CC /* 08CalibrationLostFace.png in Resources */,
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
 				CE18565019AA3E7400B552EE /* bdtsdata in Resources */,
+				CE7894E91A4F1BC900B42345 /* 04LostFace.png in Resources */,
 				CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */,
 				CE18565519AA3E7400B552EE /* candide3.wfm in Resources */,
 				CE18565C19AA3E7400B552EE /* HT - LowPerformance.cfg in Resources */,
 				CE7BE0F419E0A01800D541F9 /* gamma.mov in Resources */,
 				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,
+				CE7894EB1A4F1BC900B42345 /* 01Load.png in Resources */,
 				CE6073C519E0F7B8001E4EB4 /* calibration.mov in Resources */,
 				CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */,
+				CE7894ED1A4F1BC900B42345 /* 02Home.png in Resources */,
 				CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */,
 				CE7BE0F819E0A01800D541F9 /* 1.mov in Resources */,
 				CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */,
+				CE7894E81A4F1BC900B42345 /* 05Success.png in Resources */,
+				CE7894EA1A4F1BC900B42345 /* 03FindFace.png in Resources */,
 				CEA6F85919E05992006EA414 /* alpha.smil in Resources */,
 				CE7BE0F519E0A01800D541F9 /* alpha.mov in Resources */,
+				CE7894E71A4F1BC900B42345 /* 09Finalize.png in Resources */,
 				CE18565119AA3E7400B552EE /* candide.wfm in Resources */,
 				CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */,
 				CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */,
@@ -587,6 +646,7 @@
 			files = (
 				CE5F2C6F19C9247B00380BE9 /* DDXMLElementAdditions.m in Sources */,
 				CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */,
+				CE7894F01A4F556900B42345 /* TCGazeDB.m in Sources */,
 				CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */,
 				CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */,
 				CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */,
@@ -597,7 +657,9 @@
 				CE18568119AAB69500B552EE /* CustomGLView.m in Sources */,
 				CE18561519AA3BD600B552EE /* ViewController.m in Sources */,
 				CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */,
+				CE3CA6791A5B7A96008610BF /* HistoricalGazeDataPoint.m in Sources */,
 				CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */,
+				CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */,
 				CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */,
 				CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */,
 				CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */,
@@ -703,7 +765,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -748,7 +810,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -782,7 +844,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WARNING_CFLAGS = "-Wno-comment";
 				"WARNING_CFLAGS[arch=*]" = "-Wno-comment";
 				WRAPPER_EXTENSION = app;
@@ -817,7 +879,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WARNING_CFLAGS = "-Wno-comment";
 				WRAPPER_EXTENSION = app;
 			};

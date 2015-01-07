@@ -23,6 +23,21 @@ typedef void FDP;
 #endif
 #endif
 
+//Calibration states
+#define CALIBRATION_UNCALIBRATED        0
+#define CALIBRATION_INIT                1   //calibration startup
+#define CALIBRATION_INSTRUCTIONS        2   //show instructions after face detect
+#define CALIBRATION_INITIAL_FACE_ERROR  3   //finding the initial face
+#define CALIBRATION_WATCHDOTS           4   //active calibration helper
+#define CALIBRATION_CALIBRATING         5   //primary calibration
+#define CALIBRATION_CALIBRATING_LOST    6   //active calibration w/no face
+#define CALIBRATION_OUTRO               7
+#define CALIBRATION_CALIBRATED          8   //completed calibration
+
+#define CALIBRATION_INTRO_TIMEOUT       5  //the following in seconds
+#define CALIBRATION_INSTRUCTIONS_TIME   5
+#define CALIBRATION_WATCHDOTS_TIME      5
+#define CALIBRATION_OUTRO_TIME          5
 /**
  * Class that implements simple high-level Objective-C interface around visage|SDK VisageTracker2 functionallity.
  *
@@ -45,12 +60,13 @@ typedef void FDP;
 	VisageSDK::VisageTracker2* tracker;
     VisageSDK::FaceData trackingData;
 	DemoObserver *demoObserver;
-    
-    /**
-     * 
-     */
+    bool isCalibrating;
+    bool initialCalibrationFaceFound;
+    int calibrationState;
+    double calibrationStartTime;
 	bool isTracking;
     bool show;
+    bool showFacialFeatures;
     
     /**
      * Texture ID for displaying frames from the tracker.
@@ -239,6 +255,7 @@ typedef void FDP;
 - (int) getTrackingStatus;
 - (float*) getGaze;
 - (float*) getGlobalGaze;
+- (CGPoint) getScreenSpaceGazeLocation;
 - (float*) getFaceTranslation;
 - (void) blank;
 - (void) display: (BOOL) show;
@@ -247,4 +264,6 @@ typedef void FDP;
 - (void) addGazeCalibrationPoint: (float) x andY: (float) y;
 - (void) endGazeCalibration;
 - (float) getFrameRate;
+- (void) updateCalibration;
+- (int) getCalibrationState;
 @end

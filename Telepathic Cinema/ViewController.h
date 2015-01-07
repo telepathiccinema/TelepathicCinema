@@ -17,6 +17,7 @@
 
 #define STATE_TOTAL     3
 
+
 @class CustomGLView;
 @class TrackerWrapper;
 @class AVQueueplayer;
@@ -42,6 +43,7 @@
      */
     TrackerWrapper *tracker;
     int state;
+    int lastCalibrationState;
 }
 @property (nonatomic, retain) NSTimer *resultsDisplayTimer;
 @property (strong, nonatomic) IBOutlet CustomGLView *glView;

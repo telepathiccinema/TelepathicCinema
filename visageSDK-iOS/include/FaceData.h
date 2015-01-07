@@ -16,6 +16,7 @@
 #include "cv.h"
 #include "FDP.h"
 #include "FBAPs.h"
+#include "TrackerGazeCalibrator.h"
 
 namespace VisageSDK
 {
@@ -208,6 +209,12 @@ MPEG-4 facial animation parameters (FAPs) are returned in #faceAnimationParamete
 
   Both facial features tracker and facial features detector return the 3D face model.
 
+  <h3>Screen space gaze position</h3>
+  Screen space gaze position is available if the tracker was provided with calibration repository and screen space gaze estimator is working in real time mode. 
+  Otherwise tracker returns default screen space gaze data. Default gaze position is center of screen. Default estimator state is off (ScreenSpaceGazeData::inState == 0). Please refer to VisageTracker2 documentation for instructions on usage of screen space gaze estimator.
+  Gaze position is returned as ScreenSpaceGazeData object.  
+  During the calibration phase (ScreenSpaceGazeData::inState == 1) of screen space estimator returned data contains provided calibration data.
+  After succesful calibration, in estimation phase (ScreenSpaceGazeData::inState == 2), returned data contains estimated position of gaze. Position is available in normalized screen coordinates.
 */
 struct VISAGE_DECLSPEC FaceData
 {		
@@ -661,9 +668,26 @@ struct VISAGE_DECLSPEC FaceData
 
     
     bool isDataInitialized; // true if tracking data is initialized, false otherwise
+	
+	/** Structure holding screen space gaze position and quality for current frame.
+	* <i>This value is set while tracker is running.
+	* Facial features detector leaves this variable undefined.</i>
+	*
+	* Position values are dependent on estimator state. Please refer to ScreenSpaceGazeData documentation for more details. 
+	*
+	**/
+	ScreenSpaceGazeData gazeData;
+
+	float screenSpaceGazeQuality[2];
 
 	FaceData();
+	FaceData(FaceData& faceData);
 	~FaceData();
+
+	FaceData& operator=(FaceData data);
+
+private:
+	void swap(FaceData& first, FaceData& second);
 };
 }
 

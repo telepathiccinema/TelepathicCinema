@@ -42,6 +42,9 @@ public:
 		Wbs = 0;
 		Wbsa = 0;
 		Wbsart = 0;
+
+		re_ind = 0;
+		le_ind = 1;
 	}
 
 	bool IsCreated()
@@ -71,6 +74,16 @@ public:
 
 	virtual ~FaceModel() {}
 
+	//
+	void SetEyeRotation(float* r, int eye_l, int eye_r)
+	{
+		r_eye[0] = r[0];
+		r_eye[1] = r[1];
+
+		re_ind = eye_r;
+		le_ind = eye_l;
+	}
+
 ///private:
 
 	bool isCreated;
@@ -96,6 +109,11 @@ public:
 
 	float f; // camera focal length, used for model projection
 	float scale;
+	
+	float r_eye[2];
+	bool useEyeRotation;
+	int re_ind;
+	int le_ind;
 
 	CvMat* diagQ;
 	CvMat* diagR;

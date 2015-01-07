@@ -157,6 +157,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a33899a52c4daf6edb7c70e56c03613aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVisageSDK_1_1FaceData.html#a33899a52c4daf6edb7c70e56c03613aa">initDisplayStatus</a></td></tr>
 <tr class="memdesc:a33899a52c4daf6edb7c70e56c03613aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization status display enabled/disabled.  <a href="#a33899a52c4daf6edb7c70e56c03613aa"></a><br/></td></tr>
 <tr class="separator:a33899a52c4daf6edb7c70e56c03613aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa666a789971fb67bd4e485c505ba61b"><td class="memItemLeft" align="right" valign="top">ScreenSpaceGazeData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b">gazeData</a></td></tr>
+<tr class="memdesc:afa666a789971fb67bd4e485c505ba61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure holding screen space gaze position and quality for current frame.  <a href="#afa666a789971fb67bd4e485c505ba61b"></a><br/></td></tr>
+<tr class="separator:afa666a789971fb67bd4e485c505ba61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Face data structure, used as container for all face tracking and detection results. </p>
@@ -176,13 +179,13 @@ Public Attributes</h2></td></tr>
 <tr>
 <td width="100"><b>TRACKER STATUS</b></td><td><b>DESCRIPTION</b></td><td><b>ACTIVE VARIABLES</b> </td></tr>
 <tr>
-<td>TRACK_STAT_OFF</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> is not active, i.e. it has not yet been started, or it has been stopped. </td><td>N/A </td></tr>
+<td>TRACK_STAT_OFF</td><td>Tracker is not active, i.e. it has not yet been started, or it has been stopped. </td><td>N/A </td></tr>
 <tr>
-<td>TRACK_STAT_OK</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> is tracking normally. </td><td>trackingQuality, frameRate, frame, cameraFocus, faceTranslation, faceRotation, faceAnimationParameters, actionUnitCount, actionUnitsUsed, actionUnits, actionUnitsNames, featurePoints3D, featurePoints3DRelative, featurePoints2D, faceModelVertexCount, faceModelVertices, faceModelVerticesProjected, faceModelTriangleCount, faceModelTriangles, faceModelTextureCoords  </td></tr>
+<td>TRACK_STAT_OK</td><td>Tracker is tracking normally. </td><td>trackingQuality, frameRate, frame, cameraFocus, faceTranslation, faceRotation, faceAnimationParameters, actionUnitCount, actionUnitsUsed, actionUnits, actionUnitsNames, featurePoints3D, featurePoints3DRelative, featurePoints2D, faceModelVertexCount, faceModelVertices, faceModelVerticesProjected, faceModelTriangleCount, faceModelTriangles, faceModelTextureCoords  </td></tr>
 <tr>
-<td>TRACK_STAT_RECOVERING</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> has lost the face and is attempting to recover and continue tracking. If it can not recover within the time defined by the parameter recovery_timeout in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file</a>, the tracker will fully re-initialize (i.e. it will assume that a new user may be present). </td><td>frameRate, frame, cameraFocus </td></tr>
+<td>TRACK_STAT_RECOVERING</td><td>Tracker has lost the face and is attempting to recover and continue tracking. If it can not recover within the time defined by the parameter recovery_timeout in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file</a>, the tracker will fully re-initialize (i.e. it will assume that a new user may be present). </td><td>frameRate, frame, cameraFocus </td></tr>
 <tr>
-<td>TRACK_STAT_INIT</td><td><a class="el" href="classTracker.html" title="Class that implements the behaviour of tracking application.">Tracker</a> is initializing. The tracker enters this state immediately when it is started, or when it has lost the face and failed to recover (see TRACK_STAT_RECOVERING above). The initialization process is configurable through a number of parameters in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file.</a> </td><td><p class="starttd">frameRate, frame, cameraFocus, initDisplayStatus, initFaceDetected</p>
+<td>TRACK_STAT_INIT</td><td>Tracker is initializing. The tracker enters this state immediately when it is started, or when it has lost the face and failed to recover (see TRACK_STAT_RECOVERING above). The initialization process is configurable through a number of parameters in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file.</a> </td><td><p class="starttd">frameRate, frame, cameraFocus, initDisplayStatus, initFaceDetected</p>
 <p>If initFaceDetected is "true", the following member variables are also active:</p>
 <p class="endtd">initYaw, initRoll, initVelocity </p>
 </td></tr>
@@ -266,11 +269,13 @@ Public Attributes</h2></td></tr>
 <li><a class="el" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a></li>
 <li><a class="el" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a></li>
 <li><p class="startli"><a class="el" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a></p>
-<p class="startli">Both facial features tracker and facial features detector return the 3D face model. </p>
+<p class="startli">Both facial features tracker and facial features detector return the 3D face model.</p>
+<h3>Screen space gaze position</h3>
+<p class="startli">Screen space gaze position is available if the tracker was provided with calibration repository and screen space gaze estimator is working in real time mode. Otherwise tracker returns default screen space gaze data. Default gaze position is center of screen. Default estimator state is off (ScreenSpaceGazeData::inState == 0). Please refer to <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a head/facial features tracker capable of tracking facial features in video coming ...">VisageTracker2</a> documentation for instructions on usage of screen space gaze estimator. Gaze position is returned as ScreenSpaceGazeData object. During the calibration phase (ScreenSpaceGazeData::inState == 1) of screen space estimator returned data contains provided calibration data. After succesful calibration, in estimation phase (ScreenSpaceGazeData::inState == 2), returned data contains estimated position of gaze. Position is available in normalized screen coordinates. </p>
 </li>
 </ul>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00212">212</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00219">219</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a05248f4d533bb6e4977ecba4eeb866d0"></a>
 <div class="memitem">
@@ -287,7 +292,7 @@ Public Attributes</h2></td></tr>
 <p>Number of action units that are defined for current face model.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a7fe570893d3cfda329549c2432450e5f" title="List of current values for facial Action Units, one value for each action unit.">actionUnits</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba" title="Used facial Action Units.">actionUnitsUsed</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a3b816d03c066223724aac966ec535deb" title="List of facial Action Units names.">actionUnitsNames</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00388">388</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00395">395</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +311,7 @@ Public Attributes</h2></td></tr>
 <p>The action units used by the tracker are defined in the 3D face model file (currently Candide3.wfm; tracker can be configured to use another file see the <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for details). Furthermore, the tracker configuration file defines the names of action units and these names can be accessed through actionUnitsNames. Please refer to section or <a href="doc/VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a> for full list of action units for each tracker configuration.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba" title="Used facial Action Units.">actionUnitsUsed</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a05248f4d533bb6e4977ecba4eeb866d0" title="Number of facial Action Units.">actionUnitCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a3b816d03c066223724aac966ec535deb" title="List of facial Action Units names.">actionUnitsNames</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00414">414</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00421">421</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -324,7 +329,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is tracking (TRACK_STAT_OK). Facial features detector leaves this variable undefined.</em></p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba" title="Used facial Action Units.">actionUnitsUsed</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a05248f4d533bb6e4977ecba4eeb866d0" title="Number of facial Action Units.">actionUnitCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a7fe570893d3cfda329549c2432450e5f" title="List of current values for facial Action Units, one value for each action unit.">actionUnits</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00425">425</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00432">432</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -343,7 +348,7 @@ Public Attributes</h2></td></tr>
 <p>List of values, one for each action unit, to determine if specific action unit is actually used in the current tracker configuration. Values are as follows: 1 if action unit is used, 0 if action unit is not used.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a7fe570893d3cfda329549c2432450e5f" title="List of current values for facial Action Units, one value for each action unit.">actionUnits</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a05248f4d533bb6e4977ecba4eeb866d0" title="Number of facial Action Units.">actionUnitCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a3b816d03c066223724aac966ec535deb" title="List of facial Action Units names.">actionUnitsNames</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00399">399</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00406">406</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -361,7 +366,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set while tracker is running (any status other than TRACK_STAT_OFF), or if the detector has detected a face.</em></p>
 <p>The camera focal distance mainly used for 3D scene set-up and accurate interpretation of tracking data. This member corresponds to the camera_focus parameter in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker/detector configuration</a> file. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00624">624</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00631">631</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -379,7 +384,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is tracking (TRACK_STAT_OK). Facial features detector leaves this variable undefined.</em></p>
 <p>Index 0 represents closure of left eye. Index 1 represents closure of right eye. Value of 1 represents open eye. Value of 0 represents closed eye. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00377">377</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00384">384</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +411,7 @@ Public Attributes</h2></td></tr>
 </ul>
 <p>Furthermore, the parameters of the outer lip contour (51 - 60) and the corresponding parameters of the inner lip contour (4 -13) are both set to the mean value of the outer and inner lip displacement. For example, parameters 4 (vertical displacement of top inner lip) and 51 (vertical displacement of top outer lip) are both set to the same value, and this value is the mean displacement of the upper lip midpoint. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00450">450</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00457">457</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -425,7 +430,7 @@ Public Attributes</h2></td></tr>
 <p>A pair of u, v coordinates for each vertex. When <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> is obtained from the tracker, the texture image is the current video frame, accessible through <a class="el" href="structVisageSDK_1_1FaceData.html#a306fc247ad6223a52c1a840531680c1a" title="Pointer to the video frame associated with the current data, or NULL if tracker is not active...">frame</a>. When <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> is obtained from detector, the texture image is the input image of the detector.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40" title="Number of vertices in the 3D face model.">faceModelVertexCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0" title="List of vertex coordinates of the 3D face model.">faceModelVertices</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6" title="List of projected (image space) vertex coordinates of the 3D face model.">faceModelVerticesProjected</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00605">605</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00612">612</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -443,7 +448,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is tracking (TRACK_STAT_OK) or if the detector has detected a face.</em></p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40" title="Number of vertices in the 3D face model.">faceModelVertexCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0" title="List of vertex coordinates of the 3D face model.">faceModelVertices</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6" title="List of projected (image space) vertex coordinates of the 3D face model.">faceModelVerticesProjected</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00586">586</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00593">593</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -462,7 +467,7 @@ Public Attributes</h2></td></tr>
 <p>Each triangle is described by three indices into the list of vertices <a class="el" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0">faceModelVertices</a> (counter-clockwise convention is used for normals direction).</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40" title="Number of vertices in the 3D face model.">faceModelVertexCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0" title="List of vertex coordinates of the 3D face model.">faceModelVertices</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6" title="List of projected (image space) vertex coordinates of the 3D face model.">faceModelVerticesProjected</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00595">595</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00602">602</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -480,7 +485,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is tracking (TRACK_STAT_OK) or if the detector has detected a face.</em></p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0" title="List of vertex coordinates of the 3D face model.">faceModelVertices</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6" title="List of projected (image space) vertex coordinates of the 3D face model.">faceModelVerticesProjected</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00549">549</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00556">556</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -505,7 +510,7 @@ Public Attributes</h2></td></tr>
 <p>If the value set for the camera focal length in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker/detector configuration</a> file corresponds to the real camera used, the scale of the coordinates shall be in meters; otherwise the scale is not known.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40" title="Number of vertices in the 3D face model.">faceModelVertexCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6" title="List of projected (image space) vertex coordinates of the 3D face model.">faceModelVerticesProjected</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00569">569</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00576">576</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -524,7 +529,7 @@ Public Attributes</h2></td></tr>
 <p>The format of the list is x, y coordinate for each vertex. The 2D coordinates are normalised to image size so that the lower left corner of the image has coordinates 0,0 and upper right corner 1,1.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40" title="Number of vertices in the 3D face model.">faceModelVertexCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0" title="List of vertex coordinates of the 3D face model.">faceModelVertices</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a>,<a class="el" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00579">579</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00586">586</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -546,7 +551,7 @@ Public Attributes</h2></td></tr>
 </div>
  <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a854b784b183fa4021e713506deff9845" title="Translation of the head from the camera.">faceTranslation</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00318">318</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00325">325</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -572,7 +577,7 @@ Public Attributes</h2></td></tr>
 <p>The relative facial feature coordinates (featurePoints3DRelative) can then be used to align rendered 3D objects to the specific features of the face, like putting virtual eyeglasses on the eyes. Samples projects demonstrate how to do this, including full source code.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#ab5fe0bbe5ca937e2f2070c9fe07f3b82" title="Rotation of the head.">faceRotation</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00271">271</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00278">278</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -596,7 +601,7 @@ Public Attributes</h2></td></tr>
 <p>The resulting feature point coordinates are returned in form of an <a class="el" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> object. This is a container class used for storage of MPEG-4 feature points. It provides functions to access each feature point by its group and index and to read its coordinates. Note that <a class="el" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> stores 3D points and in the case of 2D feature points only the x and y coordinates of each point are used.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a1fd85018c51af5c63ac2d60eb6c9d91a" title="Facial feature points (global 3D coordinates).">featurePoints3D</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#ad64b091d44f2358f2cd0e86d7b627a99" title="Facial feature points (3D coordinates relative to the origin, placed at the center between eyes)...">featurePoints3DRelative</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00541">541</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00548">548</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -622,7 +627,7 @@ Public Attributes</h2></td></tr>
 <p>The resulting feature point coordinates are returned in form of an <a class="el" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> object. This is a container class used for storage of MPEG-4 feature points. It provides functions to access each feature point by its group and index and to read its coordinates.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#ad64b091d44f2358f2cd0e86d7b627a99" title="Facial feature points (3D coordinates relative to the origin, placed at the center between eyes)...">featurePoints3DRelative</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a98c7a959cbde274d14a92ef191e7758c" title="Facial feature points (2D coordinates).">featurePoints2D</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00483">483</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00490">490</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -647,7 +652,7 @@ Public Attributes</h2></td></tr>
 <p>The resulting feature point coordinates are returned in form of an <a class="el" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> object. This is a container class used for storage of MPEG-4 feature points. It provides functions to access each feature point by its group and index and to read its coordinates.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a1fd85018c51af5c63ac2d60eb6c9d91a" title="Facial feature points (global 3D coordinates).">featurePoints3D</a> <a class="el" href="structVisageSDK_1_1FaceData.html#a98c7a959cbde274d14a92ef191e7758c" title="Facial feature points (2D coordinates).">featurePoints2D</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00511">511</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00518">518</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -666,7 +671,7 @@ Public Attributes</h2></td></tr>
 <p>IplImage is the image storage class from OpenCV, please refer to OpenCV documentation for details of accessing its data members; the basic members are the size of the image (frame-&gt;width, frame-&gt;height) and the pointer to the actual pixel data of the image (frame-&gt;imageData).</p>
 <p>Note: For performance reasons frame is passed only as a pointer, i.e. actual image data is not copied into <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> structure. The tracker uses a triple buffer mechanism, so the frame will be valid for at least the duration of two video frames. If frame is used later than that, it may point to a new image, not corresponding to the rest of the tracking data. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00616">616</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00623">623</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -683,7 +688,25 @@ Public Attributes</h2></td></tr>
 <p>The frame rate of the tracker, in frames per second, measured over last 10 frames. </p>
 <p><em>This variable is set while tracker is running., i.e. while tracking status is not TRACK_STAT_OFF. Facial features detector leaves this variable undefined.</em> </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00232">232</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00239">239</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa666a789971fb67bd4e485c505ba61b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ScreenSpaceGazeData VisageSDK::FaceData::gazeData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Structure holding screen space gaze position and quality for current frame. </p>
+<p><em>This value is set while tracker is running. Facial features detector leaves this variable undefined.</em></p>
+<p>Position values are dependent on estimator state. Please refer to ScreenSpaceGazeData documentation for more details. </p>
+
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00679">679</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -702,7 +725,7 @@ Public Attributes</h2></td></tr>
 <p>This is the current estimated gaze direction relative to the person's head. Direction is expressed with two values x and y, in radians. Values (0, 0) correspond to person looking straight. X is the horizontal rotation with positive values coresponding to person looking to his/her left. Y is the vertical rotation with positive values coresponding to person looking down.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a163adbed757c776cf6ce7556ec226e58" title="Global gaze direction, taking into account both head pose and eye rotation.">gazeDirectionGlobal</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00331">331</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00338">338</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -737,7 +760,7 @@ Public Attributes</h2></td></tr>
 <div class="line">right_eye_pos[2] = right_eye_fp-&gt;pos[2]; <span class="comment">// z</span></div>
 </div><!-- fragment --><dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html#a756d9a030db04d3e8686d8edd9c385ef" title="Gaze direction.">gazeDirection</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#a1fd85018c51af5c63ac2d60eb6c9d91a" title="Facial feature points (global 3D coordinates).">featurePoints3D</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00368">368</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00375">375</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -755,7 +778,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is initializing (TRACK_STAT_INIT). Facial features detector leaves this variable undefined.</em></p>
 <p>It indicates whether the display of initialization status is enabled or disabled by the init_display_status parameter in the tracker configuration file. If it is true, initialization status should be displayed. This allows the display to be controlled from the configuration file. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00660">660</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00667">667</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -773,7 +796,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is initializing (TRACK_STAT_INIT). Facial features detector leaves this variable undefined.</em></p>
 <p>During tracking initialization, this value is true if a face and its main features are currently detected, false otherwise. If this value is false, no values are set for <a class="el" href="structVisageSDK_1_1FaceData.html#ae336d9fea95abd2663791da48071a11a">initYaw</a>, <a class="el" href="structVisageSDK_1_1FaceData.html#aa9f491dbc1f0d28f5f1ea8f2caf36716">initRoll</a> and <a class="el" href="structVisageSDK_1_1FaceData.html#af3c6d3f712331f1597dcbe7cf0df1e83">initVelocity</a>. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00633">633</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00640">640</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -791,7 +814,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is initializing (TRACK_STAT_INIT) and initFaceDetected is true. Facial features detector leaves this variable undefined.</em></p>
 <p>Estimated initial head roll (tilt of the head to left or right). It is expressed in degrees. Positive values are to the right in the input image. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00647">647</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00654">654</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -808,7 +831,7 @@ Public Attributes</h2></td></tr>
 <p>Estimated velocity of nose tip motion, in meters per second. </p>
 <p><em>This variable is set only while tracker is initializing (TRACK_STAT_INIT) and initFaceDetected is true. Facial features detector leaves this variable undefined.</em> </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00653">653</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00660">660</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -826,7 +849,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is initializing (TRACK_STAT_INIT). Facial features detector leaves this variable undefined.</em></p>
 <p>Estimated initial measure of head yaw (left-right rotation of the head). It is expressed in meters, as the deviation of the nose tip position from the imaginary line drawn between the eyes perpendicular to left eye - right eye connecting line. Positive values are to the left in the input image. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00640">640</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00647">647</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -845,7 +868,7 @@ Public Attributes</h2></td></tr>
 <p>When tracking from camera, timeStamp returns time, in milliseconds, measured from the moment when tracking started. When tracking from video, timeStamp returns the time of the current video frame, in milliseconds. When tracking from raw images, timeStamp returns the value it received from the <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663" title="Frame grabbing function (virtual - to be implemented by the application).">VisageTrackerFrameGrabber::GrabFrame()</a> function if it is different than -1, otherwise it returns time, in milliseconds, measured from the moment when tracking started.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00242">242</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00249">249</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -863,7 +886,7 @@ Public Attributes</h2></td></tr>
 <p><em>This variable is set only while tracker is tracking (TRACK_STAT_OK). Facial features detector leaves this variable undefined.</em></p>
 <p>Estimated tracking quality level for the current frame. The value is between 0 and 1, and it corresponds to the global_bad_match_threshold parameter in the <a href="doc/VisageTracker Configuration Manual.pdf">tracker configuration file</a>, i.e. the quality measure is checked against this threshold and when it falls below the tracker resets itself. </p>
 
-<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00225">225</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
+<p>Definition at line <a class="el" href="FaceData_8h_source.html#l00232">232</a> of file <a class="el" href="FaceData_8h_source.html">FaceData.h</a>.</p>
 
 </div>
 </div>
@@ -873,7 +896,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 16 2014 15:39:58 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 3 2014 16:15:44 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

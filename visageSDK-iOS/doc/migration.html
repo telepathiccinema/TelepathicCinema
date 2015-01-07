@@ -12,6 +12,84 @@
 
 <h2>Changes in this release</h2> 
 
+<p>This section covers all changes introduced in all releases since 7.1.774.</p>
+
+<h3>API changes:</h3>
+
+<p>Screen space gaze tracking API introduced.</p>
+
+<p>1. Screen space gaze tracking API methods added to the VisageTracker2 class:</p>
+
+<pre>void VisageTracker2::InitOnlineGazeCalibration();</pre>
+<pre>void AddGazeCalibrationPoint(float x, float y);</pre>
+<pre>float FinalizeOnlineGazeCalibration();</pre>
+<pre>void InitOfflineGazeCalibration(ScreenSpaceGazeRepository *calibrator);</pre>
+<pre>float getGazeEstimations(ScreenSpaceGazeRepository *repository);</pre>
+<br/>
+
+<p>2. Screen space gaze data container ScreenSpaceGazeData is introduced.</p>
+<br/>
+
+<p>3. Screen space gaze data repository ScreenSpaceGazeRepository is introduced.</p>
+<br/>
+ 
+<p>4. Added gazeData member to FaceData container class.</p>
+<br/>
+
+<p>5. VisageFeaturesDetector functionally is extended to be able to specify minimal detected face size in an image. Therefore interface of detectFacialFeatures functions is changed from:</p>
+<pre>VisageFeaturesDetector::detectFacialFeatures(const char* imageFileName, FaceData* output, int maxFaces = 1);</pre>
+<pre>VisageFeaturesDetector::detectFacialFeatures(IplImage *frame, FaceData* output, int maxFaces = 1)</pre>
+
+<p>to:</p>
+<pre>VisageFeaturesDetector::detectFacialFeatures(const char* imageFileName, FaceData* output, int maxFaces = 1, int minFaceSize = 0);</pre>
+<pre>VisageFeaturesDetector::detectFacialFeatures(IplImage* frame, FaceData* output, int maxFaces = 1, int minFaceSize = 0);</pre>
+</br>
+
+<h3>Changes in configuration file format:</h3>
+
+<ul>
+<li>New configuration optional parameters <b>max_work_eye_dist</b>, <b>work_buffer_width</b>, <b>work_buffer_height</b> added. If they are not listed in the configuration file default values will be used (60, 1024, 1024 in the order listed). For detailed description of these parameters consult VisageTracker Configuration Manual</li>
+<li><b>max_work_image_width</b> parameter is now obsolete</li>
+<li><b>screen_space_gaze</b> smoothing factor modifier added to the <b>smoothing_factors</b> parameter</li>
+<li>Four eyelids detections added to the <b>bdts_points_use</b> and <b>bdts_points_angle</b> parameters</li>
+<li><b>ekf_sensitivity value</b> for AU13(au_leye_closed) and AU23(au_reye_closed) set to 100</li>
+</ul>
+
+<p>If you want to update your existing configuration files, it is recommended to copy the values for these new parameters from the 
+Facial Features Tracker - Asymmetric.cfg configuration file supplied in this package. 
+In all other cases, simply use the provided configuration files.
+</p>
+
+<h3>Sample changes:</h3>
+
+<p>
+New Unity sample added: Facial Animation, demonstrates action unit driven blendshape and bone animations.
+</p>
+
+<h3>Bug fixes:</h3>
+<p>
+Tracking bug on high in-plane rotations (z axis) fixed.
+</p>
+<p>
+Tracker stability improved. Fixed a crash when a wrong path to VisageDetector::Init(const char *dataPath) is provided.
+</p>
+
+<h3>Other:</h3>
+
+<p>
+Enabled fitting while mouth is moderately open during initialization.
+</p>
+
+<p>
+Action Units for eye closure now return continuous results.
+</p>
+
+<br><br><br><br><hr>
+<h2>Changes in older releases</h2>
+<hr>
+
+<h2>visage|SDK 7.1.774</h2>
+
 <h3>API changes:</h3>
 
 <p>1. Method to initialize VisageFeaturesDetector object is changed from:</p>
@@ -100,10 +178,6 @@ Data files are located in the folder Visage Technologies\visageSDK\Samples\OpenG
 </li>
 </ul>
 </p>
-
-<br><br><br><br><hr>
-<h2>Changes in older releases</h2>
-<hr>
 
 <h2>visage|SDK 7.0.354</h2>
 

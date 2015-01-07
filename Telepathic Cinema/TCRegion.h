@@ -28,6 +28,10 @@
       withEndTime: (float) end
       isCalibration: (BOOL) calibration;
 
+-(id)initWithTarget: (NSString *)name
+          withTitle: (NSString *)title
+          withValue: (float) value;
+
 -(bool)checkHitWith: (CGRect ) target
              atTime: (float) t;
 

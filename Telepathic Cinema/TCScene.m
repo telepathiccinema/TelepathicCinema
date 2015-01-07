@@ -10,6 +10,8 @@
 
 @implementation TCScene
 
+@synthesize isCalibration;
+
 /*
  Parse Scene file and generate regions
  */
@@ -67,68 +69,89 @@
                 
                 // pull all the attributes
                 //<anchor href="2.smil" coords="0%,0%,50%,50%" begin="5s" end="32s"/>
-                NSString *target = [[anchor attributeForName:@"href"] stringValue];
+                NSString *href = [[anchor attributeForName:@"href"] stringValue];
                 NSString *coords = [[anchor attributeForName:@"coords"] stringValue];
                 NSString *startTime = [[anchor attributeForName:@"begin"] stringValue];
                 NSString *endTime = [[anchor attributeForName:@"end"] stringValue];
                 NSString *regionDuration = [[anchor attributeForName:@"dur"] stringValue];
                 NSString *aId = [[anchor attributeForName:@"id"] stringValue];
                 NSString *title = [[anchor attributeForName:@"title"] stringValue];
+                NSString *targets = [[anchor attributeForName:@"target"] stringValue];
+                
                 float start = [startTime floatValue];
                 float end = [endTime floatValue];
                 float dur = [regionDuration floatValue];
                 
                 if(!title)
-                    title = target;
-                
-                //make sense of them all
-                if([startTime hasSuffix:@"s"] == YES)
+                    title = href;
+                //if we have a scene with a region/area containing an href="*" then
+                //  we have to create a region looked up from our gaze DB
+                if([href  isEqual: @"*"])
                 {
-                    startTime = [startTime substringToIndex:([startTime length]-1)];
-                    start = [startTime floatValue];
+                    
                 }
-                if(endTime != nil && [endTime hasSuffix:@"s"] == YES)
+                else
                 {
-                    endTime = [endTime substringToIndex:([endTime length] - 1)];
-                    end = [endTime floatValue];
-                }
-                else if([regionDuration hasSuffix:@"s"] == YES)
-                {
-                    regionDuration = [regionDuration substringToIndex:([regionDuration length] - 1)];
-                    dur = [regionDuration floatValue];
-                    end = start + dur;
-                }
-                
-                
-                NSArray *parts = [coords componentsSeparatedByString: @","];
-                if([parts count] == 4)
-                {
-                    NSString *tlx = [parts objectAtIndex:0];
-                    NSString *tly = [parts objectAtIndex:1];
-                    NSString *w = [parts objectAtIndex:2];
-                    NSString *h = [parts objectAtIndex:3];
+                    //tease out the targets (if any)
+                    if(targets && [targets length] > 0)
+                    {
+                        NSArray *targetParts = [targets componentsSeparatedByString:@";"];
+                        NSMutableArray *tParts = [[NSMutableArray alloc] init];
+                        for(int i=0; i < [targetParts count]; i++)
+                        {
+                            [tParts addObject:[targetParts objectAtIndex:i ]];
+                        }
+                    }
                     
-                    float topLeftX = [self coordToFloat:tlx];
-                    float topLeftY = [self coordToFloat:tly];
-                    float width = [self coordToFloat:w];
-                    float height = [self coordToFloat:h];
+                    //make sense of them all
+                    if([startTime hasSuffix:@"s"] == YES)
+                    {
+                        startTime = [startTime substringToIndex:([startTime length]-1)];
+                        start = [startTime floatValue];
+                    }
+                    if(endTime != nil && [endTime hasSuffix:@"s"] == YES)
+                    {
+                        endTime = [endTime substringToIndex:([endTime length] - 1)];
+                        end = [endTime floatValue];
+                    }
+                    else if([regionDuration hasSuffix:@"s"] == YES)
+                    {
+                        regionDuration = [regionDuration substringToIndex:([regionDuration length] - 1)];
+                        dur = [regionDuration floatValue];
+                        end = start + dur;
+                    }
                     
-                    NSLog(@"Adding Region: target: %@ =>id: %@  => title: %@ => coords=>%0.2f,%0.2f,%0.2f,%0.2f start=>%0.2f end=>%0.2f dur=>%0.2f ",
-                          target, aId, title, topLeftX, topLeftY, width, height, start, end, dur);
-                    TCRegion* r = [[TCRegion alloc] initWithTarget:target
-                                                         withTitle:title
-                                                          withRect: CGRectMake(topLeftX*bounds.size.width, topLeftY*bounds.size.height, (width)*bounds.size.width, (height)*bounds.size.height)
-                                                     withStartTime:start
-                                                       withEndTime:end
-                                                     isCalibration:false];
                     
-                    if([aId isEqualToString:@"calibration"])
-                        calibrationRegion = r;
-                    
-                    [self.regions addObject:r];
-                }
-                else{
-                    NSLog(@"No area found, last scene?");
+                    NSArray *parts = [coords componentsSeparatedByString: @","];
+                    if([parts count] == 4)
+                    {
+                        NSString *tlx = [parts objectAtIndex:0];
+                        NSString *tly = [parts objectAtIndex:1];
+                        NSString *w = [parts objectAtIndex:2];
+                        NSString *h = [parts objectAtIndex:3];
+                        
+                        float topLeftX = [self coordToFloat:tlx];
+                        float topLeftY = [self coordToFloat:tly];
+                        float width = [self coordToFloat:w];
+                        float height = [self coordToFloat:h];
+                        
+                        NSLog(@"Adding Region: target: %@ =>id: %@  => title: %@ => coords=>%0.2f,%0.2f,%0.2f,%0.2f start=>%0.2f end=>%0.2f dur=>%0.2f ",
+                              href, aId, title, topLeftX, topLeftY, width, height, start, end, dur);
+                        TCRegion* r = [[TCRegion alloc] initWithTarget:href
+                                                             withTitle:title
+                                                              withRect: CGRectMake(topLeftX*bounds.size.width, topLeftY*bounds.size.height, (width)*bounds.size.width, (height)*bounds.size.height)
+                                                         withStartTime:start
+                                                           withEndTime:end
+                                                         isCalibration:false];
+                        
+                        if([aId isEqualToString:@"calibration"])
+                            calibrationRegion = r;
+                        
+                        [self.regions addObject:r];
+                    }
+                    else{
+                        NSLog(@"No area found, last scene?");
+                    }
                 }
             }
         }
@@ -225,7 +248,9 @@
 -(void) makeActive
 {
     if(isCalibration)
+    {
         [gaze initCalibration];
+    }
 }
 
 -(void)deactivateWithTracker:(TrackerWrapper *) tracker

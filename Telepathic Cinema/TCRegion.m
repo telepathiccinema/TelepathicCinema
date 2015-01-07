@@ -31,9 +31,29 @@
     return self;
 }
 
+-(id)initWithTarget: (NSString *)name
+          withTitle: (NSString *)regiontitle
+          withValue: (float) value
+{
+    self.target = name;
+    self.starttime = -1;
+    self.endtime = -1;
+    self.isCalibration = false;
+    self.title = regiontitle;
+    self.count = value;
+    
+    NSLog(@"created historical region ");
+    return self;
+    
+}
+
 -(bool)checkHitWith: (CGRect) collider
          atTime:(float)t
 {
+    //negative times are historic/external lookups no collision detection required
+    if(self.starttime < 0 || self.endtime < 0)
+        return NO;
+    
     if( self.starttime != 0 && self.endtime != 0)
         if(t < self.starttime || t > self.endtime)
             return NO;

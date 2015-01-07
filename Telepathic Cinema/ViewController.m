@@ -12,7 +12,9 @@
 #import "TelepathicCinema.h"
 
 @interface ViewController ()
-
+{
+    UIImageView* calibrationView;
+}
 @end
 
 @implementation ViewController
@@ -26,8 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self initCalibrationViews];
+    
     self->state = STATE_PLAYER;
+    lastCalibrationState = [tracker getCalibrationState];
     
     self.tracker = [[TrackerWrapper alloc] init];
 	[self.tracker initTracker:glView];
@@ -39,48 +43,58 @@
 														  repeats:YES];
     [self.tracker startTrackingFromCam];
     [self setupVideoPlayer];
-    tc = [[TelepathicCinema alloc] initWithView:glView withScene:@"calibration.smil" withPlayer:self.mPlayer withTracker:tracker withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
+    
+    //always start w/calibration
+    tc = [[TelepathicCinema alloc] initWithView:glView
+                                      withScene:@"calibration.smil"
+                                     withPlayer:self.mPlayer
+                                    withTracker:tracker
+                                     withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
+    
+    tc.overlay.zPosition = 0;
     [self.view.layer addSublayer:tc.overlay];
-
-    //initial display state (player only)
-    [self.tracker blank];
-    [self.tc display:NO];
-    [self.tracker display:NO];
+    
+    [self.view addSubview:calibrationView];
+    [self updateState];
 }
 
 -(void) setupVideoPlayer
 {
-    
     self.mPlayer = [AVQueuePlayer queuePlayerWithItems:[NSArray arrayWithObjects:nil]];
-    
     self.mPlayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-    
     movieLayer = [AVPlayerLayer playerLayerWithPlayer:self.mPlayer];
-    
     movieLayer.frame = self.view.bounds;
     
     [self.view.layer addSublayer: movieLayer];
-    
 }
 
 
 -(void)update:(NSTimer *)timer {
     [self.tc update];
+    
+    if([self.tc.currentScene isCalibration])
+    {
+        [self.tracker updateCalibration];
+        [self updateCalibration];
+    }else
+        calibrationView.hidden = YES;
+    
     [self.tracker displayTrackingResults];
     [self.tc draw];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 - (IBAction)onTouch:(id)sender {
     
+    if(tc.currentScene.isCalibration)
+        return;
     
     self->state = ++self->state % STATE_TOTAL;
-    
+    [self updateState];
+}
+
+-(void)updateState
+{
     switch(state)
     {
         case STATE_PLAYER:
@@ -102,8 +116,66 @@
             [self.tc display:YES];
             [self.tracker blank];
             [self.tracker display:YES];
-            self.tc.renderDetails = YES;
+            
+            if([self.tc.currentScene isCalibration] == false)
+                self.tc.renderDetails = YES;
             break;
     }
 }
+
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
+-(void)initCalibrationViews
+{
+    UIImage* calibration0 = [UIImage imageNamed:@"03FindFace.png"];
+    
+    calibrationView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+    [calibrationView setImage:calibration0];
+    calibrationView.alpha = .5;
+    calibrationView.layer.zPosition = 1;
+}
+
+-(void) updateCalibration
+{
+    if(self->state != STATE_TRACKER)
+    {
+        self->state = STATE_TRACKER;
+        [self updateState];
+    }
+    
+    if(lastCalibrationState != [self.tracker getCalibrationState])
+    {
+        lastCalibrationState = [self.tracker getCalibrationState];
+        UIImage* calibrationImage;
+        
+        switch(lastCalibrationState)
+        {
+            case CALIBRATION_INSTRUCTIONS:
+                calibrationImage = [UIImage imageNamed:@"03FindFace.png"];
+                [calibrationView setImage:calibrationImage];
+                break;
+            case CALIBRATION_INITIAL_FACE_ERROR:
+                calibrationImage = [UIImage imageNamed:@"04LostFace.png"];
+                [calibrationView setImage:calibrationImage];
+                break;
+            case CALIBRATION_WATCHDOTS:
+                calibrationImage = [UIImage imageNamed:@"05Success.png"];
+                [calibrationView setImage:calibrationImage];
+                break;
+            case CALIBRATION_CALIBRATING:
+                [calibrationView setImage:nil];
+                break;
+            case CALIBRATION_CALIBRATING_LOST:
+                calibrationImage = [UIImage imageNamed:@"08CalibrationLostFace.png"];
+                [calibrationView setImage:calibrationImage];
+                break;
+            default:
+                [calibrationView setImage:nil];
+                break;
+        }
+    }
+}
+
 @end

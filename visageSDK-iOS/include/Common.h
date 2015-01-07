@@ -289,7 +289,7 @@ public:
 	/**Show an image, normalizing it between 0 and 1 if necessary and specifying the time of display
 
 	*/
-	static void Show(IplImage* img, bool norm = false, int t = 0);	
+	static void Show(IplImage* img, bool norm = false, int t = 1, const char *window_name = 0);	
     
     static void CLAHE(IplImage* dest, IplImage* src, int di = 8, int dj = 8, unsigned char s = 2);
 

@@ -124,6 +124,19 @@
 {
     if(isDone)
         return;
+
+    //pause calibration video if no face is detected
+    if(currentScene.isCalibration )
+    {
+        [tracker updateCalibration];
+        if(tracker.getTrackingStatus != 1 || [tracker getCalibrationState] != CALIBRATION_CALIBRATING)
+        {
+            if(self->player.rate  > 0 && !player.error )
+                [self ->player pause];
+        }
+        else
+                [self->player play];
+    }
     
     float currentTime = CMTimeGetSeconds([[self->player currentItem] currentTime]);
     float duration = CMTimeGetSeconds([[self->player currentItem] duration]);
@@ -209,6 +222,9 @@
     [currentScene deactivateWithTracker:tracker];
     currentScene = queuedScene;
     [currentScene makeActive];
+    if(currentScene.isCalibration && tracker.getTrackingStatus != 1)
+       [self->player pause];
+    
     [self.cursor resetTimer];
 }
 

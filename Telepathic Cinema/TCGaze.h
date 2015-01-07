@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TrackerWrapper.h"
+#import "TCGazeDB.h"
 
 @interface TCGaze : NSObject
 {
@@ -21,6 +22,7 @@
 @property float confidence;
 @property BOOL active;
 @property int inactiveTime;
+@property TCGazeDB* gazeHistory;
 
 -(id)   initWithTracker: (TrackerWrapper*) t
              withBounds: (CGRect)bounds;

@@ -62,6 +62,8 @@ public:
 
 void SetFliph(int v);
 
+void SetUseMacro(int m);
+
 void TreeOutput(float o[], Tree* tree, float r, float c, float s, unsigned char pixels[], int R, int C, int ldim);
 
 int TreeAllocate(Tree* tree, int depth, int dim);
@@ -85,7 +87,7 @@ void dequantize(float* dst, signed char* src, int dim, float qIndex);
 */
 
 
-void CascadeOutput(Cascade* cascade, float* r, float* c, float s, unsigned char pixels[], int R, int C, int ldim, int stage = 0);
+void CascadeOutput(Cascade* cascade, float* r, float* c, float s, unsigned char pixels[], int R, int C, int ldim, int stage_s = 0, int stage_e = -1);
 
 int CascadeLoad(Cascade* cascade, const char* src);
 
@@ -113,6 +115,8 @@ int n3DetectObjects(float rs[], float cs[], float ss[], float qs[], int n,
 
 	
 int fliph;
+
+int use_macro;
 
 float bdts_trees_factor;
 

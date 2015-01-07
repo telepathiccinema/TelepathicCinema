@@ -202,12 +202,13 @@ public:
 	* @param frame the input image.
 	* @param output pointer to an array of FaceData objects in which the results will be returned.
 	* @param maxFaces maximum number of faces to be detected
+	* @param minFaceSize minimum size of the face to be detected in pixels, set to 0 to determine automatically
 	* @show 
 	* @return Number of detected faces (0 or more).
 	*
 	* @see FaceData
 	*/
-	int detectFacialFeatures(IplImage* frame, FaceData* output, int maxFaces = 1);
+	int detectFacialFeatures(IplImage* frame, FaceData* output, int maxFaces = 1, int minFaceSize = 0);
 
 	/**
 	* Performs faces and facial features detection in a still image.
@@ -229,11 +230,12 @@ public:
 	* @param imageFileName pointer to the source image file name. The supported file formats are JPEG, PNG, BMP and PPM.
 	* @param output pointer to an array of FaceData objects in which the results will be returned.
 	* @param maxFaces maximum number of faces to be detected
+	* @param minFaceSize minimum size of the face to be detected in pixels, set to 0 to determine automatically
 	* @return Number of detected faces (0 or more).
 	*
 	* @see FaceData
 	*/
-	int detectFacialFeatures(const char* imageFileName, FaceData* output, int maxFaces = 1);
+	int detectFacialFeatures(const char* imageFileName, FaceData* output, int maxFaces = 1, int minFaceSize = 0);
 
 	/*
 	* Performs fast detection of main facial features from a still image containing a face.
@@ -314,7 +316,7 @@ public:
 	* @see FDP, detectFacialFeatures()
 	*/
 	int detectMainFacialFeatures(IplImage* frame, FDP* output, int* success, int maxFaces, int parts);
-    
+
 	/*
 	* Draws the previously detected feature points on top of the provided image. 
 	* The image format is IplImage, provided by the Intel's OpenCV libraries.
