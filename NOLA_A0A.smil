@@ -1,0 +1,10 @@
+<smil>
+    <head></head>
+    <body>
+        <par>
+            <video src="NOLA_A0A.mov" href="NOLA_A0A.smil" title="walk to hallway"/>
+            <area title="A0A1: bathroom" href="NOLA_A0A1.smil" coords="0%,0%,50%,100%" begin="7s"/>
+            <area title="A0A2: stairs" href="NOLA_A0A2.smil" coords="50%,0%,50%,100%" begin="7s"/>
+        </par>
+    </body>
+</smil>

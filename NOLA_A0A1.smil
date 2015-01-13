@@ -1,0 +1,9 @@
+<smil>
+    <head></head>
+    <body>
+        <par>
+            <video src="NOLA_A0A1.mov" title="bathroom" />
+            <area href="*" />
+        </par>
+    </body>
+</smil>

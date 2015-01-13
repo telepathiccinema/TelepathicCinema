@@ -1,0 +1,11 @@
+<smil>
+    <head></head>
+    <body>
+        <par>
+            <video src="NOLA_A0A2B.mov" title="if smiley sun"/>
+            
+            <area title="float the pear" href="NOLA_A0A2B1.smil" coords="0%,0%,50%,100%" begin="14s" />
+            <area title="float the apple" href="NOLA_A0A2B2.smil" coords="50%,0%,50%,100%" begin="14s" />
+        </par>
+    </body>
+</smil>

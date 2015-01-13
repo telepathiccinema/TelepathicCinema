@@ -33,7 +33,7 @@ using namespace VisageSDK;
     calibrationState = CALIBRATION_UNCALIBRATED;
     showFacialFeatures = NO;
     isCalibrating = FALSE;
-
+    
     // choose configuration based on device at run-time
     NSString* deviceType = [UIDeviceHardware platform];
 #ifdef FACE_TRACKER
@@ -1112,8 +1112,8 @@ int last_pts = 0;
 
 - (void)updateCalibration
 {
-        if(!isCalibrating)
-            return;
+    if(!isCalibrating || calibrationState == CALIBRATION_CALIBRATED)
+        return;
     
     //handle the states...
     switch (calibrationState) {

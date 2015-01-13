@@ -3,7 +3,7 @@
 	</head>
 	<body>
 		<par>
-            <video id="calibration" src="7PtCalibration.mov" href="1.smil" />
+            <video id="calibration" src="7PtCalibration.mov" href="NOLA_A.smil" />
             <area coords="45%,45%,9%,9%" begin="2s" end="3s" title="C" />
             <area coords="0%,0%,10%,10%" begin="5s" end="6s" title="TL" />
             <area coords="90%,0%,10%,10%" begin="8s" end="9s" title="TR" />
