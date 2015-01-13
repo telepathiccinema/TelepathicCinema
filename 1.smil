@@ -2,9 +2,9 @@
     <head></head>
     <body>
         <par>
-            <video src="1.mov" href="1.smil" />
-            <area title="ALPHA" href="alpha.smil" coords="0%,0%,50%,100%" target="2.smil"/>
-            <area title="BETA" href="beta.smil" coords="50%,0%,50%,100%" begin="1s"/>
+            <video src="1.mov" href="gamma.smil" />
+            <area title="ALPHA" href="alpha.smil" coords="0%,0%,50%,100%" target="gamma.smil"/>
+            <area title="BETA" href="beta.smil" coords="50%,0%,50%,100%" begin="1s" target="gamma.smil" />
         </par>
     </body>
 </smil>

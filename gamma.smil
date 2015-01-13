@@ -4,6 +4,7 @@
 	<body>
 		<par>
 			<video src="gamma.mov" href="1.smil" />
+            <area href="*" />
 		</par>
 	</body>
 </smil>

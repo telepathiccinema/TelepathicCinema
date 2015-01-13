@@ -31,7 +31,7 @@
     NSMutableArray *things = [[NSMutableArray alloc] initWithCapacity:0];
     for(HistoricalGazeDataPoint *point in self->_gazeData)
     {
-        if(point.targetID == _id)
+        if([point.targetID isEqualToString: _id])
         {
             [things addObject:point];
         }
@@ -43,7 +43,7 @@
 {
     for(HistoricalGazeDataPoint *point in self->_gazeData)
     {
-        if(point.targetID == _id)
+        if([point.targetID isEqualToString:_id])
         {
             return true;
         }
@@ -54,8 +54,9 @@
 -(void) saveForTarget: (NSString *)target
              withHref: (NSString *) href
             withCount:(int)count;
+
 {
-    
+    [self->_gazeData addObject:[[HistoricalGazeDataPoint alloc] initTarget:target withCount:count withHref:href]];
 }
 
 -(void)dump

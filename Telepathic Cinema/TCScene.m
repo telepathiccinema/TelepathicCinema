@@ -25,6 +25,7 @@
 {
     if ((self = [super init]))
     {
+        NSLog(@"Loading scene for %@", filename);
         //load the XML file and get the regions w/targets
         self.name = filename;
         bounds = bounds_;
@@ -92,6 +93,7 @@
                 //  we have to create a region looked up from our gaze DB
                 if([href  isEqual: @"*"])
                 {
+                    NSLog(@"Found area for deferred decisions");
                     //check if entry exists
                     if([self->gaze.gazeHistory hasValueForID:filename])
                     {
@@ -107,7 +109,7 @@
                         NSLog(@"Failed to find historic gaze data for target: %@", filename);
                     }
                 }
-                else
+                else    //process as usual
                 {
                     //make sense of them all
                     if([startTime hasSuffix:@"s"] == YES)

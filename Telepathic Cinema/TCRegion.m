@@ -165,6 +165,8 @@
             [gaze.gazeHistory saveForTarget:t withHref:self.target withCount:self.count];
         }
     }
+    NSLog(@"Archiving gaze data for %@", self->title);
+    [gaze.gazeHistory dump];
 }
 
 -(void)setSaveTarget:(NSString *) targetString
