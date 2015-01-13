@@ -313,10 +313,10 @@ using namespace VisageSDK;
 	glOrthof(-1.0f,1.0f,-1.0f,1.0f,-10.0f,10.0f);
 	
 	const GLfloat vertices[] = {
-		-1.0f,-1.0f,-5.0f,
-		1.0f,-1.0f,-5.0f,
-		-1.0f,1.0f,-5.0f,
-		1.0f,1.0f,-5.0f,
+		-1.0f-.33,-1.0f,-5.0f,
+		1.0f-.33,-1.0f,-5.0f,
+		-1.0f-.33,1.0f,-5.0f,
+		1.0-.33f,1.0f,-5.0f,
 	};
 	
 	// tex coords are flipped upside down instead of an image

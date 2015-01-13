@@ -13,13 +13,13 @@
 
 
 - (instancetype)initTarget: (NSString *) targetid
-                 withValue: (float) value
+                 withCount : (int) count
                   withHref: (NSString *) href
 {
     self = [super init];
     if (self) {
         self->_targetID = targetid;
-        self->_value = value;
+        self->_count = count;
         self->_href = href;
     }
     return self;

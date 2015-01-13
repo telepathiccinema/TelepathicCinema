@@ -24,35 +24,49 @@
 {
     [self->_gazeData removeAllObjects];
 }
+//-(HistoricalGazeDataPoint *) getDataForTarget:(NSString *)_id
 
--(void) addRegionID:(NSString *)_id forScene:(NSString *)_scene withValue:(float)_value withHref: (NSString *)href
+-(NSArray*) getDataForTarget:(NSString *)_id
 {
-    [self addGazeDataPoint:[[HistoricalGazeDataPoint alloc]
-                            initTarget:_id
-                            withValue:_value
-                            withHref: href]];
-
-}
-
--(float) getValueForID:(NSString *)_id
-{
-    float value = 0;
-
+    NSMutableArray *things = [[NSMutableArray alloc] initWithCapacity:0];
     for(HistoricalGazeDataPoint *point in self->_gazeData)
     {
         if(point.targetID == _id)
         {
-            return point.value;
+            [things addObject:point];
         }
     }
-    
-    return value;
+    return [NSArray arrayWithArray:things];
 }
 
-
--(void) addGazeDataPoint: (HistoricalGazeDataPoint *) data
+-(bool) hasValueForID:(NSString *)_id
 {
-    [self->_gazeData addObject:data];
+    for(HistoricalGazeDataPoint *point in self->_gazeData)
+    {
+        if(point.targetID == _id)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+-(void) saveForTarget: (NSString *)target
+             withHref: (NSString *) href
+            withCount:(int)count;
+{
+    
+}
+
+-(void)dump
+{
+    NSLog(@"----------------------------------------");
+    NSLog(@"Items: %i", [self->_gazeData count]);
+    for(HistoricalGazeDataPoint *p in self->_gazeData)
+    {
+        NSLog(@"target: %@, href=%@, count: %i", p.targetID, p.href, p.count);
+    }
+    NSLog(@"----------------------------------------");
 }
 
 @end

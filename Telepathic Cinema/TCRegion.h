@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreText/CoreText.h>
+#import "TCGaze.h"
 
 @interface TCRegion : NSObject
 {
     bool isHit;
+    NSString *saveTargetString;
 }
+
 @property NSString* target;
 @property NSString* title;
 @property CGRect box;
@@ -28,6 +31,8 @@
       withEndTime: (float) end
       isCalibration: (BOOL) calibration;
 
+-(void)setSaveTarget:(NSString *) targetString;
+
 -(id)initWithTarget: (NSString *)name
           withTitle: (NSString *)title
           withValue: (float) value;
@@ -38,7 +43,10 @@
 -(bool)drawWithContext: (CGContextRef ) c
                   time: (float) t;
 
+-(void)archiveDataWithTCGaze: (TCGaze *)gaze;
+
 -(NSString *)getTargetFile;
 -(NSString *)getTargetExtension;
 -(bool)isActiveAtTime: (float) time;
+-(bool) isSetForArchival;
 @end

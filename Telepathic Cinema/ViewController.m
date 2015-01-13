@@ -46,7 +46,7 @@
     
     //always start w/calibration
     tc = [[TelepathicCinema alloc] initWithView:glView
-                                      withScene:@"calibration.smil"
+                                      withScene:@"6ptcalibration.smil"
                                      withPlayer:self.mPlayer
                                     withTracker:tracker
                                      withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];
@@ -189,7 +189,6 @@
 {
     state = STATE_PLAYER;
     [self updateState];
-    NSLog(@"calibration completed...resetting vc state in the ViewController!!!!!");
 }
 
 @end

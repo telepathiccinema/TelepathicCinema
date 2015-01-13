@@ -54,6 +54,10 @@
 		CE3CA6791A5B7A96008610BF /* HistoricalGazeDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */; };
 		CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE44A0241A1C53F600667AEB /* IntroViewController.m */; };
 		CE45A3CD1A572677006F39CC /* 08CalibrationLostFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE45A3CC1A572677006F39CC /* 08CalibrationLostFace.png */; };
+		CE59F2B21A64E63C007B93AC /* 5ptcalibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE59F2B01A64E63C007B93AC /* 5ptcalibration.smil */; };
+		CE59F2B41A64EBD4007B93AC /* 5PtCalibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE59F2B31A64EBD4007B93AC /* 5PtCalibration.mov */; };
+		CE59F2B61A64F06B007B93AC /* 7ptcalibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE59F2B51A64F06B007B93AC /* 7ptcalibration.smil */; };
+		CE59F2B81A64F0A0007B93AC /* 7PtCalibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE59F2B71A64F0A0007B93AC /* 7PtCalibration.mov */; };
 		CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3C19C91BEA00380BE9 /* 1.smil */; };
 		CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3E19C91D1900380BE9 /* 2.smil */; };
 		CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C4019C91D2F00380BE9 /* 3.smil */; };
@@ -62,7 +66,6 @@
 		CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6819C9247B00380BE9 /* DDXMLDocument.m */; };
 		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
 		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
-		CE6073C519E0F7B8001E4EB4 /* calibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE6073C419E0F7B8001E4EB4 /* calibration.mov */; };
 		CE7894E71A4F1BC900B42345 /* 09Finalize.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E01A4F1BC900B42345 /* 09Finalize.png */; };
 		CE7894E81A4F1BC900B42345 /* 05Success.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E11A4F1BC900B42345 /* 05Success.png */; };
 		CE7894E91A4F1BC900B42345 /* 04LostFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E21A4F1BC900B42345 /* 04LostFace.png */; };
@@ -173,6 +176,10 @@
 		CE556D8419D5257700ED25FA /* Weighter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weighter.h; sourceTree = "<group>"; };
 		CE556D8519D5258200ED25FA /* MAFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAFilter.h; sourceTree = "<group>"; };
 		CE556D8619D525B000ED25FA /* RANSACUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RANSACUtil.h; sourceTree = "<group>"; };
+		CE59F2B01A64E63C007B93AC /* 5ptcalibration.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5ptcalibration.smil; sourceTree = "<group>"; };
+		CE59F2B31A64EBD4007B93AC /* 5PtCalibration.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 5PtCalibration.mov; sourceTree = "<group>"; };
+		CE59F2B51A64F06B007B93AC /* 7ptcalibration.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 7ptcalibration.smil; sourceTree = "<group>"; };
+		CE59F2B71A64F0A0007B93AC /* 7PtCalibration.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 7PtCalibration.mov; sourceTree = "<group>"; };
 		CE5F2C3C19C91BEA00380BE9 /* 1.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.smil; sourceTree = "<group>"; };
 		CE5F2C3E19C91D1900380BE9 /* 2.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.smil; sourceTree = "<group>"; };
 		CE5F2C4019C91D2F00380BE9 /* 3.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.smil; sourceTree = "<group>"; };
@@ -188,7 +195,6 @@
 		CE5F2C6B19C9247B00380BE9 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
 		CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE5F2C6E19C9247B00380BE9 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
-		CE6073C419E0F7B8001E4EB4 /* calibration.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = calibration.mov; sourceTree = "<group>"; };
 		CE7894E01A4F1BC900B42345 /* 09Finalize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 09Finalize.png; sourceTree = "<group>"; };
 		CE7894E11A4F1BC900B42345 /* 05Success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05Success.png; sourceTree = "<group>"; };
 		CE7894E21A4F1BC900B42345 /* 04LostFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 04LostFace.png; sourceTree = "<group>"; };
@@ -406,12 +412,15 @@
 			children = (
 				CEB5F2D819D669FB000CDF9E /* calibration.smil */,
 				CE5F2C4019C91D2F00380BE9 /* 3.smil */,
+				CE59F2B71A64F0A0007B93AC /* 7PtCalibration.mov */,
 				CEA6F85719E05992006EA414 /* alpha.smil */,
 				CEA6F85819E05992006EA414 /* beta.smil */,
 				CE7BE0ED19E0A01800D541F9 /* beta.mov */,
+				CE59F2B51A64F06B007B93AC /* 7ptcalibration.smil */,
 				CE7BE0EE19E0A01800D541F9 /* gamma.mov */,
+				CE59F2B01A64E63C007B93AC /* 5ptcalibration.smil */,
+				CE59F2B31A64EBD4007B93AC /* 5PtCalibration.mov */,
 				CE7BE0EF19E0A01800D541F9 /* alpha.mov */,
-				CE6073C419E0F7B8001E4EB4 /* calibration.mov */,
 				CE7BE0F019E0A01800D541F9 /* 3.mov */,
 				CE7BE0F119E0A01800D541F9 /* 2.mov */,
 				CE7BE0F219E0A01800D541F9 /* 1.mov */,
@@ -587,17 +596,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE59F2B81A64F0A0007B93AC /* 7PtCalibration.mov in Resources */,
 				CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */,
 				CE7BE0F619E0A01800D541F9 /* 3.mov in Resources */,
+				CE59F2B61A64F06B007B93AC /* 7ptcalibration.smil in Resources */,
 				CE18565619AA3E7400B552EE /* Face Detector.cfg in Resources */,
 				CE7894EC1A4F1BC900B42345 /* 00Load.png in Resources */,
 				CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */,
+				CE59F2B41A64EBD4007B93AC /* 5PtCalibration.mov in Resources */,
 				0F8392F519E09C96008BD7EE /* gamma.smil in Resources */,
 				CE7BE0F719E0A01800D541F9 /* 2.mov in Resources */,
 				CE18565B19AA3E7400B552EE /* HT - HighPerformance.cfg in Resources */,
 				CEA6F85A19E05992006EA414 /* beta.smil in Resources */,
 				CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */,
 				CE18565219AA3E7400B552EE /* candide3-ClosedMouth.wfm in Resources */,
+				CE59F2B21A64E63C007B93AC /* 5ptcalibration.smil in Resources */,
 				CE18561719AA3BD600B552EE /* Images.xcassets in Resources */,
 				CE45A3CD1A572677006F39CC /* 08CalibrationLostFace.png in Resources */,
 				CE18565919AA3E7400B552EE /* FFT - LowPerformance.cfg in Resources */,
@@ -609,7 +622,6 @@
 				CE7BE0F419E0A01800D541F9 /* gamma.mov in Resources */,
 				CE18565319AA3E7400B552EE /* candide3-exp.wfm in Resources */,
 				CE7894EB1A4F1BC900B42345 /* 01Load.png in Resources */,
-				CE6073C519E0F7B8001E4EB4 /* calibration.mov in Resources */,
 				CE18565819AA3E7400B552EE /* FFT - HighPerformance.cfg in Resources */,
 				CE7894ED1A4F1BC900B42345 /* 02Home.png in Resources */,
 				CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */,

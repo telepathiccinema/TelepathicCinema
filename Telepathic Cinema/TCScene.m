@@ -39,7 +39,11 @@
         if([extension compare: @"smil" options:NSCaseInsensitiveSearch] == NSOrderedSame )
         {
             NSError *error;
-            NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:name ofType:extension] encoding:NSUTF8StringEncoding error:&error];
+            NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
+                                                   pathForResource:name
+                                                            ofType:extension]
+                                                          encoding:NSUTF8StringEncoding
+                                                             error:&error];
             
             DDXMLDocument *theDocument = [[DDXMLDocument alloc] initWithXMLString:content options:0 error:&error];
             NSArray *parResult = [theDocument nodesForXPath:@"/smil/body/par" error:&error];
@@ -88,21 +92,23 @@
                 //  we have to create a region looked up from our gaze DB
                 if([href  isEqual: @"*"])
                 {
-                    
+                    //check if entry exists
+                    if([self->gaze.gazeHistory hasValueForID:filename])
+                    {
+                        //get entries and add regions
+                        NSArray *things = [self->gaze.gazeHistory getDataForTarget:filename];
+                        
+                        for (HistoricalGazeDataPoint *p in things)
+                        {
+                            TCRegion* r = [[TCRegion alloc] initWithTarget:p.href withTitle:filename withValue:p.count];
+                            [self.regions addObject:r];
+                        }
+                    }else{
+                        NSLog(@"Failed to find historic gaze data for target: %@", filename);
+                    }
                 }
                 else
                 {
-                    //tease out the targets (if any)
-                    if(targets && [targets length] > 0)
-                    {
-                        NSArray *targetParts = [targets componentsSeparatedByString:@";"];
-                        NSMutableArray *tParts = [[NSMutableArray alloc] init];
-                        for(int i=0; i < [targetParts count]; i++)
-                        {
-                            [tParts addObject:[targetParts objectAtIndex:i ]];
-                        }
-                    }
-                    
                     //make sense of them all
                     if([startTime hasSuffix:@"s"] == YES)
                     {
@@ -143,6 +149,12 @@
                                                          withStartTime:start
                                                            withEndTime:end
                                                          isCalibration:false];
+
+                        //tease out the targets (if any)
+                        if(targets && [targets length] > 0)
+                        {
+                            [r setSaveTarget:targets];
+                        }
                         
                         if([aId isEqualToString:@"calibration"])
                             calibrationRegion = r;
@@ -158,6 +170,7 @@
         
         NSLog(@"New Scene Created for video: %@ with %i regions. isCalibration=>%d", self.videoFile, [self.regions count] , isCalibration);
     }
+    [self->gaze.gazeHistory dump];
     return self;
 }
 
@@ -232,8 +245,12 @@
     
     for(TCRegion* r in self.regions)
     {
-        if(!winner)
-            winner = r;
+        //regions with targets must save their data & we can omit them from being the next scene..
+        if([r isSetForArchival])
+            [r archiveDataWithTCGaze:self->gaze];
+        else
+            if(!winner)
+                winner = r;
         else
             if(r.count > winner.count)
                 winner = r;
@@ -267,5 +284,6 @@
 {
     return sceneID;
 }
+
 
 @end

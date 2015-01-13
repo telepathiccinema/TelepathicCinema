@@ -17,11 +17,14 @@
 
 -(void) reset;
 
--(void)addRegionID: (NSString *) _id
-     atScene: (NSString *) _scene
-   withValue: (float) _value;
+-(bool) hasValueForID: (NSString *) _id;
 
--(float) getValueForID: (NSString *) _id;
--(void) addGazeDataPoint: (HistoricalGazeDataPoint *) data;
+-(void) saveForTarget: (NSString *)target
+             withHref: (NSString *) href
+            withCount:(int)count;
+
+-(NSArray *) getDataForTarget:(NSString *)_target;
+
+-(void) dump;
 
 @end

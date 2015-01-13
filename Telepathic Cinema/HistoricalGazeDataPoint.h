@@ -12,9 +12,9 @@
 
 @property (strong, nonatomic, readonly) NSString *targetID;
 @property (strong, nonatomic, readonly) NSString *href;
-@property (nonatomic, readonly) float value;
+@property (nonatomic, readonly) int count;
 
 - (instancetype)initTarget: (NSString *) targetid
-                   withValue: (float) value
+                   withCount: (float) count
                     withHref: (NSString *) href;
 @end

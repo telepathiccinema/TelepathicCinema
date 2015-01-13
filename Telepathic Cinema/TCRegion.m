@@ -19,7 +19,7 @@
            withRect: (CGRect) r
       withStartTime: (float) start
         withEndTime: (float) end
-        isCalibration:(BOOL)calibrationFlag{
+      isCalibration:(BOOL)calibrationFlag{
     
     self.target = name;
     self.box = r;
@@ -27,6 +27,8 @@
     self.endtime = end;
     self.isCalibration = calibrationFlag;
     self.title = t;
+    self->saveTargetString=@"";
+    
     NSLog(@"Created Region: %@ => %0.2f,%0.2f,%0.2f,%0.2f => start: %0.2f => end: %0.2f", name, r.origin.x, r.origin.y, r.size.width, r.size.height, start, end);
     return self;
 }
@@ -41,6 +43,7 @@
     self.isCalibration = false;
     self.title = regiontitle;
     self.count = value;
+    self->saveTargetString=@"";
     
     NSLog(@"created historical region ");
     return self;
@@ -48,7 +51,7 @@
 }
 
 -(bool)checkHitWith: (CGRect) collider
-         atTime:(float)t
+             atTime:(float)t
 {
     //negative times are historic/external lookups no collision detection required
     if(self.starttime < 0 || self.endtime < 0)
@@ -89,20 +92,20 @@
         CGContextSetStrokeColor(context, CGColorGetComponents([UIColor greenColor].CGColor));
     else
         CGContextSetStrokeColor(context, CGColorGetComponents([UIColor yellowColor].CGColor));
-
+    
     CGContextBeginPath(context);
-
+    
     CGContextMoveToPoint(context, self.box.origin.x, self.box.origin.y);     //tl
     CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y);  //tr
     CGContextAddLineToPoint(context, self.box.origin.x+self.box.size.width, self.box.origin.y+self.box.size.height);  //br
     CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y+self.box.size.height);  //bl
     CGContextAddLineToPoint(context, self.box.origin.x, self.box.origin.y);  //tl
     CGContextStrokePath(context);
-
+    
     CGContextSaveGState(context);
     NSString *text = [NSString stringWithFormat: @"%@ (%0.1f)", self.title, self.count*1.0/30.0];
     
- 
+    
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                     CFBridgingRelease(CTFontCreateWithName((CFStringRef) @"HelveticaNeue", 28.0, NULL)),
                                     (NSString *)kCTFontAttributeName,
@@ -118,17 +121,17 @@
     CGMutablePathRef path = CGPathCreateMutable();
     CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
     transform = CGAffineTransformTranslate(transform, self.box.size.width*.5, - self.box.size.height*.5);
-
+    
     CGRect frameText = self.box;
     CGRect newRectForUIKit = CGRectApplyAffineTransform(frameText, transform);
     CGPathAddRect(path, NULL, newRectForUIKit);
     
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
-
+    
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextTranslateCTM(context, 0, ([self box]).size.height );
     CGContextScaleCTM(context, 1.0, -1.0);
- 
+    
     CTFrameDraw(frame, context);
     CFRelease(frame);
     CFRelease(path);
@@ -148,6 +151,34 @@
     return [self.target pathExtension];
 }
 
+-(void)archiveDataWithTCGaze: (TCGaze *)gaze
+{
+    if ([self->saveTargetString rangeOfString:@";"].location == NSNotFound)
+    {
+        [gaze.gazeHistory saveForTarget:self->saveTargetString withHref:self.target withCount:self.count];
+    }
+    else
+    {
+        NSArray *parts = [self->saveTargetString componentsSeparatedByString: @";"];
+        for(NSString *t in parts)
+        {
+            [gaze.gazeHistory saveForTarget:t withHref:self.target withCount:self.count];
+        }
+    }
+}
 
+-(void)setSaveTarget:(NSString *) targetString
+{
+    self->saveTargetString = targetString;
+    NSLog(@"Adding target to scene: %@", targetString);
+}
+
+-(bool) isSetForArchival
+{
+    if ([self->saveTargetString length] > 0 )
+        return true;
+    
+    return false;
+}
 
 @end
