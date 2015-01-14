@@ -46,7 +46,7 @@
     
     //always start w/calibration
     tc = [[TelepathicCinema alloc] initWithView:glView
-                                      withScene:@"7ptcalibration.smil"
+                                      withScene:@"9ptcalibration.smil"
                                      withPlayer:self.mPlayer
                                     withTracker:tracker
                                      withBounds: CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) ];

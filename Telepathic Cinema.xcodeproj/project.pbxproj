@@ -52,6 +52,8 @@
 		CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9F19BB95190033A237 /* TCRegion.m */; };
 		CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDFA219BBBDA00033A237 /* TCGaze.m */; };
 		CE3CA6791A5B7A96008610BF /* HistoricalGazeDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */; };
+		CE4071151A66E91E002AC614 /* 9ptcalibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE4071141A66E91E002AC614 /* 9ptcalibration.smil */; };
+		CE4071171A66EA4C002AC614 /* 9ptCalibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE4071161A66EA4C002AC614 /* 9ptCalibration.mov */; };
 		CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE44A0241A1C53F600667AEB /* IntroViewController.m */; };
 		CE45A3CD1A572677006F39CC /* 08CalibrationLostFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE45A3CC1A572677006F39CC /* 08CalibrationLostFace.png */; };
 		CE59F2B21A64E63C007B93AC /* 5ptcalibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE59F2B01A64E63C007B93AC /* 5ptcalibration.smil */; };
@@ -190,6 +192,8 @@
 		CE1BDFA219BBBDA00033A237 /* TCGaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCGaze.m; sourceTree = "<group>"; };
 		CE3CA6771A5B7A96008610BF /* HistoricalGazeDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalGazeDataPoint.h; sourceTree = "<group>"; };
 		CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricalGazeDataPoint.m; sourceTree = "<group>"; };
+		CE4071141A66E91E002AC614 /* 9ptcalibration.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9ptcalibration.smil; sourceTree = "<group>"; };
+		CE4071161A66EA4C002AC614 /* 9ptCalibration.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 9ptCalibration.mov; sourceTree = "<group>"; };
 		CE44A0231A1C53F600667AEB /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
 		CE44A0241A1C53F600667AEB /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		CE45A3CC1A572677006F39CC /* 08CalibrationLostFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 08CalibrationLostFace.png; sourceTree = "<group>"; };
@@ -601,6 +605,8 @@
 			children = (
 				CEB5F2D819D669FB000CDF9E /* calibration.smil */,
 				CE59F2B71A64F0A0007B93AC /* 7PtCalibration.mov */,
+				CE4071161A66EA4C002AC614 /* 9ptCalibration.mov */,
+				CE4071141A66E91E002AC614 /* 9ptcalibration.smil */,
 				CE59F2B01A64E63C007B93AC /* 5ptcalibration.smil */,
 				CE59F2B51A64F06B007B93AC /* 7ptcalibration.smil */,
 				CE59F2B31A64EBD4007B93AC /* 5PtCalibration.mov */,
@@ -687,6 +693,7 @@
 				CE59F2B81A64F0A0007B93AC /* 7PtCalibration.mov in Resources */,
 				CE977D0E1A65B64A00CC527E /* NOLA_A0A1.mov in Resources */,
 				CE977D0C1A65B64A00CC527E /* NOLA_A.mov in Resources */,
+				CE4071151A66E91E002AC614 /* 9ptcalibration.smil in Resources */,
 				CE96051E19E21C2A007B0594 /* Main_iPad.storyboard in Resources */,
 				CE7BE0F619E0A01800D541F9 /* 3.mov in Resources */,
 				CE59F2B61A64F06B007B93AC /* 7ptcalibration.smil in Resources */,
@@ -734,6 +741,7 @@
 				CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */,
 				CE7BE0F819E0A01800D541F9 /* 1.mov in Resources */,
 				CE977CFB1A65B2DC00CC527E /* NOLA_A0A2B1.smil in Resources */,
+				CE4071171A66EA4C002AC614 /* 9ptCalibration.mov in Resources */,
 				CE977D151A65B64A00CC527E /* NOLA_A0A2B2.mov in Resources */,
 				CE18565D19AA3E7400B552EE /* HT - MidPerformance.cfg in Resources */,
 				CE7894E81A4F1BC900B42345 /* 05Success.png in Resources */,
