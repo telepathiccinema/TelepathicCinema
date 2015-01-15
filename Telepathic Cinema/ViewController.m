@@ -169,10 +169,15 @@
                 break;
             case CALIBRATION_CALIBRATING:
                 [calibrationView setImage:nil];
+                [tracker blank];
+                [tracker display:NO];
+                [self.tc display:NO];
                 break;
             case CALIBRATION_CALIBRATING_LOST:
                 calibrationImage = [UIImage imageNamed:@"08CalibrationLostFace.png"];
                 [calibrationView setImage:calibrationImage];
+                [tracker display:YES];
+                [self.tc display:YES];
                 break;
             case CALIBRATION_CALIBRATED:
                 state = STATE_PLAYER;
