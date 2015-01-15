@@ -172,12 +172,15 @@
                 [tracker blank];
                 [tracker display:NO];
                 [self.tc display:NO];
+                [[self.view.layer.sublayers objectAtIndex:0] setOpacity:1.0];
                 break;
             case CALIBRATION_CALIBRATING_LOST:
                 calibrationImage = [UIImage imageNamed:@"08CalibrationLostFace.png"];
                 [calibrationView setImage:calibrationImage];
                 [tracker display:YES];
                 [self.tc display:YES];
+                [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
+
                 break;
             case CALIBRATION_CALIBRATED:
                 state = STATE_PLAYER;
