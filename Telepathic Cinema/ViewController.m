@@ -14,6 +14,7 @@
 @interface ViewController ()
 {
     UIImageView* calibrationView;
+    float cameraOpacity;
 }
 @end
 
@@ -53,6 +54,7 @@
     [tc setCalibrationCompletedDelegate:self withSelector:@selector(completedCalibration:)];
     
     tc.overlay.zPosition = 0;
+    [tc.overlay setName:@"Information Overlay"];
     [self.view.layer addSublayer:tc.overlay];
     
     [self.view addSubview:calibrationView];
@@ -65,7 +67,7 @@
     self.mPlayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
     movieLayer = [AVPlayerLayer playerLayerWithPlayer:self.mPlayer];
     movieLayer.frame = self.view.bounds;
-    
+    [movieLayer setName:@"Video Playback Layer"];
     [self.view.layer addSublayer: movieLayer];
 }
 
@@ -169,8 +171,7 @@
                 break;
             case CALIBRATION_CALIBRATING:
                 [calibrationView setImage:nil];
-                [tracker blank];
-                [tracker display:NO];
+                //[tracker fadeVideo:YES];
                 [self.tc display:NO];
                 [[self.view.layer.sublayers objectAtIndex:0] setOpacity:1.0];
                 break;
@@ -179,11 +180,12 @@
                 [calibrationView setImage:calibrationImage];
                 [tracker display:YES];
                 [self.tc display:YES];
+                //[tracker fadeVideo:NO];
                 [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
-
                 break;
             case CALIBRATION_CALIBRATED:
                 state = STATE_PLAYER;
+                [tracker blank];
                 [self updateState];
                 break;
             default:

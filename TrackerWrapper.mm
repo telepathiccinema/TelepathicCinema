@@ -33,6 +33,7 @@ using namespace VisageSDK;
     calibrationState = CALIBRATION_UNCALIBRATED;
     showFacialFeatures = NO;
     isCalibrating = FALSE;
+    fadeVideo = false;
     
     // choose configuration based on device at run-time
     NSString* deviceType = [UIDeviceHardware platform];
@@ -301,7 +302,7 @@ using namespace VisageSDK;
 {
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+    
 	glDisable(GL_DEPTH_TEST);
     
 	glEnable(GL_TEXTURE_2D);
@@ -315,21 +316,22 @@ using namespace VisageSDK;
 	glLoadIdentity();									// Reset The Projection Matrix
 	glOrthof(-1.0f,1.0f,-1.0f,1.0f,-10.0f,10.0f);
 	
+    //adjust to account for offset camera
 	const GLfloat vertices[] = {
-		-1.0f-.33,-1.0f,-5.0f,
-		1.0f-.33,-1.0f,-5.0f,
-		-1.0f-.33,1.0f,-5.0f,
-		1.0-.33f,1.0f,-5.0f,
+		-0.67,-1.0f,-5.0f,
+		0.67,-1.0f,-5.0f,
+		-0.67,1.0f,-5.0f,
+		0.67,1.0f,-5.0f,
 	};
 	
 	// tex coords are flipped upside down instead of an image
 	const GLfloat texcoords[] = {
-		0.0f,		yTexCoord,
-		xTexCoord,	yTexCoord,
-		0.0f,		0.0f,
-		xTexCoord,	0.0f,
+		(0.3f*xTexCoord),		yTexCoord,
+		(xTexCoord),	yTexCoord,
+		(0.3f*xTexCoord),		0.0f,
+		(xTexCoord),	0.0f,
 	};
-	
+
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);					// Set Color To White
 	
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -351,6 +353,31 @@ using namespace VisageSDK;
 	glPopMatrix();
     
 	glClear(GL_DEPTH_BUFFER_BIT);
+    if(fadeVideo == YES)
+    {
+        videoOpacity -= .1;
+        if(videoOpacity < 0)
+        {
+            videoOpacity = 0;
+//            [self blank];
+            [self display:NO];
+        }
+    }else{
+        videoOpacity += .1;
+        if(videoOpacity > 1)
+        {
+            videoOpacity = 1.0;
+        }
+        [self display:YES];
+    }
+    [self.glView.layer setOpacity:videoOpacity];
+    //                [[self.view.layer.sublayers objectAtIndex:0] setOpacity:0.5];
+//    [[self.glView.layer.sublayers objectAtIndex:0] setOpacity:videoOpacity];
+}
+
+-(void)fadeVideo:(bool) fade
+{
+    fadeVideo = fade;
 }
 
 - (void) drawPoint3D:(const float*) point withColor: (const float*) color andSize: (float) size

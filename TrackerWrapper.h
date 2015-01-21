@@ -67,6 +67,8 @@ typedef void FDP;
 	bool isTracking;
     bool show;
     bool showFacialFeatures;
+    bool fadeVideo;
+    float videoOpacity;
     
     /**
      * Texture ID for displaying frames from the tracker.
@@ -266,4 +268,5 @@ typedef void FDP;
 - (float) getFrameRate;
 - (void) updateCalibration;
 - (int) getCalibrationState;
+-(void)fadeVideo:(bool) fade;
 @end
