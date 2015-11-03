@@ -41,8 +41,8 @@
         {
             NSError *error;
             NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
-                                                   pathForResource:name
-                                                            ofType:extension]
+                                                                    pathForResource:name
+                                                                    ofType:extension]
                                                           encoding:NSUTF8StringEncoding
                                                              error:&error];
             
@@ -151,7 +151,7 @@
                                                          withStartTime:start
                                                            withEndTime:end
                                                          isCalibration:false];
-
+                        
                         //tease out the targets (if any)
                         if(targets && [targets length] > 0)
                         {
@@ -250,18 +250,16 @@
         //regions with targets must save their data & we can omit them from being the next scene..
         if([r isSetForArchival])
             [r archiveDataWithTCGaze:self->gaze];
-        else
-            if(!winner)
-                winner = r;
-        else
-            if(r.count > winner.count)
-                winner = r;
+        else if(!winner)
+            winner = r;
+        else if(r.count > winner.count)
+            winner = r;
     }
     
-    if(winner && winner.count > 0)
+    if(winner)
         return winner.target;
     
-    return defaultTarget;
+    return defaultTarget;   //no place to go
 }
 
 -(void) makeActive
