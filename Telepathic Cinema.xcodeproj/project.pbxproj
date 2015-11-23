@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F8392F519E09C96008BD7EE /* gamma.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0F8392F419E09C96008BD7EE /* gamma.smil */; };
+		A02FA8CB1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc in Resources */ = {isa = PBXBuildFile; fileRef = A02FA8CA1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc */; };
 		CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */; };
 		CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
 		CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */; };
@@ -110,7 +111,6 @@
 		CEA6F85919E05992006EA414 /* alpha.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEA6F85719E05992006EA414 /* alpha.smil */; };
 		CEA6F85A19E05992006EA414 /* beta.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEA6F85819E05992006EA414 /* beta.smil */; };
 		CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEB5F2D819D669FB000CDF9E /* calibration.smil */; };
-		CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */ = {isa = PBXBuildFile; fileRef = CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */; };
 		CEEC98EB19CFC32800CCF95F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC98EA19CFC32800CCF95F /* CoreText.framework */; };
 		CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */; };
 /* End PBXBuildFile section */
@@ -127,6 +127,7 @@
 
 /* Begin PBXFileReference section */
 		0F8392F419E09C96008BD7EE /* gamma.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gamma.smil; sourceTree = "<group>"; };
+		A02FA8CA1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc */ = {isa = PBXFileReference; lastKnownFileType = text; path = "678-006-636-722-634-217-455-431-899-155-434.vlc"; sourceTree = "<group>"; };
 		CE08071219DAC00000D44B50 /* TCCalibrationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCalibrationPoint.h; sourceTree = "<group>"; };
 		CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCalibrationPoint.m; sourceTree = "<group>"; };
 		CE1855F819AA3BD600B552EE /* Telepathic Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telepathic Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,6 +309,7 @@
 		CE1855EF19AA3BD600B552EE = {
 			isa = PBXGroup;
 			children = (
+				A02FA8CA1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc */,
 				CE5F2C3B19C919C300380BE9 /* MovieFiles */,
 				CE5F2C7419C93C4C00380BE9 /* Visage */,
 				CE18564119AA3E4000B552EE /* Resources */,
@@ -704,7 +706,7 @@
 				CE7894EC1A4F1BC900B42345 /* 00Load.png in Resources */,
 				CE977CFD1A65B2DC00CC527E /* NOLA_A1.smil in Resources */,
 				CE977CF31A65B2DC00CC527E /* NOLA_A.smil in Resources */,
-				CEE4C04419D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc in Resources */,
+				A02FA8CB1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc in Resources */,
 				CE59F2B41A64EBD4007B93AC /* 5PtCalibration.mov in Resources */,
 				0F8392F519E09C96008BD7EE /* gamma.smil in Resources */,
 				CE977D141A65B64A00CC527E /* NOLA_A0A2B1.mov in Resources */,
