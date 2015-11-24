@@ -51,7 +51,7 @@
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#import &quot;VisageFeaturesDetectorWrapper.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#import &quot;MobileCoreServices/UTCoreTypes.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interfaceFaceDetectViewController.html" title="Class that implements default view controller and GUI actions.">FaceDetectViewController</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interfaceFaceDetectViewController.html" title="Implements default view controller and GUI actions.">FaceDetectViewController</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">@synthesize</span> detectImage;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interfaceFaceDetectViewController.html#ad92fbb33d14c115a5b9e90dba93a540d" title="Toolbar for controlling the app.">detectToolbar</a>;</div>
@@ -77,7 +77,7 @@
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// init face detector</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="interfaceFaceDetectViewController.html#a336da8f0763d8c9c6bbef103c42a6af6" title="Wrapper for the VisageFeaturesDetector.">detectorWrapper</a> == nil)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">self</span>.detectorWrapper = [[<a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Class that implements simple high-level Objective-C interface around visage|SDK Visage Features Detec...">VisageFeaturesDetectorWrapper</a> alloc] init];</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">self</span>.detectorWrapper = [[<a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Implements simple high-level Objective-C interface around VisageSDK::VisageFeaturesDetector functiona...">VisageFeaturesDetectorWrapper</a> alloc] init];</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        [<span class="keyword">self</span>.detectorWrapper initDetector];</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
@@ -88,7 +88,7 @@
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        [<span class="keyword">self</span>.popover presentPopoverFromRect:CGRectMake(0.0, 0.0, 400.0, 400.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        [<span class="keyword">self</span> presentModalViewController:imgPicker animated:YES];</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        [<span class="keyword">self</span> presentViewController:self.imgPicker animated:YES completion:nil];</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     </div>
@@ -110,7 +110,7 @@
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    [picker dismissModalViewControllerAnimated:YES];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    [<span class="keyword">self</span> dismissViewControllerAnimated:YES completion:nil];</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;- (void)didReceiveMemoryWarning {</div>
@@ -139,7 +139,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:35 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

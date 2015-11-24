@@ -44,7 +44,7 @@
         self.popover = [[UIPopoverController alloc] initWithContentViewController:self.imgPicker];
         [self.popover presentPopoverFromRect:CGRectMake(0.0, 0.0, 400.0, 400.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     } else {
-        [self presentModalViewController:self.imgPicker animated:YES];
+        [self presentViewController:self.imgPicker animated:YES completion:nil];
     }
 #endif
 }
@@ -77,7 +77,7 @@ didFinishPickingMediaWithInfo: (NSDictionary *) info
         moviePath = [[info objectForKey:UIImagePickerControllerMediaURL] path];
     }
 
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         [popover dismissPopoverAnimated:YES];

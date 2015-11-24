@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __TrackerOpenGLInterface_h__
 #define __TrackerOpenGLInterface_h__
@@ -26,7 +41,7 @@ namespace VisageSDK
 *
 * OpenGL Interface is used to provide an OpenGL context to the tracker, allowing tracker to draw the tracking results. 
 *
-* The main use is to display detailed tracking results as help while <a href="doc/VisageTracker Configuration Manual.pdf">configuring the tracker</a>.
+* The main use is to display detailed tracking results as help while <a href="../VisageTracker Configuration Manual.pdf">configuring the tracker</a>.
 * For other purposes, applications should implement their own display.
 *
 * All functions in this class are virtual and must be implemented in the 

@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 //FBFT.h
 //declaration of the face tracker class
 
@@ -34,12 +49,17 @@
 #include "SwrTexture.h"
 #endif
 // define to use Extended Information Filter
-#define USE_EIF
 
 #include <cv.h>
 #include <string>
+
+#ifdef EMSCRIPTEN
+#include <cstddef>
+#include <vector>
+#else
 #include <highgui.h>
-#ifdef USE_EIF
+#endif
+
 /// n3 !!!
 	// definitions from EKF.h
 	#define LIMIT_R_VALUE 100000.0f //points whose R value is bigger or equal to this value are not processed
@@ -59,18 +79,19 @@
 #include "ExtendedInformationFilter.h"
 #include "FaceModelNoVel.h"
 /// !!!
-#else
-#include "FBFT/EKF.h"
-#endif
+
 #include "FDP.h"
 
 //from func.h
 #include <fstream>
 #include <sstream>
 
-//from func_gl.h
+//face normalization
+#define VS_NORM_POSE	0x00
+#define VS_NORM_SU		0x01
+#define VS_NORM_AU		0x02
 
-//#define USE_OLD_BB
+//from func_gl.h
 
 #if defined(WIN32)
 #define NOMINMAX
@@ -82,11 +103,19 @@
 #endif
 #endif
 
-#if defined(MAC_OS_X) || defined(LINUX)
+#if defined(MAC_OS_X)
 #define ENABLE_OPENGL
 #ifdef ENABLE_OPENGL
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/glu.h>
+#endif
+#endif
+
+#if defined(LINUX)
+#define ENABLE_OPENGL
+#ifdef ENABLE_OPENGL
+#include <GL/gl.h>
+#include <GL/glu.h>
 #endif
 #endif
 
@@ -97,6 +126,7 @@ namespace VisageSDK
 
 class VisageDetector;
 class VisageTracker2;
+struct FaceData;
 
 /** Low-level face tracker implementation used in VisageTracker2.
 *
@@ -111,6 +141,7 @@ friend class VisageDetector;
 friend class VisageTracker2;
 friend class VisageFeaturesDetector;
 friend class ModelFitter;
+friend class PoseEstimator;
 
 public:
 	//constructor
@@ -170,22 +201,8 @@ private:
 		bool refine_step = false
 		);
 
-	// find iris in each eye, add it to track points to be processed by EKF
-	void processEyes();
-
 	// Estimate eye closure based on iris match values
 	void processEyesClosure(IplImage* frame, FDP* fdp, float* out);
-
-	// find iris; eye is supposed to be within rect; irisTriangles is a list of triangles covering the iris region
-	// returns:
-	// - iris position in iris_x, iris_y (in image coordinates)
-	// - relative iris position within the eyeRegion in rel_iris_x, rel_iris_y; both values are normalised to 0-1 range
-	// - match values
-	// - return value: ratio of the longest dominantly vertical edge to the height of the eye region
-	float processEye(CvRect *eyeRegion,CvMat *irisTriangles, f32 &iris_x, f32 &iris_y, f32 &rel_iris_x, f32 &rel_iris_y, f32 &maximum_value);
-	int traverseVertEdge(IplImage* img,int x, int y,int x0);
-	int findLongestVertEdge(IplImage* img);
-	float l_eye_vertical_edge, r_eye_vertical_edge; //length of longest vertical edge in left/right eye region
 
 	// compute the valuse of the eye closing AU that performs full eye closing
 	void compute_full_eye_closure();
@@ -212,6 +229,8 @@ private:
 	f32 s; //scale
 	f32 r[3]; //array of xyz rotation angles
 	f32 t[3]; //array of xyz translations
+	f32 r_prev[3]; //array of xyz previous frame rotation angles
+	f32 t_prev[3]; //array of xyz previous frame translations
 	f32 tzinit; //z translation at initialisation
 	f32 dIinit; //eye distance in projection space at initialisation
 	CvMat* su; //shape unit vector
@@ -224,7 +243,7 @@ public:
 #ifdef EMSCRIPTEN
 public:
 #else 
-private:
+//private:
 #endif
 	CvMat* current_tex_coord;  //current texture coordintes; calculated on demand by getTexCoord(). These coordinates are a simple normalisation of coordinates in projection
 	//texture
@@ -286,7 +305,6 @@ private:
 	iu32 eye_h_rotation_au; // AU that horizontaly the eyes; candide hardcoding - should be configurable
 	iu32 eye_v_rotation_au; // AU that horizontaly the eyes; candide hardcoding - should be configurable
 	float eye_closure[2];
-	void fix_eye_points(int idx);
 
 	//working images
 	IplImage* gl_image_color;
@@ -301,7 +319,7 @@ private:
 
 	IplImage* result_image_buffer;
 
- 	// interpupillary distance
+	// interpupillary distance
 	float ipd;
 	void setIPD(float value);
 	float getIPD();
@@ -312,7 +330,6 @@ private:
 
 	static const float EYE_OPEN_THRESHOLD;
 
-#ifdef USE_EIF
 	// n3
 	/*
 		for EIF implementation
@@ -329,10 +346,7 @@ private:
 	/*
 		...
 	*/
-#else
-	//ekf
-	EKF* ekf; //the extended kalman filter
-#endif
+
 	bool ekf_failure; // set to true when EKF update fails
 	CvMat* ekf_sensitivity; //the ekf sensitivity for 3 rotations, 3 translations and 14 AUs
 	CvMat* au_gravity; //A gravity factor, one per each Action Unit, that determines the behavior of the Action Unit in the situation when it is not driven by track points because they are not found (e.g. they are hidden or temporarily lost). In such case, AU value is multiplied by the gravity factor. Therefore, gravity factor 1 is neutral, less than 1 means that AU value will fall (faster if gravity factor is smaller), and a value larger than 1 would make the AU value rise.
@@ -362,6 +376,8 @@ private:
 	IplImage *face_bb_tex;
 	CvRect face_bb_rect;
 	CvRect face_bb_rect_scaled;
+
+	FDP *fitter_offset;
 
 	f32 find_point_new (
 		IplImage* image, //image B
@@ -394,9 +410,9 @@ private:
 
 	float r_eye[2]; //eye rotations
 
-	int bdts_points_num;
-	iu32 use_bdts_points;
-	int bdts_points_inited;
+	int m_bdts_points_num;
+	iu32 m_use_bdts_points;
+	int m_bdts_points_inited;
 
 	CvMat* bdts_points_use;
 	CvMat* bdts_points_sensitivity;
@@ -406,11 +422,25 @@ private:
 	void find_bdts_points(IplImage* frame, FDP* fdp, CvPoint2D32f* points, float *vals);
 	void init_bdts_points(IplImage* frame, FDP* fdp);
 
+	int m_LBFPointsNum;
+	iu32 m_useLBFPoints;
+	float m_LBFPointsAngle;
+	int m_LBFPointsInited;
+
+	void findLBFPoints(IplImage* frame, FDP* fdp, CvPoint2D32f* points, float* vals);
+	void initLBFPoints(IplImage* frame, FDP* fdp);
+
+	void setFDPPointVisibility(const FDP* fdp, FDP& fdp_vis) const;
+
+	void GetQualityNCC(CvPoint2D32f* cur_points, CvPoint2D32f* prev_points, IplImage* cur_frame, IplImage* prev_frame, float* quality, int point_num, int patch_size);
+	IplImage* lbf_ncc_patches;
+	bool *lbf_ncc_use_last;
+	int *lbf_ncc_frame_diff;
+	int *lbf_ncc_patchsize;
+
 	FILE *log_file; //log file - used for debugging, set via log_filename configuration parameter
 
-	//stuff copied from main.cpp in Nils' original project
-	//bool pause_video = 0; //is video paused?
-
+#pragma region READ_WRITE
 
 	//from func.h
 
@@ -435,8 +465,6 @@ private:
 		const string &filestring, //the string
 		string &texture // texture image file name, output
 		);
-
-
 
 	//write scale and shape units to file
 	void write_profile (
@@ -520,6 +548,9 @@ private:
 		string *list //list of names, output
 		);
 
+#pragma endregion READ_WRITE
+
+#pragma region GL
 
 	//from func_gl.h
 
@@ -641,6 +672,10 @@ private:
 
 		);
 
+#pragma endregion GL
+
+#pragma region SOFTWARE RENDERING
+
 	#ifdef SOFTWARE_RENDERING
 	#define MAX_SWR_TEX 30
 	SwrTexture *swr_texture[MAX_SWR_TEX];
@@ -694,7 +729,18 @@ private:
 		const CvMat* tex_coord
 	);
 
+	void getNormalizedFace(
+		IplImage* frame, 
+		IplImage* normFace, 
+		FaceData* face_data, 
+		FDP* normFDP,
+		int norm_type,
+		CvMat* projection_tmp
+	);
+
 	#endif
+
+#pragma endregion SOFTWARE RENDERING
 
 };
 

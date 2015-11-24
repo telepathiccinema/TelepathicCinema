@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "05A218C3-3E89-458C-9BC2-E872C2C4401B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557" : "VisageSDK"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "VisageTrackerUnityPlugin",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Samples\/iOS\/VisageTrackerUnityPlugin\/VisageTrackerUnityPlugin.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn+ssh:\/\/visagetechnologies.com\/visagesdk",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557"
+    }
+  ]
+}

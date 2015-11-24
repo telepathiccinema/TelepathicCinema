@@ -13,14 +13,14 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		5FAE82641BA9A778004AFF44 /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = 5FAE82631BA9A778004AFF44 /* bdtsdata */; };
+		5FAE82661BA9A78A004AFF44 /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = 5FAE82651BA9A78A004AFF44 /* candide3.wfm */; };
+		5FAE82681BA9A79C004AFF44 /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = 5FAE82671BA9A79C004AFF44 /* candide3.fdp */; };
+		5FAE826A1BA9A7AC004AFF44 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAE82691BA9A7AC004AFF44 /* face.png */; };
 		5FB2A1751992519300375E62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB2A1741992519300375E62 /* Images.xcassets */; };
-		5FC0CB5A182B8EFD00FAECDD /* FFT - HighPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB57182B8EFD00FAECDD /* FFT - HighPerformance.cfg */; };
-		5FC0CB5B182B8EFD00FAECDD /* FFT - LowPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB58182B8EFD00FAECDD /* FFT - LowPerformance.cfg */; };
-		5FC0CB5C182B8EFD00FAECDD /* FFT - MidPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB59182B8EFD00FAECDD /* FFT - MidPerformance.cfg */; };
-		5FC0CBEF182BEF7200FAECDD /* HT - HighPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CBEC182BEF7200FAECDD /* HT - HighPerformance.cfg */; };
-		5FC0CBF0182BEF7200FAECDD /* HT - LowPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CBED182BEF7200FAECDD /* HT - LowPerformance.cfg */; };
-		5FC0CBF1182BEF7200FAECDD /* HT - MidPerformance.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CBEE182BEF7200FAECDD /* HT - MidPerformance.cfg */; };
-		7F16723D165675420027CF82 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F16723C165675420027CF82 /* face.png */; };
+		5FB73F491BC26ADC003198C2 /* VisageRendering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FB73F481BC26ADC003198C2 /* VisageRendering.cpp */; };
+		5FB73F501BC295DC003198C2 /* Facial Features Tracker - High.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FB73F4D1BC295DC003198C2 /* Facial Features Tracker - High.cfg */; };
+		5FB73F511BC295DC003198C2 /* Facial Features Tracker - Low.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5FB73F4E1BC295DC003198C2 /* Facial Features Tracker - Low.cfg */; };
 		7F4E06BB14A10CF10005A8B2 /* w_gr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F4E06BA14A10CF10005A8B2 /* w_gr.jpg */; };
 		7F5BE46A15A2FEEA00A23D53 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5BE46915A2FEEA00A23D53 /* MobileCoreServices.framework */; };
 		7F7F68331356F90A004CEF3D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7F68321356F90A004CEF3D /* OpenGLES.framework */; };
@@ -30,20 +30,17 @@
 		7F7F7BA01358600E00481B4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7F7B9F1358600E00481B4E /* QuartzCore.framework */; };
 		7F80FFA4155298DC009FAF99 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F80FFA3155298DC009FAF99 /* ImageIO.framework */; };
 		7F839AFB14BDCC85006AAD3C /* DemoFrameGrabber.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F839AFA14BDCC85006AAD3C /* DemoFrameGrabber.mm */; };
-		7F866350149F33890074326B /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = 7F86634D149F33890074326B /* candide3.fdp */; };
-		7F866351149F33890074326B /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = 7F86634E149F33890074326B /* candide3.wfm */; };
-		7F8664B7149F3B7C0074326B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8664B6149F3B7C0074326B /* libz.dylib */; };
 		7F8664DA149F3CCA0074326B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8664D9149F3CCA0074326B /* icon.png */; };
 		7F92D8EE14A0AC9200289759 /* TrackerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F92D8ED14A0AC9200289759 /* TrackerWrapper.mm */; };
 		7F95106C14BC959E0018BE21 /* DemoObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F95106B14BC959E0018BE21 /* DemoObserver.mm */; };
 		7F9AEDE714A10525004E034C /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9AEDE614A10525004E034C /* MainWindow-iPad.xib */; };
 		7F9FC0DA15120A70008372CE /* jam1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7F9FC0D915120A70008372CE /* jam1.mp4 */; };
 		7FAAC66A163AACA600ACD5CD /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAC669163AACA600ACD5CD /* UIDeviceHardware.m */; };
-		7FAAC677163AB6B300ACD5CD /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = 7FAAC676163AB6B300ACD5CD /* bdtsdata */; };
 		7FABECC814A1082F00E3420C /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FABECC614A1082F00E3420C /* libVisageCore.a */; };
 		7FABECC914A1082F00E3420C /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FABECC714A1082F00E3420C /* libVisageVision.a */; };
 		7FCE132E148F845600C5B776 /* VisageTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE132D148F845600C5B776 /* VisageTrackerViewController.m */; };
 		7FD924C8149F3E8000B52A45 /* CustomGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD924C7149F3E8000B52A45 /* CustomGLView.m */; };
+		D7F311301BD65ECA00194E27 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F3112F1BD65ECA00194E27 /* libz.1.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,14 +52,16 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5FAE82631BA9A778004AFF44 /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = ../../data/bdtsdata; sourceTree = "<group>"; };
+		5FAE82651BA9A78A004AFF44 /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = ../../data/candide3.wfm; sourceTree = "<group>"; };
+		5FAE82671BA9A79C004AFF44 /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = ../../data/candide3.fdp; sourceTree = "<group>"; };
+		5FAE82691BA9A7AC004AFF44 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = ../../data/face.png; sourceTree = "<group>"; };
 		5FB2A1741992519300375E62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VisageTrackerDemo/Images.xcassets; sourceTree = "<group>"; };
-		5FC0CB57182B8EFD00FAECDD /* FFT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - HighPerformance.cfg"; path = "../data/FFT - HighPerformance.cfg"; sourceTree = "<group>"; };
-		5FC0CB58182B8EFD00FAECDD /* FFT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - LowPerformance.cfg"; path = "../data/FFT - LowPerformance.cfg"; sourceTree = "<group>"; };
-		5FC0CB59182B8EFD00FAECDD /* FFT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "FFT - MidPerformance.cfg"; path = "../data/FFT - MidPerformance.cfg"; sourceTree = "<group>"; };
-		5FC0CBEC182BEF7200FAECDD /* HT - HighPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - HighPerformance.cfg"; path = "../data/HT - HighPerformance.cfg"; sourceTree = "<group>"; };
-		5FC0CBED182BEF7200FAECDD /* HT - LowPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - LowPerformance.cfg"; path = "../data/HT - LowPerformance.cfg"; sourceTree = "<group>"; };
-		5FC0CBEE182BEF7200FAECDD /* HT - MidPerformance.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "HT - MidPerformance.cfg"; path = "../data/HT - MidPerformance.cfg"; sourceTree = "<group>"; };
-		7F16723C165675420027CF82 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = ../data/face.png; sourceTree = "<group>"; };
+		5FB73F481BC26ADC003198C2 /* VisageRendering.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = VisageRendering.cpp; sourceTree = "<group>"; };
+		5FB73F4A1BC26AE6003198C2 /* VisageRendering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisageRendering.h; sourceTree = "<group>"; };
+		5FB73F4B1BC26FE9003198C2 /* FaceData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FaceData.h; path = ../../../include/FaceData.h; sourceTree = "<group>"; };
+		5FB73F4D1BC295DC003198C2 /* Facial Features Tracker - High.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Facial Features Tracker - High.cfg"; path = "../../data/Facial Features Tracker - High.cfg"; sourceTree = "<group>"; };
+		5FB73F4E1BC295DC003198C2 /* Facial Features Tracker - Low.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Facial Features Tracker - Low.cfg"; path = "../../data/Facial Features Tracker - Low.cfg"; sourceTree = "<group>"; };
 		7F4E06BA14A10CF10005A8B2 /* w_gr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = w_gr.jpg; path = Resources/w_gr.jpg; sourceTree = "<group>"; };
 		7F5BE46915A2FEEA00A23D53 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		7F7F68321356F90A004CEF3D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -73,18 +72,12 @@
 		7F80FFA3155298DC009FAF99 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		7F839AF914BDCC85006AAD3C /* DemoFrameGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoFrameGrabber.h; sourceTree = "<group>"; };
 		7F839AFA14BDCC85006AAD3C /* DemoFrameGrabber.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoFrameGrabber.mm; sourceTree = "<group>"; };
-		7F86634D149F33890074326B /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = ../data/candide3.fdp; sourceTree = SOURCE_ROOT; };
-		7F86634E149F33890074326B /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = ../data/candide3.wfm; sourceTree = SOURCE_ROOT; };
 		7F866371149F34840074326B /* VisageTrackerDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisageTrackerDemo_Prefix.pch; sourceTree = "<group>"; };
-		7F8664B6149F3B7C0074326B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7F8664D9149F3CCA0074326B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		7F92D8EC14A0AC9200289759 /* TrackerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerWrapper.h; sourceTree = "<group>"; };
 		7F92D8ED14A0AC9200289759 /* TrackerWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackerWrapper.mm; sourceTree = "<group>"; };
 		7F92F74514BAE499004FAA57 /* FBAPs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBAPs.h; path = ../../../include/FBAPs.h; sourceTree = "<group>"; };
 		7F92F74614BAE499004FAA57 /* FDP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FDP.h; path = ../../../include/FDP.h; sourceTree = "<group>"; };
-		7F92F74914BAE499004FAA57 /* gluLookAt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gluLookAt.h; path = ../../../include/gluLookAt.h; sourceTree = "<group>"; };
-		7F92F76914BAE499004FAA57 /* TrackerGUIInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackerGUIInterface.h; path = ../../../include/TrackerGUIInterface.h; sourceTree = "<group>"; };
-		7F92F76B14BAE499004FAA57 /* TrackerOpenGLInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackerOpenGLInterface.h; path = ../../../include/TrackerOpenGLInterface.h; sourceTree = "<group>"; };
 		7F92F77514BAE499004FAA57 /* VisageTracker2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisageTracker2.h; path = ../../../include/VisageTracker2.h; sourceTree = "<group>"; };
 		7F92F77614BAE499004FAA57 /* VisageTrackerFrameGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisageTrackerFrameGrabber.h; path = ../../../include/VisageTrackerFrameGrabber.h; sourceTree = "<group>"; };
 		7F92F77714BAE499004FAA57 /* VisageTrackerObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisageTrackerObserver.h; path = ../../../include/VisageTrackerObserver.h; sourceTree = "<group>"; };
@@ -96,7 +89,6 @@
 		7F9FC0D915120A70008372CE /* jam1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = jam1.mp4; path = Resources/jam1.mp4; sourceTree = "<group>"; };
 		7FAAC668163AACA600ACD5CD /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
 		7FAAC669163AACA600ACD5CD /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
-		7FAAC676163AB6B300ACD5CD /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = ../data/bdtsdata; sourceTree = "<group>"; };
 		7FABECC614A1082F00E3420C /* libVisageCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageCore.a; path = ../../../lib/libVisageCore.a; sourceTree = SOURCE_ROOT; };
 		7FABECC714A1082F00E3420C /* libVisageVision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisageVision.a; path = ../../../lib/libVisageVision.a; sourceTree = SOURCE_ROOT; };
 		7FCE132C148F845600C5B776 /* VisageTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisageTrackerViewController.h; sourceTree = "<group>"; };
@@ -104,6 +96,7 @@
 		7FD924C7149F3E8000B52A45 /* CustomGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGLView.m; sourceTree = "<group>"; };
 		7FD924CA149F3E9300B52A45 /* CustomGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGLView.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* VisageTrackerDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VisageTrackerDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		D7F3112F1BD65ECA00194E27 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F311301BD65ECA00194E27 /* libz.1.dylib in Frameworks */,
 				7F5BE46A15A2FEEA00A23D53 /* MobileCoreServices.framework in Frameworks */,
 				7F80FFA4155298DC009FAF99 /* ImageIO.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -121,7 +115,6 @@
 				7F7F7B181358516F00481B4E /* CoreVideo.framework in Frameworks */,
 				7F7F7B1E1358518300481B4E /* CoreMedia.framework in Frameworks */,
 				7F7F7BA01358600E00481B4E /* QuartzCore.framework in Frameworks */,
-				7F8664B7149F3B7C0074326B /* libz.dylib in Frameworks */,
 				7FABECC814A1082F00E3420C /* libVisageCore.a in Frameworks */,
 				7FABECC914A1082F00E3420C /* libVisageVision.a in Frameworks */,
 			);
@@ -139,6 +132,8 @@
 				7F839AFA14BDCC85006AAD3C /* DemoFrameGrabber.mm */,
 				7F95106A14BC959E0018BE21 /* DemoObserver.h */,
 				7F95106B14BC959E0018BE21 /* DemoObserver.mm */,
+				5FB73F4A1BC26AE6003198C2 /* VisageRendering.h */,
+				5FB73F481BC26ADC003198C2 /* VisageRendering.cpp */,
 				7F92D8EC14A0AC9200289759 /* TrackerWrapper.h */,
 				7F92D8ED14A0AC9200289759 /* TrackerWrapper.mm */,
 				7FD924C7149F3E8000B52A45 /* CustomGLView.m */,
@@ -187,19 +182,15 @@
 			isa = PBXGroup;
 			children = (
 				5FB2A1741992519300375E62 /* Images.xcassets */,
-				5FC0CBEC182BEF7200FAECDD /* HT - HighPerformance.cfg */,
-				5FC0CBED182BEF7200FAECDD /* HT - LowPerformance.cfg */,
-				5FC0CBEE182BEF7200FAECDD /* HT - MidPerformance.cfg */,
-				5FC0CB57182B8EFD00FAECDD /* FFT - HighPerformance.cfg */,
-				5FC0CB58182B8EFD00FAECDD /* FFT - LowPerformance.cfg */,
-				5FC0CB59182B8EFD00FAECDD /* FFT - MidPerformance.cfg */,
-				7F16723C165675420027CF82 /* face.png */,
+				5FAE82671BA9A79C004AFF44 /* candide3.fdp */,
+				5FAE82691BA9A7AC004AFF44 /* face.png */,
 				7F9FC0D915120A70008372CE /* jam1.mp4 */,
 				7F4E06BA14A10CF10005A8B2 /* w_gr.jpg */,
+				5FB73F4D1BC295DC003198C2 /* Facial Features Tracker - High.cfg */,
+				5FB73F4E1BC295DC003198C2 /* Facial Features Tracker - Low.cfg */,
+				5FAE82651BA9A78A004AFF44 /* candide3.wfm */,
 				7F8664D9149F3CCA0074326B /* icon.png */,
-				7F86634D149F33890074326B /* candide3.fdp */,
-				7F86634E149F33890074326B /* candide3.wfm */,
-				7FAAC676163AB6B300ACD5CD /* bdtsdata */,
+				5FAE82631BA9A778004AFF44 /* bdtsdata */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* VisageTrackerDemo-Info.plist */,
 			);
@@ -209,6 +200,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7F3112F1BD65ECA00194E27 /* libz.1.dylib */,
 				7F5BE46915A2FEEA00A23D53 /* MobileCoreServices.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -218,7 +210,6 @@
 				7F7F7B171358516F00481B4E /* CoreVideo.framework */,
 				7F7F7B1D1358518300481B4E /* CoreMedia.framework */,
 				7F7F7B9F1358600E00481B4E /* QuartzCore.framework */,
-				7F8664B6149F3B7C0074326B /* libz.dylib */,
 				7F80FFA3155298DC009FAF99 /* ImageIO.framework */,
 			);
 			name = Frameworks;
@@ -239,9 +230,7 @@
 				7F92F78214BAE4C6004FAA57 /* Utilities.h */,
 				7F92F74514BAE499004FAA57 /* FBAPs.h */,
 				7F92F74614BAE499004FAA57 /* FDP.h */,
-				7F92F74914BAE499004FAA57 /* gluLookAt.h */,
-				7F92F76914BAE499004FAA57 /* TrackerGUIInterface.h */,
-				7F92F76B14BAE499004FAA57 /* TrackerOpenGLInterface.h */,
+				5FB73F4B1BC26FE9003198C2 /* FaceData.h */,
 				7F92F77514BAE499004FAA57 /* VisageTracker2.h */,
 				7F92F77614BAE499004FAA57 /* VisageTrackerFrameGrabber.h */,
 				7F92F77714BAE499004FAA57 /* VisageTrackerObserver.h */,
@@ -284,7 +273,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = fer.tel.hr;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "VisageTrackerDemo" */;
@@ -311,22 +300,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FAE826A1BA9A7AC004AFF44 /* face.png in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				5FB2A1751992519300375E62 /* Images.xcassets in Resources */,
-				7F866350149F33890074326B /* candide3.fdp in Resources */,
-				7F866351149F33890074326B /* candide3.wfm in Resources */,
-				5FC0CB5A182B8EFD00FAECDD /* FFT - HighPerformance.cfg in Resources */,
 				7F8664DA149F3CCA0074326B /* icon.png in Resources */,
+				5FB73F501BC295DC003198C2 /* Facial Features Tracker - High.cfg in Resources */,
 				7F9AEDE714A10525004E034C /* MainWindow-iPad.xib in Resources */,
 				7F4E06BB14A10CF10005A8B2 /* w_gr.jpg in Resources */,
+				5FB73F511BC295DC003198C2 /* Facial Features Tracker - Low.cfg in Resources */,
 				7F9FC0DA15120A70008372CE /* jam1.mp4 in Resources */,
-				7FAAC677163AB6B300ACD5CD /* bdtsdata in Resources */,
-				5FC0CBEF182BEF7200FAECDD /* HT - HighPerformance.cfg in Resources */,
-				5FC0CB5B182B8EFD00FAECDD /* FFT - LowPerformance.cfg in Resources */,
-				5FC0CBF0182BEF7200FAECDD /* HT - LowPerformance.cfg in Resources */,
-				5FC0CB5C182B8EFD00FAECDD /* FFT - MidPerformance.cfg in Resources */,
-				5FC0CBF1182BEF7200FAECDD /* HT - MidPerformance.cfg in Resources */,
-				7F16723D165675420027CF82 /* face.png in Resources */,
+				5FAE82641BA9A778004AFF44 /* bdtsdata in Resources */,
+				5FAE82661BA9A78A004AFF44 /* candide3.wfm in Resources */,
+				5FAE82681BA9A79C004AFF44 /* candide3.fdp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +330,7 @@
 				7F95106C14BC959E0018BE21 /* DemoObserver.mm in Sources */,
 				7F839AFB14BDCC85006AAD3C /* DemoFrameGrabber.mm in Sources */,
 				7FAAC66A163AACA600ACD5CD /* UIDeviceHardware.m in Sources */,
+				5FB73F491BC26ADC003198C2 /* VisageRendering.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,12 +341,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -378,15 +366,15 @@
 					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/include/opencv\"",
 				);
 				INFOPLIST_FILE = "VisageTrackerDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../lib\"",
 					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/lib\"",
-					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
 					"\"$(SRCROOT)/../../../source/libLicenseManager\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.visagetechnologies.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = VisageTrackerDemo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -399,13 +387,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = VisageTrackerDemo_Prefix.pch;
@@ -423,16 +413,16 @@
 					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/include/opencv\"",
 				);
 				INFOPLIST_FILE = "VisageTrackerDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../lib\"",
 					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/lib\"",
-					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
 					"\"$(SRCROOT)/../../../source/libLicenseManager\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.visagetechnologies.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = VisageTrackerDemo;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;

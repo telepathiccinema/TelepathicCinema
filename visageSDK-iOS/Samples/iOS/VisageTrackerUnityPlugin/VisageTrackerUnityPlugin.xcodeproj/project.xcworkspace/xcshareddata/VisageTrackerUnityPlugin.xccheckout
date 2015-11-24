@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>05A218C3-3E89-458C-9BC2-E872C2C4401B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VisageTrackerUnityPlugin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557</key>
+		<string>svn+ssh://visagetechnologies.com/visagesdk/branches/74b3Dev</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Samples/iOS/VisageTrackerUnityPlugin/VisageTrackerUnityPlugin.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557</key>
+		<string>svn+ssh://visagetechnologies.com/visagesdk</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn+ssh://visagetechnologies.com/visagesdk/branches/74b3Dev/Samples/iOS/VisageTrackerUnityPlugin/VisageTrackerUnityPlugin.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9c805fed-7e11-4f0f-9398-15b2e7f0414c++5557</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VisageSDK</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -32,12 +32,13 @@ contact person together with your purchase order. In return, you will receive a 
 
 <h2><a class="anchor" id="include_license"></a>Including the License Key File in your application</h2>
 
-<p>Add License Key File to the Resource group of your application project. In your application, you need to call the initialization
-function in order to let the Application read the License Key File. This is done as follows in your application code:
+<ol>
+<p> <li>Add the License Key File to the <b>Resources</b> group of your <b>Xcode project</b>. This can be done by dragging and dropping the License Key File in the <b>Resources</b> group. If the <b>Resources</b> group doesn't exist, it should be created beforehand. </li> <br>
+<li>In your application, you need to call the initialization function in order to let the Application read the License Key File. This is done as follows in your application code: </li>
 <pre>
 	// necessary prototype declaration for licensing
 	namespace VisageSDK {
-		void initializeLicenseManager(char *licenseKeyFileName);
+		void initializeLicenseManager(const char *licenseKeyFileName);
 	}
 	
 	//...
@@ -48,18 +49,24 @@ function in order to let the Application read the License Key File. This is done
 </pre>
 
 where "name-of-the-license-file.vlc" is the name of your License Key File. The above example expects the License Key
-File to be in the root folder of application bundle.
+File to be in the root folder of the application bundle. </li>
 </p>
 
 <p>
-In the Sample projects the licensing code is already inserted, so you just need to change the license key file name when you obtain the license key file. Specifically:<br/>
+<li>In the Sample projects the licensing code is already inserted, so you just need to change the license key file name when you obtain the license key file. Specifically:<br/> </li>
+<br/> <ol>
+In the <b>Visage Tracker Demo</b> sample project the licensing code is found in the <i>initTracker</i> method, in the <i>TrackerWrapper.mm</i> file.<br/>
 <br/>
-In the Visage Tracker Demo sample project and Detect Strip sample project, the licensing code is found in the <i>initTracker</i> method, in the <i>TrackerWrapper.mm</i> file.<br/>
+
+In the <b>Visage Tracker Unity Demo</b> sample project and the <b>Facial Animation Unity Demo</b> sample project, the licensing code is found in the in <i>_initTracker</i> function, in the <i>VisageTrackerUnityPlugin.mm</i> file. It is necessary to rebuild the VisageTrackerUnityPlugin project when you change the license key file name.
+<br>
 <br/>
-In the Visage Tracker Unity Demo sample project and the Facial Animation Unity Demo sample project, the licensing code is found in the in <i>_initTracker</i> function, in the <i>VisageTrackerUnityPlugin.mm</i> file. It is necessary to rebuild the VisageTrackerUnityPlugin project when you change the license key file name.
+In the <b>Face Detect Demo</b> sample project, the licensing code is found in the <i>initTracker</i> method, in the <i>VisageFeaturesDetectorWrapper.mm</i> file.<br/>
 <br/>
-In the Face Detect Demo sample project, the licensing code is found in the <i>initTracker</i> method, in the <i>VisageFeaturesDetectorWrapper.mm</i> file.<br/>
 </p>
+</ol>
+</ol>
+<b>NOTE:</b>  In case you receive error message that App Transport Security has blocked a cleartext HTTP (http://) resource load, please set the NSAllowsArbitraryLoads key to YES under NSAppTransportSecurity dictionary in your .plist file <br/> <br/>
 
 </body>
 </html>

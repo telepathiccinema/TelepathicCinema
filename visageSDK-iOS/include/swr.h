@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #include <cv.h>
 // Requires software renderer source
@@ -42,7 +57,8 @@ struct VertexShader : public GeometryProcessor::VertexShaderI {
 
 	VertexShader(): VertexShaderI(1,0) {}
 
-	
+	VertexShader(int attribute_count, int varying_count): VertexShaderI(attribute_count,varying_count) {}
+
 	mat4x viewprojection_matrix;
 
 	// This static function is called for each vertex to be processed.
@@ -116,7 +132,7 @@ unsigned short * load_surface_r5g5a1b5(IplImage* img);
 struct TextureVertexShader : public VertexShader {
 
 
-	TextureVertexShader(): VertexShader() {}
+	TextureVertexShader(): VertexShader(2,2) {}
 
 	// this static function is called for each vertex to be processed.
 	// "in" is an array of void* pointers with the location of the individial
@@ -131,10 +147,10 @@ struct TextureFragmentShader : public FragmentShader {
 
 
 	TextureFragmentShader(unsigned short *imageData16,
-	char *imageData,
-	unsigned short *zBuffer16,
-	int swrWidth,
-	int swrHeight);
+		char *imageData,
+		unsigned short *zBuffer16,
+		int swrWidth,
+		int swrHeight);
 
 	
 	// the fragment shader is called for each pixel and has read/write access to

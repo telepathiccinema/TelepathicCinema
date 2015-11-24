@@ -6,11 +6,12 @@
 #include "visageVision.h"
 #include "DemoFrameGrabber.h"
 #include "DemoObserver.h"
+#include "VisageRendering.h"
 
 // neccessary prototype declaration for licensing
 namespace VisageSDK
 {
-void initializeLicenseManager(char *licenseKeyFileFolder);
+void initializeLicenseManager(const char *licenseKeyFileFolder);
 }
 #endif
 
@@ -25,7 +26,7 @@ typedef void FDP;
 #endif
 
 /**
- * Class that implements simple high-level Objective-C interface around visage|SDK VisageTracker2 functionallity.
+ * Implements simple high-level Objective-C interface around VisageSDK::VisageTracker2 functionallity.
  *
  * This makes connecting the iOS app GUI with visage|SDK tracker functionaly easier as primary programming language used in iOS apps is
  * Objective-C while primary programming language used in visage|SDK is C++. The class is a subclass of NSObject and
@@ -47,46 +48,6 @@ typedef void FDP;
     VisageSDK::FaceData trackingData;
     DemoFrameGrabber *demoFrameGrabber;
 	DemoObserver *demoObserver;
-    
-    /**
-     * 
-     */
-	bool isTracking;
-	
-    /**
-     * Texture ID for displaying frames from the tracker.
-     */
-	GLuint frameTexId;
-    /**
-     * Texture ID for displaying instructions image.
-     */
-	GLuint instructionsTexId;
-    /**
-     * Texture coordinates for displaying frames from the tracker.
-     */
-	float xTexCoord;
-    /**
-     * Texture coordinates for displaying frames from the tracker.
-     */
-	float yTexCoord;
-    /**
-     * Size of the texture for displaying frames from the tracker.
-     */
-	int xTexSize;
-    /**
-     * Size of the texture for displaying frames from the tracker.
-     */
-	int yTexSize;
-	
-    /**
-     * Camera focal length for setting correct OpenGL perspective.
-     */
-	float focus;
-	
-    /**
-     * Aspect of the video.
-     */
-	float videoAspect;
 	
     /**
      * Size of the OpenGL view.
@@ -140,23 +101,6 @@ typedef void FDP;
  * Method for forcing multithreded mode.
  */
 - (BOOL)startMultithread;
-/**
- * Method for initiliazing and setting instructions texture through OpenGL.
- *
- */
-- (void) initAndSetInstructionsTexture;
-/**
- * Method for displaying instructions through OpenGL.
- */
-- (void) displayInstructions;
-/**
- * Method for initiliazing video texture through OpenGL.
- *
- * The texture must have dimensions that are power of 2, so video data will cover only part of the texture.
- *
- * @param image frame to init video display with
- */
-- (void) initFrameTexture:(const IplImage *)image;
 /**
  * Method for refreshing video texture through OpenGL.
  *

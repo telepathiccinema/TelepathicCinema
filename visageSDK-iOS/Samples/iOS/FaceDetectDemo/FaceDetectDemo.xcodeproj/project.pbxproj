@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10259AB9167B25C2002501BB /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = 10259AB7167B25C2002501BB /* candide3.fdp */; };
-		10259ABA167B25C2002501BB /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = 10259AB8167B25C2002501BB /* candide3.wfm */; };
-		10259ABC167B25C2002501BB /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 10259ABB167B25C2002501BB /* Face Detector.cfg */; };
-		10BB55841672140B0071DDB6 /* candide.wfm in Resources */ = {isa = PBXBuildFile; fileRef = 10BB55811672140B0071DDB6 /* candide.wfm */; };
 		10BB55991672159B0071DDB6 /* VisageFeaturesDetectorWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10BB55981672159B0071DDB6 /* VisageFeaturesDetectorWrapper.mm */; };
 		1D3623260D0F684500981E51 /* FaceDetectAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* FaceDetectAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -18,10 +14,11 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		5F02E7371BA9A6A6001FC0C8 /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = 5F02E7361BA9A6A6001FC0C8 /* candide3.fdp */; };
+		5F02E7391BA9A6B2001FC0C8 /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = 5F02E7381BA9A6B2001FC0C8 /* candide3.wfm */; };
+		5F02E73D1BA9A6D6001FC0C8 /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5F02E73C1BA9A6D6001FC0C8 /* Face Detector.cfg */; };
+		5F02E73F1BA9A6EC001FC0C8 /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = 5F02E73E1BA9A6EC001FC0C8 /* bdtsdata */; };
 		5FB2A1831994CF9800375E62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB2A1821994CF9800375E62 /* Images.xcassets */; };
-		5FC0CB61182B922900FAECDD /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB5D182B922800FAECDD /* bdtsdata */; };
-		5FC0CB62182B922900FAECDD /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB5E182B922800FAECDD /* candide3.fdp */; };
-		5FC0CB63182B922900FAECDD /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = 5FC0CB5F182B922800FAECDD /* candide3.wfm */; };
 		5FC69E911834BDE000958088 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC69E901834BDE000958088 /* icon.png */; };
 		7F5BE46A15A2FEEA00A23D53 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5BE46915A2FEEA00A23D53 /* MobileCoreServices.framework */; };
 		7F7F68331356F90A004CEF3D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7F68321356F90A004CEF3D /* OpenGLES.framework */; };
@@ -30,20 +27,16 @@
 		7F7F7B1E1358518300481B4E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7F7B1D1358518300481B4E /* CoreMedia.framework */; };
 		7F7F7BA01358600E00481B4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7F7B9F1358600E00481B4E /* QuartzCore.framework */; };
 		7F80FFA4155298DC009FAF99 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F80FFA3155298DC009FAF99 /* ImageIO.framework */; };
-		7F8664B7149F3B7C0074326B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8664B6149F3B7C0074326B /* libz.dylib */; };
 		7F9AEDE714A10525004E034C /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9AEDE614A10525004E034C /* MainWindow-iPad.xib */; };
 		7FABECC814A1082F00E3420C /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FABECC614A1082F00E3420C /* libVisageCore.a */; };
 		7FABECC914A1082F00E3420C /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FABECC714A1082F00E3420C /* libVisageVision.a */; };
 		7FCE132E148F845600C5B776 /* FaceDetectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE132D148F845600C5B776 /* FaceDetectViewController.m */; };
+		D7F3112E1BD65EA300194E27 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F3112D1BD65EA300194E27 /* libz.1.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		100035451671F82100893CD5 /* StaticModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StaticModel.h; path = ../../../include/StaticModel.h; sourceTree = "<group>"; };
 		100035461671F82100893CD5 /* VisageFeaturesDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisageFeaturesDetector.h; path = ../../../include/VisageFeaturesDetector.h; sourceTree = "<group>"; };
-		10259AB7167B25C2002501BB /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = ../data/candide3.fdp; sourceTree = "<group>"; };
-		10259AB8167B25C2002501BB /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = ../data/candide3.wfm; sourceTree = "<group>"; };
-		10259ABB167B25C2002501BB /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Face Detector.cfg"; path = "../data/Face Detector.cfg"; sourceTree = "<group>"; };
-		10BB55811672140B0071DDB6 /* candide.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide.wfm; path = ../data/candide.wfm; sourceTree = "<group>"; };
 		10BB55971672158A0071DDB6 /* VisageFeaturesDetectorWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisageFeaturesDetectorWrapper.h; sourceTree = "<group>"; };
 		10BB55981672159B0071DDB6 /* VisageFeaturesDetectorWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VisageFeaturesDetectorWrapper.mm; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,10 +47,11 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5F02E7361BA9A6A6001FC0C8 /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = ../../data/candide3.fdp; sourceTree = "<group>"; };
+		5F02E7381BA9A6B2001FC0C8 /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = ../../data/candide3.wfm; sourceTree = "<group>"; };
+		5F02E73C1BA9A6D6001FC0C8 /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Face Detector.cfg"; path = "../../data/Face Detector.cfg"; sourceTree = "<group>"; };
+		5F02E73E1BA9A6EC001FC0C8 /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = ../../data/bdtsdata; sourceTree = "<group>"; };
 		5FB2A1821994CF9800375E62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FaceDetectDemo/Images.xcassets; sourceTree = "<group>"; };
-		5FC0CB5D182B922800FAECDD /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bdtsdata; path = ../data/bdtsdata; sourceTree = "<group>"; };
-		5FC0CB5E182B922800FAECDD /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.fdp; path = ../data/candide3.fdp; sourceTree = "<group>"; };
-		5FC0CB5F182B922800FAECDD /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = candide3.wfm; path = ../data/candide3.wfm; sourceTree = "<group>"; };
 		5FC69E901834BDE000958088 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		7F5BE46915A2FEEA00A23D53 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		7F7F68321356F90A004CEF3D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -67,7 +61,6 @@
 		7F7F7B9F1358600E00481B4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F80FFA3155298DC009FAF99 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		7F866371149F34840074326B /* FaceDetectDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetectDemo_Prefix.pch; sourceTree = "<group>"; };
-		7F8664B6149F3B7C0074326B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7F92F74514BAE499004FAA57 /* FBAPs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBAPs.h; path = ../../../include/FBAPs.h; sourceTree = "<group>"; };
 		7F92F74614BAE499004FAA57 /* FDP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FDP.h; path = ../../../include/FDP.h; sourceTree = "<group>"; };
 		7F92F74914BAE499004FAA57 /* gluLookAt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gluLookAt.h; path = ../../../include/gluLookAt.h; sourceTree = "<group>"; };
@@ -84,6 +77,7 @@
 		7FCE132C148F845600C5B776 /* FaceDetectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetectViewController.h; sourceTree = "<group>"; };
 		7FCE132D148F845600C5B776 /* FaceDetectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceDetectViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* FaceDetectDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FaceDetectDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		D7F3112D1BD65EA300194E27 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F3112E1BD65EA300194E27 /* libz.1.dylib in Frameworks */,
 				7F5BE46A15A2FEEA00A23D53 /* MobileCoreServices.framework in Frameworks */,
 				7F80FFA4155298DC009FAF99 /* ImageIO.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -101,7 +96,6 @@
 				7F7F7B181358516F00481B4E /* CoreVideo.framework in Frameworks */,
 				7F7F7B1E1358518300481B4E /* CoreMedia.framework in Frameworks */,
 				7F7F7BA01358600E00481B4E /* QuartzCore.framework in Frameworks */,
-				7F8664B7149F3B7C0074326B /* libz.dylib in Frameworks */,
 				7FABECC814A1082F00E3420C /* libVisageCore.a in Frameworks */,
 				7FABECC914A1082F00E3420C /* libVisageVision.a in Frameworks */,
 			);
@@ -158,15 +152,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F02E7381BA9A6B2001FC0C8 /* candide3.wfm */,
+				5F02E7361BA9A6A6001FC0C8 /* candide3.fdp */,
 				5FB2A1821994CF9800375E62 /* Images.xcassets */,
 				5FC69E901834BDE000958088 /* icon.png */,
-				5FC0CB5D182B922800FAECDD /* bdtsdata */,
-				5FC0CB5E182B922800FAECDD /* candide3.fdp */,
-				5FC0CB5F182B922800FAECDD /* candide3.wfm */,
-				10259ABB167B25C2002501BB /* Face Detector.cfg */,
-				10259AB7167B25C2002501BB /* candide3.fdp */,
-				10259AB8167B25C2002501BB /* candide3.wfm */,
-				10BB55811672140B0071DDB6 /* candide.wfm */,
+				5F02E73E1BA9A6EC001FC0C8 /* bdtsdata */,
+				5F02E73C1BA9A6D6001FC0C8 /* Face Detector.cfg */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* FaceDetectDemo-Info.plist */,
 			);
@@ -176,6 +167,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7F3112D1BD65EA300194E27 /* libz.1.dylib */,
 				7F5BE46915A2FEEA00A23D53 /* MobileCoreServices.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -185,7 +177,6 @@
 				7F7F7B171358516F00481B4E /* CoreVideo.framework */,
 				7F7F7B1D1358518300481B4E /* CoreMedia.framework */,
 				7F7F7B9F1358600E00481B4E /* QuartzCore.framework */,
-				7F8664B6149F3B7C0074326B /* libz.dylib */,
 				7F80FFA3155298DC009FAF99 /* ImageIO.framework */,
 			);
 			name = Frameworks;
@@ -253,7 +244,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = fer.tel.hr;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FaceDetectDemo" */;
@@ -280,17 +271,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F02E73D1BA9A6D6001FC0C8 /* Face Detector.cfg in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				7F9AEDE714A10525004E034C /* MainWindow-iPad.xib in Resources */,
-				10BB55841672140B0071DDB6 /* candide.wfm in Resources */,
-				10259AB9167B25C2002501BB /* candide3.fdp in Resources */,
 				5FB2A1831994CF9800375E62 /* Images.xcassets in Resources */,
-				10259ABA167B25C2002501BB /* candide3.wfm in Resources */,
-				5FC0CB61182B922900FAECDD /* bdtsdata in Resources */,
 				5FC69E911834BDE000958088 /* icon.png in Resources */,
-				10259ABC167B25C2002501BB /* Face Detector.cfg in Resources */,
-				5FC0CB63182B922900FAECDD /* candide3.wfm in Resources */,
-				5FC0CB62182B922900FAECDD /* candide3.fdp in Resources */,
+				5F02E7391BA9A6B2001FC0C8 /* candide3.wfm in Resources */,
+				5F02E73F1BA9A6EC001FC0C8 /* bdtsdata in Resources */,
+				5F02E7371BA9A6A6001FC0C8 /* candide3.fdp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +309,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -338,17 +327,13 @@
 					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/include/opencv\"",
 				);
 				INFOPLIST_FILE = "FaceDetectDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../lib\"",
-					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/lib\"",
-					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
-					"\"$(SRCROOT)/../../../../OpenCV-2.4.0\"",
-					"\"$(SRCROOT)/../../../../OpenCV-2.4.0/build/lib/Release\"",
-					"\"$(SRCROOT)/../../../../visageSDK-iOS/dependencies/OpenCV-iOS/lib\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.visagetechnologies.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FaceDetectDemo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -368,6 +353,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FaceDetectDemo_Prefix.pch;
@@ -385,18 +371,14 @@
 					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/include/opencv\"",
 				);
 				INFOPLIST_FILE = "FaceDetectDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../lib\"",
-					"\"$(SRCROOT)/../../../dependencies/OpenCV-iOS/lib\"",
-					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
-					"\"$(SRCROOT)/../../../../OpenCV-2.4.0\"",
-					"\"$(SRCROOT)/../../../../OpenCV-2.4.0/build/lib/Release\"",
-					"\"$(SRCROOT)/../../../../visageSDK-iOS/dependencies/OpenCV-iOS/lib\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.visagetechnologies.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FaceDetectDemo;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -413,10 +395,12 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = VISAGE_STATIC;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
 			};
@@ -428,12 +412,14 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = VISAGE_STATIC;
 				GCC_UNROLL_LOOPS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_CFLAGS = "";
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = "";
 				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*]" = "";

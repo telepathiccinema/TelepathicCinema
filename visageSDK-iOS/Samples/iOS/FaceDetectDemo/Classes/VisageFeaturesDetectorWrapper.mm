@@ -42,6 +42,7 @@ using namespace VisageSDK;
     int maxFaces = 100;
     FaceData* data = new FaceData[maxFaces];
     int faces = -1;
+    visageFeaturesDetector->setOutputImage(resizedInput);
     faces = visageFeaturesDetector->detectFacialFeatures(resizedInput, data, maxFaces);
     
     if(faces > 0)

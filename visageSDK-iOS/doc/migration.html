@@ -12,7 +12,122 @@
 
 <h2>Changes in this release</h2> 
 
-<p>This section covers all changes introduced in all releases since 7.1.774.</p>
+<p>This section covers all changes introduced in all releases since 7.3.1860</p>
+
+<h3>API changes:</h3>
+
+<p>1. Rendering has been moved from the visage|SDK library to samples, thus following optional interfaces for VisageTracker2 have been removed:</p>
+<pre>class TrackerGUIInterface</pre>
+<pre>class TrackerOpenGLInterface</pre>
+
+<p>2. VisageTracker2 constructor has been removed</p>
+<pre>VisageTracker2(TrackerOpenGLInterface *oglInterface, TrackerGUIInterface *guiInterface, const char *trackerConfigFile)</pre>
+
+use
+
+<pre>VisageTracker2(const char* trackerConfigFile);</pre>
+
+<p>3. Method for tracking from a digital camera is changed to accept additional optional parameters for picking camera device and setting camera width and height: </p>
+<pre>bool trackFromCam(const char* outFbaFileName = NULL, int orientation = VISAGE_CAMERA_UP, int frameGrabberImageFormat = VISAGE_FRAMEGRABBER_FMT_RGB, bool startThread = true, int pickCamDevice = -1, int camWidth = -1, int camHeight = -1);</pre>
+
+<h3>Changes in configuration files:</h3>
+
+<p>FFT and HT Configuration files have been removed. Two new configurations have been added to the <i>Samples/data</i> folder:</p>
+<ul>
+<li>Facial Features Tracker - High.cfg - for use with newer and faster processors (e.g. iPhone 6, iPhone 6+ ... ).</li>
+<li>Facial Features Tracker - Low.cfg - for use with older and slower processors (e.g. iPhone 4, iPhone 4S, iPad 2 ... ).</li>
+</ul>
+
+<h3>Changes in configuration file format:</h3>
+<ul>
+<li><p>New configuration optional parameters <b>high_prec_addition</b> and <b>tracking_preproc</b> added. If they are not listed in the configuration file default values will be used (1,1).</li>
+<li><p>Smoothing factor groups have been updated. Default values of smoothing factors have been changed in configuration files. <br> For detailed description of these changes consult <a href="VisageTracker Configuration Manual.pdf" target="_blank">VisageTracker Configuration Manual</a>.</p></li>
+<li><p>All configuration now use <i>candide3.wfm</i> model file. It is recommended to set the <b> model_filename</b> parameter in all existing configurations so it points to <i>candide3.wfm</i>.<p></li>
+</ul>
+<p>If you want to update your existing configuration files, it is recommended to copy the values for these new parameters from the 
+Facial Features Tracker - High.cfg configuration file supplied in this package. 
+In all other cases, simply use the provided configuration files.
+</p>
+
+<h3>Data files changes:</h3>
+
+<p>
+Data files location has been changed from <i>Samples\iOS\data</i> folder to <i>Samples\data</i> folder. Copy all files located in the <i>bdtsdata</i> folder to appropriate folders in any existing applications.<br/>
+</p>
+<p>
+Symmetrical Candide3 face model (old candide3.wfm) has been removed and replaced with asymmetric Candide3 face model, formerly <b>candide3-exp.wfm</b> now <b>candide3.wfm</b>.
+</p>
+
+<h3>Samples changes:</h3>
+<p>
+Frame and tracking results rendering code has been moved from the visage|SDK library to a separate source file <b>VisageRendering.cpp</b>. The source code is part of visage|SDK sample projects.
+</p>    
+
+<br><br><br><br><hr>
+<h2>Changes in older releases</h2>
+<hr>
+
+<h2>visage|SDK 7.3.1860</h2>
+
+<h3>API changes:</h3>
+
+<p>1. Old method for tracking from raw images and the respective interface class are deprecated:<pre>bool trackFromRawImages(VisageTrackerFrameGrabber *frameGrabber, 
+                        int width, 
+                        int height, 
+                        int format, 
+                        int origin, 
+                        const char *outFbaFileName=NULL);</pre>
+and
+<pre>class VisageTrackerFrameGrabber</pre>
+New method is introduced: <pre>virtual int <a href="html/classVisageSDK_1_1VisageTracker2.html#a3534b35c06db96b83d627d94b6bb0527" target="_blank">track</a>(int frameWidth, 
+                  int frameHeight,
+                  const char *p_imageData,
+                  FaceData *facedata, 
+                  int format=VISAGE_FRAMEGRABBER_FMT_RGB, 
+                  int origin=VISAGE_FRAMEGRABBER_ORIGIN_TL, 
+                  int widthStep=0);</pre>
+</p>
+<p>2. Screen space gaze API has been separated from the VisageTracker2 class. Specialized <a href="html/classVisageSDK_1_1VisageGazeTracker.html" target="_blank">VisageGazeTracker</a> class added. There have been no changes in screen space gaze API methods.</p>
+<p>3. Additional functionality has been added to the API:</p>
+<ul>
+<li>Reset tracker functionality added.
+<pre>void VisageTracker2::reset();</pre>
+</li>
+<li>Get normalized face in an image functionality added.
+ <pre>void <a href="html/classVisageSDK_1_1VisageTracker2.html#a52ea35fe95594cdc7dda7d98206a270b" target="_blank">getNormalizedFaceImage</a>(IplImage* frame, 
+                            IplImage* normFace, 
+                            FaceData* face_data, 
+                            FDP* normFDP, 
+                            int norm_type = VS_NORM_POSE);
+                            </pre>
+</li>
+</ul>
+
+<h3>Changes in configuration file format:</h3>
+
+<ul>
+<li>New configuration optional parameters <b>lbf_stage_modifier</b>, <b>lbf_nperturb</b> added. If they are not listed in the configuration file default values will be used (0, 5 in the order listed).</li>
+<li>New configuration optional parameter <b>max_work_size</b> added. If the parameter is not listed in the configuration file or if the supplied value is less than 100 or greater than 1080, default value 320 is used. </li>
+</ul>
+
+<p>If you want to update your existing configuration files, it is recommended to copy the values for these new parameters from the configuration files supplied in this package. 
+In all other cases, simply use the provided configuration files.
+</p>
+
+<h3>Data files changes:</h3>
+
+<p>
+Data files are located in <i>Samples\iOS\data</i> folder. Copy all files located in the <i>bdtsdata</i> folder to appropriate folders in any existing applications.<br/>
+</p>
+
+<h3>Other:</h3>
+
+<p>
+Migrated Unity sample applications from Unity 4.x to Unity 5.x.</br></br>
+<b>Note:</b> Default standard library for Unity 5.x is libc++, therefore visage|SDK libstdc++ libraries and dependencies have been removed.
+</p>
+
+<h2>visage|SDK 7.2.1286</h2>
 
 <h3>API changes:</h3>
 
@@ -83,10 +198,6 @@ Enabled fitting while mouth is moderately open during initialization.
 <p>
 Action Units for eye closure now return continuous results.
 </p>
-
-<br><br><br><br><hr>
-<h2>Changes in older releases</h2>
-<hr>
 
 <h2>visage|SDK 7.1.774</h2>
 

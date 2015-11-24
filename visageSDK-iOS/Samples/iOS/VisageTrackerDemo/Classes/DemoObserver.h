@@ -4,7 +4,7 @@
 using namespace VisageSDK;
 
 /**
-* The simple observer class demonstrating the use of the VisageTrackerObserver mechanism to obtain tracking data
+* The simple observer class demonstrating the use of the VisageSDK::VisageTrackerObserver mechanism to obtain tracking data
 * and display them in the debug console.
 *
 */

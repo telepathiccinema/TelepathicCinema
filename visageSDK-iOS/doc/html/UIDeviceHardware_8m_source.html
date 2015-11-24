@@ -56,7 +56,7 @@
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;sys/sysctl.h&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interfaceUIDeviceHardware.html" title="Class that implements methods that are used to determine specific version of device software is runni...">UIDeviceHardware</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interfaceUIDeviceHardware.html" title="Implements methods that are used to determine specific version of device software is running on...">UIDeviceHardware</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754">   12</a></span>&#160;+ (NSString *) <a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a>{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">size_t</span> size;</div>
@@ -69,7 +69,7 @@
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="interfaceUIDeviceHardware.html#a1793d1b1c902110d04d5fea9e9c32ac5">   22</a></span>&#160;+ (NSString *) <a class="code" href="interfaceUIDeviceHardware.html#a1793d1b1c902110d04d5fea9e9c32ac5" title="Returns more descriptive device name.">platformString</a>{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    NSString *<a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a> = [<a class="code" href="interfaceUIDeviceHardware.html" title="Class that implements methods that are used to determine specific version of device software is runni...">UIDeviceHardware</a> <a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a>];</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    NSString *<a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a> = [<a class="code" href="interfaceUIDeviceHardware.html" title="Implements methods that are used to determine specific version of device software is running on...">UIDeviceHardware</a> <a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a>];</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span> ([<a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a> isEqualToString:<span class="stringliteral">@&quot;iPhone1,1&quot;</span>])    <span class="keywordflow">return</span> <span class="stringliteral">@&quot;iPhone 1G&quot;</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span> ([<a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a> isEqualToString:<span class="stringliteral">@&quot;iPhone1,2&quot;</span>])    <span class="keywordflow">return</span> <span class="stringliteral">@&quot;iPhone 3G&quot;</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> ([<a class="code" href="interfaceUIDeviceHardware.html#a2cf7b0912c26d8790a1eedba7b6af754" title="Returns exact device name.">platform</a> isEqualToString:<span class="stringliteral">@&quot;iPhone2,1&quot;</span>])    <span class="keywordflow">return</span> <span class="stringliteral">@&quot;iPhone 3GS&quot;</span>;</div>
@@ -114,7 +114,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:36 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

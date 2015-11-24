@@ -72,30 +72,33 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad23a5d91f896b82fa7f88dc3b9532e1a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#ad23a5d91f896b82fa7f88dc3b9532e1a">Initialize</a> (const char *path)</td></tr>
 <tr class="memdesc:ad23a5d91f896b82fa7f88dc3b9532e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the feature detector.  <a href="#ad23a5d91f896b82fa7f88dc3b9532e1a"></a><br/></td></tr>
 <tr class="separator:ad23a5d91f896b82fa7f88dc3b9532e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee2f80c00af462bf231c639a2efa2a07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#aee2f80c00af462bf231c639a2efa2a07">detectFacialFeatures</a> (IplImage *frame, <a class="el" href="structVisageSDK_1_1FaceData.html">FaceData</a> *output, int maxFaces=1, int minFaceSize=0)</td></tr>
-<tr class="memdesc:aee2f80c00af462bf231c639a2efa2a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs faces and facial features detection in a still image.  <a href="#aee2f80c00af462bf231c639a2efa2a07"></a><br/></td></tr>
-<tr class="separator:aee2f80c00af462bf231c639a2efa2a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a965f08dab756fe807a9a498232d7da66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a965f08dab756fe807a9a498232d7da66">detectFacialFeatures</a> (const char *imageFileName, <a class="el" href="structVisageSDK_1_1FaceData.html">FaceData</a> *output, int maxFaces=1, int minFaceSize=0)</td></tr>
-<tr class="memdesc:a965f08dab756fe807a9a498232d7da66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs faces and facial features detection in a still image.  <a href="#a965f08dab756fe807a9a498232d7da66"></a><br/></td></tr>
-<tr class="separator:a965f08dab756fe807a9a498232d7da66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af910ae5caf2ddc071e8ef3c204612130"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#af910ae5caf2ddc071e8ef3c204612130">drawResults</a> (IplImage *img)</td></tr>
-<tr class="memdesc:af910ae5caf2ddc071e8ef3c204612130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws last detection results on top of the provided image.  <a href="#af910ae5caf2ddc071e8ef3c204612130"></a><br/></td></tr>
-<tr class="separator:af910ae5caf2ddc071e8ef3c204612130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dddc25bbc05aa8f500cbdc0d97834fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a6dddc25bbc05aa8f500cbdc0d97834fc">detectFacialFeatures</a> (IplImage *frame, <a class="el" href="structVisageSDK_1_1FaceData.html">FaceData</a> *output, int maxFaces=1, float minFaceScale=0.1f)</td></tr>
+<tr class="memdesc:a6dddc25bbc05aa8f500cbdc0d97834fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs faces and facial features detection in a still image.  <a href="#a6dddc25bbc05aa8f500cbdc0d97834fc"></a><br/></td></tr>
+<tr class="separator:a6dddc25bbc05aa8f500cbdc0d97834fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7d6baa22afd76f3b718d5074b3f5b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a8a7d6baa22afd76f3b718d5074b3f5b1">detectFacialFeatures</a> (const char *imageFileName, <a class="el" href="structVisageSDK_1_1FaceData.html">FaceData</a> *output, int maxFaces=1, float minFaceScale=0.1f)</td></tr>
+<tr class="memdesc:a8a7d6baa22afd76f3b718d5074b3f5b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs faces and facial features detection in a still image.  <a href="#a8a7d6baa22afd76f3b718d5074b3f5b1"></a><br/></td></tr>
+<tr class="separator:a8a7d6baa22afd76f3b718d5074b3f5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d61e2d1d4849e9744715c66b190568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a65d61e2d1d4849e9744715c66b190568">drawResults</a> (IplImage *img, int faceIndex=-1)</td></tr>
+<tr class="memdesc:a65d61e2d1d4849e9744715c66b190568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws last detection results on top of the provided image.  <a href="#a65d61e2d1d4849e9744715c66b190568"></a><br/></td></tr>
+<tr class="separator:a65d61e2d1d4849e9744715c66b190568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e3145b2c674dc2a21c67e6489b8970b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a8e3145b2c674dc2a21c67e6489b8970b">getNormalizedFaceImage</a> (IplImage *frame, IplImage *normFace, <a class="el" href="structVisageSDK_1_1FaceData.html">FaceData</a> *face_data, <a class="el" href="classVisageSDK_1_1FDP.html">FDP</a> *normFDP, int norm_type)</td></tr>
+<tr class="memdesc:a8e3145b2c674dc2a21c67e6489b8970b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get normalized face image.  <a href="#a8e3145b2c674dc2a21c67e6489b8970b"></a><br/></td></tr>
+<tr class="separator:a8e3145b2c674dc2a21c67e6489b8970b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Faces and facial features detector implementation. </p>
 <p>This class detects one or more faces and their facial features in an image. The input is an image bitmap or an image file in one of the supported file formats: JPEG, PNG, BMP or PPM. The results are, for each detected face, the 3D head pose, the coordinates of facial feature points, e.g. chin tip, nose tip, lip corners etc. and 3D face model fitted to the face. The results are returned in one or more <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects, one for each detected face. Please refer to the <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> documentation for detailed description of returned data.</p>
-<p>To use the detector, first initialise it by calling the function <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#ad23a5d91f896b82fa7f88dc3b9532e1a">Initialize()</a>, then call the function detectFacialFeatures() to perform facial features detection on the image. Several data files are needed for facial features detection and the path to the folder containing these data files must be passed to the initialization function, for example:</p>
+<p>To use the detector, first initialise it by calling the function <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#ad23a5d91f896b82fa7f88dc3b9532e1a">Initialize()</a>, then call the function <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a6dddc25bbc05aa8f500cbdc0d97834fc">detectFacialFeatures()</a> to perform facial features detection on the image. Several data files are needed for facial features detection and the path to the folder containing these data files must be passed to the initialization function, for example:</p>
 <div class="fragment"><div class="line">std::string dataPath(<span class="stringliteral">&quot;.&quot;</span>); <span class="comment">//Assuming the current working folder contains data files.   </span></div>
 <div class="line"></div>
 <div class="line">m_Detector-&gt;Initialize(dataPath.c_str());</div>
-</div><!-- fragment --><p>The data files are provided in the folder Samples/[PLATFORM]/data/FaceDetector and its subfolders. The whole FaceDetector folder must be distributed with an application using <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html" title="Faces and facial features detector implementation.">VisageFeaturesDetector</a>, and its path passed to the initialization function.</p>
+</div><!-- fragment --><p>The data files are provided in the folder Samples/data and its subfolders. The whole FaceDetector folder must be distributed with an application using <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html" title="Faces and facial features detector implementation.">VisageFeaturesDetector</a>, and its path passed to the initialization function.</p>
 <p>Implemented in vsvision.lib</p>
-<p>Demonstrated in <a href="../../../Samples/OpenGL/build/msvc90/FaceDetector/doc/html/index.html">FaceDetector</a> sample project. </p>
+<p>Demonstrated in <a href="../facedetect.html">FaceDetector</a> sample project. </p>
 
-<p>Definition at line <a class="el" href="VisageFeaturesDetector_8h_source.html#l00051">51</a> of file <a class="el" href="VisageFeaturesDetector_8h_source.html">VisageFeaturesDetector.h</a>.</p>
+<p>Definition at line <a class="el" href="VisageFeaturesDetector_8h_source.html#l00076">76</a> of file <a class="el" href="VisageFeaturesDetector_8h_source.html">VisageFeaturesDetector.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aee2f80c00af462bf231c639a2efa2a07"></a>
+<a class="anchor" id="a6dddc25bbc05aa8f500cbdc0d97834fc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -120,8 +123,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>minFaceSize</em> = <code>0</code>&#160;</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>minFaceScale</em> = <code>0.1f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -132,27 +135,27 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Performs faces and facial features detection in a still image. </p>
-<p>The algorithm detects one or more faces and their features. The results are, for each detected face, the 3D head pose, the coordinates of facial feature points, e.g. chin tip, nose tip, lip corners etc and 3D face model fitted to the face.</p>
+<p>The algorithm detects one or more faces and their features. The results are, for each detected face, the 3D head pose, gaze direction, eye closure, the coordinates of facial feature points, e.g. chin tip, nose tip, lip corners etc and 3D face model fitted to the face.</p>
 <p>The results are returned in form of <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects. An array of <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects passed to this method as output parameter should be allocated to maxFaces size. For example:</p>
 <div class="fragment"><div class="line">FaceData* data = <span class="keyword">new</span> FaceData[maxFaces];</div>
 <div class="line"></div>
-<div class="line">n = this-&gt;m_Detector-&gt;detectFacialFeatures(image, data, maxFaces);</div>
+<div class="line">n = this-&gt;m_Detector-&gt;detectFacialFeatures(image, data, maxFaces, minFaceScale);</div>
 </div><!-- fragment --><p>After this call, n contains the number of faces actually detected. The first n members of the data array are filled with resulting data for each detected face. Please refer to the <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> documentation for detailed description of returned parameters. If maxFaces is smaller than the number of faces actually present in the image, the function will return only first maxFaces detected faces, starting from top left corner of the image.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">frame</td><td>the input image. </td></tr>
     <tr><td class="paramname">output</td><td>pointer to an array of <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects in which the results will be returned. </td></tr>
     <tr><td class="paramname">maxFaces</td><td>maximum number of faces to be detected </td></tr>
-    <tr><td class="paramname">minFaceSize</td><td>minimum size of the face to be detected in pixels, set to 0 to determine automatically  </td></tr>
+    <tr><td class="paramname">minFaceScale</td><td>scale of smallest face to be searched for, defined as percentage [0-1] of input image size (min(width, height))  </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of detected faces (0 or more).</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>number of detected faces (0 or more)</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a965f08dab756fe807a9a498232d7da66"></a>
+<a class="anchor" id="a8a7d6baa22afd76f3b718d5074b3f5b1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -177,8 +180,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>minFaceSize</em> = <code>0</code>&#160;</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>minFaceScale</em> = <code>0.1f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -189,27 +192,27 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Performs faces and facial features detection in a still image. </p>
-<p>The algorithm detects one or more faces and their features. The results are, for each detected face, the 3D head pose, the coordinates of facial feature points, e.g. chin tip, nose tip, lip corners etc and 3D face model fitted to the face.</p>
+<p>The algorithm detects one or more faces and their features. The results are, for each detected face, the 3D head pose, gaze direction, eye closure, the coordinates of facial feature points, e.g. chin tip, nose tip, lip corners etc and 3D face model fitted to the face.</p>
 <p>The results are returned in form of <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects. An array of <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects passed to this method as output parameter should be allocated to maxFaces size. For example:</p>
 <div class="fragment"><div class="line">FaceData* data = <span class="keyword">new</span> FaceData[maxFaces];</div>
 <div class="line"></div>
-<div class="line">n = this-&gt;m_Detector-&gt;detectFacialFeatures(image, data, maxFaces);</div>
+<div class="line">n = this-&gt;m_Detector-&gt;detectFacialFeatures(image, data, maxFaces, minFaceScale);</div>
 </div><!-- fragment --><p>After this call, n contains the number of faces actually detected. The first n members of the data array are filled with resulting data for each detected face. Please refer to the <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> documentation for detailed description of returned parameters. If maxFaces is smaller than the number of faces actually present in the image, the function will return only first maxFaces detected faces, starting from top left corner of the image.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">imageFileName</td><td>pointer to the source image file name. The supported file formats are JPEG, PNG, BMP and PPM. </td></tr>
     <tr><td class="paramname">output</td><td>pointer to an array of <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> objects in which the results will be returned. </td></tr>
     <tr><td class="paramname">maxFaces</td><td>maximum number of faces to be detected </td></tr>
-    <tr><td class="paramname">minFaceSize</td><td>minimum size of the face to be detected in pixels, set to 0 to determine automatically </td></tr>
+    <tr><td class="paramname">minFaceScale</td><td>scale of smallest face to be searched for, defined as percentage [0-1] of input image size (min(width, height)) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of detected faces (0 or more).</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>number of detected faces (0 or more)</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="af910ae5caf2ddc071e8ef3c204612130"></a>
+<a class="anchor" id="a65d61e2d1d4849e9744715c66b190568"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -217,8 +220,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void VisageSDK::VisageFeaturesDetector::drawResults </td>
           <td>(</td>
           <td class="paramtype">IplImage *&#160;</td>
-          <td class="paramname"><em>img</em></td><td>)</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>faceIndex</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -228,6 +241,72 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">img</td><td>the picture where the detection results are to be drawn </td></tr>
+    <tr><td class="paramname">faceIndex</td><td>index of the face to be drawn; if set to -1, all detected faces are drawn </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8e3145b2c674dc2a21c67e6489b8970b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VisageSDK::VisageFeaturesDetector::getNormalizedFaceImage </td>
+          <td>(</td>
+          <td class="paramtype">IplImage *&#160;</td>
+          <td class="paramname"><em>frame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IplImage *&#160;</td>
+          <td class="paramname"><em>normFace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structVisageSDK_1_1FaceData.html">FaceData</a> *&#160;</td>
+          <td class="paramname"><em>face_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classVisageSDK_1_1FDP.html">FDP</a> *&#160;</td>
+          <td class="paramname"><em>normFDP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>norm_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get normalized face image. </p>
+<p>This function returns a normalized face image with corresponding feature points. Size of the normalized face in the image is such that interpupillary distance is approximately a quarter of the image width.</p>
+<p>Face will be normalized to a varying degree depending on normalization type. For example, a rotated face with open mouth will only have its pose straightened with normalization type VS_NORM_POSE, while with addition of VS_NORM_AU the normalized face will also have closed mouth.</p>
+<p>Types of normalization are:</p>
+<ul>
+<li>VS_NORM_POSE - face translation and rotation are set to zero thereby normalizing the pose</li>
+<li>VS_NORM_SU - parameters describing the face shape (shape units) are set to zero thereby normalizing the face shape</li>
+<li>VS_NORM_AU - parameters describing facial movements (action units) are set to zero, for example open mouth will be closed</li>
+</ul>
+<p>Different types of normalization can be combined with "|" operator, for example VS_NORM_POSE | VS_NORM_SU.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>grayscale image containing the face to be normalized (input) </td></tr>
+    <tr><td class="paramname">normFace</td><td>output grayscale image, to be filled with the normalized face image; it must be allocated before calling the function; face size will depend on this image size </td></tr>
+    <tr><td class="paramname">face_data</td><td><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> structure containing the information about the face that will be normalized (input) </td></tr>
+    <tr><td class="paramname">normFDP</td><td>output features points that correspond to the normalized face; coordinates are normalized to 0-1 range with the origin of the coordinate system (0,0) placed at the bottom left corner of the image </td></tr>
+    <tr><td class="paramname">norm_type</td><td>normalization type, a binary combination of VS_NORM_POSE - normalizes pose, VS_NORM_SU - normalizes shape units and VS_NORM_AU - normalizes action units </td></tr>
   </table>
   </dd>
 </dl>
@@ -270,7 +349,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:36 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

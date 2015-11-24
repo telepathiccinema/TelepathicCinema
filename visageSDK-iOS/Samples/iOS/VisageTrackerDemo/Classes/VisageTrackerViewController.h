@@ -4,7 +4,7 @@
 @class TrackerWrapper;
 
 /**
- * Class that implements default view controller and GUI actions.
+ * Implements default view controller and GUI actions.
  *
  * Most method calls are forwarded to the TrackerWrapper object that contains specific implementions.
  *

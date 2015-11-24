@@ -18,7 +18,7 @@
 #import "Utilities.h"
 
 #import "VisageTracker2.h"
-#import "FaceData.h"
+#import "UIDeviceHardware.h"
 
 #define PLUGIN_TEXTURE_FORMAT GL_RGBA
 #define CHANNEL_COUNT 4
@@ -217,7 +217,7 @@ static SimpleObserver *observer = NULL;
 namespace VisageSDK
 {
 	// prototype for licesning
-    void initializeLicenseManager(char *licenseKeyFileFolder);
+    void initializeLicenseManager(const char *licenseKeyFileFolder);
 }
 
 // When native code plugin is implemented in .mm / .cpp file, then functions
@@ -254,8 +254,23 @@ extern "C" {
 	{
 		if (m_Tracker == NULL)
 			return false;
+        
+        if (m_Tracker->getTrackingData(0) != TRACK_STAT_OFF)
+            m_Tracker->Finish();
 
-		return m_Tracker->trackFromCam();
+        NSString* deviceType = [UIDeviceHardware platform];
+        
+        // portrait mode
+        int cam_width = 480;
+        int cam_height = 640;
+        //NSLog(deviceType);
+        // override for iPhone 4
+        if ([deviceType hasPrefix:@"iPhone3"]) {	// iPhone4
+            cam_width  = 144;
+            cam_height = 192;
+        }
+        
+        return m_Tracker->trackFromCam(NULL, VISAGE_CAMERA_UP, VISAGE_FRAMEGRABBER_FMT_RGB, false, -1, cam_width, cam_height);
 	}
     
 	void _startTracker()
@@ -265,7 +280,8 @@ extern "C" {
 
 	void _stopTracker ()
 	{
-		m_Tracker->stop();
+        m_Tracker->stop();
+        m_Tracker->Finish();
 	}
 	
 	const char* _getTrackingResults ()
@@ -295,6 +311,7 @@ extern "C" {
 	// binds a texture with the given native hardware texture id through opengl
 	void _bindTexture(int texID)
 	{
+        
 		observer->InBindTexture = true;
 		
 		if (observer->CurrentBuffer == 'A' && observer->ImageA != NULL)
@@ -313,11 +330,17 @@ extern "C" {
 		}
 		
 		observer->InBindTexture = false;
+        
 	}
 	
 	// gets the current translation
 	void _get3DData(float* tx, float* ty, float* tz,float* rx, float* ry, float* rz, int* status)
 	{
+        if (m_Tracker == NULL)
+            return;
+
+        m_Tracker->SimpleUpdate();
+
 		if (observer->TrackStatus != TRACK_STAT_OK) {
 			*tx = -10000.0f;
 			*ty = -10000.0f;
@@ -443,6 +466,13 @@ extern "C" {
 		memcpy(direction, observer->data.gazeDirection, 2 * sizeof(float));
 		return true;
 	}
+    
+    bool _getFPS(float *fps) {
+        if (observer == NULL || observer->tracker == NULL || observer->TrackStatus != TRACK_STAT_OK)
+            return false;
+        *fps = observer->data.frameRate;
+        return true;
+    }
 
 	bool _getFeaturePoints2D(int number, int* groups, int* indices, float* positions)
 	{

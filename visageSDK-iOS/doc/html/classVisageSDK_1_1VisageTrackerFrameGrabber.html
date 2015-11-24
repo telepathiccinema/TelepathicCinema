@@ -54,7 +54,7 @@
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a> interface.  
+<p>DEPRECATED, This interface is deprecated and replaced with <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a3534b35c06db96b83d627d94b6bb0527" title="Performs face tracking in the given image and returns tracking results and status.">VisageTracker2::track()</a> API.  
  <a href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="VisageTrackerFrameGrabber_8h_source.html">VisageTrackerFrameGrabber.h</a>&gt;</code></p>
@@ -64,7 +64,7 @@ Inheritance diagram for VisageSDK::VisageTrackerFrameGrabber:</div>
  <div class="center">
   <img src="classVisageSDK_1_1VisageTrackerFrameGrabber.png" usemap="#VisageSDK::VisageTrackerFrameGrabber_map" alt=""/>
   <map id="VisageSDK::VisageTrackerFrameGrabber_map" name="VisageSDK::VisageTrackerFrameGrabber_map">
-<area href="classDemoFrameGrabber.html" title="Class that implements a simple frame grabber that serves a single image to the tracker in order to de..." alt="DemoFrameGrabber" shape="rect" coords="0,56,248,80"/>
+<area href="classDemoFrameGrabber.html" title="Implements a simple frame grabber that serves a single image to the tracker in order to demonstrate t..." alt="DemoFrameGrabber" shape="rect" coords="0,56,248,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -75,10 +75,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aadce06772d63f30739606c67e6f1a663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a> interface. </p>
-<p>This virtual class provides the raw image memory interface to <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a head/facial features tracker capable of tracking facial features in video coming ...">VisageTracker2</a>, allowing the application to pass images directly to the tracker. The application that needs to pass raw images to the tracker must implement an instance of the <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a> class. Specifically, the <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663" title="Frame grabbing function (virtual - to be implemented by the application).">GrabFrame()</a> function is called for every frame of the video processed by the tracker. To associate the input frames with the output tracking data the derived class can also implement a timestamping mechanism, or simply set the timeStamp to -1 if there is no need for such mechanism. </p>
+<div class="textblock"><p>DEPRECATED, This interface is deprecated and replaced with <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a3534b35c06db96b83d627d94b6bb0527" title="Performs face tracking in the given image and returns tracking results and status.">VisageTracker2::track()</a> API. </p>
+<p>This virtual class provides the raw image memory interface to <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a face tracker capable of tracking the head pose, facial features and gaze in video...">VisageTracker2</a>, allowing the application to pass images directly to the tracker. The application that needs to pass raw images to the tracker must implement an instance of the <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="DEPRECATED, This interface is deprecated and replaced with VisageTracker2::track() API...">VisageTrackerFrameGrabber</a> class. Specifically, the <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663" title="Frame grabbing function (virtual - to be implemented by the application).">GrabFrame()</a> function is called for every frame of the video processed by the tracker. To associate the input frames with the output tracking data the derived class can also implement a timestamping mechanism, or simply set the timeStamp to -1 if there is no need for such mechanism.</p>
+<p>Demonstrated in <a href="../tracker.html">VisageTrackerDemo</a> sample project. </p>
 
-<p>Definition at line <a class="el" href="VisageTrackerFrameGrabber_8h_source.html#l00048">48</a> of file <a class="el" href="VisageTrackerFrameGrabber_8h_source.html">VisageTrackerFrameGrabber.h</a>.</p>
+<p>Definition at line <a class="el" href="VisageTrackerFrameGrabber_8h_source.html#l00070">70</a> of file <a class="el" href="VisageTrackerFrameGrabber_8h_source.html">VisageTrackerFrameGrabber.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aadce06772d63f30739606c67e6f1a663"></a>
 <div class="memitem">
@@ -103,22 +104,22 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Frame grabbing function (virtual - to be implemented by the application). </p>
-<p>When tracking is started using <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">VisageTracker2::trackFromRawImages()</a>, the <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663" title="Frame grabbing function (virtual - to be implemented by the application).">GrabFrame()</a> function is called by <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a head/facial features tracker capable of tracking facial features in video coming ...">VisageTracker2</a> during tracking whenever a new video frame is required. The application must implement this function, and the function must return the pointer to the latest video frame data. The size and format of the video frame data is defined in the call to <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">VisageTracker2::trackFromRawImages()</a> that starts the tracking.</p>
+<p>When tracking is started using VisageTracker2::trackFromRawImages(), the <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663" title="Frame grabbing function (virtual - to be implemented by the application).">GrabFrame()</a> function is called by <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a face tracker capable of tracking the head pose, facial features and gaze in video...">VisageTracker2</a> during tracking whenever a new video frame is required. The application must implement this function, and the function must return the pointer to the latest video frame data. The size and format of the video frame data is defined in the call to VisageTracker2::trackFromRawImages() that starts the tracking.</p>
 <p>The mechanism works as follows:</p>
 <ul>
-<li>The application calls <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">VisageTracker2::trackFromRawImages()</a> and passes it an instance of <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="VisageTrackerFrameGrabber interface.">VisageTrackerFrameGrabber</a>.</li>
-<li><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">VisageTracker2::trackFromRawImages()</a> starts tracking in a new thread and returns immediately.</li>
+<li>The application calls VisageTracker2::trackFromRawImages() and passes it an instance of <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html" title="DEPRECATED, This interface is deprecated and replaced with VisageTracker2::track() API...">VisageTrackerFrameGrabber</a>.</li>
+<li>VisageTracker2::trackFromRawImages() starts tracking in a new thread and returns immediately.</li>
 <li>During tracking, the tracker repeatedly calls <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663" title="Frame grabbing function (virtual - to be implemented by the application).">VisageTrackerFrameGrabber::GrabFrame()</a> to obtain video frames (images) and perform tracking on those images. If NULL is returned, tracking stops.</li>
-<li>Tracking results can be obtained using all mechanisms explained in the documentation of <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a head/facial features tracker capable of tracking facial features in video coming ...">VisageTracker2</a> class.</li>
+<li>Tracking results can be obtained using all mechanisms explained in the documentation of <a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a face tracker capable of tracking the head pose, facial features and gaze in video...">VisageTracker2</a> class.</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeStamp</td><td>The timestamp of the the input frame. The passed value will be returned with the tracking data for that frame (<a class="el" href="structVisageSDK_1_1FaceData.html#af7afec396f9581356cc0b8fea4a10b9b" title="Timestamp of the current video frame.">FaceData::timeStamp</a>). Alternatively, the value of -1 can be passed, in which case the tracker will return time, in milliseconds, measured from the moment when tracking started. If a <a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html" title="VisageTrackerObserver interface.">VisageTrackerObserver</a> is used, the timeStamp is also passed through <a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html#ac97fdbbb4679d3d270cdbd2220920b55" title="Notification function.">VisageTrackerObserver::Notify()</a> method. </td></tr>
+    <tr><td class="paramname">timeStamp</td><td>The timestamp of the the input frame. The passed value will be returned with the tracking data for that frame (<a class="el" href="structVisageSDK_1_1FaceData.html#af7afec396f9581356cc0b8fea4a10b9b" title="Timestamp of the current video frame.">FaceData::timeStamp</a>). Alternatively, the value of -1 can be passed, in which case the tracker will return time, in milliseconds, measured from the moment when tracking started. If a <a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html" title="VisageTrackerObserver interface for user-defined callback functions triggered and called by the track...">VisageTrackerObserver</a> is used, the timeStamp is also passed through <a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html#ac97fdbbb4679d3d270cdbd2220920b55" title="Notification function.">VisageTrackerObserver::Notify()</a> method. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to image pixel data; if NULL is returned, the tracker stops.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad" title="Track the face and facial features in images passed from the application using the raw image interfac...">VisageTracker2::trackFromRawImages()</a>, <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">VisageTracker2::getTrackingData()</a>, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd>VisageTracker2::trackFromRawImages(), <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce" title="Get face data and status.">VisageTracker2::getTrackingData()</a>, <a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classDemoFrameGrabber.html#ad76c2690e5db29bc789060270816956a">DemoFrameGrabber</a>.</p>
 
@@ -130,7 +131,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:36 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

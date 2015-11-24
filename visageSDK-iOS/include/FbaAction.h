@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __FbaAction_h__
 #define __FbaAction_h__
@@ -58,8 +73,6 @@ class VisageCharModel;
 * eye rotation counters the head rotation, so that it appears that the face is always gazing straight agead at the user.
 *
 * Implemented in visagefaplayer.lib
-*
-* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc90/SimplePlayer/doc/index.html">Example1</a>, <a href="../../../Samples/OpenGL/build/msvc90/SpeechSynthesis/doc/index.html">Example6</a>, and <a href="../../../Samples/OpenGL/build/msvc90/LipSync/doc/index.html">Example7</a>.
 *
 * @see FbaFileAction
 * @see SimpleFbaAction

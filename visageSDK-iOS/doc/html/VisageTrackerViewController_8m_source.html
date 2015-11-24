@@ -52,7 +52,7 @@
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#import &quot;CustomGLView.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#import &quot;TrackerWrapper.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interfaceVisageTrackerViewController.html" title="Class that implements default view controller and GUI actions.">VisageTrackerViewController</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interfaceVisageTrackerViewController.html" title="Implements default view controller and GUI actions.">VisageTrackerViewController</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">@synthesize</span> trackImage;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interfaceVisageTrackerViewController.html#abfdc53c8ca358a22b058986c47234afe" title="Timer for periodically refreshing of the results display.">resultsDisplayTimer</a>;</div>
@@ -76,7 +76,7 @@
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">self</span>.imgPicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">self</span>.tracker = [[<a class="code" href="interfaceTrackerWrapper.html" title="Class that implements simple high-level Objective-C interface around visage|SDK VisageTracker2 functi...">TrackerWrapper</a> alloc] init];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">self</span>.tracker = [[<a class="code" href="interfaceTrackerWrapper.html" title="Implements simple high-level Objective-C interface around VisageSDK::VisageTracker2 functionallity...">TrackerWrapper</a> alloc] init];</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    [<span class="keyword">self</span>.tracker initTracker:glView];</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="interfaceVisageTrackerViewController.html#abfdc53c8ca358a22b058986c47234afe" title="Timer for periodically refreshing of the results display.">resultsDisplayTimer</a> = [NSTimer scheduledTimerWithTimeInterval:1.0/60</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                           target:self</div>
@@ -93,7 +93,7 @@
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">self</span>.popover = [[UIPopoverController alloc] initWithContentViewController:self.imgPicker];</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        [<span class="keyword">self</span>.popover presentPopoverFromRect:CGRectMake(0.0, 0.0, 400.0, 400.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        [<span class="keyword">self</span> presentModalViewController:self.imgPicker animated:YES];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        [<span class="keyword">self</span> presentViewController:self.imgPicker animated:YES completion:nil];</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span>}</div>
@@ -126,7 +126,7 @@
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        moviePath = [[info objectForKey:UIImagePickerControllerMediaURL] path];</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    [<span class="keyword">self</span> dismissModalViewControllerAnimated:YES];</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    [<span class="keyword">self</span> dismissViewControllerAnimated:YES completion:nil];</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        [popover dismissPopoverAnimated:YES];</div>
@@ -176,7 +176,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:36 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

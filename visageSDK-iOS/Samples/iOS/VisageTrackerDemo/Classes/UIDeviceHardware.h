@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Class that implements methods that are used to determine specific version of device software is running on.
+ * Implements methods that are used to determine specific version of device software is running on.
  */
 @interface UIDeviceHardware : NSObject 
 

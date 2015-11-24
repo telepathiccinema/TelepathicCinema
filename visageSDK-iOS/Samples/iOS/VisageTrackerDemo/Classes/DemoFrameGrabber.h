@@ -4,7 +4,7 @@
 using namespace VisageSDK;
 
 /**
- * Class that implements a simple frame grabber that serves a single image to the tracker in order to
+ * Implements a simple frame grabber that serves a single image to the tracker in order to
  * demonstrate the raw image input mechanism. The image is read from a file.
  * 
  */

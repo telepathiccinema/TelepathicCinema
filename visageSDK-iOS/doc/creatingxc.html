@@ -8,11 +8,11 @@
 
 <body>
 
-<h1>Creating a new XCode project</h1>
+<h1>Creating a new Xcode project</h1>
 
 <p>To enable visage|SDK tracking functionality in new projects the additional frameworks, libraries and files need to be
-added to the XCode project.</p>
-<p>After creating a new XCode project the first step is to add necessary iOS frameworks:
+added to the Xcode project.</p>
+<p>After creating a new Xcode project the first step is to add necessary iOS frameworks:
 <ol>
 <li>From the Project navigator select the root item (project name).</li>
 <li>In the right window from the TARGETS section select your target.</li>
@@ -39,6 +39,8 @@ The second step is to modify project settings:
 <li>From the Project navigator select the root item (project name).</li>
 <li>In the right window from the TARGETS section select your target.</li>
 <li>Select Build Settings.</li>
+<li>Set "Enable bitcode" to NO.</li>
+<li>Set "iOS Deployment Target" to 8.1.</li>
 <li>Find the "Preprocessor Macros" setting and add the following two: <b>VISAGE_STATIC</b> and <b>IOS</b></li>
 <li>Find the "Other Warning Flags" setting and add the following: <b>-Wno-comment</b></li>
 <li>
@@ -59,29 +61,25 @@ The third step is to add visage|SDK required resources:
 <li>Create a new group called Resources in the Project navigator by right clicking on the project root item and
 selecting New Group from the pop-up menu.</li>
 <li>
-Add the following files from Samples/iOS/data folder by dragging and dropping them into newly created Resources
+Add the following files from Samples/data folder by dragging and dropping them into newly created Resources
 group, a dialog window will appear. In this window, select the "Create folder references for any added
 folders":
 <ul>
-<li>FFT - HighPerformance.cfg</li>
-<li>FFT - MidPerformance.cfg</li>
-<li>FFT - LowPerformance.cfg</li>
-<li>HT - HighPerformance.cfg</li>
-<li>HT - MidPerformance.cfg</li>
-<li>HT - LowPerformance.cfg</li>
+<li>Facial Features Tracker - High.cfg</li>
+<li>Facial Features Tracker - Low.cfg</li>
 <li>candide3.fdp</li>
 <li>candide3.wfm</li>
 <li>bdtsdata folder containing the additional data files</li>
 </ul>
 </li>
 <li>This step is optional. After requesting and receiving license key file add it to the project by dragging and dropping it into previously
-created Resources group. Also, please read the section <a href="licence.html#include_license">Including the License Key File in your application</a> in the Registration and Licensing page.</li>
+created Resources group. Also, please read the section <a href="licensing.html#include_license">Including the License Key File in your application</a> in the Registration and Licensing page.</li>
 </ol>
 <br/>
 
 The fourth step is to modify precompiled header file (.pch file) and add "<b>#include &lt;cv.h&gt;</b>" before and iOS frameworks
 #import commands.<br/>
-Note: do not forget to add license initialization code before any calls to visage|SDK, for example see <a href="licence.html#visageVision-t"><em>Including the
+Note: do not forget to add license initialization code before any calls to visage|SDK, for example see <a href="licensing.html#visageVision-t"><em>Including the
 License Key File in your application</em></a> project and code section.
 </p>
 
@@ -94,30 +92,20 @@ Both sample projects in visage|SDK incorporate automatic configuration selection
 <pre>
 	//TrackerWrapper.mm, Visage Tracker sample 
 	NSString* deviceType = [UIDeviceHardware platform];
-	if ([deviceType hasPrefix:@"iPhone3"])
-		tracker = new VisageTracker2("FFT - LowPerformance.cfg");      // iPhone4
-	else if ([deviceType hasPrefix:@"iPhone4"])
-		tracker = new VisageTracker2("FFT - MidPerformance.cfg");      // iPhone4S
-	else if ([deviceType hasPrefix:@"iPhone5"])
-		tracker = new VisageTracker2("FFT - HighPerformance.cfg");     // iPhone5
-	else if ([deviceType hasPrefix:@"iPad2"])
-		tracker = new VisageTracker2("FFT - MidPerformance.cfg");      // iPad2
-	else if ([deviceType hasPrefix:@"iPad3"])
-		tracker = new VisageTracker2("FFT - HighPerformance.cfg");     // iPad3
-	else
-		tracker = new VisageTracker2("FFT - MidPerformance.cfg");
+
+    if ([deviceType hasPrefix:@"iPhone3"] ||           // iPhone4
+        [deviceType hasPrefix:@"iPhone4"] ||           // iPhone4S
+        [deviceType hasPrefix:@"iPad2"]                // iPad2
+        )
+        tracker = new VisageTracker2("Facial Features Tracker - Low.cfg");
+    else
+        tracker = new VisageTracker2("Facial Features Tracker - High.cfg");      // all other devices
 </pre>
 <br/>
 <b>Example code as is present in Tracker.cs (Visage Tracker Unity sample): </b>
 <pre>
 	//Tracker.cs, Visage Tracker Unity sample
-	if (iPhoneSettings.generation == iPhoneGeneration.iPad2Gen) {
-		ConfigFile = "HT - MidPerformance.cfg";
-	} else if (iPhoneSettings.generation == iPhoneGeneration.iPhone4) {
-		ConfigFile = "HT - LowPerformance.cfg";
-	} else { // iPhone4S and newer)
-		ConfigFile = "HT - MidPerformance.cfg";
-	}
+  string config = "Head Tracker.cfg";
 </pre>
 It is highly recommended to use such code in all applications.<br/>
 <br/>

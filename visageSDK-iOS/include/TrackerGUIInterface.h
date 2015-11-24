@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __TrackerGUIInterface_h__
 #define __TrackerGUIInterface_h__
@@ -26,7 +41,7 @@ namespace VisageSDK
 class VisageTracker2;
 class FDP;
 
-/** Optional GUI Interface for VisageTracker2.
+/* Optional GUI Interface for VisageTracker2.
 *
 * When VisageTracker2 is configured for semi-automatic operation it
 * requires some interaction with the user through a Graphical User Interface (GUI).
@@ -137,7 +152,7 @@ public:
 	* The feature points are identified
 	* according to the MPEG-4 standard, so each feature point is identified by its group and index. For example, the tip of the chin
 	* belongs to group 2 and its index is 1, so this point is identified as point 2.1. The identification of all MPEG-4 feature points is
-	* illustrated in Figure 2 on Page 8 of the <a href="MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>.
+	* illustrated in Figure 2 on Page 8 of the <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>.
 	*
 	* The resulting feature point coordinates are returned in form of an FDP object. This is a container class used for storage of MPEG-4 feature points.
 	* It provides functions to access each feature point by its group and index and to read its coordinates. Note that FDP can store 3D points but

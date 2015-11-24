@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __VisageTracker_h__
 #define __VisageTracker_h__
@@ -51,7 +66,7 @@ class VisageTrackerObserver;
 * To attach one or more observers, use the attach() method.
 * This is a powerful mechanism allowing full access to the timing and animation at the same time as it 
 * is being generated, and dynamic modification of the animation. See this in action in 
-* <a href="../../../Samples/OpenGL/build/msvc90/FaceTracker/doc/html/index.html">Example8</a>
+* <a href="../../../Samples/OpenGL/build/msvc100/FaceTracker/doc/html/index.html">Example8</a>
 *
 *
 * VisageTracker is an implementation of FbaAction, and therefore it can be played in the FAPlayer as any other
@@ -63,7 +78,7 @@ class VisageTrackerObserver;
 *
 * Implemented in vsvision.lib
 *
-* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc90/FaceTracker/doc/html/index.html">FaceTracker sample project</a>.
+* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc100/FaceTracker/doc/html/index.html">FaceTracker sample project</a>.
 *
 */
 class VISAGE_DECLSPEC VisageTracker : public FbaAction

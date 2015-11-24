@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __VisageTrackerObserver_h__
 #define __VisageTrackerObserver_h__
@@ -23,7 +38,7 @@ using namespace std;
 namespace VisageSDK
 {
 
-/** VisageTrackerObserver interface.
+/** VisageTrackerObserver interface for user-defined callback functions triggered and called by the tracker, typically used for synchronizing the application with the tracker
 
 * This virtual class allows to get notification from VisageTracker2.
 *
@@ -36,9 +51,16 @@ namespace VisageSDK
 * Notify() function is called for every frame of the video processed by the tracker except the first one which is used for initialisation.
 *
 * \if IOS_DOXY
+* Demonstrated in <a href="../tracker.html">VisageTrackerDemo</a> sample project.
+* \elseif MACOSX_DOXY
+* Demonstrated in <a href="../tracker.html">VisageTrackerDemo</a> sample project.
+* \elseif LINUX_DOXY
+* Demonstrated in <a href="../../../Samples/Linux/build/VisageTrackerDemo/doc/index.html">FaceTracker2 sample project</a>.
+* \elseif REDHAT_DOXY
+* Demonstrated in <a href="../../../Samples/Linux/build/VisageTrackerDemo/doc/index.html">FaceTracker2 sample project</a>.
 * \elseif ANDROID_DOXY
 * \else
-* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc90/FaceTracker2/doc/html/index.html">FaceTracker2 sample project</a>.
+* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc100/FaceTracker2/doc/index.html">FaceTracker2 sample project</a>.
 * \endif
 */
 class VISAGE_DECLSPEC VisageTrackerObserver {

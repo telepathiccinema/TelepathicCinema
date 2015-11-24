@@ -49,9 +49,9 @@
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIKit.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">@class</span> <a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Class that implements simple high-level Objective-C interface around visage|SDK Visage Features Detec...">VisageFeaturesDetectorWrapper</a>;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">@class</span> <a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Implements simple high-level Objective-C interface around VisageSDK::VisageFeaturesDetector functiona...">VisageFeaturesDetectorWrapper</a>;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="interfaceFaceDetectViewController.html">   11</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interfaceFaceDetectViewController.html" title="Class that implements default view controller and GUI actions.">FaceDetectViewController</a> : UIViewController &lt;UIAlertViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate&gt; {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="interfaceFaceDetectViewController.html">   11</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interfaceFaceDetectViewController.html" title="Implements default view controller and GUI actions.">FaceDetectViewController</a> : UIViewController &lt;UIAlertViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate&gt; {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="interfaceFaceDetectViewController.html#ad92fbb33d14c115a5b9e90dba93a540d">   17</a></span>&#160;    IBOutlet UIToolbar *<a class="code" href="interfaceFaceDetectViewController.html#ad92fbb33d14c115a5b9e90dba93a540d" title="Toolbar for controlling the app.">detectToolbar</a>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
@@ -61,14 +61,14 @@
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="interfaceFaceDetectViewController.html#a8ea56b24478c6d8f9d0b0bd78f2a7639">   35</a></span>&#160;    IBOutlet UIImageView *<a class="code" href="interfaceFaceDetectViewController.html#a8ea56b24478c6d8f9d0b0bd78f2a7639" title="View for displaying results.">imageView</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="interfaceFaceDetectViewController.html#a336da8f0763d8c9c6bbef103c42a6af6">   40</a></span>&#160;    <a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Class that implements simple high-level Objective-C interface around visage|SDK Visage Features Detec...">VisageFeaturesDetectorWrapper</a> *<a class="code" href="interfaceFaceDetectViewController.html#a336da8f0763d8c9c6bbef103c42a6af6" title="Wrapper for the VisageFeaturesDetector.">detectorWrapper</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="interfaceFaceDetectViewController.html#a336da8f0763d8c9c6bbef103c42a6af6">   40</a></span>&#160;    <a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Implements simple high-level Objective-C interface around VisageSDK::VisageFeaturesDetector functiona...">VisageFeaturesDetectorWrapper</a> *<a class="code" href="interfaceFaceDetectViewController.html#a336da8f0763d8c9c6bbef103c42a6af6" title="Wrapper for the VisageFeaturesDetector.">detectorWrapper</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) UIImage *detectImage;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) IBOutlet UIToolbar *detectToolbar;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) UIImagePickerController *imgPicker;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) UIPopoverController *popover;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) <a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Class that implements simple high-level Objective-C interface around visage|SDK Visage Features Detec...">VisageFeaturesDetectorWrapper</a> *detectorWrapper;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">@property</span> (nonatomic, retain) <a class="code" href="interfaceVisageFeaturesDetectorWrapper.html" title="Implements simple high-level Objective-C interface around VisageSDK::VisageFeaturesDetector functiona...">VisageFeaturesDetectorWrapper</a> *detectorWrapper;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;-(IBAction)loadImageAction:(<span class="keywordtype">id</span>)sender;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
@@ -76,7 +76,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:35 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

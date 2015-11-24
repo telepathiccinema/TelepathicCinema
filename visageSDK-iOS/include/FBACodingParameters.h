@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __FBACodingParameters_h__
 #define __FBACodingParameters_h__
@@ -32,8 +47,6 @@ namespace VisageSDK
 * Details about these parameters and their functioning can be found in the <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>.
 *
 * Implemented in visagefbadecoder.lib
-*
-* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc90/FBACodec/doc/index.html">Example2</a>.
 *
 * @see CFBADecoder,CFBAEncoder
 */

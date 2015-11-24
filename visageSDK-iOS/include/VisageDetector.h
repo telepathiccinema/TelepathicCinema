@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __VisageDetector_h__
 #define __VisageDetector_h__
@@ -16,14 +31,25 @@
 
 #include <cv.h>
 #include "FaceData.h"
-#include "LPLocRuntime.h"
+#include "LBFShape.h"
+#include "CascadeManager.h"
 
-#define MAX_BDFS 256
+#ifndef WIN32
+#include <pthread.h>
+#include <sys/types.h>
+#define HANDLE pthread_t*
+#endif
+
+#ifdef WIN32
+#include <windows.h>
+#endif
 
 #define VS_EYES		(1)
 #define VS_NOSE		(2)
 #define VS_MOUTH	(4)
 #define VS_FACE		(VS_EYES + VS_NOSE + VS_MOUTH)
+
+#define LBF_THRESHOLD 5.0f
 
 namespace VisageSDK
 {
@@ -45,6 +71,11 @@ struct odet;
 class VisageDetector {
 
 friend class VisageFeaturesDetector;
+friend class VisageFaceAnalyser;
+friend class VisageTrackerCore;
+friend class SimpleTrackerCore;
+friend class VisageTracker2;
+friend class LBFShape;
 
 public:
 
@@ -61,14 +92,18 @@ public:
 	*/
 	~VisageDetector();
 
-
-	bool FindEyes(IplImage* faceImage, CvRect* faceRect, CvPoint2D32f* leye, CvPoint2D32f* reye);
-	bool FindNose(IplImage* faceImage, CvRect* faceRect, CvPoint2D32f* nose);
-	bool FindMouth(IplImage* faceImage, CvRect* faceRect, CvPoint2D32f* p1, CvPoint2D32f* p2);
-
+	/**
+	* Performs detection of facial bounding boxes from a still image.
+	*
+	* @param grayImage the input grayscale image.
+	* @param boundingBoxes pointer to the CvRect object in which the resulting bounding boxes will be returned.
+	* @param minFaceScale defines scale of smallest face to be searched for, defined as percentage[0-1] of input image size (min(width, height))
+	* @return represents the result of the detection as number of faces found.
+	*/
+	int detectFaces(IplImage* grayImage, CvRect* boundingBoxes, float minFaceScale = 0.2f);
 
 	/**
-	*	Performs fast detection of main facial features (eye centres, mouth corners and nose tip) from a still image containing a face.
+	* Performs detection of facial features points on a still image with given face bounding box.
 	*
 	* The result are the coordinates of facial feature points. Coordinates are normalised, so that
 	* the upper left corner of the image has coordinates 0,0 and the lower right corner has coordinates 1,1. 
@@ -82,30 +117,19 @@ public:
 	* It provides functions to access each feature point by its group and index and to read its coordinates. Note that FDP can store 3D points but
 	* here only the x and y coordinates of each point are used.
 	*
-	* The function tries to detect eye centres, mouth corners and the tip of the nose. The return value is a bit-wise indicator
-	* of which features were succesfully detected. Starting from the least significant bit, the first bit indicates detection
-	* of the face, second the eyes, third bit the mouth and fourth bit the nose. Thus return value 0 means that no face was detected, 1 means
-	* the face was detectde but not any features, 2 means eyes were detected but not nose and mouth, 11 means nose and eyes were detected but not mouth, etc.
-	* The value 15 means best possible detection when all features were detected.
-	*
-	* In case of nose and mouth, when the bit is set to 0 it means that these features are not detected and the corresponding feature points in the FDP object are not set. For the
-	* eyes, the value of 0 means that the eyes positions were just estimated and not precisely detected. Eyes feature points in the FDP objects are always set.
-	*
-	* @param input the input image.
-	* @param output pointer to the FDP object in which the results will be returned; this object must be constructed (e.g. FDP *f = new %FDP()).
-	* @param parts flag that determines which facial features will be detected: VS_EYES, VS_NOSE, VS_MOUTH, VS_FACE
-	* @return code representing the result of the detection, see above 
+	* @param grayImage the input grayscale image.
+	* @param boundingBox square bounding box containing face in given grayImage.
+	* @param featurePoints pointer to the FDP object in which the results will be returned; this object must be constructed (e.g. FDP *f = new %FDP()).
+	* @return flag indicating success of detection. 
 	*
 	* @see FDP
 	*/	
-	int detectMainFacialFeatures(IplImage* input, FDP* output, int parts = 7);
-	
-	int detectMainFacialFeaturesOld(IplImage* input, FDP* output, int parts = 7);
-		
+	bool detectFeaturePoints(const IplImage &grayImage, const CvRect &boundingBox, FDP* featurePoints);
+
 	/**
-	* Performs fast detection of main facial features (eye centres, mouth corners and nose tip) from a still image containing a face.
+	* Performs detection of multiple faces and matching facial features points on a still image.
 	*
-	* The result are the coordinates of facial feature points. Coordinates are normalised, so that
+	* The result are the coordinates of facial feature points for every detected face. Coordinates are normalised, so that
 	* the upper left corner of the image has coordinates 0,0 and the lower right corner has coordinates 1,1. 
 	*
 	* The feature points are identified
@@ -117,159 +141,62 @@ public:
 	* It provides functions to access each feature point by its group and index and to read its coordinates. Note that FDP can store 3D points but
 	* here only the x and y coordinates of each point are used.
 	*
-	* The function tries to detect eye centres, mouth corners and the tip of the nose. The return value is number of faces detected.
-	* Additionally function fills array of bitwise indicators of which features were succesfully detected on each detected face. Each element in filled array correspondes to one of detected faces. Starting from the least significant bit, the first bit in each element indicates detection
-	* of the face, second the eyes, third bit the mouth and fourth bit the nose. Thus element value 1 means
-	* the face was detected but not any features, 2 means eyes were detected but not nose and mouth, 11 means nose and eyes were detected but not mouth, etc. 
-	* The value 15 means best possible detection when all features were detected. If no faces were detected null pointer is returned.
-	*
-	* In case of nose and mouth, when the bit is set to 0 it means that these features are not detected and the corresponding feature points in the FDP object are not set. For the
-	* eyes, the value of 0 means that the eyes positions were just estimated and not precisely detected. Eyes feature points in the FDP objects are always set.
-	*
-	* @param input the input image.
-	* @param output pointer to the FDP object in which the results will be returned; this object must be constructed (e.g. FDP *f = new %FDP()).
-	* @param success array of bitwise indicators of which features where succesfully detected on each detected face, see above. this object must be constructed. 
-	* @param parts flag that determines which facial features will be detected: VS_EYES, VS_NOSE, VS_MOUTH, VS_FACE
-	* @param maxFaces maximum number of faces that can be detected
-	* @return represents the result of the detection as number of faces found
+	* @param image the input image.
+	* @param featurePoints pointer to the FDP object in which the results will be returned; this object must be constructed (e.g. FDP *f = new %FDP()).
+	* @param maxFaceCount defines maximum number of detected faces that will be processed.
+	* @param minFaceScale defines scale of smallest face to be searched for, defined as percentage[0-1] of input image size (min(width, height))
+	* @param yawEstimates pointer to the float array in wich yaw estimations will be written; must be allocated to maxFaceCount size. 
+	* @return  represents the result of the detection as number of faces found.
 	*
 	* @see FDP
 	*/
-	int detectMainFacialFeatures(IplImage* input, FDP* output, int* success, int maxFaces = 1, int parts = 7);
+	int detectFacesAndFeatures(const IplImage &image, FDP* featurePoints, int maxFaceCount = 1, float minFaceScale = 0.1f, float* yawEstimates = NULL);
 
-	/*
-	*	Given an image of a face (i.e., output of a face detector), finds the two pupils. "Left eye" means left eye of the person in the image, not the one that is on the left side of the image.
-	*
-	* The function always returns positions for the eyes, but if they can not be detected precisely it estimates the positions. The return value indicates if the detection was precise or just estimation.
+	//yaw estimation
+	void initYawKF();
+	bool detectYaw(IplImage* frame, const CvRect &rect, float& detectedYaw);
+	bool detectYaw(IplImage* frame, FDP* featurePoints, float& detectedYaw);
 
-		@param faceImage the image
-		@param leye left eye
-		@param reye right eye
-		@returns true if eyes were precisely detected, false if one or both eyes positions were just estimated because precise detection failed
-	*/
-	bool FindEyes(IplImage* faceImage, CvPoint2D32f* leye, CvPoint2D32f* reye);
-	bool FindEyes2(IplImage* faceImage, CvRect* faceRect, CvPoint2D32f* leye, CvPoint2D32f* reye);
-	bool FindEyesOld(IplImage* faceImage, CvPoint* leye, CvPoint* reye);
+	void setLBFPerturbations(int nperturb = 5);
 
-	/*
-	*	Given an image of a face (i.e., output of a face detector), finds the tip of the nose.
+	bool isInitialized() { return m_cascadeManager->isLBFDataLoaded(); }
 
-		@param faceImage the image
-		@param nose returns the coordinates of the nose tip
-		@returns true on success, false if nose is not detected
-	*/
-	bool FindNose(IplImage* faceImage, CvPoint* nose);
+	LPLocRuntime* m_lpLoc;
 
-	/*
-	*	Given an image of a face (i.e., output of a face detector), finds the mouth corners, only works for BGR color images
+	CascadeManager *m_cascadeManager;
 
-		@param faceImage the image
-		@param p1 left mouth corner
-		@param p2 right mouth corner
-		@returns 0 if mouth could not be detected nor estimated; 1 if mouth position was estimated; 2 if mouth was actually detected
-	*/
-	int FindMouth(IplImage* faceImage, CvPoint* p1, CvPoint* p2);
+	float m_detectedYaw;
 
-	void RefineEyePos(IplImage* frame, float &rep_x, float &rep_y, float &lep_x, float &lep_y);
+#ifdef D_DISPLAY_DIAGNOSTIC_RECTS
+	std::vector<CvRect> m_diagnosticRects;
+	std::vector<CvScalar> m_diagnosticRectColors;
+#endif
 
-	//
-	int detectFDP(IplImage* frame, CvRect* faceRect, FDP* fdp, int group, int n, float& r_x, float& r_y); // for initialization
-	int detectFDP(IplImage* frame, FDP* fdp, int group, int n, float& r_x, float& r_y, float& sigma);
-	int detectFDPs(IplImage* frame, FDP* fdp, float *r_x, float *r_y, float *sigma);
+	void displayRect(CvRect rect, CvScalar color);
+	void displayPoint(CvPoint point, CvScalar color);
 
-	//
-	float detectEyeOpenness(IplImage* frame, FDP* fdp, char eye, float *sigma = 0, float *out = 0);
-	int detectGaze(IplImage* frame, FDP* fdp);
+	static void setFaceFinderQC(float qc);
 
-	//
-	bool loadFaceCascade(const char *path);
+	static void calculateBoundingBox(int width, int height, FDP* fdp, CvRect* boundingBox, float* d = NULL, bool flipY = false);
 
-	//
-	bool initialised;
-
-	int detectFacialFeatures(IplImage* frame, FDP* output, bool show = false);
-
-	//return - broj lica, 
-	int detectFacialFeatures(IplImage* frame, FaceData* output, bool show = false, int maxFaces = 1);
-
-	void SetBBParams(float s0, float ds, float dp);
-
-	void setMinFaceSize(int size);
-
-	float m_s0;
-	float m_ds;
-	float m_dp;
-
-	LPLocRuntime* LpLoc;
 private:
-	bool GetFacialLandmark(IplImage* gray, float* r, float* c, float s, float* sigma, IplImage* frame, int group, int index, bool flip);
-	bool FindLandmarkPoint(IplImage* gray, float* r, float* c, float s, float* sigma, Cascade* cascade, int nperturbs, int stage = 0, int disable_macro = 0);
+	bool detectTrackingPoints(const IplImage &grayImage, const CvRect &boundingBox, FDP* featurePoints);
 
-	bool FindLandmarkPoints(IplImage* gray, float* r, float* c, float s, float* sigma, int nperturbs, int disable_macro = 0);
+	bool detectLBFPoints_prevDet(IplImage* image, LBFShape* shape, FDP* fdp, float r, float c, float s, int nperturb, float d, bool lprofile = false);
 
-	bool FindScalar(IplImage* gray, float* r, float* c, float s, float* o, float* sigma, Ensemble* ensemble, int nperturbs);
+	static void transformData(FDP *fp, int* data, bool order);
 
-	int N3FindFaces(IplImage* gray, CvRect rects[], IplImage* frame);
+	bool detectLBFFace(IplImage* image, FDP* fdp, float r, float c, float s, int nperturb, float d, FaceOrientation orientation);
+	bool detectLBFFace_mean(IplImage* image, FDP* fdp, float r, float c, float s, int nperturb, float d, float yaw);
+	bool detectLBFPoints(IplImage* image, LBFShape* shape, FDP* fdp, float r, float c, float s, int nperturb, float d, bool lprofile = false);
 
-	int minFaceSize;
-	bool useMinFaceSize;
+#ifndef EMSCRIPTEN
+	cv::KalmanFilter* m_yawKF;
+#endif
 
-	bool Init(const char* dataPath);
+	int m_fliph;
 
-	// bdfs for different stuff
-	BDF* bdfs[MAX_BDFS];
-	bool hFlipPatchAndResult[MAX_BDFS];
-
-	Cascade *puploc;
-	Cascade *puploc2;
-	Cascade *cascade93;
-	Cascade *cascade92;
-	Cascade *cascade312;
-	Cascade *cascade314;
-	Cascade *cascade36;
-	Cascade *cascade38;
-	Cascade *cascade42;
-	Cascade *cascade44;
-	Cascade *cascade46;
-	Cascade *cascade84;
-	Cascade *cascade81;
-	Cascade *cascade82;
-	Cascade *cascade34;
-	Cascade *cascade32;
-	Cascade *cascade22;
-	Cascade *cascade23;
-	odet *faceOd;
-	Ensemble *eye_closure;
-
-
-	int noFaceDetectCount;
-	IplImage *patch_eye;
-	IplImage *patch_refine;
-
-	CvMemStorage* mStorage;
-    ///container for the xml file trained to detect frontal faces
-	CvHaarClassifierCascade* mFaceCascade;
-	CvHaarClassifierCascade* mMouthCascade;
-	CvHaarClassifierCascade* mNoseCascade;
-	CvHaarClassifierCascade* mRightEyeCascade;
-
-	void calculateFDP(FDP* f, int w, int h, CvMat* vert, bool _3D);
-	void setFDPIndices(FDP* f);
-	bool fitModelToFace(FDP *input, FDP* output, IplImage *frame);
-	
-	//puni face data objekt
-	bool fitModelToFace(FDP* input, FaceData* output, IplImage * frame);
-
-	FBFT* fbft;
-
-	int fliph;
-
-	//Multiply with carry PRNG
-	unsigned int m_w;
-	unsigned int m_z;
-	void smwcrand(unsigned int m_w_, unsigned int m_z_);
-	unsigned int mwcrand();
-
+	int m_nperturb;
 };
 
 }

@@ -11,7 +11,7 @@
 #import <OpenGLES/ES1/glext.h>
 
 /**
- * Class that implements OpenGL ES View.
+ * Controls OpenGL view used for tracking output.
  *
  * It is used by the TrackerWrapper to display video frame and wireframe of the 3D face model acquired from the tracker using OpenGL calls. 
  * 

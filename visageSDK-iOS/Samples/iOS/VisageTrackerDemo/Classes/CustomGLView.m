@@ -69,21 +69,6 @@
 	return self;
 }
 
-// Updates the OpenGL view
-- (void)drawView
-{
-	// Make sure that you are drawing to the current context
-/*	[EAGLContext setCurrentContext:context];
-		
-	glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-	glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
-	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
-*/
-}
-
 // If our view is resized, we'll be asked to layout subviews.
 // This is the perfect opportunity to also update the framebuffer so that it is
 // the same size as our display area.
@@ -92,7 +77,6 @@
 	[EAGLContext setCurrentContext:context];
 	[self destroyFramebuffer];
 	[self createFramebuffer];
-	[self drawView];
 }
 
 - (BOOL)createFramebuffer

@@ -56,6 +56,10 @@ extern "C" {
 	 */
 	EXPORT_API int _getActionUnitCount();
     
+    /** Returns FPS.
+     */
+    EXPORT_API bool _getFPS(float *fps);
+    
 	/** Returns the name of the action unit with the specified index.
 	 */
 	EXPORT_API const char* _getActionUnitName(int index);

@@ -7,7 +7,7 @@
 // neccessary prototype declaration for licensing
 namespace VisageSDK
 {
-    void initializeLicenseManager(char *licenseKeyFileFolder);
+    void initializeLicenseManager(const char *licenseKeyFileFolder);
 }
 #endif
 
@@ -19,7 +19,7 @@ typedef void VisageFeaturesDetector;
 #endif
 
 /**
- * Class that implements simple high-level Objective-C interface around visage|SDK Visage Features Detector functionallity.
+ * Implements simple high-level Objective-C interface around VisageSDK::VisageFeaturesDetector functionallity.
  *
  * This makes connecting the iOS app GUI with visage|SDK features detector functionaly easier as primary programming language used in iOS apps is
  * Objective-C while primary programming language used in visage|SDK is C++. The class is a subclass of NSObject and

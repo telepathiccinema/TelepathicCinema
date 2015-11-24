@@ -47,145 +47,169 @@
 <div class="title">FaceData.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __FaceData_h__</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __FaceData_h__</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifdef VISAGE_STATIC</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define VISAGE_DECLSPEC</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">    #ifdef VISAGE_EXPORTS</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">        #define VISAGE_DECLSPEC __declspec(dllexport)</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #else</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">        #define VISAGE_DECLSPEC __declspec(dllimport)</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;cv.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;FDP.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;FBAPs.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;TrackerGazeCalibrator.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>VisageSDK</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html">  219</a></span>&#160;<span class="keyword">struct </span>VISAGE_DECLSPEC <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{       </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;     <span class="comment">//data while tracking</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    </div>
-<div class="line"><a name="l00232"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a6aca0c311aeb0b3ee0eead93546235dd">  232</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a6aca0c311aeb0b3ee0eead93546235dd" title="Tracking quality level.">trackingQuality</a>;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">float</span> trackingQualityBdts;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    </div>
-<div class="line"><a name="l00239"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a7138a72d57adc5ddb75d757bf0653dc1">  239</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a7138a72d57adc5ddb75d757bf0653dc1" title="The frame rate of the tracker, in frames per second, measured over last 10 frames.">frameRate</a>;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    </div>
-<div class="line"><a name="l00249"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#af7afec396f9581356cc0b8fea4a10b9b">  249</a></span>&#160;    <span class="keywordtype">long</span> <a class="code" href="structVisageSDK_1_1FaceData.html#af7afec396f9581356cc0b8fea4a10b9b" title="Timestamp of the current video frame.">timeStamp</a>;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">// translation and rotation data</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    </div>
-<div class="line"><a name="l00278"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a854b784b183fa4021e713506deff9845">  278</a></span>&#160;    <span class="keywordtype">float</span> faceTranslation[3];</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="comment">/* Translation of the head, compensated.</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">     * &lt;i&gt;This variable is set only while tracker is tracking (TRACK_STAT_OK).&lt;/i&gt;</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">     * Translation is expressed with three coordinates x, y, z.</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">     * The coordinate system is such that when looking towards the camera, the direction of x is to the</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">     * left, y iz up, and z points towards the viewer.  The global origin (0,0,0) is placed at the camera.</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">     * Translation of the head relative to its position in the first video frame.</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">     * This is compensated translation estimated by the tracker.</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">     * Compensated translation values take into account the fact that the tracker</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">     * uses a relatively flat face model for tracking, so the center of rotation of this model</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">     * is in the front area of the head, while the anatomical center</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">     * of rotation is behind, in the base of the neck. Therefore, when the rotation</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">     * is applied to a 3D head model with anatomically correct center of rotation, the</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">     * face naturally translates as well. When this translation is compounded with</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">     * the translation values obtained from the tracker, the total resulting translation</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">     * is exaggerated. To avoid this exaggerated translation of the animated head,</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">     * the translation can be compensated. The compensation algorithm</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">     * estimates how much the translation would be exaggerated, and makes it that much</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">     * smaller. The compensated translation can directly be applied to animated head</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">     * models that use the neck base as the center of rotation, and is expected to give</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">     * better results than the uncompensated translation.</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">     * @see faceTranslation, faceRotation</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">float</span> faceTranslationCompensated[3];</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00325"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#ab5fe0bbe5ca937e2f2070c9fe07f3b82">  325</a></span>&#160;    <span class="keywordtype">float</span> faceRotation[3];</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
-<div class="line"><a name="l00338"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a756d9a030db04d3e8686d8edd9c385ef">  338</a></span>&#160;    <span class="keywordtype">float</span> gazeDirection[2];</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
-<div class="line"><a name="l00375"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a163adbed757c776cf6ce7556ec226e58">  375</a></span>&#160;    <span class="keywordtype">float</span> gazeDirectionGlobal[3];</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    </div>
-<div class="line"><a name="l00384"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a4c494a1b319a79eade8191cd7e9b7b4c">  384</a></span>&#160;    <span class="keywordtype">float</span> eyeClosure[2];</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="comment">// action units data</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a05248f4d533bb6e4977ecba4eeb866d0">  395</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a05248f4d533bb6e4977ecba4eeb866d0" title="Number of facial Action Units.">actionUnitCount</a>;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    </div>
-<div class="line"><a name="l00406"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba">  406</a></span>&#160;    <span class="keywordtype">int</span> *<a class="code" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba" title="Used facial Action Units.">actionUnitsUsed</a>;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    </div>
-<div class="line"><a name="l00421"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a7fe570893d3cfda329549c2432450e5f">  421</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="structVisageSDK_1_1FaceData.html#a7fe570893d3cfda329549c2432450e5f" title="List of current values for facial Action Units, one value for each action unit.">actionUnits</a>;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;</div>
-<div class="line"><a name="l00432"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a3b816d03c066223724aac966ec535deb">  432</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> **<a class="code" href="structVisageSDK_1_1FaceData.html#a3b816d03c066223724aac966ec535deb" title="List of facial Action Units names.">actionUnitsNames</a>;</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    </div>
-<div class="line"><a name="l00457"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#af15daaee4a0e1f4f60087ec2c3839588">  457</a></span>&#160;    FBAPs *<a class="code" href="structVisageSDK_1_1FaceData.html#af15daaee4a0e1f4f60087ec2c3839588" title="MPEG-4 facial animation parameters.">faceAnimationParameters</a>;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="comment">// feature points data</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a1fd85018c51af5c63ac2d60eb6c9d91a">  490</a></span>&#160;<span class="comment"></span>    <a class="code" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> *<a class="code" href="structVisageSDK_1_1FaceData.html#a1fd85018c51af5c63ac2d60eb6c9d91a" title="Facial feature points (global 3D coordinates).">featurePoints3D</a>;</div>
-<div class="line"><a name="l00518"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#ad64b091d44f2358f2cd0e86d7b627a99">  518</a></span>&#160;    <a class="code" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> *<a class="code" href="structVisageSDK_1_1FaceData.html#ad64b091d44f2358f2cd0e86d7b627a99" title="Facial feature points (3D coordinates relative to the origin, placed at the center between eyes)...">featurePoints3DRelative</a>;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;</div>
-<div class="line"><a name="l00548"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a98c7a959cbde274d14a92ef191e7758c">  548</a></span>&#160;    <a class="code" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> *<a class="code" href="structVisageSDK_1_1FaceData.html#a98c7a959cbde274d14a92ef191e7758c" title="Facial feature points (2D coordinates).">featurePoints2D</a>;</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    </div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="comment">// face model mesh data</span></div>
-<div class="line"><a name="l00556"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40">  556</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40" title="Number of vertices in the 3D face model.">faceModelVertexCount</a>; </div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    </div>
-<div class="line"><a name="l00576"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0">  576</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0" title="List of vertex coordinates of the 3D face model.">faceModelVertices</a>;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    </div>
-<div class="line"><a name="l00586"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6">  586</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6" title="List of projected (image space) vertex coordinates of the 3D face model.">faceModelVerticesProjected</a>;</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    </div>
-<div class="line"><a name="l00593"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e">  593</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a>;</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    </div>
-<div class="line"><a name="l00602"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434">  602</a></span>&#160;    <span class="keywordtype">int</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a>;</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    </div>
-<div class="line"><a name="l00612"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274">  612</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a>;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="comment">// frame and camera data</span></div>
-<div class="line"><a name="l00623"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a306fc247ad6223a52c1a840531680c1a">  623</a></span>&#160;<span class="comment"></span>    IplImage* <a class="code" href="structVisageSDK_1_1FaceData.html#a306fc247ad6223a52c1a840531680c1a" title="Pointer to the video frame associated with the current data, or NULL if tracker is not active...">frame</a>;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    </div>
-<div class="line"><a name="l00631"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#af3c8554e62965d5bac968c3e4aa5ec82">  631</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#af3c8554e62965d5bac968c3e4aa5ec82" title="Focal distance of the camera, as configured in the tracker/detector configuration file...">cameraFocus</a>;</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    </div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    <span class="comment">//data while initializing</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a8945fb34c26fa41aad20eea4a686d62a">  640</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a8945fb34c26fa41aad20eea4a686d62a" title="True if a face is detected during tracker initialization, false otherwise.">initFaceDetected</a>;</div>
-<div class="line"><a name="l00647"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#ae336d9fea95abd2663791da48071a11a">  647</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#ae336d9fea95abd2663791da48071a11a" title="Initial head yaw.">initYaw</a>;</div>
-<div class="line"><a name="l00654"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#aa9f491dbc1f0d28f5f1ea8f2caf36716">  654</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#aa9f491dbc1f0d28f5f1ea8f2caf36716" title="Inital head roll.">initRoll</a>;</div>
-<div class="line"><a name="l00660"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#af3c6d3f712331f1597dcbe7cf0df1e83">  660</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#af3c6d3f712331f1597dcbe7cf0df1e83" title="Estimated velocity of nose tip motion, in meters per second.">initVelocity</a>;</div>
-<div class="line"><a name="l00667"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a33899a52c4daf6edb7c70e56c03613aa">  667</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a33899a52c4daf6edb7c70e56c03613aa" title="Initialization status display enabled/disabled.">initDisplayStatus</a>;</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    </div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordtype">bool</span> isDataInitialized; <span class="comment">// true if tracking data is initialized, false otherwise</span></div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    </div>
-<div class="line"><a name="l00679"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b">  679</a></span>&#160;    ScreenSpaceGazeData <a class="code" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b" title="Structure holding screen space gaze position and quality for current frame.">gazeData</a>;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// (c) Visage Technologies AB 2002 - 2015  All rights reserved. </span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// This file is part of visage|SDK(tm). </span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Unauthorized copying of this file, via any medium is strictly prohibited. </span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// No warranty, explicit or implicit, provided. </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// This is proprietary software. No part of this software may be used or </span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// reproduced in any form or by any means otherwise than in accordance with</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// any written license granted by Visage Technologies AB. </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef __FaceData_h__</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __FaceData_h__</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifdef VISAGE_STATIC</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define VISAGE_DECLSPEC</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">    #ifdef VISAGE_EXPORTS</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">        #define VISAGE_DECLSPEC __declspec(dllexport)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">        #define VISAGE_DECLSPEC __declspec(dllimport)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;cv.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;FDP.h&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;FBAPs.h&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;TrackerGazeCalibrator.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>VisageSDK</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">struct </span>DemographicFeatures</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> gender;  <span class="comment">//1 for male, 0 for female</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> age;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html">  253</a></span>&#160;<span class="keyword">struct </span>VISAGE_DECLSPEC <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;{</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="comment">//data while tracking</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a6aca0c311aeb0b3ee0eead93546235dd">  266</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a6aca0c311aeb0b3ee0eead93546235dd" title="Tracking quality level.">trackingQuality</a>;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">float</span> trackingQualityBdts;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    </div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a7138a72d57adc5ddb75d757bf0653dc1">  273</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a7138a72d57adc5ddb75d757bf0653dc1" title="The frame rate of the tracker, in frames per second, measured over last 10 frames.">frameRate</a>;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    </div>
+<div class="line"><a name="l00283"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#af7afec396f9581356cc0b8fea4a10b9b">  283</a></span>&#160;    <span class="keywordtype">long</span> <a class="code" href="structVisageSDK_1_1FaceData.html#af7afec396f9581356cc0b8fea4a10b9b" title="Timestamp of the current video frame.">timeStamp</a>;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">// translation and rotation data</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    </div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a854b784b183fa4021e713506deff9845">  312</a></span>&#160;    <span class="keywordtype">float</span> faceTranslation[3];</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="comment">/* Translation of the head, compensated.</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">     * &lt;i&gt;This variable is set only while tracker is tracking (TRACK_STAT_OK).&lt;/i&gt;</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">     * Translation is expressed with three coordinates x, y, z.</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">     * The coordinate system is such that when looking towards the camera, the direction of x is to the</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">     * left, y iz up, and z points towards the viewer.  The global origin (0,0,0) is placed at the camera.</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">     * Translation of the head relative to its position in the first video frame.</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">     * This is compensated translation estimated by the tracker.</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">     * Compensated translation values take into account the fact that the tracker</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">     * uses a relatively flat face model for tracking, so the center of rotation of this model</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">     * is in the front area of the head, while the anatomical center</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">     * of rotation is behind, in the base of the neck. Therefore, when the rotation</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     * is applied to a 3D head model with anatomically correct center of rotation, the</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">     * face naturally translates as well. When this translation is compounded with</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">     * the translation values obtained from the tracker, the total resulting translation</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">     * is exaggerated. To avoid this exaggerated translation of the animated head,</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">     * the translation can be compensated. The compensation algorithm</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">     * estimates how much the translation would be exaggerated, and makes it that much</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">     * smaller. The compensated translation can directly be applied to animated head</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">     * models that use the neck base as the center of rotation, and is expected to give</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">     * better results than the uncompensated translation.</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">     * @see faceTranslation, faceRotation</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordtype">float</span> faceTranslationCompensated[3];</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#ab5fe0bbe5ca937e2f2070c9fe07f3b82">  359</a></span>&#160;    <span class="keywordtype">float</span> faceRotation[3];</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a756d9a030db04d3e8686d8edd9c385ef">  372</a></span>&#160;    <span class="keywordtype">float</span> gazeDirection[2];</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
+<div class="line"><a name="l00409"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a163adbed757c776cf6ce7556ec226e58">  409</a></span>&#160;    <span class="keywordtype">float</span> gazeDirectionGlobal[3];</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    </div>
+<div class="line"><a name="l00417"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a4c494a1b319a79eade8191cd7e9b7b4c">  417</a></span>&#160;    <span class="keywordtype">float</span> eyeClosure[2];</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="comment">// shape units data</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a0c65746338cc1236659c950014b02f9d">  427</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a0c65746338cc1236659c950014b02f9d" title="Number of facial Shape Units.">shapeUnitCount</a>;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    </div>
+<div class="line"><a name="l00442"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a7bc3d34519d420010cab7829c5d24b85">  442</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="structVisageSDK_1_1FaceData.html#a7bc3d34519d420010cab7829c5d24b85" title="List of current values for facial Shape Units, one value for each shape unit.">shapeUnits</a>;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">// action units data</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a05248f4d533bb6e4977ecba4eeb866d0">  453</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a05248f4d533bb6e4977ecba4eeb866d0" title="Number of facial Action Units.">actionUnitCount</a>;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    </div>
+<div class="line"><a name="l00464"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba">  464</a></span>&#160;    <span class="keywordtype">int</span> *<a class="code" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba" title="Used facial Action Units.">actionUnitsUsed</a>;</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    </div>
+<div class="line"><a name="l00479"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a7fe570893d3cfda329549c2432450e5f">  479</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="structVisageSDK_1_1FaceData.html#a7fe570893d3cfda329549c2432450e5f" title="List of current values for facial Action Units, one value for each action unit.">actionUnits</a>;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
+<div class="line"><a name="l00490"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a3b816d03c066223724aac966ec535deb">  490</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> **<a class="code" href="structVisageSDK_1_1FaceData.html#a3b816d03c066223724aac966ec535deb" title="List of facial Action Units names.">actionUnitsNames</a>;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    </div>
+<div class="line"><a name="l00515"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#af15daaee4a0e1f4f60087ec2c3839588">  515</a></span>&#160;    FBAPs *<a class="code" href="structVisageSDK_1_1FaceData.html#af15daaee4a0e1f4f60087ec2c3839588" title="MPEG-4 facial animation parameters.">faceAnimationParameters</a>;</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="comment">// feature points data</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a1fd85018c51af5c63ac2d60eb6c9d91a">  550</a></span>&#160;<span class="comment"></span>    <a class="code" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> *<a class="code" href="structVisageSDK_1_1FaceData.html#a1fd85018c51af5c63ac2d60eb6c9d91a" title="Facial feature points (global 3D coordinates).">featurePoints3D</a>;</div>
+<div class="line"><a name="l00580"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#ad64b091d44f2358f2cd0e86d7b627a99">  580</a></span>&#160;    <a class="code" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> *<a class="code" href="structVisageSDK_1_1FaceData.html#ad64b091d44f2358f2cd0e86d7b627a99" title="Facial feature points (3D coordinates relative to the face origin, placed at the center between eyes)...">featurePoints3DRelative</a>;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;</div>
+<div class="line"><a name="l00610"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a98c7a959cbde274d14a92ef191e7758c">  610</a></span>&#160;    <a class="code" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> *<a class="code" href="structVisageSDK_1_1FaceData.html#a98c7a959cbde274d14a92ef191e7758c" title="Facial feature points (2D coordinates).">featurePoints2D</a>;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    </div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="comment">// face model mesh data</span></div>
+<div class="line"><a name="l00618"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40">  618</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#abc8b508113ddfce9ddc012420920ce40" title="Number of vertices in the 3D face model.">faceModelVertexCount</a>; </div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    </div>
+<div class="line"><a name="l00640"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0">  640</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#a4e23ed5a39d923bd503e7e2fc59b10f0" title="List of vertex coordinates of the 3D face model.">faceModelVertices</a>;</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    </div>
+<div class="line"><a name="l00652"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6">  652</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#a9e799cc446b4bc942fdbbdf12bfab7a6" title="List of projected (image space) vertex coordinates of the 3D face model.">faceModelVerticesProjected</a>;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    </div>
+<div class="line"><a name="l00659"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e">  659</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a710b1440e4969cb5ad3be4cacb3c1f0e" title="Number of triangles in the 3D face model.">faceModelTriangleCount</a>;</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    </div>
+<div class="line"><a name="l00669"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434">  669</a></span>&#160;    <span class="keywordtype">int</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#a8ee50ac55f282af229942fe4077b6434" title="Triangles list for the 3D face model.">faceModelTriangles</a>;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    </div>
+<div class="line"><a name="l00679"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274">  679</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="structVisageSDK_1_1FaceData.html#aad53581671d541e68e7bf9e4619d3274" title="Texture coordinates for the 3D face model.">faceModelTextureCoords</a>;</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="keywordtype">float</span> screenSpaceGazeQuality[2];</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;    <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>();</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>(<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; faceData);</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    ~<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>();</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; operator=(<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> data);</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">void</span> swap(<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; first, <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; second);</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;};</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;}</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="comment">// frame and camera data</span></div>
+<div class="line"><a name="l00690"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a306fc247ad6223a52c1a840531680c1a">  690</a></span>&#160;<span class="comment"></span>    IplImage* <a class="code" href="structVisageSDK_1_1FaceData.html#a306fc247ad6223a52c1a840531680c1a" title="Pointer to the video frame associated with the current data, or NULL if tracker is not active...">frame</a>;</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    </div>
+<div class="line"><a name="l00693"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#a49182e24cf549a1d6c7506b5316e60d5">  693</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structVisageSDK_1_1FaceData.html#a49182e24cf549a1d6c7506b5316e60d5" title="Scale of facial bounding box.">faceScale</a>;</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;</div>
+<div class="line"><a name="l00711"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#af3c8554e62965d5bac968c3e4aa5ec82">  711</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structVisageSDK_1_1FaceData.html#af3c8554e62965d5bac968c3e4aa5ec82" title="Focal distance of the camera, as configured in the tracker/detector configuration file...">cameraFocus</a>;</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    </div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="keywordtype">bool</span> isDataInitialized; <span class="comment">// true if tracking data is initialized, false otherwise</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="comment">//Demographic features such as age and gender. Age is not implemented yet.</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    DemographicFeatures AG;</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    <span class="comment">// data range, currently unused</span></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="keywordtype">int</span>* dataRange;</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;</div>
+<div class="line"><a name="l00727"></a><span class="lineno"><a class="code" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b">  727</a></span>&#160;    ScreenSpaceGazeData <a class="code" href="structVisageSDK_1_1FaceData.html#afa666a789971fb67bd4e485c505ba61b" title="Structure holding screen space gaze position and quality for current frame.">gazeData</a>;</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    <span class="keywordtype">float</span> screenSpaceGazeQuality[2];</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>();</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>(<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; faceData);</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    ~<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>();</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; operator=(<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a> data);</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    <span class="keywordtype">void</span> swap(<a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; first, <a class="code" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>&amp; second);</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;};</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;}</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:35 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 #ifndef SCREENSPACEGAZE_H
 #define SCREENSPACEGAZE_H
 #include <vector>
@@ -163,15 +178,12 @@ struct VISAGE_DECLSPEC QualityParams
 
 /** ScreenSpaceGazeData is a container structure used to hold the gaze point location, current state of screen space gaze tracking system and gaze tracking estimation quality parameters for the current frame.
 * This class is used both to store the calibration points during the calibration phase and the estimation results during the estimation phase.
-* 
-* In online mode the frame index corresponds to the sum of the number of calibration frames passed to the tracker and the number of frames processed in the estimation phase. 
-* 
-* In offline mode the index is the frame number in the processed video sequence.
 **/
 struct VISAGE_DECLSPEC ScreenSpaceGazeData
 {
 	/**Index of the video frame. 
 	* In online mode the frame index corresponds to the sum of the number of calibration frames passed to the tracker and the number of frames processed in the estimation phase. 
+	*
 	* In offline mode the index is the frame number in the processed video sequence.
 	**/
 	int index;
@@ -193,6 +205,10 @@ struct VISAGE_DECLSPEC ScreenSpaceGazeData
 	* If inState is 1 the estimator is calibrating and returns calibration data for the current frame. 
 	* 
 	* If inState is 2 the estimator is estimating and returns the estimated screen space gaze coordinates.  
+	*
+	* If inState is -1 the estimator is calibrating but the tracking/screen space gaze estimation failed for the current frame (position is default)
+	*
+	* If inState is -2 the estimator is estimating but the tracking/screen space gaze estimation failed for the current frame (position is default)
 	**/
 	int inState;
 
@@ -206,7 +222,7 @@ struct VISAGE_DECLSPEC ScreenSpaceGazeData
 	double regularizationWeight;
 
 	ScreenSpaceGazeData();
-	~ScreenSpaceGazeData();
+	virtual ~ScreenSpaceGazeData();
 };
 
 /**

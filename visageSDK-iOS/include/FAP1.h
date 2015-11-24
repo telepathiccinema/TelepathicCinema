@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __FAP1_h__
 #define __FAP1_h__
@@ -25,7 +40,7 @@ namespace VisageSDK
 * 
 * This class specifies the current mouth shape as a blend between two visemes: viseme1 and viseme2. Each of them is an integer value between 0 and 14 that 
 * specifies the viseme acording to the MPEG-4 standard. The detailed description of the 14 visemes, including illustration of mouth shapes, is
-* provided in the Annex 2 (page 37) of the <a href="MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>. Briefly, the 14
+* provided in the Annex 2 (page 37) of the <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>. Briefly, the 14
 * visemes are:
 *
 * <table>
@@ -119,7 +134,7 @@ public:
 	* Viseme 1, according to MPEG-4 FBA specification. One of the two viseme that, together with the blend factor, specify the 
 	* mouth shape. It takes an integer value between 0 and 14 that specifies the viseme according to the MPEG-4 specification.
 	* The detailed description of the 14 visemes, including illustration of mouth shapes, is
-	* provided in the Annex 2 (page 37) of the <a href="MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>. Briefly, the 14
+	* provided in the Annex 2 (page 37) of the <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>. Briefly, the 14
 	* visemes are:
 	*
 	* <table>
@@ -148,7 +163,7 @@ public:
 	* Viseme 2, according to MPEG-4 FBA specification. One of the two viseme that, together with the blend factor, specify the 
 	* mouth shape. It takes an integer value between 0 and 14 that specifies the viseme according to the MPEG-4 specification.
 	* The detailed description of the 14 visemes, including illustration of mouth shapes, is
-	* provided in the Annex 2 (page 37) of the <a href="MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>. Briefly, the 14
+	* provided in the Annex 2 (page 37) of the <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 Face and Body Animation Introduction</a>. Briefly, the 14
 	* visemes are:
 	*
 	* <table>

@@ -59,15 +59,12 @@
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
-      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_v"><span>v</span></a></li>
-      <li><a href="#index_x"><span>x</span></a></li>
-      <li><a href="#index_y"><span>y</span></a></li>
       <li><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
@@ -92,7 +89,7 @@
 : <a class="el" href="structVisageSDK_1_1FaceData.html#a49a558930595aea1140415bc4acf3aba">VisageSDK::FaceData</a>
 </li>
 <li>AddGazeCalibrationPoint()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9656a4723bc8fbb1c88217c597ebf9a3">VisageSDK::VisageTracker2</a>
+: <a class="el" href="classVisageSDK_1_1VisageGazeTracker.html#ae4182976e7108f27277449e9ad02166e">VisageSDK::VisageGazeTracker</a>
 </li>
 <li>attach()
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#abd95ebff358b73527a107e9c81c2cb5f">VisageSDK::VisageTracker2</a>
@@ -111,11 +108,11 @@
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>CalcSpline()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#a26f885531e7289dcbec44549257cfe4a">VisageSDK::VisageRendering</a>
+</li>
 <li>cameraFocus
 : <a class="el" href="structVisageSDK_1_1FaceData.html#af3c8554e62965d5bac968c3e4aa5ec82">VisageSDK::FaceData</a>
-</li>
-<li>ChooseSuFileName()
-: <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html#aa46d140965dae6a049ac618ed68b0361">VisageSDK::TrackerGUIInterface</a>
 </li>
 <li>createNewFile()
 : <a class="el" href="classVisageSDK_1_1FDP.html#ab3a48e821fcf6bc5f0c4a5a1cac7e654">VisageSDK::FDP</a>
@@ -140,7 +137,7 @@
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a8af56d31d87e706df6fa45bc702a03d6">VisageSDK::VisageTracker2</a>
 </li>
 <li>detectFacialFeatures()
-: <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#aee2f80c00af462bf231c639a2efa2a07">VisageSDK::VisageFeaturesDetector</a>
+: <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a6dddc25bbc05aa8f500cbdc0d97834fc">VisageSDK::VisageFeaturesDetector</a>
 </li>
 <li>detectorWrapper
 : <a class="el" href="interfaceFaceDetectViewController.html#a336da8f0763d8c9c6bbef103c42a6af6">FaceDetectViewController</a>
@@ -151,17 +148,32 @@
 <li>detectToolbar
 : <a class="el" href="interfaceFaceDetectViewController.html#ad92fbb33d14c115a5b9e90dba93a540d">FaceDetectViewController</a>
 </li>
-<li>displayInstructions
-: <a class="el" href="interfaceTrackerWrapper.html#af9f5e56ca11b2abbaed86a3b1a2bda4d">TrackerWrapper</a>
+<li>DisplayFeaturePoints()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#a7548eae2e6bbe0d706a7196b72709af8">VisageSDK::VisageRendering</a>
 </li>
-<li>displayMessage()
-: <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html#aa5ca29d2471f900f324af1efe236ae07">VisageSDK::TrackerGUIInterface</a>
+<li>DisplayFrame()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#a18c216d7d6e9047099da3485f27dd014">VisageSDK::VisageRendering</a>
+</li>
+<li>DisplayGaze()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#a027d7a0ff2f5216487299940b954b094">VisageSDK::VisageRendering</a>
+</li>
+<li>DisplayModelAxes()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#a8151397ac05e591a1ee0006cc84cd837">VisageSDK::VisageRendering</a>
+</li>
+<li>DisplayResults()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#ac16b484d6f7883a7f7b27038c12d852d">VisageSDK::VisageRendering</a>
+</li>
+<li>DisplaySplines()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#a857c6737d381b790c4b9af7d81442fcc">VisageSDK::VisageRendering</a>
 </li>
 <li>displayTrackingResults:Status:Info:
 : <a class="el" href="interfaceTrackerWrapper.html#ab67ac6cca0f1837c4deaacba009942c8">TrackerWrapper</a>
 </li>
 <li>displayVideo
 : <a class="el" href="interfaceTrackerWrapper.html#a0944577c8802d5a934881c8d5904ee1b">TrackerWrapper</a>
+</li>
+<li>DisplayWireFrame()
+: <a class="el" href="classVisageSDK_1_1VisageRendering.html#a2ec710f03798a617bf954f80d6bcf10f">VisageSDK::VisageRendering</a>
 </li>
 <li>drawFaceModel:vNum:tris:tNum:tCoords:frameWidth:frameHeight:
 : <a class="el" href="interfaceTrackerWrapper.html#aa46c6f87e734878d3e56b3bac7429435">TrackerWrapper</a>
@@ -176,7 +188,7 @@
 : <a class="el" href="interfaceTrackerWrapper.html#af1e799563d46e3daa24b2f916dfdfd2f">TrackerWrapper</a>
 </li>
 <li>drawResults()
-: <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#af910ae5caf2ddc071e8ef3c204612130">VisageSDK::VisageFeaturesDetector</a>
+: <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a65d61e2d1d4849e9744715c66b190568">VisageSDK::VisageFeaturesDetector</a>
 </li>
 <li>drawResultsFromFeaturePoints:
 : <a class="el" href="interfaceTrackerWrapper.html#a6a5704c7521cf3a7761a70d2c593e0d1">TrackerWrapper</a>
@@ -185,6 +197,12 @@
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>estimateEmotion()
+: <a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html#a8d43a33dce9f204ff62c2cb85a244b58">VisageSDK::VisageFaceAnalyser</a>
+</li>
+<li>estimateGender()
+: <a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html#a9838ba11615f00d38546fd6c6d9ca006">VisageSDK::VisageFaceAnalyser</a>
+</li>
 <li>eyeClosure
 : <a class="el" href="structVisageSDK_1_1FaceData.html#a4c494a1b319a79eade8191cd7e9b7b4c">VisageSDK::FaceData</a>
 </li>
@@ -216,6 +234,9 @@
 <li>faceRotation
 : <a class="el" href="structVisageSDK_1_1FaceData.html#ab5fe0bbe5ca937e2f2070c9fe07f3b82">VisageSDK::FaceData</a>
 </li>
+<li>faceScale
+: <a class="el" href="structVisageSDK_1_1FaceData.html#a49182e24cf549a1d6c7506b5316e60d5">VisageSDK::FaceData</a>
+</li>
 <li>faceTranslation
 : <a class="el" href="structVisageSDK_1_1FaceData.html#a854b784b183fa4021e713506deff9845">VisageSDK::FaceData</a>
 </li>
@@ -232,10 +253,7 @@
 : <a class="el" href="structVisageSDK_1_1FaceData.html#ad64b091d44f2358f2cd0e86d7b627a99">VisageSDK::FaceData</a>
 </li>
 <li>FinalizeOnlineGazeCalibration()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a6c5ce35d5f19d1154c7067f66e01f448">VisageSDK::VisageTracker2</a>
-</li>
-<li>focus
-: <a class="el" href="interfaceTrackerWrapper.html#a936695ea22d4c3f979a4f2e45f7544bf">TrackerWrapper</a>
+: <a class="el" href="classVisageSDK_1_1VisageGazeTracker.html#a01f2db1df5d174ce3b9788ff248194b1">VisageSDK::VisageGazeTracker</a>
 </li>
 <li>FP_END_GROUP_INDEX
 : <a class="el" href="classVisageSDK_1_1FDP.html#a4b7f96c1565a4573c8ca07aff3c609d0">VisageSDK::FDP</a>
@@ -247,7 +265,7 @@
 : <a class="el" href="classVisageSDK_1_1FDP.html#a9afadd826530080f26d6aec13a03a789">VisageSDK::FDP</a>
 </li>
 <li>FPIsDefined()
-: <a class="el" href="classVisageSDK_1_1FDP.html#a3a3a6f713b5a12cfde48f7afff9fd176">VisageSDK::FDP</a>
+: <a class="el" href="classVisageSDK_1_1FDP.html#a2a9b0403969e106c716ff9d103fb7972">VisageSDK::FDP</a>
 </li>
 <li>FPIsValid()
 : <a class="el" href="classVisageSDK_1_1FDP.html#a1f742eb9a07b8f70c3fa2e54337ccb88">VisageSDK::FDP</a>
@@ -262,9 +280,6 @@
 <li>frameRate
 : <a class="el" href="structVisageSDK_1_1FaceData.html#a7138a72d57adc5ddb75d757bf0653dc1">VisageSDK::FaceData</a>
 </li>
-<li>frameTexId
-: <a class="el" href="interfaceTrackerWrapper.html#a910db0f79b33510a20f1af7a1ddf7688">TrackerWrapper</a>
-</li>
 </ul>
 
 
@@ -278,9 +293,6 @@
 <li>gazeDirectionGlobal
 : <a class="el" href="structVisageSDK_1_1FaceData.html#a163adbed757c776cf6ce7556ec226e58">VisageSDK::FaceData</a>
 </li>
-<li>getFBAPs()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a0c4717dfb98aace5b5b531e17c1fa860">VisageSDK::VisageTracker2</a>
-</li>
 <li>getFP()
 : <a class="el" href="classVisageSDK_1_1FDP.html#a1a5507ba8c4fe8f640e63714e93e1757">VisageSDK::FDP</a>
 </li>
@@ -288,16 +300,20 @@
 : <a class="el" href="classVisageSDK_1_1FDP.html#ab27608c6a1afeeb4a9dbbae110132d7f">VisageSDK::FDP</a>
 </li>
 <li>getFPPos()
-: <a class="el" href="classVisageSDK_1_1FDP.html#a771f7b6d72f0fdef3531fa45092bf790">VisageSDK::FDP</a>
+: <a class="el" href="classVisageSDK_1_1FDP.html#a19adcc1acc0bcdf6526a027900a027a5">VisageSDK::FDP</a>
 </li>
 <li>getFPSurfVert()
 : <a class="el" href="classVisageSDK_1_1FDP.html#a70f3a5cb4b97a52aac84b086edc19650">VisageSDK::FDP</a>
 </li>
-<li>getGazeEstimations()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#af2b33ef2758687c42dedac009f074357">VisageSDK::VisageTracker2</a>
+<li>GetGazeEstimations()
+: <a class="el" href="classVisageSDK_1_1VisageGazeTracker.html#acae907e7aeefe7c32c3e14cfe1972131">VisageSDK::VisageGazeTracker</a>
 </li>
 <li>getIPD()
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a1c32bf2acdcfabab9bfdb47c2d75b30b">VisageSDK::VisageTracker2</a>
+</li>
+<li>getNormalizedFaceImage()
+: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a52ea35fe95594cdc7dda7d98206a270b">VisageSDK::VisageTracker2</a>
+, <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a8e3145b2c674dc2a21c67e6489b8970b">VisageSDK::VisageFeaturesDetector</a>
 </li>
 <li>getTrackingData()
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a888cf5073a33bc7658e193c0a39fedce">VisageSDK::VisageTracker2</a>
@@ -312,8 +328,8 @@
 : <a class="el" href="interfaceTrackerWrapper.html#a9620e24ccbe9c99e84c9235478299aa4">TrackerWrapper</a>
 </li>
 <li>GrabFrame()
-: <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663">VisageSDK::VisageTrackerFrameGrabber</a>
-, <a class="el" href="classDemoFrameGrabber.html#ad76c2690e5db29bc789060270816956a">DemoFrameGrabber</a>
+: <a class="el" href="classDemoFrameGrabber.html#ad76c2690e5db29bc789060270816956a">DemoFrameGrabber</a>
+, <a class="el" href="classVisageSDK_1_1VisageTrackerFrameGrabber.html#aadce06772d63f30739606c67e6f1a663">VisageSDK::VisageTrackerFrameGrabber</a>
 </li>
 <li>groupSize()
 : <a class="el" href="classVisageSDK_1_1FDP.html#af522a5088cb36697f9856bb5b1cdbc55">VisageSDK::FDP</a>
@@ -332,44 +348,23 @@
 <li>infoLabel
 : <a class="el" href="interfaceVisageTrackerViewController.html#a2b284227c37317f37514a4a3741ddfa5">VisageTrackerViewController</a>
 </li>
-<li>initAndSetInstructionsTexture
-: <a class="el" href="interfaceTrackerWrapper.html#ad3b6b8629def650d8266a25c20d20327">TrackerWrapper</a>
+<li>init()
+: <a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html#a69321d8630e1a96bce693f00713b85ec">VisageSDK::VisageFaceAnalyser</a>
 </li>
 <li>initDetector
 : <a class="el" href="interfaceVisageFeaturesDetectorWrapper.html#a8345b112bbc24a7ff0407ea7595654d6">VisageFeaturesDetectorWrapper</a>
-</li>
-<li>initDisplayStatus
-: <a class="el" href="structVisageSDK_1_1FaceData.html#a33899a52c4daf6edb7c70e56c03613aa">VisageSDK::FaceData</a>
-</li>
-<li>initFaceDetected
-: <a class="el" href="structVisageSDK_1_1FaceData.html#a8945fb34c26fa41aad20eea4a686d62a">VisageSDK::FaceData</a>
-</li>
-<li>initFrameTexture:
-: <a class="el" href="interfaceTrackerWrapper.html#a29bf53128e1d8ba6c45adc88f460be3b">TrackerWrapper</a>
 </li>
 <li>Initialize()
 : <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#ad23a5d91f896b82fa7f88dc3b9532e1a">VisageSDK::VisageFeaturesDetector</a>
 </li>
 <li>InitOfflineGazeCalibration()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a40a8dabf06ed117fd44f937a84b1ce49">VisageSDK::VisageTracker2</a>
+: <a class="el" href="classVisageSDK_1_1VisageGazeTracker.html#a8c677bd48b096b7179a6e2597d219704">VisageSDK::VisageGazeTracker</a>
 </li>
 <li>InitOnlineGazeCalibration()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a9b7895436c1ada4226274b8b8e00e7fd">VisageSDK::VisageTracker2</a>
-</li>
-<li>initRoll
-: <a class="el" href="structVisageSDK_1_1FaceData.html#aa9f491dbc1f0d28f5f1ea8f2caf36716">VisageSDK::FaceData</a>
+: <a class="el" href="classVisageSDK_1_1VisageGazeTracker.html#a2a392bb203cb31f6cf130b8e1926d34e">VisageSDK::VisageGazeTracker</a>
 </li>
 <li>initTracker:
 : <a class="el" href="interfaceTrackerWrapper.html#a3aa0824723ed875f9cdf390da532419f">TrackerWrapper</a>
-</li>
-<li>initVelocity
-: <a class="el" href="structVisageSDK_1_1FaceData.html#af3c6d3f712331f1597dcbe7cf0df1e83">VisageSDK::FaceData</a>
-</li>
-<li>initYaw
-: <a class="el" href="structVisageSDK_1_1FaceData.html#ae336d9fea95abd2663791da48071a11a">VisageSDK::FaceData</a>
-</li>
-<li>instructionsTexId
-: <a class="el" href="interfaceTrackerWrapper.html#a1a8bf2223a42c90f0503865430558c03">TrackerWrapper</a>
 </li>
 </ul>
 
@@ -377,13 +372,6 @@
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>loadImageAction:
 : <a class="el" href="interfaceFaceDetectViewController.html#a370117e5219fc115177ebe14a3343856">FaceDetectViewController</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
-<li>ManuallyAdjustShapeMask()
-: <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html#affab75e881d5e611781161e8a799b282">VisageSDK::TrackerGUIInterface</a>
 </li>
 </ul>
 
@@ -413,14 +401,11 @@
 : <a class="el" href="interfaceUIDeviceHardware.html#a1793d1b1c902110d04d5fea9e9c32ac5">UIDeviceHardware</a>
 </li>
 <li>popover
-: <a class="el" href="interfaceFaceDetectViewController.html#a87556868fff05971e607a3eb0884d1a5">FaceDetectViewController</a>
-, <a class="el" href="interfaceVisageTrackerViewController.html#a815b1c107991c726070736196497486c">VisageTrackerViewController</a>
+: <a class="el" href="interfaceVisageTrackerViewController.html#a815b1c107991c726070736196497486c">VisageTrackerViewController</a>
+, <a class="el" href="interfaceFaceDetectViewController.html#a87556868fff05971e607a3eb0884d1a5">FaceDetectViewController</a>
 </li>
 <li>pos
 : <a class="el" href="structVisageSDK_1_1FeaturePoint.html#a3b8e2c0bce305f9170f3f6d5bb597ea8">VisageSDK::FeaturePoint</a>
-</li>
-<li>print()
-: <a class="el" href="classVisageSDK_1_1FDP.html#a86bbbddc689b4ccafa5614f9b0206e18">VisageSDK::FDP</a>
 </li>
 </ul>
 
@@ -430,7 +415,8 @@
 : <a class="el" href="classVisageSDK_1_1FDP.html#a40e621eae2e12ad20544e28e45c0e402">VisageSDK::FDP</a>
 </li>
 <li>reset()
-: <a class="el" href="classVisageSDK_1_1FDP.html#a822c3475d4533100c322c792b8ad563b">VisageSDK::FDP</a>
+: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a5dfaacc1e7151d8d3b4a54339d18389f">VisageSDK::VisageTracker2</a>
+, <a class="el" href="classVisageSDK_1_1FDP.html#a822c3475d4533100c322c792b8ad563b">VisageSDK::FDP</a>
 </li>
 <li>resultsDisplayTimer
 : <a class="el" href="interfaceVisageTrackerViewController.html#abfdc53c8ca358a22b058986c47234afe">VisageTrackerViewController</a>
@@ -442,9 +428,6 @@
 <li>saveToFile()
 : <a class="el" href="classVisageSDK_1_1FDP.html#a9c0e7e25f393a9482d5e393a5d6fe6c2">VisageSDK::FDP</a>
 </li>
-<li>selectMainFacialFeatures()
-: <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html#a6f950cee4450e920046dd93748bc9caa">VisageSDK::TrackerGUIInterface</a>
-</li>
 <li>setDataBundle()
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ac9635e5397a2b3e3b67d496def065ec8">VisageSDK::VisageTracker2</a>
 </li>
@@ -452,7 +435,7 @@
 : <a class="el" href="classVisageSDK_1_1FDP.html#acd6f3fc0f5752bfbe58575ed9e8746e4">VisageSDK::FDP</a>
 </li>
 <li>setFPPos()
-: <a class="el" href="classVisageSDK_1_1FDP.html#a224157c63573689aa13209f62ee13cc0">VisageSDK::FDP</a>
+: <a class="el" href="classVisageSDK_1_1FDP.html#a90a288134b10bd0a2a0de17b99997336">VisageSDK::FDP</a>
 </li>
 <li>setFPSurfVert()
 : <a class="el" href="classVisageSDK_1_1FDP.html#a474e9220ab0379e42cc1404d42b5cb93">VisageSDK::FDP</a>
@@ -466,9 +449,8 @@
 <li>setNormFactors()
 : <a class="el" href="classVisageSDK_1_1FDP.html#a143b63d5d326cda519f34bde8c960188">VisageSDK::FDP</a>
 </li>
-<li>setOpenGLContext()
-: <a class="el" href="classVisageSDK_1_1TrackerOpenGLInterface.html#af92be9acf62fe66f93b407b3e293b53e">VisageSDK::TrackerOpenGLInterface</a>
-, <a class="el" href="interfaceCustomGLView.html#a192cc01886d584dd548be0cc1166abcd">CustomGLView</a>
+<li>setOpenGLContext
+: <a class="el" href="interfaceCustomGLView.html#a192cc01886d584dd548be0cc1166abcd">CustomGLView</a>
 </li>
 <li>setTrackerConfigurationFile()
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a03ea26287cf78864c0c3fd8e71e56df7">VisageSDK::VisageTracker2</a>
@@ -476,11 +458,11 @@
 <li>setupFrustumWithWidth:andHeight:andFocus:
 : <a class="el" href="interfaceTrackerWrapper.html#a62870f9d5000e099d656d9a2a413a1cf">TrackerWrapper</a>
 </li>
-<li>signalWhenUserReady()
-: <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html#a9920c34fbb1deb5fadc2040a3b32d09a">VisageSDK::TrackerGUIInterface</a>
+<li>shapeUnitCount
+: <a class="el" href="structVisageSDK_1_1FaceData.html#a0c65746338cc1236659c950014b02f9d">VisageSDK::FaceData</a>
 </li>
-<li>start()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a26eb1d897af41e8d052c2326f26e496d">VisageSDK::VisageTracker2</a>
+<li>shapeUnits
+: <a class="el" href="structVisageSDK_1_1FaceData.html#a7bc3d34519d420010cab7829c5d24b85">VisageSDK::FaceData</a>
 </li>
 <li>startTrackingFromCam
 : <a class="el" href="interfaceTrackerWrapper.html#a8c91a68f824f3f547c1836eb21edfe07">TrackerWrapper</a>
@@ -503,9 +485,8 @@
 <li>surf
 : <a class="el" href="structVisageSDK_1_1FeaturePoint.html#a48c0152004a104fe0ecd1ff969d56f0e">VisageSDK::FeaturePoint</a>
 </li>
-<li>swapOpenGLBuffers()
-: <a class="el" href="classVisageSDK_1_1TrackerOpenGLInterface.html#afd615d54eddb1e94dd83c0bcc1b2bd16">VisageSDK::TrackerOpenGLInterface</a>
-, <a class="el" href="interfaceCustomGLView.html#a80089819393fd15357a3543f386e30b3">CustomGLView</a>
+<li>swapOpenGLBuffers
+: <a class="el" href="interfaceCustomGLView.html#a80089819393fd15357a3543f386e30b3">CustomGLView</a>
 </li>
 </ul>
 
@@ -513,6 +494,9 @@
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
 <li>timeStamp
 : <a class="el" href="structVisageSDK_1_1FaceData.html#af7afec396f9581356cc0b8fea4a10b9b">VisageSDK::FaceData</a>
+</li>
+<li>track()
+: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a3534b35c06db96b83d627d94b6bb0527">VisageSDK::VisageTracker2</a>
 </li>
 <li>trackCameraAction:
 : <a class="el" href="interfaceVisageTrackerViewController.html#a2a06a880af4cc1f320ba21bdb202f9b2">VisageTrackerViewController</a>
@@ -523,23 +507,14 @@
 <li>trackerToolbar
 : <a class="el" href="interfaceVisageTrackerViewController.html#a545d6c2a4eabd9e59bfd7e7d3299dcad">VisageTrackerViewController</a>
 </li>
-<li>trackFromAvi()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aa525abefb97fb430f19d911ba9c47237">VisageSDK::VisageTracker2</a>
-</li>
 <li>trackFromCam()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aef0051e31528af4d11352a6582e16031">VisageSDK::VisageTracker2</a>
-</li>
-<li>trackFromRawImages()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a76fa48e42678b8371fe78ca558cb8cad">VisageSDK::VisageTracker2</a>
+: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ab68e70cc6cbbac45ec362118fbb53778">VisageSDK::VisageTracker2</a>
 </li>
 <li>trackFromVideo()
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#ae7b67e97dfdcc851e27a39f73a96db65">VisageSDK::VisageTracker2</a>
 </li>
 <li>trackImageAction:
 : <a class="el" href="interfaceVisageTrackerViewController.html#a9b315fc5ac1510a1fa7f85ac45daac36">VisageTrackerViewController</a>
-</li>
-<li>TrackingData()
-: <a class="el" href="structVisageSDK_1_1TrackingData.html#abea5fe647828dba2efa25437491f8d21">VisageSDK::TrackingData</a>
 </li>
 <li>trackingQuality
 : <a class="el" href="structVisageSDK_1_1FaceData.html#a6aca0c311aeb0b3ee0eead93546235dd">VisageSDK::FaceData</a>
@@ -560,37 +535,17 @@
 <li>vert
 : <a class="el" href="structVisageSDK_1_1FeaturePoint.html#a698e7a8dd2f79613c005cc15a7fd31a4">VisageSDK::FeaturePoint</a>
 </li>
-<li>videoAspect
-: <a class="el" href="interfaceTrackerWrapper.html#a1198340de821c437bc98493d8716a5e1">TrackerWrapper</a>
+<li>VisageFaceAnalyser()
+: <a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html#a11b2bff1ba5a647728dd10644d0bacd8">VisageSDK::VisageFaceAnalyser</a>
 </li>
 <li>VisageFeaturesDetector()
 : <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#ac4a75ef862227ed7edd84c9a621dce9d">VisageSDK::VisageFeaturesDetector</a>
 </li>
+<li>VisageGazeTracker()
+: <a class="el" href="classVisageSDK_1_1VisageGazeTracker.html#a65acc04648e929a84f108515f8f64592">VisageSDK::VisageGazeTracker</a>
+</li>
 <li>VisageTracker2()
 : <a class="el" href="classVisageSDK_1_1VisageTracker2.html#aebe7637e883200e58ea217f7c26e3731">VisageSDK::VisageTracker2</a>
-</li>
-<li>vt2
-: <a class="el" href="classVisageSDK_1_1TrackerGUIInterface.html#acf411f1e874708f9783d7456fb84c53f">VisageSDK::TrackerGUIInterface</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
-<li>xTexCoord
-: <a class="el" href="interfaceTrackerWrapper.html#ad74691e0d05ce36ef5a3fabe603fd64e">TrackerWrapper</a>
-</li>
-<li>xTexSize
-: <a class="el" href="interfaceTrackerWrapper.html#aa853562a5b5b65c1725d356776ee6c73">TrackerWrapper</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_y"></a>- y -</h3><ul>
-<li>yTexCoord
-: <a class="el" href="interfaceTrackerWrapper.html#a16905b81471473b13da74ee228c72a87">TrackerWrapper</a>
-</li>
-<li>yTexSize
-: <a class="el" href="interfaceTrackerWrapper.html#a316fb64a748a83a19ceb9f90681a6fbc">TrackerWrapper</a>
 </li>
 </ul>
 
@@ -599,17 +554,23 @@
 <li>~DemoFrameGrabber()
 : <a class="el" href="classDemoFrameGrabber.html#a2da68e92f4f564d0949a88e3736200ea">DemoFrameGrabber</a>
 </li>
+<li>~VisageFaceAnalyser()
+: <a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html#a91b541c798ae77998ca3e370913773d4">VisageSDK::VisageFaceAnalyser</a>
+</li>
 <li>~VisageFeaturesDetector()
 : <a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html#a2b5ccb544e23a6255c88476b18dd928b">VisageSDK::VisageFeaturesDetector</a>
 </li>
+<li>~VisageGazeTracker()
+: <a class="el" href="classVisageSDK_1_1VisageGazeTracker.html#a3f0bb6cecdb6f25f8eaf36b2a3457155">VisageSDK::VisageGazeTracker</a>
+</li>
 <li>~VisageTracker2()
-: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a27561595aef5a95c8852ef42b9288263">VisageSDK::VisageTracker2</a>
+: <a class="el" href="classVisageSDK_1_1VisageTracker2.html#a233b80bee10299eabdeffcde20bedc09">VisageSDK::VisageTracker2</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:37 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

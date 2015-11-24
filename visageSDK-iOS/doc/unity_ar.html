@@ -15,29 +15,24 @@ is aimed at developers starting to use face tracking functionality of visage|SDK
 tool.
 </p>
 <p>
-The sample project shows how face tracking is used to put virtual object (glasses) on the user’s face in Unity, and
-how to access the full 3D face model of the face. Developers may use parts of this project to speed up their own
+The sample project shows how face tracking is used to put virtual object (glasses) on the user’s face in Unity. Developers may use parts of this project to speed up their own
 development in Unity using visage|SDK or use this application as a starting point for own projects.
 </p>
 
 <h2>Building and running the project</h2>
 
 <p>
-When making an application with Unity3D use visage|SDK libraries libVisageCore.a and libVisageVision.a from /libstdc++ and libVisageUnityPlugin.a library from the /lib folder. These are compiled with libstdc++ standard library. This is necessary because Unity uses libstdc++ standard library while visage|SDK typically uses libc++ which is not 
-interoperable with libstdc++. This is considered a temporary fix until Unity3D team switches to libc++ standard library.
-</p>
-<p>
 The files related to VisageTrackerUnityDemo sample project are located in the Samples/iOS/VisageTrackerUnityDemo
 subfolder of the visage|SDK for iOS folder.<br/><br/>
 Prerequisites to running the sample project are:
 <ul>
-<li>XCode (version 6.x)</li>
-<li>Unity (version 4.5.x)</li>
-<li>iOS device (iPhone 4S/5 or iPad 2/3rd gen/4th gen/mini recommended; iPhone 4 works with reduced performance)</li>
+<li>Xcode (version 7.x+)</li>
+<li>Unity (version 5.0.x+)</li>
+<li>iOS device (iPhone 6 or iPad 4 recommended; iPhone 4 and iPhone 4s work with reduced performance)</li>
 </ul>
 
 To build and run VisageTrackerUnityDemo sample two steps are involved: creating the Unity project from the provided
-Unity package and generating and modifying the XCode project from Unity. These tasks are executed semi - automatically.<br/><br/>
+Unity package and generating and modifying the Xcode project from Unity. These tasks are executed semi - automatically.<br/><br/>
 
 <b>NOTE:</b> The Visage Tracker Unity plugin for iOS will not work in Unity editor, it will only work on actual device.
 
@@ -48,43 +43,62 @@ Unity package and generating and modifying the XCode project from Unity. These t
 <p>
 To create the Unity project from provided Unity package follow these steps:<br/>
 <ol>
-<li>Open Unity</li>
-<li>Create a new Unity project</li>
-<li>Import VisageTrackerUnityDemo.unitypackage (provided in Samples/iOS/VisageTrackerUnityDemo folder) by
+<li>Open Unity</li><br/>
+<li>Create a new Unity project</li><br/>
+<li>Import <b>VisageTrackerUnityDemo.unitypackage</b> that is provided in the Samples/iOS/VisageTrackerUnityDemo folder. <br/> This is done in 
+Unity by
 selecting Assets->Import Package->Custom Package... item from the menu. That way all the assets that
-are used by the example project will be imported into the new project.</li>
-<li>Select and open the Main scene.</li>
+are used by the example project will be imported into the new project.</li><br/>
+<li>Select and open the Main scene, located in Project's Assets.</li><br/>
 </ol>
 </p>
 
-<h3>Step 2. Generating the XCode project</h3>
+<h3>Step 2. Generating the Xcode project from Unity</h3>
 <p>
-To generate the XCode project for this sample follow these steps:<br/>
+To generate the Xcode project for this sample follow these steps:<br/>
 <ol>
-<li>Generate the XCode project by selecting File->Build settings... and choosing iOS as target.</li>
-<li>Open the player settings by pressing Player Settings... button.</li>
-<li>Set the Company name to "visagetechnologies.com", Product name to "visagetrackerunitydemo" and Bundle Identifier
-to "com.visagetechnologies.visagetrackerunitydemo".</li>
-<li>Press the Build button to generate the project, a dialog window will appear. In this window, locate and set
-destination folder to Samples/iOS/VisageTrackerUnityDemo. This generates XCode project in that folder.</li>
-<li>Successful build completion triggers post build processing. Folder selection dialog appears. Choose visage|SDK for iOS root folder. This modifies generated Xcode project adding additional required frameworks and libraries to it.</li>
-<li>Add the files and folders from Samples/iOS/data folder by dragging and dropping them into newly created Resources
-group, a dialog window will appear. In this window, select the "Create folder references for any added
-folders":<br/>
-</li>
+<li>In Unity, select <b> File->Build settings...</b> A new window will appear. Switch the platform to iOS and add the current scene.</li> <br/>
+<li>Open the player settings by pressing <b>Player Settings...</b> button.</li><br/>
+<li>In <b>PlayerSettings</b> please set the Company name to "visagetechnologies", Product name to "visagetrackerunitydemo" and Bundle Identifier
+to "com.visagetechnologies.visagetrackerunitydemo". Change the <b>Graphics API </b> from <b>Automatic</b> to <b>Open GL ES 2.0.</b></li> <br/>
+<li>Press the Build button to generate the project, a new dialog window will appear. In this window, locate and set
+destination folder to <b>Samples/iOS/VisageTrackerUnityDemo</b>. This generates Xcode project in that folder.</li> <br/>
+
+ <b>NOTE:</b>  If Unity reports error during build, please double check which platform is selected in the Build settings. <br/>  <br/> 
+
+<li>Successful build completion triggers post build processing. Folder selection dialog appears. Choose visage|SDK for iOS root folder. This modifies generated Xcode project adding additional required frameworks, data files and libraries to it.</li> <br/>
+<b>NOTE:</b> Sometimes post build process can fail. In such cases add following files to Xcode project manually:<br/>
+Samples/data folder by dragging and dropping them into newly created Resources
+group. A dialog window will appear. In this window, select the "Create folder references for any added
+folders":
+<ul>
+<li>Head Tracker.cfg</li>
+<li>candide3.fdp</li>
+<li>candide3.wfm</li>
+<li>bdtsdata folder containing the additional data files</li></ul>
+<br/>
+Add <b>libVisageVision.a</b>, <b>libVisageCore.a</b> and <b>libVisageTrackerUnityPlugin.a</b> from visage|SDK lib folder to the Libraries folder of the generated Xcode project.
+After that just drag and drop them from that folder to the Xcode project (also to the Libraries folder).  
+<br/>  <br/> 
+<li>Open generated Xcode project. Double check that targeted iOS device is selected as active scheme. Go to Build Settings, set iOS Deploymenet Target to 8.1 and Enable Bitcode to NO. Build the Xcode project.<br/> 
+</li><br/>
+<b>NOTE:</b>  Sometimes Xcode returns link error that it can't locate libiPhone-lib.a. In such cases click on Project->Build Phases-> Link Binary With Libraries, remove the libiPhone-lib.a and add it again. To add a new library click + option, a new window will appear, select Add Other...->Libraries->libiPhone-lib.a. <br/> <br/> 
 <li>This step is optional. If you have a license key file, add it by dragging and dropping them into newly created Resources
-group in generated XCode project. Also, please read the section <a href="licensing.html#include_license">Including the License Key File in your application</a> in the Registration and Licensing page.</li>
+group in generated Xcode project. Also, please read the section <a href="licensing.html#include_license">Including the License Key File in your application</a> in the Registration and Licensing page.</li><br/>
+<b>NOTE:</b>  In case you receive error message that App Transport Security has blocked a cleartext HTTP (http://) resource load, please set the NSAllowsArbitraryLoads key to YES under NSAppTransportSecurity dictionary in your .plist file <br/> <br/> 
 </ol>
+
 </p>
 
 <h2>Using the sample app</h2>
 <p>
 When the application starts there is a button in the upper left corner of the application: Track from camera. When the button
-is pressed, the tracking starts. When a face is found in the camera frame, tracking starts. On top of the video frames is
-the textured 3D face model generated and animated by the tracker and a 3D model of glasses that is transformed with
-the information about rotation and translation from the tracker. Those two blend seamlessly with the background video.
+is pressed and when a face is found in the camera frame, tracking starts. On top of the video frames is a 3D model of glasses that is transformed with
+the information about rotation and translation from the tracker. It blends seamlessly with the background video.
 </p>
-
+<p>
+	<b> NOTE:</b>  Without the valid License Key tracking will stop after 1 minute. Appropriate message will appear on the screen to inform the user before the start of the tracking and after the tracking time expires. 
+</p>
 
 
 <h2>Implementation overview</h2>
@@ -128,13 +142,12 @@ by using orthographic projection.
 <h3>Video object</h3>
 <p>
 Video GameObject contains Video Plane that is used for displaying video and is automatically scaled to input frame
-aspect ratio by the <a href="html/classVideoController.html">VideoController</a> script attached to it.
+aspect ratio by the <a href="html/doc/VideoController.txt">VideoController</a> script attached to it.
 </p>
 
 <h3>Glasses object</h3>
 <p>
-The rotation and translation information from the tracker are applied to the Glasses object as they are in the Tracker
-script Controllable Objects list. This enables overlaying virtual objects to the tracked face that transform correctly with
+Since the Glasses object is in the Tracker script Controllable Objects list, rotation and translation information from the tracker is applied to it. This enables the overlaying of virtual objects to the tracked face that transform correctly with
 it. Other custom objects can be used instead of the glasses object. For a more comprehensive guide on how to achieve occlusion or 
 on how to properly introduce other objects to the scene see <a href="modeling_guide.pdf" target="_blank">AR modeling guide</a>.
 </p>

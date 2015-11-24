@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __VisageTrackerFrameGrabber_h__
 #define __VisageTrackerFrameGrabber_h__
@@ -31,8 +46,8 @@ namespace VisageSDK
 #define VISAGE_FRAMEGRABBER_ORIGIN_TL 0
 #define VISAGE_FRAMEGRABBER_ORIGIN_BL 1
 
-/** VisageTrackerFrameGrabber interface.
-
+/** DEPRECATED, This interface is deprecated and replaced with VisageTracker2::track() API.
+* 
 * This virtual class provides the raw image memory interface to VisageTracker2, allowing the application to pass images directly to the tracker.
 * The application that needs to pass raw images to the tracker must
 * implement an instance of the VisageTrackerFrameGrabber class. Specifically, the
@@ -40,9 +55,16 @@ namespace VisageSDK
 * To associate the input frames with the output tracking data the derived class can also implement a timestamping mechanism, or simply set the timeStamp to -1 if there is no need for such mechanism.
 *
 * \if IOS_DOXY
+* Demonstrated in <a href="../tracker.html">VisageTrackerDemo</a> sample project.
+* \elseif MACOSX_DOXY
+* Demonstrated in <a href="../tracker.html">VisageTrackerDemo</a> sample project.
+* \elseif LINUX_DOXY
+* Demonstrated in <a href="../../../Samples/Linux/build/VisageTrackerDemo/doc/index.html">FaceTracker2 sample project</a>.
+* \elseif REDHAT_DOXY
+* Demonstrated in <a href="../../../Samples/Linux/build/VisageTrackerDemo/doc/index.html">FaceTracker2 sample project</a>.
 * \elseif ANDROID_DOXY
 * \else
-* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc90/FaceTracker2/doc/html/index.html">FaceTracker2 sample project</a>.
+* Demonstrated in <a href="../../../Samples/OpenGL/build/msvc100/FaceTracker2/doc/index.html">FaceTracker2 sample project</a>.
 * \endif
 */
 class VISAGE_DECLSPEC VisageTrackerFrameGrabber {

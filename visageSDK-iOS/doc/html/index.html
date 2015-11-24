@@ -38,17 +38,17 @@
 <div class="title">API </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Visage|SDK consists of static libraries libVisageCore and libVisageVision. It also uses third party libraries OpenCV and libXML.</p>
+<div class="textblock"><p>visage|SDK consists of static libraries libVisageCore and libVisageVision. It also uses third party libraries OpenCV and libXML.</p>
 <p>The following section provides an overview of key functionalities, gives links to most important classes and relevant sample projects, and lists required libraries to link. The detailed information is found in the documentation of each class, reached through links in this section or links on the side menu, or through class reference.</p>
 <h1><a class="anchor" id="visageVision-t"></a>
 Facial features tracking</h1>
-<p>Visage tracker tracks the face and facial features in video sequences and outputs 3D head pose, facial expressions, gaze direction, facial feature points and textured 3D face model. The tracker is fully configurable in terms of performance, quality, tracked features and facial actions, as well as other options, allowing in effect a variety of customized trackers suited to different applications. Several common configurations are delivered. Details about configuring the tracker can be found in the <a href="../VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a>.</p>
-<p>Face tracking is demonstrated in VisageTrackerDemo and VisageTrackerUnity sample project.</p>
+<p>Visage tracker tracks the face and facial features in video sequences and outputs 3D head pose, facial expressions, gaze information, eye closure, facial feature points and textured 3D face model. The tracker is fully configurable in terms of performance, quality, tracked features and facial actions, as well as other options, allowing in effect a variety of customized trackers suited to different applications. Common configurations are delivered. Details about configuring the tracker can be found in the <a href="../VisageTracker Configuration Manual.pdf">VisageTracker Configuration Manual</a>.</p>
+<p>Face tracking is demonstrated in VisageTrackerDemo, VisageTrackerUnity and FacialAnimationUnity sample project.</p>
 <p><b>Main classes</b></p>
 <ul>
-<li><a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a head/facial features tracker capable of tracking facial features in video coming ...">VisageTracker2</a>: Tracks the face and facial features in video coming from file, camera or other source.</li>
+<li><a class="el" href="classVisageSDK_1_1VisageTracker2.html" title="VisageTracker2 is a face tracker capable of tracking the head pose, facial features and gaze in video...">VisageTracker2</a>: Tracks the face and facial features in video coming from file, camera or other source.</li>
 <li><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>: Used to return tracking results from the tracker.</li>
-<li><a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html" title="VisageTrackerObserver interface.">VisageTrackerObserver</a>: the virtual class that serves as an interface for user-defined callback functions triggered and called by the tracker, typically used for synchronizing the application with the tracker. Use of this class is optional.</li>
+<li><a class="el" href="classVisageSDK_1_1VisageTrackerObserver.html" title="VisageTrackerObserver interface for user-defined callback functions triggered and called by the track...">VisageTrackerObserver</a>: the virtual class that serves as an interface for user-defined callback functions triggered and called by the tracker, typically used for synchronizing the application with the tracker. Use of this class is optional.</li>
 </ul>
 <h1><a class="anchor" id="visageVision-d"></a>
 Facial feature detection</h1>
@@ -57,12 +57,21 @@ Facial feature detection</h1>
 <p><b>Main classes</b></p>
 <ul>
 <li><a class="el" href="classVisageSDK_1_1VisageFeaturesDetector.html" title="Faces and facial features detector implementation.">VisageFeaturesDetector</a>: Detects facial features in still images.</li>
-<li><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>: Used to return the resulting feature points. </li>
+<li><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>: Used to return the resulting feature points.</li>
+</ul>
+<h1><a class="anchor" id="visageVision-a"></a>
+Facial feature analysis</h1>
+<p>The class <a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html" title="VisageFaceAnalyser contains face analysis algorithms capable of estimating gender and emotion from fr...">VisageFaceAnalyser</a> contains face analysis algorithms capable of estimating gender and emotion from frontal facial images (yaw between -20 and 20 degrees). For gender estimation it returns estimated gender and for emotions estimation it returns the probability of each of estimated facial emotions: anger, disgust, fear, happiness, sadness and surprise.</p>
+<p>The Face Detector sample demonstrate gender and emotion estimation.</p>
+<p><b>Main classes</b></p>
+<ul>
+<li><a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html" title="VisageFaceAnalyser contains face analysis algorithms capable of estimating gender and emotion from fr...">VisageFaceAnalyser</a>: Face analyser capable of estimating gender and emotion from frontal facial images (yaw between -20 and 20 degrees).</li>
+<li><a class="el" href="structVisageSDK_1_1FaceData.html" title="Face data structure, used as container for all face tracking and detection results.">FaceData</a>: Used to pass the necessary facial image data to <a class="el" href="classVisageSDK_1_1VisageFaceAnalyser.html" title="VisageFaceAnalyser contains face analysis algorithms capable of estimating gender and emotion from fr...">VisageFaceAnalyser</a> functions. </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:37 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

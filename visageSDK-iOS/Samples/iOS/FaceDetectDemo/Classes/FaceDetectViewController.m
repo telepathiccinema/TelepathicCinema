@@ -39,7 +39,7 @@
         [self.popover presentPopoverFromRect:CGRectMake(0.0, 0.0, 400.0, 400.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else {
-        [self presentModalViewController:imgPicker animated:YES];
+        [self presentViewController:self.imgPicker animated:YES completion:nil];
     }
 }
      
@@ -61,7 +61,7 @@
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [picker dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

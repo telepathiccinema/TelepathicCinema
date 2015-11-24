@@ -21,14 +21,14 @@ The VisageTrackerDemo sample projects is located in the Samples/iOS/VisageTracke
 <p>
 Prerequisites to running the sample project are:
 <ul>
-<li>XCode (versions 6.x)</li>
-<li>iOS device (iPhone 4S or iPad 2 (or newer) recommended; iPhone 4 works with reduced performance)</li>
+<li>Xcode (versions 7.x)</li>
+<li>iOS device (iPhone 6 or iPad 4 (or newer) recommended; iPhone 4 and iPhone 4s work with reduced performance)</li>
 </ul>
 </p>
 <p>
-Project is opened in XCode by double-clicking on the VisageTrackerDemo.xcodeproj project file. To run the project an
-iOS device first must be attached to the computer. The project sample application can than be run by choosing Run option in
-XCode.
+Project is opened in Xcode by double-clicking on the VisageTrackerDemo.xcodeproj project file. To run the project an
+iOS device first must be attached to the computer and selected as active scheme in Xcode project. The project sample application can than be run by choosing Run option in
+Xcode.
 </p>
 
 <h2>Using the sample application</h2>
@@ -36,7 +36,7 @@ XCode.
 The sample application consists of a toolbar with five buttons labeled: Camera, Video, Image, Stop and Quit:
 <ul>
 <li>Camera button starts tracking from front camera.</li>
-<li>Video button starts tracking from the sample video file bundled with the sample application.</li>
+<li>Video button starts tracking from the video file selected by user.</li>
 <li>Image button starts tracking from a single image bundled with the sample application.</li>
 <li>Stop button stops the tracker.</li>
 <li>Quit button quits the sample application.</li>
@@ -54,6 +54,11 @@ The following images show how the sample application looks like when it is start
   <center>Figure 1.2: App is tracking</center>
   </p></br>
 </div>
+
+<p>
+	<b> NOTE:</b>  Without the valid licence tracking will stop after 1 minute. Appropriate message will appear on the screen to inform the user before the start of the tracking and after the tracking time expires. 
+</p>
+
 
 <h2>Implementation overview</h2>
 <p>
@@ -76,8 +81,7 @@ tracking results.</li>
 display them in the debug console.</br>
 <li><a href="html/classDemoFrameGrabber.html">DemoFrameGrabber</a>: Demonstrates how to implement a custom source of frames to feed to tracker through the
 raw image input mechanism.</li>
-<li><a href="html/interfaceTrackerWrapper.html">TrackerWrapper::displayTrackingResults</a>: Method that is used to get and display tracking results, video frame
-and 3D face model.</li>
+<li><a href="html/interfaceTrackerWrapper.html">TrackerWrapper::displayTrackingResults</a>: Method that is used to get tracking results, video frame and 3D face model. Calls <a href="html/classVisageSDK_1_1VisageRendering.html">VisageRendering::display_func</a> in order to display them. </li>
 </ul>
 </p>
 <p>
@@ -86,6 +90,7 @@ Other important classes are:
 <li><a href="html/interfaceVisageTrackerAppDelegate.html">VisageTrackerAppDelegate</a>: Implements the app delegate.</li>
 <li><a href="html/interfaceVisageTrackerViewController.html">VisageTrackerViewController</a>: Implements default view controller and application GUI. This class calls methods that are
 implemented in TrackerWrapper class.</li>
+<li> <td><a href="html/classVisageSDK_1_1VisageRendering.html">VisageRendering</a></td>: Displays the current frame and the following tracking results using OpenGL.</li>
 <li><a href="html/interfaceCustomGLView.html">CustomGLView</a></td>: Implements OpenGL ES view for results display.</li>
 </ul>
 </p>

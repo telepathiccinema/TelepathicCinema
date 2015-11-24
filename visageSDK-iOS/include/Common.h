@@ -1,3 +1,17 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
 
 #ifndef __Common_h__
 #define __Common_h__
@@ -17,25 +31,62 @@
 #include <fstream>
 #include <sstream>
 #include <cv.h>
+#ifndef EMSCRIPTEN
 #include <highgui.h>
+#else
+#include <cstddef>
+#include <vector>
+#endif
 #include <string>
 #include <stdio.h>
+#include <time.h>
+
+#include "FaceData.h"
 
 #ifdef WIN32
-    #include <direct.h>
-    #define GetCurrentDir _getcwd
+	#include <direct.h>
+	#define GetCurrentDir _getcwd
 	#define ChangeDir _chdir
 #else
-    #include <unistd.h>
-    #define GetCurrentDir getcwd
+	#include <unistd.h>
+	#define GetCurrentDir getcwd
 	#define ChangeDir chdir
- #endif
+#endif
 
 
 namespace VisageSDK
 {
 
+#if defined(EMSCRIPTEN)
+	IplImage* cvLoadImage(const char* name);
+	int cvNamedWindow(const char* name);
+	void cvShowImage(const char* name, IplImage* image);
+	int cvWaitKey(int delay=0 );
+	void cvDestroyWindow(const char* name);
+	int cvSaveImage(const char* filename, const CvArr* image, const int* params=0 );
+#endif
+
 class FDP;
+
+//structures used for the spline calculation 
+typedef struct CubicPoly
+{
+	float c0, c1, c2, c3;
+
+	float eval(float t)
+	{
+		float t2 = t*t;
+		float t3 = t2 * t;
+		return c0 + c1*t + c2*t2 + c3*t3;
+	}
+} CubicPoly;
+
+typedef struct Vec2D
+{
+	Vec2D(float _x, float _y) : x(_x), y(_y) {}
+	float x, y;
+} Vec2D;
+
 
 /**
 * Provides common functionalities for VisageTrack
@@ -44,6 +95,14 @@ class FDP;
 class VISAGE_DECLSPEC Common
 {
 public:
+
+	//functions added
+	static void InitCubicPoly(float x0, float x1, float t0, float t1, CubicPoly &p);
+	static void InitCatmullRom(float x0, float x1, float x2, float x3, CubicPoly &p);
+	static void InitNonuniformCatmullRom(float x0, float x1, float x2, float x3, float dt0, float dt1, float dt2, CubicPoly &p);
+	static float VecDistSquared(const Vec2D& p, const Vec2D& q);
+	static void InitCentripetalCR(const Vec2D& p0, const Vec2D& p1, const Vec2D& p2, const Vec2D& p3, CubicPoly &px, CubicPoly &py);
+	static void calcSpline(std::vector <float>& inputPoints, int ratio, std::vector <float>& outputPoints);
 
 	/**	Given a greyscale, 32f image, compute the mean pixel value and subtract it from each pixel, then normalize
 		to one.
@@ -286,18 +345,50 @@ public:
 
 #pragma endregion
 
+	static IplImage* LoadIplImage(const char* name);
+
+	static void ReleaseIplImage(IplImage** image);
+
 	/**Show an image, normalizing it between 0 and 1 if necessary and specifying the time of display
 
 	*/
 	static void Show(IplImage* img, bool norm = false, int t = 1, const char *window_name = 0);	
-    
-    static void CLAHE(IplImage* dest, IplImage* src, int di = 8, int dj = 8, unsigned char s = 2);
 
-    static void DrawFDPs(IplImage* img, FDP* fdps, int type = 0, bool flip = false);
+	static void CLAHE(IplImage* dest, IplImage* src, int di = 8, int dj = 8, unsigned char s = 2);
+
+	static void DrawFDPs(IplImage* img, const FDP* fdps, int type = 0, bool flip = false, int bb_s = 0);
+
+	static void DrawResults(IplImage* img, FaceData* td, bool flip = true);
+
+	static void verticalFlip(FDP* featurePoints);
+
+	static void RedirectIOToConsole();
 
 	static char _cfgDirPath[200];
+
+#ifndef IOS
+#ifdef __GNUC__
+	static float getticks();
+#else
+	static double getticks();
+#endif
+
+
+	class Stopwatch
+	{
+	private:
+		double startTics;
+		double elapsedms;
+
+	public:
+		void start() {startTics = getticks();}
+		double getTime() {elapsedms = (getticks() - startTics) * 1000; return elapsedms;}
+	};
+#endif
+
 private:
-    static void RCLAHEM(unsigned char imap[], unsigned char im[], int i0, int j0, int i1, int j1, int ldim, unsigned char s);
+	static void RCLAHEM(unsigned char imap[], unsigned char im[], int i0, int j0, int i1, int j1, int ldim, unsigned char s);
+	
 };
 
 }

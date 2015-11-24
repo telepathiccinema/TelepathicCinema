@@ -139,9 +139,6 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1FDP.html#a143b63d5d326cda519f34bde8c960188">setNormFactors</a> ()</td></tr>
 <tr class="memdesc:a143b63d5d326cda519f34bde8c960188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set normalization factors for all defined feature points (see <a class="el" href="structVisageSDK_1_1FeaturePoint.html" title="Feature point.">FeaturePoint</a>). <br/></td></tr>
 <tr class="separator:a143b63d5d326cda519f34bde8c960188"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86bbbddc689b4ccafa5614f9b0206e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisageSDK_1_1FDP.html#a86bbbddc689b4ccafa5614f9b0206e18">print</a> () const </td></tr>
-<tr class="memdesc:a86bbbddc689b4ccafa5614f9b0206e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print feature point definitions to console.  <a href="#a86bbbddc689b4ccafa5614f9b0206e18"></a><br/></td></tr>
-<tr class="separator:a86bbbddc689b4ccafa5614f9b0206e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -178,111 +175,11 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Feature points of a face. </p>
-<p>This class is a container for facial feature points as defined by <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 FBA standard</a>, as well as some additional feature points. Feature points are identified by their group (for example, feature points of the nose constitute their own group) and index. So, for example, the tip of the chin belongs to group 2 and has index 1, so it is identified as point 2.1. The identification of all MPEG-4 feature points is illustrated in the image below: </p>
+<p>This class is a container for facial feature points as defined by <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 FBA standard</a>, as well as some additional feature points. Feature points are identified by their group (for example, feature points of the nose constitute their own group) and index. So, for example, the tip of the chin belongs to group 2 and has index 1, so it is identified as point 2.1. The identification of all feature points is illustrated in the image below: </p>
 <div class="image">
 <img src="../images/mpeg-4_fba.png" alt="mpeg-4_fba.png"/>
 </div>
-  Groups 2 - 11 contain feature points defined according to the MPEG-4 FBA standard, and group 12 contains the following additional feature points:</p>
-<table class="doxtable">
-<tr>
-<td width="3cm"><b>Name</b> </td><td><b>Description</b>  </td></tr>
-<tr>
-<td>12.1</td><td>Midpoint between FP 3.5 and 3.6 </td></tr>
-<tr>
-<td>12.2</td><td>Midpoint between FP 8.7 and 8.2 in outer lower lip contour </td></tr>
-<tr>
-<td>12.3</td><td>Midpoint between FP 8.8 and 8.2 in outer lower lip contour </td></tr>
-<tr>
-<td>12.4</td><td>Chin recess </td></tr>
-<tr>
-<td>12.5</td><td>Midpoint between FP 3.1 and 3.7 of upper inner left eyelid </td></tr>
-<tr>
-<td>12.6</td><td>Midpoint between FP 3.1 and 3.11 of upper inner left eyelid </td></tr>
-<tr>
-<td>12.7</td><td>Midpoint between FP 3.3 and 3.7 of lower inner left eyelid </td></tr>
-<tr>
-<td>12.8</td><td>Midpoint between FP 3.3 and 3.11 of lower inner left eyelid </td></tr>
-<tr>
-<td>12.9</td><td>Midpoint between FP 3.2 and 3.12 of upper inner right eyelid </td></tr>
-<tr>
-<td>12.10</td><td>Midpoint between FP 3.2 and 3.8 of upper inner right eyelid </td></tr>
-<tr>
-<td>12.11</td><td>Midpoint between FP 3.4 and 3.12 of lower inner right eyelid </td></tr>
-<tr>
-<td>12.12</td><td>Midpoint between FP 3.4 and 3.8 of lower inner right eyelid </td></tr>
-<tr>
-<td>12.13</td><td>Lower left cheekbone </td></tr>
-<tr>
-<td>12.14</td><td>Lower right cheekbone </td></tr>
-<tr>
-<td>12.15</td><td>Upper left cheekbone </td></tr>
-<tr>
-<td>12.16</td><td>Upper right cheekbone </td></tr>
-<tr>
-<td>12.17</td><td>Upper extreme of the nose </td></tr>
-<tr>
-<td>12.18</td><td>Nose recess </td></tr>
-<tr>
-<td>12.19</td><td>Left upper nostril border </td></tr>
-<tr>
-<td>12.20</td><td>Right upper nostril border </td></tr>
-<tr>
-<td>12.21</td><td>Back extreme of the left ear </td></tr>
-<tr>
-<td>12.22</td><td>Internal extreme of the left ear (antitragus) </td></tr>
-<tr>
-<td>12.23</td><td>Back extreme of the right ear </td></tr>
-<tr>
-<td>12.24</td><td>Internal extreme of the right ear (antitragus) </td></tr>
-<tr>
-<td>12.25</td><td>Extreme of the left head border close to the ear </td></tr>
-<tr>
-<td>12.26</td><td>Extreme of the right head border close to the ear </td></tr>
-<tr>
-<td>12.27</td><td>Extreme of the left ear between FP 12.20 and 10.1 </td></tr>
-<tr>
-<td>12.28</td><td>Extreme of the right ear between FP 12.22 and 10.2 </td></tr>
-<tr>
-<td>12.29</td><td>Left point of jaw bone lower but close to FP 2.13 </td></tr>
-<tr>
-<td>12.30</td><td>Right point of jaw bone lower but close to FP 2.14 </td></tr>
-<tr>
-<td>12.31</td><td>Left corner of the cheekbone close to the left ear </td></tr>
-<tr>
-<td>12.32</td><td>Right corner of the cheekbone close to the right ear </td></tr>
-<tr>
-<td>12.33</td><td>Back extreme of the head </td></tr>
-<tr>
-<td>12.34</td><td>Left upper extreme of the head </td></tr>
-<tr>
-<td>12.35</td><td>Right upper extreme of the head </td></tr>
-<tr>
-<td>12.36</td><td>Internal extreme of the neck </td></tr>
-<tr>
-<td>12.37</td><td>Center of the forehead </td></tr>
-<tr>
-<td>12.38</td><td>Vertigo </td></tr>
-<tr>
-<td>12.39</td><td>Midpoint between FP 12.37 and 11.4 </td></tr>
-<tr>
-<td>12.40</td><td>Midpoint between FP 12.37 and 12.32 </td></tr>
-<tr>
-<td>12.41</td><td>Midpoint between FP 12.32 and 7.1 </td></tr>
-<tr>
-<td>12.42</td><td>Midpoint between FP 11.4 and 12.36 </td></tr>
-<tr>
-<td>12.43</td><td>Back corner of the neck left from FP 7.1 </td></tr>
-<tr>
-<td>12.44</td><td>Back corner of the neck right from FP 7.1 </td></tr>
-<tr>
-<td>12.45</td><td>Left temple </td></tr>
-<tr>
-<td>12.46</td><td>Right temple </td></tr>
-<tr>
-<td>12.47</td><td>Middle point of left forehead border </td></tr>
-<tr>
-<td>12.48</td><td>Middle point of right forehead border </td></tr>
-</table>
+  Groups 2 - 11 contain feature points defined according to the MPEG-4 FBA standard, and group 12 contains additional feature points that are not part of the MPEG-4 standard (12.1, 12.5, 12.6, 12.7, 12.8, 12.9, 12.10, 12.11, 12.12).</p>
 <p><a class="el" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> class stores feature point information. It also provides functions for reading and writing the feature point data as files, as well as certain auxiliary members that deal with normalisation of feature points and their classification according to facial region.</p>
 <p>The actual data for each feature point is stored in the structure <a class="el" href="structVisageSDK_1_1FeaturePoint.html" title="Feature point.">FeaturePoint</a>. One such structure is allocated for each feature point. To access a feature point, use one of the functions <a class="el" href="classVisageSDK_1_1FDP.html#a1a5507ba8c4fe8f640e63714e93e1757" title="Get a feature point by its group and index.">getFP()</a> that access a feature point by its group and index expressed either as integer values, or as a string (e.g. "2.1"). Functions <a class="el" href="classVisageSDK_1_1FDP.html#a771f7b6d72f0fdef3531fa45092bf790" title="Get the position of a feature point specified by its group and index.">getFPPos()</a> are available as a convenience, to access the feature point coordinates directly, without first accessing the <a class="el" href="structVisageSDK_1_1FeaturePoint.html" title="Feature point.">FeaturePoint</a> structure.</p>
 <p>The feature points may relate to a particular 3D model. In such a case it is interesting to know, for each feature point, to which vertex it belongs. For this purpose, the <a class="el" href="structVisageSDK_1_1FeaturePoint.html" title="Feature point.">FeaturePoint</a> structure contains the mesh identifier and vertex index that correspond to the feature point and the <a class="el" href="classVisageSDK_1_1FDP.html" title="Feature points of a face.">FDP</a> class provides functions to access this data.</p>
@@ -290,7 +187,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <p>References to left and right in feature point definitions are given from the perspective of the face itself so "right eye" can be imagined as "my right eye". When refering to feature points in an image, it is assumed that image is taken by camera and not mirrored so "right eye" is on the left in the image, as shown in feature points illustration above.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structVisageSDK_1_1FeaturePoint.html" title="Feature point.">FeaturePoint</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="FDP_8h_source.html#l00218">218</a> of file <a class="el" href="FDP_8h_source.html">FDP.h</a>.</p>
+<p>Definition at line <a class="el" href="FDP_8h_source.html#l00180">180</a> of file <a class="el" href="FDP_8h_source.html">FDP.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acbbc90871ef46e7f1929b1a5698aac33"></a>
 <div class="memitem">
@@ -561,7 +458,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Feature point. </dd></dl>
 
-<p>Referenced by <a class="el" href="TrackerWrapper_8mm_source.html#l00783">TrackerWrapper::drawGazeDirection:withFeatures:</a>.</p>
+<p>Referenced by <a class="el" href="VisageRendering_8cpp_source.html#l00890">VisageSDK::VisageRendering::DisplayGaze()</a>, and <a class="el" href="VisageRendering_8cpp_source.html#l00976">VisageSDK::VisageRendering::DisplayModelAxes()</a>.</p>
 
 </div>
 </div>
@@ -869,23 +766,6 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="a86bbbddc689b4ccafa5614f9b0206e18"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void VisageSDK::FDP::print </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print feature point definitions to console. </p>
 
 </div>
 </div>
@@ -1331,7 +1211,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 22 2014 11:17:54 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 20 2015 16:28:36 for visageSDK by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

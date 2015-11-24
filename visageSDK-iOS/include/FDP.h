@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// 
+// (c) Visage Technologies AB 2002 - 2015  All rights reserved. 
+// 
+// This file is part of visage|SDK(tm). 
+// Unauthorized copying of this file, via any medium is strictly prohibited. 
+// 
+// No warranty, explicit or implicit, provided. 
+// 
+// This is proprietary software. No part of this software may be used or 
+// reproduced in any form or by any means otherwise than in accordance with
+// any written license granted by Visage Technologies AB. 
+// 
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __FDP_h__
 #define __FDP_h__
@@ -127,68 +142,15 @@ public:
 * This class is a container for facial feature points as defined by <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 FBA standard</a>, as well as
 * some additional feature points. Feature points are identified by their group (for example, feature points of
 * the nose constitute their own group) and index. So, for example, the tip of the chin belongs to group 2 and has
-* index 1, so it is identified as point 2.1. The identification of all MPEG-4 feature points is
+* index 1, so it is identified as point 2.1. The identification of all feature points is
 * illustrated in the image below:
 * \image html "../images/mpeg-4_fba.png"
 * \image latex images/mpeg-4_fba.pdf "Facial Feature Points (FP)" width=14cm
 * Groups 2 - 11 contain feature points defined according to the
 * MPEG-4 FBA standard,
-* and group 12 contains the following additional feature points:
+* and group 12 contains additional feature points that are not part of the MPEG-4 standard (12.1, 12.5, 12.6, 12.7, 12.8, 12.9, 12.10, 12.11, 12.12).
 * 
-* <table>
-* <tr>
-* <td width="3cm"><b>Name</b></td>
-* <td><b>Description</b></td>
-* </tr>
-* <tr><td>12.1</td><td>Midpoint between FP 3.5 and 3.6</td></tr>
-* <tr><td>12.2</td><td>Midpoint between FP 8.7 and 8.2 in outer lower lip contour</td></tr>
-* <tr><td>12.3</td><td>Midpoint between FP 8.8 and 8.2 in outer lower lip contour</td></tr>
-* <tr><td>12.4</td><td>Chin recess</td></tr>
-* <tr><td>12.5</td><td>Midpoint between FP 3.1 and 3.7 of upper inner left eyelid</td></tr>
-* <tr><td>12.6</td><td>Midpoint between FP 3.1 and 3.11 of upper inner left eyelid</td></tr>
-* <tr><td>12.7</td><td>Midpoint between FP 3.3 and 3.7 of lower inner left eyelid</td></tr>
-* <tr><td>12.8</td><td>Midpoint between FP 3.3 and 3.11 of lower inner left eyelid</td></tr>
-* <tr><td>12.9</td><td>Midpoint between FP 3.2 and 3.12 of upper inner right eyelid</td></tr>
-* <tr><td>12.10</td><td>Midpoint between FP 3.2 and 3.8 of upper inner right eyelid</td></tr>
-* <tr><td>12.11</td><td>Midpoint between FP 3.4 and 3.12 of lower inner right eyelid</td></tr>
-* <tr><td>12.12</td><td>Midpoint between FP 3.4 and 3.8 of lower inner right eyelid</td></tr>
-* <tr><td>12.13</td><td>Lower left cheekbone</td></tr>
-* <tr><td>12.14</td><td>Lower right cheekbone</td></tr>
-* <tr><td>12.15</td><td>Upper left cheekbone</td></tr>
-* <tr><td>12.16</td><td>Upper right cheekbone</td></tr>
-* <tr><td>12.17</td><td>Upper extreme of the nose</td></tr>
-* <tr><td>12.18</td><td>Nose recess</td></tr>
-* <tr><td>12.19</td><td>Left upper nostril border</td></tr>
-* <tr><td>12.20</td><td>Right upper nostril border</td></tr>
-* <tr><td>12.21</td><td>Back extreme of the left ear</td></tr>
-* <tr><td>12.22</td><td>Internal extreme of the left ear (antitragus)</td></tr>
-* <tr><td>12.23</td><td>Back extreme of the right ear</td></tr>
-* <tr><td>12.24</td><td>Internal extreme of the right ear (antitragus)</td></tr>
-* <tr><td>12.25</td><td>Extreme of the left head border close to the ear</td></tr>
-* <tr><td>12.26</td><td>Extreme of the right head border close to the ear</td></tr>
-* <tr><td>12.27</td><td>Extreme of the left ear between FP 12.20 and 10.1</td></tr>
-* <tr><td>12.28</td><td>Extreme of the right ear between FP 12.22 and 10.2</td></tr>
-* <tr><td>12.29</td><td>Left point of jaw bone lower but close to FP 2.13</td></tr>
-* <tr><td>12.30</td><td>Right point of jaw bone lower but close to FP 2.14</td></tr>
-* <tr><td>12.31</td><td>Left corner of the cheekbone close to the left ear</td></tr>
-* <tr><td>12.32</td><td>Right corner of the cheekbone close to the right ear</td></tr>
-* <tr><td>12.33</td><td>Back extreme of the head</td></tr>
-* <tr><td>12.34</td><td>Left upper extreme of the head</td></tr>
-* <tr><td>12.35</td><td>Right upper extreme of the head</td></tr>
-* <tr><td>12.36</td><td>Internal extreme of the neck</td></tr>
-* <tr><td>12.37</td><td>Center of the forehead</td></tr>
-* <tr><td>12.38</td><td>Vertigo</td></tr>
-* <tr><td>12.39</td><td>Midpoint between FP 12.37 and 11.4</td></tr>
-* <tr><td>12.40</td><td>Midpoint between FP 12.37 and 12.32</td></tr>
-* <tr><td>12.41</td><td>Midpoint between FP 12.32 and 7.1</td></tr>
-* <tr><td>12.42</td><td>Midpoint between FP 11.4 and 12.36</td></tr>
-* <tr><td>12.43</td><td>Back corner of the neck left from FP 7.1</td></tr>
-* <tr><td>12.44</td><td>Back corner of the neck right from FP 7.1</td></tr>
-* <tr><td>12.45</td><td>Left temple</td></tr>
-* <tr><td>12.46</td><td>Right temple</td></tr>
-* <tr><td>12.47</td><td>Middle point of left forehead border</td></tr>
-* <tr><td>12.48</td><td>Middle point of right forehead border</td></tr>
-* </table>
+
 * 
 * FDP class stores feature point information. It also provides functions for reading and writing the feature point data as files,
 * as well as certain auxiliary members that deal with normalisation of feature points and their classification according to
@@ -308,7 +270,7 @@ public:
 	/**
 	* Set a feature specified by its group and index.
 	* @param group Feature point group. Valid range is from 2 to 12.
-    * @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
+	* @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
 
 	* @param f The feature point to set.
 	*/
@@ -324,7 +286,7 @@ public:
 	/**
 	* Get the position of a feature point specified by its group and index.
 	* @param group Feature point group. Valid range is from 2 to 12.
-    * @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
+	* @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
 
 	* @return Vertex position (array of 3 floating point numbers).
 	*/
@@ -416,21 +378,21 @@ public:
 
 	/**
 	* Returns true if the feature point is defined.
-    *
-    * @param group Feature point group. Valid range is from 2 to 12.
-    * @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
-     
-    * @return True if the feature point is defined, false otherwise.
+	*
+	* @param group Feature point group. Valid range is from 2 to 12.
+	* @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
+	 
+	* @return True if the feature point is defined, false otherwise.
 	*/
 	bool FPIsDefined( int group, int n ) const;
 
 	/**
 	* Returns true if the feature point is defined.
-    *
+	*
 	* @param name Feature point name (e.g. "7.1").
-     
-    * @return True if the feature point is defined, false otherwise.
-    */
+	 
+	* @return True if the feature point is defined, false otherwise.
+	*/
 	bool FPIsDefined( const string& name ) const;
 
 	/*
@@ -498,11 +460,7 @@ public:
 	*/
 	void setNormFactors();
 
-	/**
-	* Print feature point definitions to console.
-	* @deprecated May be removed in the next release.
-	*/
-	void print() const;
+
 
 private:
 
@@ -512,32 +470,44 @@ private:
 	* FDP file name.
 	*/
 	char mFilename[200];
-public:
-
-	/*
+	
+	
+	
+	/**
 	* Sizes of the twelve feature point groups.
-	* @deprecated Will be private in the next release. Use getFPGroupSize instead.
 	*/
-	int grSize[12];
-
-	/*
+	int grSize[13];
+	
+	
+	/**
 	* Some characteristic distances between feature points (defined in <a href="../MPEG-4 FBA Overview.pdf">MPEG-4 FBA standard</a>).
-	* @deprecated Will be private in the next release. Use appropriate get functions instead.
 	*/
 	float MNS0,ENS0,ES0,MW0,IRISD0;
-
-	/*
-	* true if the face is normalized, false otherwise.
-	* @deprecated Will be private in the next release. Use isNormalized instead.
+	
+	
+	/** 
+	* True if the face is normalized, false otherwise.
 	*/
 	bool normalized;
 	
-	/*
+	/** 
 	* Feature points.
-	* @deprecated Will be private in the next release. Use getFP* functions instead.
 	*/
 	FeaturePoint *fp[13];
+
+	/*
+	* Print feature point definitions to console.
+	*/
+	void print() const;
+
+	/**
+	* True if FDP is initialized, false otherwise.
+	*/
+	bool initialized;
 	
+	
+public:
+
 	/*
 	* Vertices that are part of the upper lip region.
 	*/
@@ -548,48 +518,42 @@ public:
 	*/
 	vector<FeaturePoint>* ll;
 
-	/*
-	* true if FDP is initialized, false otherwise.
-	* @deprecated Will be private in the next release. Use isInitialized instead.
-	*/
-	bool initialized;
-
 
 	/**
 	* Get feature point group and index from its name.
-    *
+	*
 	* @param name Feature point name (e.g. "7.1").
-    * @param group Returned feature point group.
-    * @param n Returned feature point index.
+	* @param group Returned feature point group.
+	* @param n Returned feature point index.
 	*/
 	static void parseFPName( const string& name, int& group, int& n );
 
 	/**
 	* Get feature point name from group and index.
-    *
-    * @param group Feature point group. Valid range is from 2 to 12.
-    * @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
-    *
-    * @return Feature point name.
+	*
+	* @param group Feature point group. Valid range is from 2 to 12.
+	* @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
+	*
+	* @return Feature point name.
 	*/
 	static string getFPName( int group, int n );
 
 	/**
 	* Returns true if specified feature point identifier is valid.
-    *
-    * @param group Feature point group. Valid range is from 2 to 12.
-    * @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
-    *
-    * @return True if specified feature point identifier is valid, false otherwise.
+	*
+	* @param group Feature point group. Valid range is from 2 to 12.
+	* @param n Feature point index. Valid range is from 1 to the size of particular group. Group sizes can be obtained using groupSize().
+	*
+	* @return True if specified feature point identifier is valid, false otherwise.
 	*/
 	static bool FPIsValid( int group, int n );
 
 	/**
 	* Returns true if specified feature point identifier is valid.
-    *
-    * @param name Feature point name (e.g. "7.1").
-    *
-    * @return True if specified feature point identifier is valid, false otherwise.
+	*
+	* @param name Feature point name (e.g. "7.1").
+	*
+	* @return True if specified feature point identifier is valid, false otherwise.
 	*/
 	static bool FPIsValid( const string& name );
 
@@ -613,11 +577,11 @@ public:
 
 	/**
 	* Get the size of the specified feature point group.
-    * Valid range for group is from 2 to 12.
-    *
-    * @param group Feature point group. Valid range is from 2 to 12.
-    *
-    * @return Size of the specified feature point group.
+	* Valid range for group is from 2 to 12.
+	*
+	* @param group Feature point group. Valid range is from 2 to 12.
+	*
+	* @return Size of the specified feature point group.
 	*/
 	static int groupSize( int group );
 };
