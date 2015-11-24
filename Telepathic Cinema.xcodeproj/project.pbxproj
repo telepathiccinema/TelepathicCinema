@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		0F8392F519E09C96008BD7EE /* gamma.smil in Resources */ = {isa = PBXBuildFile; fileRef = 0F8392F419E09C96008BD7EE /* gamma.smil */; };
 		A02FA8CB1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc in Resources */ = {isa = PBXBuildFile; fileRef = A02FA8CA1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc */; };
-		A0DE70A71C05126A00AF5FE1 /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A51C05126A00AF5FE1 /* libVisageCore.a */; };
 		A0DE70A81C05126A00AF5FE1 /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A51C05126A00AF5FE1 /* libVisageCore.a */; };
-		A0DE70A91C05126A00AF5FE1 /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A61C05126A00AF5FE1 /* libVisageVision.a */; };
 		A0DE70AA1C05126A00AF5FE1 /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A61C05126A00AF5FE1 /* libVisageVision.a */; };
+		A0DE70AB1C05148000AF5FE1 /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A51C05126A00AF5FE1 /* libVisageCore.a */; };
+		A0DE70AC1C05148200AF5FE1 /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A61C05126A00AF5FE1 /* libVisageVision.a */; };
 		CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */; };
 		CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
 		CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */; };
@@ -32,8 +32,6 @@
 		CE18563819AA3CAA00B552EE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563719AA3CAA00B552EE /* CoreVideo.framework */; };
 		CE18563A19AA3CBD00B552EE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563919AA3CBD00B552EE /* libz.dylib */; };
 		CE18563C19AA3CCA00B552EE /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563B19AA3CCA00B552EE /* ImageIO.framework */; };
-		CE18563F19AA3CE700B552EE /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563D19AA3CE700B552EE /* libVisageCore.a */; };
-		CE18564019AA3CE700B552EE /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563E19AA3CE700B552EE /* libVisageVision.a */; };
 		CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567419AAB69500B552EE /* UIDeviceHardware.m */; };
 		CE18567F19AAB69500B552EE /* DemoObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567819AAB69500B552EE /* DemoObserver.mm */; };
 		CE18568019AAB69500B552EE /* TrackerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567A19AAB69500B552EE /* TrackerWrapper.mm */; };
@@ -336,17 +334,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DE70AC1C05148200AF5FE1 /* libVisageVision.a in Frameworks */,
+				A0DE70AB1C05148000AF5FE1 /* libVisageCore.a in Frameworks */,
 				CEEC98EB19CFC32800CCF95F /* CoreText.framework in Frameworks */,
-				CE18563F19AA3CE700B552EE /* libVisageCore.a in Frameworks */,
-				A0DE70A91C05126A00AF5FE1 /* libVisageVision.a in Frameworks */,
-				CE18564019AA3CE700B552EE /* libVisageVision.a in Frameworks */,
 				CE18563C19AA3CCA00B552EE /* ImageIO.framework in Frameworks */,
 				CE18563A19AA3CBD00B552EE /* libz.dylib in Frameworks */,
 				CE18563819AA3CAA00B552EE /* CoreVideo.framework in Frameworks */,
 				CE18563619AA3C9C00B552EE /* CoreMedia.framework in Frameworks */,
 				CE18563419AA3C9400B552EE /* AVFoundation.framework in Frameworks */,
 				CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */,
-				A0DE70A71C05126A00AF5FE1 /* libVisageCore.a in Frameworks */,
 				CE18560019AA3BD600B552EE /* UIKit.framework in Frameworks */,
 				CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */,
 			);
@@ -638,10 +634,10 @@
 				CE18567419AAB69500B552EE /* UIDeviceHardware.m */,
 				CE18567719AAB69500B552EE /* DemoObserver.h */,
 				CE18567819AAB69500B552EE /* DemoObserver.mm */,
-				CE18567A19AAB69500B552EE /* TrackerWrapper.mm */,
 				CE18567919AAB69500B552EE /* TrackerWrapper.h */,
-				CE18567B19AAB69500B552EE /* CustomGLView.m */,
+				CE18567A19AAB69500B552EE /* TrackerWrapper.mm */,
 				CE18567C19AAB69500B552EE /* CustomGLView.h */,
+				CE18567B19AAB69500B552EE /* CustomGLView.m */,
 			);
 			name = VisageClasses;
 			sourceTree = "<group>";
