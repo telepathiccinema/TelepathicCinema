@@ -266,7 +266,6 @@
 		CEA6F85719E05992006EA414 /* alpha.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alpha.smil; sourceTree = "<group>"; };
 		CEA6F85819E05992006EA414 /* beta.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beta.smil; sourceTree = "<group>"; };
 		CEB5F2D819D669FB000CDF9E /* calibration.smil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calibration.smil; sourceTree = "<group>"; };
-		CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "637-055-282-782-699-137-004-446-835-604-044.vlc"; sourceTree = "<group>"; };
 		CEEC98EA19CFC32800CCF95F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		CEFBB63D19B9F2100056FC0C /* TelepathicCinema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelepathicCinema.h; sourceTree = "<group>"; };
 		CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelepathicCinema.m; sourceTree = "<group>"; };
@@ -309,7 +308,6 @@
 		CE1855EF19AA3BD600B552EE = {
 			isa = PBXGroup;
 			children = (
-				A02FA8CA1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc */,
 				CE5F2C3B19C919C300380BE9 /* MovieFiles */,
 				CE5F2C7419C93C4C00380BE9 /* Visage */,
 				CE18564119AA3E4000B552EE /* Resources */,
@@ -557,7 +555,7 @@
 				CE18564319AA3E7400B552EE /* candide.wfm */,
 				CE18564419AA3E7400B552EE /* candide3-ClosedMouth.wfm */,
 				CE18564519AA3E7400B552EE /* candide3-exp.wfm */,
-				CEE4C04319D48456009B3523 /* 637-055-282-782-699-137-004-446-835-604-044.vlc */,
+				A02FA8CA1C038A4E00BB64EC /* 678-006-636-722-634-217-455-431-899-155-434.vlc */,
 				CE18564619AA3E7400B552EE /* candide3.fdp */,
 				CE18564719AA3E7400B552EE /* candide3.wfm */,
 				CE18564819AA3E7400B552EE /* Face Detector.cfg */,
@@ -664,7 +662,7 @@
 				ORGANIZATIONNAME = Ket.ai;
 				TargetAttributes = {
 					CE1855F719AA3BD600B552EE = {
-						DevelopmentTeam = 9H737CT4F5;
+						DevelopmentTeam = A582BY2Q8J;
 					};
 					CE18561B19AA3BD600B552EE = {
 						TestTargetID = CE1855F719AA3BD600B552EE;
