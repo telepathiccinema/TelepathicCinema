@@ -16,7 +16,7 @@ void initializeLicenseManager(char *licenseKeyFileFolder);
 // declare C++ implementation for .m (Obj-C) files
 #ifdef __OBJC__
 #ifndef __cplusplus
-typedef void VisageTracker2;
+typedef void VisageGazeTracker;
 typedef void FaceData;
 typedef void DemoFrameGrabber;
 typedef void FDP;
@@ -57,7 +57,7 @@ typedef void FDP;
 @interface TrackerWrapper : NSObject {
 	CustomGLView *glView;
 #ifdef __cplusplus
-	VisageSDK::VisageTracker2* tracker;
+	VisageSDK::VisageGazeTracker* tracker;
     VisageSDK::FaceData trackingData;
 	DemoObserver *demoObserver;
     bool isCalibrating;
