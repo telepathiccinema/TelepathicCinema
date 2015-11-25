@@ -13,14 +13,14 @@
 		A0DE70AA1C05126A00AF5FE1 /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A61C05126A00AF5FE1 /* libVisageVision.a */; };
 		A0DE70AB1C05148000AF5FE1 /* libVisageCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A51C05126A00AF5FE1 /* libVisageCore.a */; };
 		A0DE70AC1C05148200AF5FE1 /* libVisageVision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DE70A61C05126A00AF5FE1 /* libVisageVision.a */; };
-		CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */; };
+		CE08071419DAC00000D44B50 /* TCCalibrationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE08071319DAC00000D44B50 /* TCCalibrationPoint.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CE1855FC19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
 		CE1855FE19AA3BD600B552EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FD19AA3BD600B552EE /* CoreGraphics.framework */; };
 		CE18560019AA3BD600B552EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FF19AA3BD600B552EE /* UIKit.framework */; };
 		CE18560619AA3BD600B552EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE18560419AA3BD600B552EE /* InfoPlist.strings */; };
-		CE18560819AA3BD600B552EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560719AA3BD600B552EE /* main.m */; };
-		CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560B19AA3BD600B552EE /* AppDelegate.m */; };
-		CE18561519AA3BD600B552EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18561419AA3BD600B552EE /* ViewController.m */; };
+		CE18560819AA3BD600B552EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560719AA3BD600B552EE /* main.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE18560C19AA3BD600B552EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18560B19AA3BD600B552EE /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE18561519AA3BD600B552EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18561419AA3BD600B552EE /* ViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CE18561719AA3BD600B552EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE18561619AA3BD600B552EE /* Images.xcassets */; };
 		CE18561E19AA3BD600B552EE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18561D19AA3BD600B552EE /* XCTest.framework */; };
 		CE18561F19AA3BD600B552EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1855FB19AA3BD600B552EE /* Foundation.framework */; };
@@ -32,17 +32,17 @@
 		CE18563819AA3CAA00B552EE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563719AA3CAA00B552EE /* CoreVideo.framework */; };
 		CE18563A19AA3CBD00B552EE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563919AA3CBD00B552EE /* libz.dylib */; };
 		CE18563C19AA3CCA00B552EE /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18563B19AA3CCA00B552EE /* ImageIO.framework */; };
-		CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567419AAB69500B552EE /* UIDeviceHardware.m */; };
+		CE18567D19AAB69500B552EE /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567419AAB69500B552EE /* UIDeviceHardware.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CE18567F19AAB69500B552EE /* DemoObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567819AAB69500B552EE /* DemoObserver.mm */; };
 		CE18568019AAB69500B552EE /* TrackerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE18567A19AAB69500B552EE /* TrackerWrapper.mm */; };
-		CE18568119AAB69500B552EE /* CustomGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567B19AAB69500B552EE /* CustomGLView.m */; };
-		CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9C19BB8BB70033A237 /* TCScene.m */; };
-		CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9F19BB95190033A237 /* TCRegion.m */; };
-		CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDFA219BBBDA00033A237 /* TCGaze.m */; };
-		CE3CA6791A5B7A96008610BF /* HistoricalGazeDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */; };
+		CE18568119AAB69500B552EE /* CustomGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18567B19AAB69500B552EE /* CustomGLView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE1BDF9D19BB8BB70033A237 /* TCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9C19BB8BB70033A237 /* TCScene.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE1BDFA019BB95190033A237 /* TCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDF9F19BB95190033A237 /* TCRegion.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE1BDFA319BBBDA00033A237 /* TCGaze.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BDFA219BBBDA00033A237 /* TCGaze.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE3CA6791A5B7A96008610BF /* HistoricalGazeDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3CA6781A5B7A96008610BF /* HistoricalGazeDataPoint.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CE4071151A66E91E002AC614 /* 9ptcalibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE4071141A66E91E002AC614 /* 9ptcalibration.smil */; };
 		CE4071171A66EA4C002AC614 /* 9ptCalibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE4071161A66EA4C002AC614 /* 9ptCalibration.mov */; };
-		CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE44A0241A1C53F600667AEB /* IntroViewController.m */; };
+		CE44A0251A1C53F600667AEB /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE44A0241A1C53F600667AEB /* IntroViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CE45A3CD1A572677006F39CC /* 08CalibrationLostFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE45A3CC1A572677006F39CC /* 08CalibrationLostFace.png */; };
 		CE59F2B21A64E63C007B93AC /* 5ptcalibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE59F2B01A64E63C007B93AC /* 5ptcalibration.smil */; };
 		CE59F2B41A64EBD4007B93AC /* 5PtCalibration.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE59F2B31A64EBD4007B93AC /* 5PtCalibration.mov */; };
@@ -51,11 +51,11 @@
 		CE5F2C3D19C91BEA00380BE9 /* 1.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3C19C91BEA00380BE9 /* 1.smil */; };
 		CE5F2C3F19C91D1900380BE9 /* 2.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C3E19C91D1900380BE9 /* 2.smil */; };
 		CE5F2C4119C91D2F00380BE9 /* 3.smil in Resources */ = {isa = PBXBuildFile; fileRef = CE5F2C4019C91D2F00380BE9 /* 3.smil */; };
-		CE5F2C6F19C9247B00380BE9 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6219C9247B00380BE9 /* DDXMLElementAdditions.m */; };
-		CE5F2C7019C9247B00380BE9 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6519C9247B00380BE9 /* NSString+DDXML.m */; };
-		CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6819C9247B00380BE9 /* DDXMLDocument.m */; };
-		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; };
-		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; };
+		CE5F2C6F19C9247B00380BE9 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6219C9247B00380BE9 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE5F2C7019C9247B00380BE9 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6519C9247B00380BE9 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE5F2C7119C9247B00380BE9 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6819C9247B00380BE9 /* DDXMLDocument.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE5F2C7219C9247B00380BE9 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6A19C9247B00380BE9 /* DDXMLElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE5F2C7319C9247B00380BE9 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2C6C19C9247B00380BE9 /* DDXMLNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CE7894E71A4F1BC900B42345 /* 09Finalize.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E01A4F1BC900B42345 /* 09Finalize.png */; };
 		CE7894E81A4F1BC900B42345 /* 05Success.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E11A4F1BC900B42345 /* 05Success.png */; };
 		CE7894E91A4F1BC900B42345 /* 04LostFace.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E21A4F1BC900B42345 /* 04LostFace.png */; };
@@ -63,7 +63,7 @@
 		CE7894EB1A4F1BC900B42345 /* 01Load.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E41A4F1BC900B42345 /* 01Load.png */; };
 		CE7894EC1A4F1BC900B42345 /* 00Load.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E51A4F1BC900B42345 /* 00Load.png */; };
 		CE7894ED1A4F1BC900B42345 /* 02Home.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7894E61A4F1BC900B42345 /* 02Home.png */; };
-		CE7894F01A4F556900B42345 /* TCGazeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7894EF1A4F556900B42345 /* TCGazeDB.m */; };
+		CE7894F01A4F556900B42345 /* TCGazeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7894EF1A4F556900B42345 /* TCGazeDB.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CE7BE0F319E0A01800D541F9 /* beta.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0ED19E0A01800D541F9 /* beta.mov */; };
 		CE7BE0F419E0A01800D541F9 /* gamma.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0EE19E0A01800D541F9 /* gamma.mov */; };
 		CE7BE0F519E0A01800D541F9 /* alpha.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7BE0EF19E0A01800D541F9 /* alpha.mov */; };
@@ -99,7 +99,7 @@
 		CEA6F85A19E05992006EA414 /* beta.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEA6F85819E05992006EA414 /* beta.smil */; };
 		CEB5F2D919D669FB000CDF9E /* calibration.smil in Resources */ = {isa = PBXBuildFile; fileRef = CEB5F2D819D669FB000CDF9E /* calibration.smil */; };
 		CEEC98EB19CFC32800CCF95F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC98EA19CFC32800CCF95F /* CoreText.framework */; };
-		CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */; };
+		CEFBB63F19B9F2100056FC0C /* TelepathicCinema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB63E19B9F2100056FC0C /* TelepathicCinema.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1113,6 +1113,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1153,6 +1154,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
