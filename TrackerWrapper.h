@@ -9,7 +9,7 @@
 // neccessary prototype declaration for licensing
 namespace VisageSDK
 {
-void initializeLicenseManager(char *licenseKeyFileFolder);
+void initializeLicenseManager(const char *licenseKeyFileFolder);
 }
 #endif
 
